@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>静为律师事务所海外华人法律服务入口</title>
+    <style>
+        :root {
+            --bg: #f5efe6;
+            --panel: rgba(255, 252, 247, 0.92);
+            --ink: #1f2a37;
+            --muted: #566273;
+            --accent: #a33b20;
+            --accent-dark: #7d2d19;
+            --border: rgba(58, 40, 29, 0.12);
+            --shadow: 0 24px 60px rgba(53, 34, 24, 0.14);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, rgba(199, 109, 69, 0.22), transparent 32%),
+                radial-gradient(circle at bottom right, rgba(88, 120, 162, 0.16), transparent 36%),
+                linear-gradient(135deg, #efe5d6 0%, #f8f3eb 48%, #f1e4d6 100%);
+            display: grid;
+            place-items: center;
+            padding: 32px 18px;
+        }
+
+        main {
+            width: min(1040px, 100%);
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .hero {
+            padding: 56px 28px 28px;
+            text-align: center;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 13px;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+            background: rgba(163, 59, 32, 0.09);
+        }
+
+        h1 {
+            margin: 18px 0 12px;
+            font-size: clamp(30px, 5vw, 52px);
+            line-height: 1.08;
+        }
+
+        .hero p {
+            margin: 0 auto;
+            max-width: 700px;
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--muted);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            padding: 8px 28px 32px;
+        }
+
+        .card {
+            padding: 28px;
+            border-radius: 22px;
+            border: 1px solid var(--border);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(248, 244, 237, 0.92));
+        }
+
+        .card h2 {
+            margin: 0 0 10px;
+            font-size: 28px;
+        }
+
+        .card p {
+            margin: 0 0 20px;
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        .tag {
+            display: inline-block;
+            margin-bottom: 14px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: rgba(31, 42, 55, 0.06);
+            font-size: 13px;
+        }
+
+        .actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 150px;
+            padding: 13px 18px;
+            border-radius: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+
+        .button.primary {
+            color: #fff;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            box-shadow: 0 14px 28px rgba(163, 59, 32, 0.24);
+        }
+
+        .button.secondary {
+            color: var(--ink);
+            background: rgba(31, 42, 55, 0.06);
+        }
+
+        .button:hover { transform: translateY(-2px); }
+
+        .footer {
+            padding: 0 28px 34px;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        code {
+            padding: 2px 6px;
+            border-radius: 8px;
+            background: rgba(31, 42, 55, 0.06);
+        }
+
+        @media (max-width: 640px) {
+            .hero { padding: 40px 20px 18px; }
+            .grid, .footer { padding-left: 20px; padding-right: 20px; }
+            .card { padding: 22px; }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section class="hero">
+            <span class="eyebrow">JINGWEI LAW FIRM</span>
+            <h1>静为律师事务所海外华人法律服务入口</h1>
+            <p>这个仓库已经整理成一个 GitHub Pages 站点。上线后，你可以通过同一个网址进入马来西亚版和新加坡版，两套页面共用同一个 Google 表格收集线索。</p>
+        </section>
+
+        <section class="grid">
+            <article class="card">
+                <span class="tag">Malaysia</span>
+                <h2>马来西亚版</h2>
+                <p>面向马来西亚华人在内地的法律服务落地页。默认入口会打开中文页，英文页也保留在站点内。</p>
+                <div class="actions">
+                    <a class="button primary" href="./ml/">进入中文页</a>
+                    <a class="button secondary" href="./ml/index_en.html">English</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <span class="tag">Singapore</span>
+                <h2>新加坡版</h2>
+                <p>面向新加坡华人在内地的法律服务落地页。默认入口会打开中文页，英文页也保留在站点内。</p>
+                <div class="actions">
+                    <a class="button primary" href="./xj/">进入中文页</a>
+                    <a class="button secondary" href="./xj/index_en.html">English</a>
+                </div>
+            </article>
+        </section>
+
+        <div class="footer">
+            <p>部署后访问形式会是 <code>https://你的 GitHub 用户名.github.io/仓库名/</code>。本页是总入口，两个子站分别位于 <code>/ml/</code> 和 <code>/xj/</code>。</p>
+        </div>
+    </main>
+</body>
+</html>
