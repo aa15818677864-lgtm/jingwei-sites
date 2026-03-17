@@ -1,3 +1,3 @@
 window.SITE_CONFIG = {
-  googleSheetsEndpoint: "PASTE_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE"
+  googleSheetsEndpoint: "https://script.google.com/macros/s/AKfycbycXbwaVJjiEYKROV9IfxquO3DlN42_LTX-WMJwMCuUl0CdsRpSj47KjaU4fyBjow4/exec"
 };
