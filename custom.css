@@ -1,0 +1,393 @@
+/*
+  custom.css（覆盖层，不改动原站 style.css / script.js / 表单结构）
+  本次目标（按你的最新截图）：
+  1) 删除“個人網站”副标题（手机/电脑都不显示）
+  2) 电脑端：导航更集中、更好看（不再右侧留一大片空白）
+  3) 手机端：显示少量导航 + 右侧三横线；更多项收进三横线菜单
+  4) 电脑端：图片与表单同宽；图片之间无细缝；整体配色更贴合蓝金主色调
+  5) 页脚：手机端导航文字稍微小一点
+*/
+
+/* ------------------------------
+   全局配色：改成“蓝金”更贴合你海报图
+   ------------------------------ */
+:root{
+  /* 内容宽度（电脑端：图片 + 表单 同宽） */
+  --content-max: 560px;
+
+  /* 更贴合海报的浅底色（同时让表单区与页面留白更统一） */
+  --bg-body: #F3F0E8;
+  --surface: #F7F5F0;
+
+  /* 主色调：深海军蓝（替换原来的酒红） */
+  --primary-color: #0B2A45;
+  --primary-dark:  #071D31;
+  --primary-hover: #103A5E;
+  --primary-color-rgb: 11, 42, 69;
+
+  /* 金色强调：海报里的金色 */
+  --accent-color: #D4B15E;
+  --accent-light: #F1DFB0;
+  --gold-dark:    #B88F33;
+  --accent-color-rgb: 212, 177, 94;
+}
+
+/* ------------------------------
+   1) 头部：删除副标题 + 电脑端导航集中
+   ------------------------------ */
+
+/* 删除“個人網站” */
+.logo p{ display:none !important; }
+
+/* 头部底色与字色 */
+.header{
+  background-color: var(--primary-color) !important;
+  color: var(--white) !important;
+  position: fixed;
+}
+
+/* 头部底部“金色流光”细线：更高级（不影响功能） */
+.header::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+    rgba(0,0,0,0),
+    rgba(var(--accent-color-rgb),0.75),
+    rgba(255,255,255,0.25),
+    rgba(var(--accent-color-rgb),0.75),
+    rgba(0,0,0,0)
+  );
+  background-size: 200% 100%;
+  opacity: 0.65;
+  pointer-events: none;
+  animation: headerShimmer 6s linear infinite;
+}
+
+@keyframes headerShimmer{
+  0%{ background-position: 0% 50%; }
+  100%{ background-position: 200% 50%; }
+}
+
+/* scrolled 状态也跟着变 */
+.header.scrolled{
+  background-color: rgba(var(--primary-color-rgb), 0.95) !important;
+}
+
+/* 链接颜色 */
+.nav a{ color: var(--white) !important; }
+.nav a:hover{ color: var(--accent-light) !important; }
+.nav a::after{ background-color: var(--accent-color) !important; }
+
+/* ✅ 电脑端 hover 更“牛叉”：金色柔光胶囊 + 下划线 */
+@media (min-width: 769px){
+  .nav a{
+    position: relative;
+    letter-spacing: 0.02em;
+  }
+  .nav a::before{
+    content: '';
+    position: absolute;
+    left: -12px;
+    right: -12px;
+    top: 50%;
+    height: 38px;
+    transform: translateY(-50%) translateY(6px);
+    border-radius: 999px;
+    background: radial-gradient(circle at 30% 30%, rgba(var(--accent-color-rgb),0.22), rgba(255,255,255,0.06) 55%, rgba(0,0,0,0) 70%);
+    border: 1px solid rgba(var(--accent-color-rgb),0.22);
+    opacity: 0;
+    transition: opacity .22s ease, transform .22s ease;
+    pointer-events: none;
+  }
+  .nav a:hover::before{
+    opacity: 1;
+    transform: translateY(-50%) translateY(0);
+  }
+}
+
+/* 电脑端：让导航“集中”——不要右边留很大空位 */
+@media (min-width: 769px){
+  /* 原站 .logo 默认占 25% 会导致中间出现大空白，这里改掉 */
+  .logo{ flex: 0 0 auto !important; }
+
+  /* 让整体在一个“居中的内容块”里 */
+  .header .container{
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    gap: 48px !important;
+  }
+
+  /* 导航不要顶到最右边，改为紧凑排列 */
+  .nav{ flex: 0 0 auto !important; }
+  .nav ul{
+    justify-content: flex-start !important;
+    gap: 26px !important;
+  }
+  .nav li{ margin-left: 0 !important; }
+
+  /* 标题稍微稳重一点 */
+  .logo h1{ font-size: 1.7rem !important; margin-bottom: 0 !important; }
+}
+
+/* ------------------------------
+   2) 手机端：显示“少量导航 + 三横线”
+   说明：你原站的 nav（#navMenu）在手机端会折叠进三横线菜单；
+        我们额外加了 .nav-inline（只显示 3 个常用入口）。
+   ------------------------------ */
+.nav-inline{ display:none; }
+
+/* 抽屉菜单头部（默认隐藏，只在手机端显示） */
+.nav-drawer-header{ display:none; }
+
+@media (max-width: 768px){
+  /* 让 Logo + inline 导航 + 三横线 在同一行 */
+  .header .container{ align-items:center !important; }
+
+  .logo h1{ font-size: 1.45rem !important; margin-bottom: 0 !important; }
+
+  .nav-inline{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap: 14px;
+    flex: 1 1 auto;
+    margin: 0 10px;
+    min-width: 0;
+  }
+  .nav-inline a{
+    color: var(--white);
+    text-decoration:none;
+    /* ✅ 手机端导航文字：更大、更清晰 */
+    font-size: clamp(0.98rem, 2.8vw, 1.10rem);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    opacity: 0.98;
+    white-space: nowrap;
+    padding: 8px 6px;
+    border-radius: 999px;
+    transition: background-color .18s ease, color .18s ease, transform .18s ease;
+  }
+  .nav-inline a:hover{
+    color: var(--accent-light);
+    background: rgba(255,255,255,0.08);
+    transform: translateY(-1px);
+  }
+
+  /* 如果你想手机端 inline 更紧凑：把字体稍微缩小 */
+  @media (max-width: 380px){
+    .nav-inline a{ font-size: 0.96rem; }
+    .nav-inline{ gap: 10px; }
+  }
+
+  /* 更小屏：放不下就逐步隐藏，交给右侧三横线菜单 */
+  @media (max-width: 430px){
+    .nav-inline a:nth-child(4){ display:none; }
+  }
+  @media (max-width: 380px){
+    .nav-inline a:nth-child(3){ display:none; }
+  }
+}
+
+/* ------------------------------
+   2.5) 手机端三横线菜单：不要全屏，改成右侧抽屉（约 1/3 屏宽）
+   ------------------------------ */
+@media (max-width: 768px){
+  /* 打开抽屉时：锁定页面滚动，避免“菜单开着页面还跟着动” */
+  body.nav-open{ overflow: hidden; }
+
+  /* ✅ 遮罩：很淡，让客户还能看见海报；点击可关闭（由 nav-enhance.js 处理） */
+  .nav-backdrop{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.08);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .22s ease;
+    z-index: 998;
+  }
+  body.nav-open .nav-backdrop{
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* ✅ 右侧抽屉菜单：不全屏，约 1/3（小屏会有最小宽度保证可读） */
+  .nav{
+    top: 0 !important;
+    left: auto !important;
+    right: 0 !important;
+    height: 100vh !important;
+    width: clamp(220px, 33vw, 340px) !important;
+    background: rgba(var(--primary-color-rgb), 0.98) !important;
+    transform: translateX(110%) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    box-shadow: -16px 0 34px rgba(0,0,0,0.26) !important;
+    border-left: 1px solid rgba(255,255,255,0.12) !important;
+    padding-top: 64px !important;
+    transition: transform .25s ease !important;
+    z-index: 999;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  body.nav-open .nav{
+    transform: translateX(0) !important;
+  }
+  /* 兼容：原站脚本切换的是 .active，这里也支持 */
+  .nav.active{
+    transform: translateX(0) !important;
+  }
+
+  /* 抽屉头部：标题 + 关闭按钮 */
+  .nav-drawer-header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 14px 0 18px;
+    border-bottom: 1px solid rgba(255,255,255,0.10);
+    backdrop-filter: blur(6px);
+  }
+  .nav-drawer-title{
+    color: rgba(255,255,255,0.92);
+    font-weight: 700;
+    letter-spacing: .06em;
+    font-size: 0.92rem;
+  }
+  .nav-close{
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: rgba(255,255,255,0.95);
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 8px 10px;
+    border-radius: 10px;
+  }
+  .nav-close:hover{
+    background: rgba(255,255,255,0.08);
+    color: var(--accent-light);
+  }
+
+  /* ✅ 抽屉内菜单：强制竖排，避免出现“一行长长的” */
+  .nav ul{
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 10px 0 18px !important;
+  }
+  .nav li{
+    margin: 0 !important;
+    text-align: left !important;
+    padding: 0 !important;
+    border-bottom: 1px solid rgba(255,255,255,0.10) !important;
+  }
+  .nav a{
+    display: block;
+    padding: 14px 18px !important;
+    font-size: 1.08rem !important;
+    font-weight: 650;
+    letter-spacing: 0.02em;
+    border-radius: 12px;
+    margin: 6px 10px;
+    transition: background-color .18s ease, color .18s ease, transform .18s ease;
+  }
+  .nav a:hover{
+    background: rgba(255,255,255,0.08);
+    color: var(--accent-light) !important;
+    transform: translateX(2px);
+  }
+}
+
+/* ------------------------------
+   3) 锚点跳转：固定头部不遮挡（兜底）
+   ------------------------------ */
+#home, #services, #faq, #about, #process, #contact{
+  scroll-margin-top: 110px;
+}
+
+/* ------------------------------
+   4) 图片：电脑端不超宽 + 去掉图片间细缝
+   ------------------------------ */
+.img-section{
+  padding: 0 !important;
+  margin: 0 !important;
+}
+/* 子像素缩放偶尔出现 1px 缝，用轻微重叠消除 */
+.img-section + .img-section{ margin-top: -1px !important; }
+
+/* 同一个 section 内多张图也去缝 */
+.img-wrap + .img-wrap{ margin-top: -1px !important; }
+
+.img-wrap{
+  line-height: 0;
+  font-size: 0;
+  margin: 0 auto;
+  padding: 0;
+}
+.img-wrap img{
+  display:block;
+  width:100%;
+  height:auto;
+  border:0;
+  margin:0;
+  padding:0;
+  vertical-align: top;
+}
+
+@media (max-width: 768px){
+  .img-wrap{ max-width: 100%; }
+}
+@media (min-width: 769px){
+  .img-wrap{ max-width: var(--content-max); }
+}
+
+/* ------------------------------
+   5) 表单：电脑端同宽（跟图片一致）
+   ------------------------------ */
+@media (min-width: 769px){
+  body.index-page .contact-section .container{
+    max-width: var(--content-max) !important;
+  }
+  body.index-page .contact-section{ padding: 64px 0 !important; }
+  body.index-page .contact-form{ padding: 30px !important; }
+  body.index-page .section-title{
+    font-size: 1.85rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 16px !important;
+  }
+}
+
+/* 表单区留白底色与页面一致（电脑端你说的“颜色不统一”主要在这里） */
+body.index-page .contact-section{
+  background-color: var(--bg-body) !important;
+}
+body.index-page{
+  background-color: var(--bg-body) !important;
+}
+
+/* ------------------------------
+   6) 页脚：手机端导航字更小一点
+   ------------------------------ */
+@media (max-width: 768px){
+  .footer-links{ font-size: 0.84rem !important; line-height: 1.65 !important; }
+  .footer-links a{ margin: 0 6px !important; }
+}
+
+/* 页脚配色也跟随蓝金（更贴合海报） */
+.footer{
+  background: var(--primary-dark) !important;
+}
+.footer a{
+  color: rgba(255,255,255,0.92) !important;
+}
+.footer a:hover{
+  color: var(--accent-light) !important;
+}

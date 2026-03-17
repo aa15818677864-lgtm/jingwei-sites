@@ -1,193 +1,210 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-HK">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>刘毅律师团队海外华人法律服务入口</title>
-    <style>
-        :root {
-            --bg: #f5efe6;
-            --panel: rgba(255, 252, 247, 0.92);
-            --ink: #1f2a37;
-            --muted: #566273;
-            --accent: #a33b20;
-            --accent-dark: #7d2d19;
-            --border: rgba(58, 40, 29, 0.12);
-            --shadow: 0 24px 60px rgba(53, 34, 24, 0.14);
-        }
+    <title>劉毅律師</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- ✅ 仅覆盖必要样式：导航更好看 / 图片不超宽 / 去掉图片缝隙（不影响原站 CSS/JS/表单） -->
+    <link rel="stylesheet" href="custom.css">
+    <!-- Font Awesome 圖標庫 -->
+    <link rel="stylesheet" href="all.min.css">
+    
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18003046397"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-        * { box-sizing: border-box; }
+  gtag('config', 'AW-18003046397');
+</script>
 
-        body {
-            margin: 0;
-            min-height: 100vh;
-            font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
-            color: var(--ink);
-            background:
-                radial-gradient(circle at top left, rgba(199, 109, 69, 0.22), transparent 32%),
-                radial-gradient(circle at bottom right, rgba(88, 120, 162, 0.16), transparent 36%),
-                linear-gradient(135deg, #efe5d6 0%, #f8f3eb 48%, #f1e4d6 100%);
-            display: grid;
-            place-items: center;
-            padding: 32px 18px;
-        }
+<!-- Event snippet for 提交潜在客户表单 conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-18003046397/-8HKCK7d4IUcEP3fwohD',
+      'value': 1.0,
+      'currency': 'USD',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
 
-        main {
-            width: min(1040px, 100%);
-            background: var(--panel);
-            border: 1px solid var(--border);
-            border-radius: 28px;
-            box-shadow: var(--shadow);
-            overflow: hidden;
-        }
-
-        .hero {
-            padding: 56px 28px 28px;
-            text-align: center;
-        }
-
-        .eyebrow {
-            display: inline-block;
-            padding: 8px 14px;
-            border-radius: 999px;
-            font-size: 13px;
-            letter-spacing: 0.08em;
-            color: var(--accent);
-            background: rgba(163, 59, 32, 0.09);
-        }
-
-        h1 {
-            margin: 18px 0 12px;
-            font-size: clamp(30px, 5vw, 52px);
-            line-height: 1.08;
-        }
-
-        .hero p {
-            margin: 0 auto;
-            max-width: 700px;
-            font-size: 18px;
-            line-height: 1.7;
-            color: var(--muted);
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
-            padding: 8px 28px 32px;
-        }
-
-        .card {
-            padding: 28px;
-            border-radius: 22px;
-            border: 1px solid var(--border);
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(248, 244, 237, 0.92));
-        }
-
-        .card h2 {
-            margin: 0 0 10px;
-            font-size: 28px;
-        }
-
-        .card p {
-            margin: 0 0 20px;
-            color: var(--muted);
-            line-height: 1.7;
-        }
-
-        .tag {
-            display: inline-block;
-            margin-bottom: 14px;
-            padding: 6px 12px;
-            border-radius: 999px;
-            background: rgba(31, 42, 55, 0.06);
-            font-size: 13px;
-        }
-
-        .actions {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 150px;
-            padding: 13px 18px;
-            border-radius: 14px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-        }
-
-        .button.primary {
-            color: #fff;
-            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-            box-shadow: 0 14px 28px rgba(163, 59, 32, 0.24);
-        }
-
-        .button.secondary {
-            color: var(--ink);
-            background: rgba(31, 42, 55, 0.06);
-        }
-
-        .button:hover { transform: translateY(-2px); }
-
-        .footer {
-            padding: 0 28px 34px;
-            color: var(--muted);
-            font-size: 14px;
-            line-height: 1.7;
-        }
-
-        code {
-            padding: 2px 6px;
-            border-radius: 8px;
-            background: rgba(31, 42, 55, 0.06);
-        }
-
-        @media (max-width: 640px) {
-            .hero { padding: 40px 20px 18px; }
-            .grid, .footer { padding-left: 20px; padding-right: 20px; }
-            .card { padding: 22px; }
-        }
-    </style>
 </head>
-<body>
-    <main>
-        <section class="hero">
-            <span class="eyebrow">LIU YI LEGAL TEAM</span>
-            <h1>刘毅律师团队海外华人法律服务入口</h1>
-            <p>通过同一个入口即可进入马来西亚版和新加坡版页面，面向海外华人提供中国内地法律事务咨询、房产继承、诉讼代理与跨境合同服务。</p>
-        </section>
 
-        <section class="grid">
-            <article class="card">
-                <span class="tag">Malaysia</span>
-                <h2>马来西亚版</h2>
-                <p>面向马来西亚华人提供中国内地法律事务咨询。默认入口会打开中文页，英文页也保留在站点内。</p>
-                <div class="actions">
-                    <a class="button primary" href="./ml/">进入中文页</a>
-                    <a class="button secondary" href="./ml/index_en.html">English</a>
+<body class="index-page" data-site="hk-main">
+    <!-- 導航欄 -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>劉毅律師</h1>
+</div>
+
+            <!-- 快速導航（手機端顯示；放不下的項目可用右側三橫線展開） -->
+            <nav class="nav-inline" aria-label="快速導航">
+                <a href="#home">首頁</a>
+                <a href="#services">業務領域</a>
+                <a href="#faq">常見問題</a>
+                <a href="#contact">聯繫</a>
+            </nav>
+
+            <div class="menu-toggle" id="menuToggle" aria-label="打開菜單" role="button" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <!-- ✅ 手機端抽屉菜单半透明遮罩（点击可关闭，不会盖住海报） -->
+            <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+            <nav class="nav" id="navMenu">
+                <!-- ✅ 抽屉菜单头部：标题 + 关闭按钮 -->
+                <div class="nav-drawer-header" aria-hidden="false">
+                    <span class="nav-drawer-title">菜單</span>
+                    <button type="button" class="nav-close" id="navClose" aria-label="關閉菜單">×</button>
                 </div>
-            </article>
-
-            <article class="card">
-                <span class="tag">Singapore</span>
-                <h2>新加坡版</h2>
-                <p>面向新加坡华人提供中国内地法律事务咨询。默认入口会打开中文页，英文页也保留在站点内。</p>
-                <div class="actions">
-                    <a class="button primary" href="./xj/">进入中文页</a>
-                    <a class="button secondary" href="./xj/index_en.html">English</a>
-                </div>
-            </article>
-        </section>
-
-        <div class="footer">
-            <p>本页为总入口，请按上方地区进入对应页面；两个子站均支持中英文切换与在线提交咨询信息。</p>
+                <ul>
+                    <li><a href="#home">首頁</a></li>
+                    <li><a href="#services">業務領域</a></li>
+                    <li><a href="#faq">常見問題</a></li>
+                    <li><a href="#about">專業介紹</a></li>
+                    <li><a href="#process">服務流程</a></li>
+                    <li><a href="#contact">聯繫我們</a></li></ul>
+            </nav>
         </div>
-    </main>
+    </header>
+    <!-- 中間內容：按需求文檔改為“只放圖片”（保留锚点，点导航可跳转到对应图片） -->
+    <section id="home" class="img-section" aria-label="首頁圖片">
+        <div class="img-wrap"><img src="webp_images_package/1_01.webp" alt="" loading="lazy" decoding="async"></div>
+        <div class="img-wrap"><img src="webp_images_package/1_02.webp" alt="" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section id="services" class="img-section" aria-label="業務領域圖片">
+        <div class="img-wrap"><img src="webp_images_package/1_04.webp" alt="" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section id="faq" class="img-section" aria-label="常見問題圖片">
+        <div class="img-wrap"><img src="webp_images_package/1_05.webp" alt="" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section id="about" class="img-section" aria-label="專業介紹圖片">
+        <div class="img-wrap"><img src="webp_images_package/1_06.webp" alt="" loading="lazy" decoding="async"></div>
+        <div class="img-wrap"><img src="webp_images_package/1_07.webp" alt="" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section id="process" class="img-section" aria-label="服務流程圖片">
+        <div class="img-wrap"><img src="webp_images_package/1_08.webp" alt="" loading="lazy" decoding="async"></div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <!-- ✅ 按你的要求：刪除「30秒提交您嘅信息，快速預約資深律師為您服務」這行 -->
+            <!--<p class="form-notice fade-in">僅辦涉及香港&內地嘅案件（純香港本地案件不受理）</p>-->
+            <form class="contact-form fade-in" id="contactForm" name='feedback' method='post'
+                enctype='multipart/form-data' action='#'>
+                <!-- 添加隐藏字段 -->
+                <input name='enews' type='hidden' value='AddFeedback'>
+                <input name='bid' type='hidden' value='2'>
+                <input type="hidden" id="page_url" name="page_url" value="">
+                <div class="form-group">
+                    <label for="name">*您嘅稱呼：</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">*聯絡電話：</label>
+                    <div class="phone-input-group">
+                        <select id="areaCode" name="quhao" class="area-code-select">
+                            <option value="+852">+852</option>
+                            <option value="+86">+86</option>
+                        </select>
+                        <input type="tel" id="phone" name="mycall" required placeholder="請輸入電話號碼">
+                        <span class="phone-hint" id="phoneHint">請輸入8位數字</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="wechat">您嘅微信：</label>
+                    <input type="text" id="wechat" name="weixin" placeholder="選填">
+                </div>
+                <!--
+                <div class="form-group">
+                    <label>*諮詢事項：</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="radio" id="property-hk" name="zxsx" value="中港刑辯會見（含兩地人士案件／律師會見／經濟犯罪等）" checked>
+                            <label for="property-hk">中港刑辯會見（含兩地人士案件／律師會見／經濟犯罪等）</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="radio" id="property-inherit" name="zxsx" value="中港房產繼承（含內地房產分割／宅基地爭議／商舖過戶等）">
+                            <label for="property-inherit">中港房產繼承（含內地房產分割／宅基地爭議／商舖過戶等）</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="radio" id="demolition" name="zxsx" value="中港商事合約（含合同審查／跨境交易設計／債權債務處理等）">
+                            <label for="demolition">中港商事合約（含合同審查／跨境交易設計／債權債務處理等）</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="radio" id="comprehensive" name="zxsx" value="中港綜合法律（內地與香港兩地法律服務，純香港案件不受理）">
+                            <label for="comprehensive">中港綜合法律（內地與香港兩地法律服務，純香港案件不受理）</label>
+                        </div>
+                    </div>
+                </div>
+                -->
+                <div class="form-group">
+                    <label for="message">您嘅留言：</label>
+                    <p class="message-notice">我哋會根據您嘅留言，快速配對專長律師幫您解答問題。</p>
+                    <textarea id="message" name="khly" placeholder="請簡要描述您嘅情況..." rows="4"></textarea>
+                </div>
+                <button type="submit" name='submit' class="submit-btn">立即提交</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- 成功提交弹窗 -->
+    <div class="success-modal" id="successModal">
+        <div class="modal-content">
+            <div class="modal-icon">✓</div>
+            <h3>提交成功！</h3>
+            <p>您已成功提交，稍後我哋會撥打您嘅電話，請留意陌生來電，唔好拒接。</p>
+            <button class="modal-close-btn" id="modalCloseBtn">確定</button>
+        </div>
+    </div>
+
+    <!-- 頁腳 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links"><a href="#home">首頁</a> |
+                    <a href="#services">業務領域</a> |
+                    <a href="#faq">常見問題</a> |
+                    <a href="#about">專業介紹</a> |
+                    <a href="#process">服務流程</a> |
+                    <a href="#contact">聯繫我們</a></div>
+                <div class="footer-info"><p>地址：深圳福田區大中華國際金融中心A座七樓（地鐵崗廈北站）</p>
+                    <p>劉毅律師　　執業證號：14403201510403996</p>
+                    <p>法律職業資格或律師資格證號：A20123607221034</p>
+                    <p>邮箱：aa15989267747@163.com</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 聯繫我們按鈕 -->
+    <div class="contact-us-btn" id="contactUsBtn">
+        <i class="fas fa-phone-alt"></i>
+    </div>
+
+    <script src="site-config.js"></script>
+    <script src="script.js"></script>
+    <!-- ✅ 只做导航抽屉/关闭按钮/遮罩的增强，不影响原站功能与表单逻辑 -->
+    <script src="nav-enhance.js"></script>
 </body>
+
 </html>
