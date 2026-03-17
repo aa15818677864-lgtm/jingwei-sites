@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    const IP_LOOKUP_URL = 'https://api64.ipify.org?format=json';
     const menuToggle = document.getElementById('menuToggle');
     const navMenu = document.getElementById('navMenu');
     const header = document.querySelector('.header');
@@ -10,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const contactForm = document.getElementById('contactForm');
     const successModal = document.getElementById('successModal');
     const modalCloseBtn = document.getElementById('modalCloseBtn');
+    let clientIpPromise = null;
 
     if (menuToggle && navMenu) {
         menuToggle.addEventListener('click', function () {
@@ -127,29 +129,29 @@ document.addEventListener('DOMContentLoaded', function () {
     const phoneRules = {
         '+60': {
             pattern: /^[0-9]{9,11}$/,
-            message_zh: '請輸入9-11位數字（如：123456789）',
+            message_zh: '\u8acb\u8f38\u51659-11\u4f4d\u6578\u5b57\uff08\u5982\uff1a123456789\uff09',
             message_en: 'Please enter 9-11 digits (e.g., 123456789)',
-            alert_zh: '馬來西亞電話號碼必須是9-11位數字',
+            alert_zh: '\u99ac\u4f86\u897f\u4e9e\u96fb\u8a71\u865f\u78bc\u5fc5\u9808\u662f9-11\u4f4d\u6578\u5b57',
             alert_en: 'Malaysian phone number must be 9-11 digits',
-            placeholder_zh: '請輸入9-11位數字',
+            placeholder_zh: '\u8acb\u8f38\u51659-11\u4f4d\u6578\u5b57',
             placeholder_en: 'Enter 9-11 digits'
         },
         '+65': {
             pattern: /^[0-9]{8}$/,
-            message_zh: '請輸入8位數字',
+            message_zh: '\u8acb\u8f38\u51658\u4f4d\u6578\u5b57',
             message_en: 'Please enter 8 digits',
-            alert_zh: '新加坡電話號碼必須是8位數字',
+            alert_zh: '\u65b0\u52a0\u5761\u96fb\u8a71\u865f\u78bc\u5fc5\u9808\u662f8\u4f4d\u6578\u5b57',
             alert_en: 'Singapore phone number must be 8 digits',
-            placeholder_zh: '請輸入8位數字',
+            placeholder_zh: '\u8acb\u8f38\u51658\u4f4d\u6578\u5b57',
             placeholder_en: 'Enter 8 digits'
         },
         '+86': {
             pattern: /^[0-9]{11}$/,
-            message_zh: '請輸入11位數字',
+            message_zh: '\u8acb\u8f38\u516511\u4f4d\u6578\u5b57',
             message_en: 'Please enter 11 digits',
-            alert_zh: '內地電話號碼必須是11位數字',
+            alert_zh: '\u5167\u5730\u96fb\u8a71\u865f\u78bc\u5fc5\u9808\u662f11\u4f4d\u6578\u5b57',
             alert_en: 'Mainland phone number must be 11 digits',
-            placeholder_zh: '請輸入11位數字',
+            placeholder_zh: '\u8acb\u8f38\u516511\u4f4d\u6578\u5b57',
             placeholder_en: 'Enter 11 digits'
         }
     };
@@ -168,8 +170,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (!rule) {
             phoneHint.style.color = '#666';
-            phoneHint.textContent = getText('請輸入有效電話號碼', 'Please enter a valid phone number');
-            phoneInput.placeholder = getText('請輸入電話號碼', 'Enter your phone number');
+            phoneHint.textContent = getText('\u8acb\u8f38\u5165\u6709\u6548\u96fb\u8a71\u865f\u78bc', 'Please enter a valid phone number');
+            phoneInput.placeholder = getText('\u8acb\u8f38\u5165\u96fb\u8a71\u865f\u78bc', 'Enter your phone number');
             return;
         }
 
@@ -211,7 +213,32 @@ document.addEventListener('DOMContentLoaded', function () {
         return window.SITE_CONFIG.googleSheetsEndpoint.trim();
     }
 
-    function buildPayload() {
+    function loadClientIp() {
+        if (!clientIpPromise) {
+            clientIpPromise = fetch(IP_LOOKUP_URL, {
+                method: 'GET',
+                cache: 'no-store'
+            })
+                .then(function (response) {
+                    if (!response.ok) {
+                        throw new Error('IP lookup failed');
+                    }
+
+                    return response.json();
+                })
+                .then(function (data) {
+                    return typeof data.ip === 'string' ? data.ip : '';
+                })
+                .catch(function (error) {
+                    console.warn('IP lookup failed:', error);
+                    return '';
+                });
+        }
+
+        return clientIpPromise;
+    }
+
+    function buildPayload(clientIp) {
         const selectedInquiry = contactForm.querySelector('input[name="zxsx"]:checked');
         const payload = new URLSearchParams();
 
@@ -228,6 +255,7 @@ document.addEventListener('DOMContentLoaded', function () {
         payload.append('message', (document.getElementById('message').value || '').trim());
         payload.append('source', 'github-pages');
         payload.append('user_agent', navigator.userAgent);
+        payload.append('client_ip', clientIp || '');
 
         return payload;
     }
@@ -245,12 +273,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (validatePhoneNumber(phone, areaCodeSelect.value)) {
             phoneHint.style.color = '#4CAF50';
-            phoneHint.textContent = lang === 'zh' ? '✓ 格式正確' : '✓ Format correct';
+            phoneHint.textContent = lang === 'zh' ? '\u2713 \u683c\u5f0f\u6b63\u78ba' : '\u2713 Format correct';
         } else {
             phoneHint.style.color = '#ff4444';
             phoneHint.textContent = phoneRules[areaCodeSelect.value]
                 ? phoneRules[areaCodeSelect.value]['message_' + lang]
-                : getText('請輸入有效電話號碼', 'Please enter a valid phone number');
+                : getText('\u8acb\u8f38\u5165\u6709\u6548\u96fb\u8a71\u865f\u78bc', 'Please enter a valid phone number');
         }
     });
 
@@ -264,25 +292,25 @@ document.addEventListener('DOMContentLoaded', function () {
         const endpoint = getFormEndpoint();
 
         if (!name) {
-            alert(getText('請填寫您的稱呼', 'Please enter your name'));
+            alert(getText('\u8acb\u586b\u5beb\u60a8\u7684\u7a31\u547c', 'Please enter your name'));
             return;
         }
 
         if (!phone) {
-            alert(getText('請填寫聯絡電話', 'Please enter contact number'));
+            alert(getText('\u8acb\u586b\u5beb\u806f\u7d61\u96fb\u8a71', 'Please enter contact number'));
             return;
         }
 
         if (!validatePhoneNumber(phone, areaCode)) {
             const rule = phoneRules[areaCode];
-            alert(rule ? rule['alert_' + getCurrentLanguage()] : getText('請輸入有效的電話號碼', 'Please enter a valid phone number'));
+            alert(rule ? rule['alert_' + getCurrentLanguage()] : getText('\u8acb\u8f38\u5165\u6709\u6548\u7684\u96fb\u8a71\u865f\u78bc', 'Please enter a valid phone number'));
             phoneInput.focus();
             return;
         }
 
         if (!endpoint || endpoint.includes('PASTE_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE')) {
             alert(getText(
-                'Google 表格接口還沒配置，請先在 site-config.js 填入 Apps Script Web App URL。',
+                'Google \u8868\u683c\u63a5\u53e3\u9084\u6c92\u914d\u7f6e\uff0c\u8acb\u5148\u5728 site-config.js \u586b\u5165 Apps Script Web App URL\u3002',
                 'Google Sheets is not configured yet. Please paste the Apps Script Web App URL into site-config.js first.'
             ));
             return;
@@ -290,17 +318,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const submitBtn = contactForm.querySelector('.submit-btn');
         const originalText = submitBtn.textContent;
-        submitBtn.textContent = getText('提交中...', 'Submitting...');
+        submitBtn.textContent = getText('\u63d0\u4ea4\u4e2d...', 'Submitting...');
         submitBtn.disabled = true;
 
         try {
+            const clientIp = await loadClientIp();
+
             await fetch(endpoint, {
                 method: 'POST',
                 mode: 'no-cors',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
                 },
-                body: buildPayload().toString()
+                body: buildPayload(clientIp).toString()
             });
 
             showSuccessModal();
@@ -311,7 +341,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         } catch (error) {
             console.error('Submission failed:', error);
-            alert(getText('提交失敗，請稍後再試。', 'Submission failed. Please try again later.'));
+            alert(getText('\u63d0\u4ea4\u5931\u6557\uff0c\u8acb\u7a0d\u5f8c\u518d\u8a66\u3002', 'Submission failed. Please try again later.'));
         } finally {
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
@@ -328,5 +358,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    loadClientIp();
     updatePhoneHint();
 });
