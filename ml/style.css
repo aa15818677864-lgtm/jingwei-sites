@@ -1721,6 +1721,15 @@ body.loaded {
     font-size: 1rem;
 }
 
+.office-location-image {
+    display: block;
+    width: 100%;
+    margin-top: 16px;
+    border-radius: 10px;
+    border: 1px solid rgba(28, 59, 94, 0.12);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
 /* 响应式调整 - 只在移动端修改特色板块布局 */
 @media (max-width: 992px) {
     .about-top {
@@ -1804,5 +1813,9 @@ body.loaded {
     
     .feature-item p {
         font-size: 0.9rem;
+    }
+
+    .office-location-image {
+        margin-top: 12px;
     }
 }
