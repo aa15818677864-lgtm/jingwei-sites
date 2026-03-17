@@ -1649,6 +1649,20 @@ body.loaded {
     max-height: 350px;
 }
 
+.about-top.about-top--no-media {
+    display: block;
+    margin-bottom: 40px;
+}
+
+.about-top.about-top--no-media .about-text {
+    flex: 1 1 100%;
+    max-width: 100%;
+}
+
+.about-top.about-top--no-media .about-img--hidden {
+    display: none;
+}
+
 .video-container {
     width: 100%;
     position: relative;
