@@ -122,6 +122,108 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.classList.add('loaded');
     });
 
+    function getCurrentLanguage() {
+        return document.documentElement.lang.includes('zh') ? 'zh' : 'en';
+    }
+
+    function getText(zh, en) {
+        return getCurrentLanguage() === 'zh' ? zh : en;
+    }
+
+    document.querySelectorAll('section:not(.hero) img').forEach(function (image) {
+        if (!image.hasAttribute('loading')) {
+            image.setAttribute('loading', 'lazy');
+        }
+
+        image.setAttribute('decoding', 'async');
+        image.setAttribute('fetchpriority', 'low');
+    });
+
+    const mobileCollapsibles = [
+        {
+            key: 'issues',
+            container: document.querySelector('[data-mobile-toggle="issues"]')
+        },
+        {
+            key: 'team',
+            container: document.querySelector('[data-mobile-toggle="team"]')
+        }
+    ];
+
+    mobileCollapsibles.forEach(function (section) {
+        if (!section.container || !section.container.parentNode) {
+            return;
+        }
+
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'mobile-collapse-toggle';
+        button.dataset.toggleTarget = section.key;
+        section.container.insertAdjacentElement('afterend', button);
+        section.button = button;
+    });
+
+    function getCollapseButtonLabel(key, expanded) {
+        if (key === 'issues') {
+            return expanded
+                ? getText('\u6536\u8d77\u6cd5\u5f8b\u95ee\u9898', 'Show fewer issues')
+                : getText('\u5c55\u5f00\u5269\u4f59\u5185\u5bb9', 'Show the rest');
+        }
+
+        return expanded
+            ? getText('\u6536\u8d77\u5f8b\u5e08\u56e2\u961f', 'Show fewer lawyers')
+            : getText('\u5c55\u5f00\u5269\u4f59\u5f8b\u5e08', 'Show more lawyers');
+    }
+
+    function setMobileCollapsibleState(section, expanded) {
+        if (!section.container || !section.button) {
+            return;
+        }
+
+        section.container.classList.toggle('is-expanded', expanded);
+        section.container.classList.toggle('is-collapsed', !expanded);
+        section.button.textContent = getCollapseButtonLabel(section.key, expanded);
+        section.button.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    }
+
+    function syncMobileCollapsible(section) {
+        if (!section.container || !section.button) {
+            return;
+        }
+
+        if (window.innerWidth > 768) {
+            section.button.hidden = true;
+            setMobileCollapsibleState(section, true);
+            return;
+        }
+
+        const expanded = section.container.dataset.mobileExpanded === 'true';
+        section.button.hidden = false;
+        setMobileCollapsibleState(section, expanded);
+    }
+
+    mobileCollapsibles.forEach(function (section) {
+        if (!section.container || !section.button) {
+            return;
+        }
+
+        section.container.dataset.mobileExpanded = 'false';
+
+        section.button.addEventListener('click', function () {
+            const nextExpanded = section.container.dataset.mobileExpanded !== 'true';
+            section.container.dataset.mobileExpanded = nextExpanded ? 'true' : 'false';
+            setMobileCollapsibleState(section, nextExpanded);
+        });
+
+        syncMobileCollapsible(section);
+    });
+
+    if (mobileCollapsibles.some(function (section) { return section.container && section.button; })) {
+        window.addEventListener('resize', function () {
+            mobileCollapsibles.forEach(syncMobileCollapsible);
+        });
+    }
+
     if (!areaCodeSelect || !phoneInput || !phoneHint || !contactForm || !successModal || !modalCloseBtn) {
         return;
     }
@@ -155,14 +257,6 @@ document.addEventListener('DOMContentLoaded', function () {
             placeholder_en: 'Enter 11 digits'
         }
     };
-
-    function getCurrentLanguage() {
-        return document.documentElement.lang.includes('zh') ? 'zh' : 'en';
-    }
-
-    function getText(zh, en) {
-        return getCurrentLanguage() === 'zh' ? zh : en;
-    }
 
     function updatePhoneHint() {
         const rule = phoneRules[areaCodeSelect.value];
