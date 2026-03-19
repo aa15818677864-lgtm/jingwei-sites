@@ -228,6 +228,17 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
     }
 
+    const submitBtn = contactForm.querySelector('.submit-btn');
+    let submitFeedback = null;
+
+    if (submitBtn) {
+        submitFeedback = document.createElement('div');
+        submitFeedback.className = 'submit-feedback';
+        submitFeedback.setAttribute('aria-live', 'polite');
+        submitFeedback.hidden = true;
+        submitBtn.insertAdjacentElement('afterend', submitFeedback);
+    }
+
     const phoneRules = {
         '+60': {
             pattern: /^[0-9]{9,11}$/,
@@ -297,6 +308,27 @@ document.addEventListener('DOMContentLoaded', function () {
         contactForm.reset();
         areaCodeSelect.value = currentAreaCode;
         updatePhoneHint();
+    }
+
+    function wait(ms) {
+        return new Promise(function (resolve) {
+            window.setTimeout(resolve, ms);
+        });
+    }
+
+    function setSubmitFeedback(type, message) {
+        if (!submitFeedback) {
+            return;
+        }
+
+        submitFeedback.className = 'submit-feedback';
+
+        if (type) {
+            submitFeedback.classList.add('is-' + type);
+        }
+
+        submitFeedback.textContent = message || '';
+        submitFeedback.hidden = !message;
     }
 
     function getFormEndpoint() {
@@ -410,23 +442,38 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        const submitBtn = contactForm.querySelector('.submit-btn');
+        if (!submitBtn) {
+            return;
+        }
+
         const originalText = submitBtn.textContent;
-        submitBtn.textContent = getText('\u63d0\u4ea4\u4e2d...', 'Submitting...');
+        submitBtn.textContent = getText('\u6b63\u5728\u63d0\u4ea4\uff0c\u8bf7\u7a0d\u5019...', 'Submitting, please wait...');
         submitBtn.disabled = true;
+        submitBtn.classList.add('is-loading');
+        setSubmitFeedback(
+            'loading',
+            getText('\u6b63\u5728\u5b89\u5168\u63d0\u4ea4\u60a8\u7684\u8d44\u6599\uff0c\u8bf7\u7a0d\u5019 1-2 \u79d2\u2026', 'Securely sending your details, please wait 1-2 seconds...')
+        );
 
         try {
             const clientIp = await loadClientIp();
 
-            await fetch(endpoint, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-                },
-                body: buildPayload(clientIp).toString()
-            });
+            await Promise.all([
+                fetch(endpoint, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+                    },
+                    body: buildPayload(clientIp).toString()
+                }),
+                wait(900)
+            ]);
 
+            setSubmitFeedback(
+                'success',
+                getText('\u63d0\u4ea4\u6210\u529f\uff0c\u6b63\u5728\u4e3a\u60a8\u663e\u793a\u786e\u8ba4\u4fe1\u606f\u2026', 'Sent successfully. Preparing your confirmation...')
+            );
             showSuccessModal();
             resetForm();
 
@@ -435,10 +482,18 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         } catch (error) {
             console.error('Submission failed:', error);
+            setSubmitFeedback(
+                'error',
+                getText('\u63d0\u4ea4\u5931\u8d25\uff0c\u8bf7\u7a0d\u5019\u91cd\u8bd5\u3002', 'Submission failed. Please try again in a moment.')
+            );
             alert(getText('\u63d0\u4ea4\u5931\u6557\uff0c\u8acb\u7a0d\u5f8c\u518d\u8a66\u3002', 'Submission failed. Please try again later.'));
         } finally {
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
+            submitBtn.classList.remove('is-loading');
+            window.setTimeout(function () {
+                setSubmitFeedback('', '');
+            }, 1800);
         }
     });
 
