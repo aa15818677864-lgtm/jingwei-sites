@@ -225,7 +225,7 @@ textarea {
 html[lang="en"] .hero {
     background:
         linear-gradient(180deg, rgba(4, 10, 20, 0.72), rgba(11, 31, 56, 0.74)),
-        url("img/enbanner.webp") center center / cover no-repeat;
+        url("img/banner1.webp") center center / cover no-repeat;
 }
 
 .hero::before {
@@ -1116,6 +1116,12 @@ html[lang="en"] .hero {
         display: block;
         width: 100%;
         height: auto;
+    }
+
+    html[lang="en"] .hero img {
+        height: 164px;
+        object-fit: cover;
+        object-position: center top;
     }
 
     .hero-content {
