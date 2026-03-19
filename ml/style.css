@@ -1119,9 +1119,13 @@ html[lang="en"] .hero {
     }
 
     html[lang="en"] .hero img {
-        height: 164px;
-        object-fit: cover;
-        object-position: center top;
+        height: auto;
+        object-fit: initial;
+        object-position: initial;
+    }
+
+    html[lang="en"] .hero-content {
+        display: none;
     }
 
     .hero-content {
