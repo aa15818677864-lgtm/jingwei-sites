@@ -1184,13 +1184,8 @@ html[lang="en"] .hero {
         object-position: initial;
     }
 
-    html[lang="en"] .hero-content {
-        display: none;
-    }
-
     .hero-content {
-        max-width: 100%;
-        padding: 22px 0 30px;
+        display: none;
     }
 
     .hero-text h2 {
