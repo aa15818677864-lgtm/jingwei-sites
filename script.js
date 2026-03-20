@@ -328,8 +328,8 @@ document.addEventListener('DOMContentLoaded', function () {
             showSuccessModal();
             resetForm();
 
-            if (typeof window.gtag_report_conversion === 'function') {
-                window.gtag_report_conversion();
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'conversion', { 'send_to': 'AW-18003046397/yLGoCM6KjowcEP3fwohD' });
             }
         } catch (error) {
             console.error('Submission failed:', error);
