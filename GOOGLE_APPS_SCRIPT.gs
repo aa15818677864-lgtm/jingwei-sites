@@ -133,6 +133,12 @@ function sendNotificationEmail_(row) {
   const inquiryLabel = record.inquiry_type || record.page_title || '\u8868\u5355\u63d0\u4ea4';
   const subject = '\u65b0\u5ba2\u6237\u54a8\u8be2 - ' + (record.name || '\u672a\u586b\u5199') + ' - ' + inquiryLabel;
   const phoneDisplay = formatPhone_(record.area_code, record.phone);
+  const inquiryPlainLine = record.inquiry_type
+    ? ['', '\u54a8\u8be2\u4e8b\u9879: ' + record.inquiry_type]
+    : [];
+  const inquiryHtmlLine = record.inquiry_type
+    ? [buildFieldHtml_('\u54a8\u8be2\u4e8b\u9879', record.inquiry_type || '')]
+    : [];
   const plainBody = [
     siteLabel,
     '',
@@ -149,8 +155,7 @@ function sendNotificationEmail_(row) {
     '\u8054\u7cfb\u7535\u8bdd: ' + phoneDisplay,
     '',
     '\u5fae\u4fe1\u8d26\u53f7: ' + (record.wechat || ''),
-    '',
-    '\u54a8\u8be2\u4e8b\u9879: ' + (record.inquiry_type || ''),
+    ...inquiryPlainLine,
     '',
     '\u5ba2\u6237\u7559\u8a00: ' + (record.message || ''),
     '',
@@ -169,7 +174,7 @@ function sendNotificationEmail_(row) {
     buildFieldHtml_('\u5ba2\u6237\u79f0\u547c', record.name || ''),
     buildFieldHtml_('\u8054\u7cfb\u7535\u8bdd', phoneDisplay),
     buildFieldHtml_('\u5fae\u4fe1\u8d26\u53f7', record.wechat || ''),
-    buildFieldHtml_('\u54a8\u8be2\u4e8b\u9879', record.inquiry_type || ''),
+    ...inquiryHtmlLine,
     buildFieldHtml_('\u5ba2\u6237\u7559\u8a00', record.message || ''),
     buildFieldHtml_('\u5ba2\u6237IP', record.client_ip || ''),
     '</div>'

@@ -219,19 +219,6 @@ document.addEventListener('DOMContentLoaded', function () {
             return checked.value;
         }
 
-        const bidField = contactForm.querySelector('input[name="bid"]');
-        if (!bidField) {
-            return '';
-        }
-
-        if (bidField.value === '2') {
-            return '中港綜合法律（內地與香港兩地法律服務，純香港案件不受理）';
-        }
-
-        if (bidField.value === '3') {
-            return '綜合法律服務（內地財產分割／合約審查等中港法律事務）';
-        }
-
         return '';
     }
 
