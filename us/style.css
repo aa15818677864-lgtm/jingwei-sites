@@ -157,6 +157,12 @@ textarea {
     color: #ffffff;
 }
 
+.language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
 .language-switcher a,
 .mobile-language-switcher a {
     display: inline-flex;
@@ -183,6 +189,9 @@ textarea {
 
 .mobile-language-switcher {
     display: none;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
 }
 
 .menu-toggle {
@@ -1164,7 +1173,7 @@ html[lang="en"] .hero {
     }
 
     .mobile-language-switcher {
-        display: block;
+        display: flex;
         margin-left: auto;
     }
 
