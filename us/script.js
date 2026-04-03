@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     const IP_LOOKUP_URL = 'https://api64.ipify.org?format=json';
+    const contactProfile = document.body ? (document.body.dataset.contactProfile || '') : '';
+    const isPureUsProfile = contactProfile === 'pure-us';
     const menuToggle = document.getElementById('menuToggle');
     const navMenu = document.getElementById('navMenu');
     const header = document.querySelector('.header');
@@ -278,6 +280,42 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
+    if (isPureUsProfile) {
+        phoneRules['+1'] = {
+            pattern: /^[0-9]{10}$/,
+            message_zh: '\u7f8e\u56fd\uff1a\u8bf7\u8f93\u516510\u4f4d\u6570\u5b57',
+            message_en: 'United States: Enter 10 digits',
+            alert_zh: '\u7f8e\u56fd\uff1a\u8bf7\u8f93\u516510\u4f4d\u6570\u5b57',
+            alert_en: 'United States: Enter 10 digits',
+            placeholder_zh: '\u8bf7\u8f93\u516510\u4f4d\u6570\u5b57',
+            placeholder_en: 'Enter 10 digits'
+        };
+
+        phoneRules['+86'] = {
+            pattern: /^[0-9]{11}$/,
+            message_zh: '\u4e2d\u56fd\u5927\u9646\uff1a\u8bf7\u8f93\u516511\u4f4d\u6570\u5b57',
+            message_en: 'China Mainland: Enter 11 digits',
+            alert_zh: '\u4e2d\u56fd\u5927\u9646\uff1a\u8bf7\u8f93\u516511\u4f4d\u6570\u5b57',
+            alert_en: 'China Mainland: Enter 11 digits',
+            placeholder_zh: '\u8bf7\u8f93\u516511\u4f4d\u6570\u5b57',
+            placeholder_en: 'Enter 11 digits'
+        };
+
+        phoneRules.other = {
+            pattern: /^\+[0-9]{8,15}$/,
+            message_zh: '\u5176\u5b83\u5730\u533a\uff1a\u8bf7\u8f93\u5165\u5b8c\u6574\u56fd\u9645\u53f7\u7801\uff0c\u5982 +44 20...',
+            message_en: 'Other regions: Enter full international number, e.g. +44...',
+            alert_zh: '\u5176\u5b83\u5730\u533a\uff1a\u8bf7\u8f93\u5165\u5b8c\u6574\u56fd\u9645\u53f7\u7801\uff0c\u5982 +44 20...',
+            alert_en: 'Other regions: Enter full international number, e.g. +44...',
+            placeholder_zh: '+44 20...',
+            placeholder_en: '+44 20...'
+        };
+    }
+
+    function normalizePhoneNumber(phone) {
+        return phone.replace(/[\s\-()]/g, '');
+    }
+
     function updatePhoneHint() {
         const rule = phoneRules[areaCodeSelect.value];
         const lang = getCurrentLanguage();
@@ -300,7 +338,7 @@ document.addEventListener('DOMContentLoaded', function () {
             return false;
         }
 
-        return rule.pattern.test(phone.replace(/[-\s]/g, ''));
+        return rule.pattern.test(normalizePhoneNumber(phone));
     }
 
     function showSuccessModal() {
@@ -376,6 +414,8 @@ document.addEventListener('DOMContentLoaded', function () {
     function buildPayload(clientIp) {
         const selectedInquiry = contactForm.querySelector('input[name="zxsx"]:checked');
         const payload = new URLSearchParams();
+        const normalizedPhone = normalizePhoneNumber(phoneInput.value.trim());
+        const areaCodeValue = areaCodeSelect.value === 'other' ? '' : areaCodeSelect.value;
 
         payload.append('submitted_at', new Date().toISOString());
         payload.append('site', document.body.dataset.site || '');
@@ -383,8 +423,8 @@ document.addEventListener('DOMContentLoaded', function () {
         payload.append('page_title', document.title);
         payload.append('page_url', window.location.href);
         payload.append('name', document.getElementById('name').value.trim());
-        payload.append('area_code', areaCodeSelect.value);
-        payload.append('phone', phoneInput.value.trim().replace(/[-\s]/g, ''));
+        payload.append('area_code', areaCodeValue);
+        payload.append('phone', normalizedPhone);
         payload.append('wechat', (document.getElementById('wechat').value || '').trim());
         payload.append('inquiry_type', selectedInquiry ? selectedInquiry.value : '');
         payload.append('message', (document.getElementById('message').value || '').trim());
