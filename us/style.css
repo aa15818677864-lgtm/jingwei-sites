@@ -251,23 +251,13 @@ html[lang="en"] .hero {
     display: none;
 }
 
-.hero-mobile-link {
-    display: block;
-    line-height: 0;
-    position: relative;
+.hero-mobile-hotspot {
+    display: none;
 }
 
-.hero-mobile-link img {
-    cursor: pointer;
-}
-
-.hero-mobile-link:focus-visible {
+.hero-mobile-hotspot:focus-visible {
     outline: 3px solid rgba(196, 154, 69, 0.72);
     outline-offset: 4px;
-}
-
-.hero-mobile-cta {
-    display: none;
 }
 
 .hero .container {
@@ -1254,24 +1244,19 @@ html[lang="en"] .hero {
         height: auto;
     }
 
-    .hero-mobile-cta {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
+    .hero-mobile-hotspot {
+        display: block;
         position: absolute;
         left: 50%;
-        bottom: 16px;
+        bottom: 6.8%;
         transform: translateX(-50%);
-        min-height: 38px;
-        padding: 0 16px;
+        width: min(46%, 220px);
+        min-width: 148px;
+        height: 44px;
         border-radius: 999px;
-        background: rgba(11, 31, 56, 0.84);
-        color: #ffffff;
-        font-size: 0.82rem;
-        font-weight: 700;
-        letter-spacing: 0.01em;
-        white-space: nowrap;
-        box-shadow: 0 16px 32px -20px rgba(6, 18, 36, 0.8);
+        background: transparent;
+        z-index: 2;
+        -webkit-tap-highlight-color: transparent;
     }
 
     html[lang="en"] .hero img {
