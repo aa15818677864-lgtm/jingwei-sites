@@ -123,11 +123,43 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function getCurrentLanguage() {
-        return document.documentElement.lang.includes('zh') ? 'zh' : 'en';
+        const lang = (document.documentElement.lang || '').toLowerCase();
+
+        if (lang.includes('zh-hant') || lang.includes('zh-hk') || lang.includes('zh-tw')) {
+            return 'zh-Hant';
+        }
+
+        if (lang.includes('zh')) {
+            return 'zh-CN';
+        }
+
+        return 'en';
     }
 
-    function getText(zh, en) {
-        return getCurrentLanguage() === 'zh' ? zh : en;
+    function getText(zhCn, second, third) {
+        const lang = getCurrentLanguage();
+
+        if (typeof third === 'undefined') {
+            return lang === 'en' ? second : zhCn;
+        }
+
+        if (lang === 'en') {
+            return third;
+        }
+
+        return lang === 'zh-Hant' ? second : zhCn;
+    }
+
+    function getRuleText(rule, key) {
+        const lang = getCurrentLanguage();
+
+        if (lang === 'en') {
+            return rule[key + '_en'];
+        }
+
+        return lang === 'zh-Hant'
+            ? rule[key + '_zh_hant']
+            : rule[key + '_zh_cn'];
     }
 
     document.querySelectorAll('section:not(.hero) img').forEach(function (image) {
@@ -166,13 +198,13 @@ document.addEventListener('DOMContentLoaded', function () {
     function getCollapseButtonLabel(key, expanded) {
         if (key === 'issues') {
             return expanded
-                ? getText('\u6536\u8d77\u6cd5\u5f8b\u95ee\u9898', 'Show fewer issues')
-                : getText('\u5c55\u5f00\u5269\u4f59\u5185\u5bb9', 'Show the rest');
+                ? getText('\u6536\u8d77\u6cd5\u5f8b\u95ee\u9898', '\u6536\u8d77\u6cd5\u5f8b\u554f\u984c', 'Show fewer issues')
+                : getText('\u5c55\u5f00\u5269\u4f59\u5185\u5bb9', '\u5c55\u958b\u5269\u9918\u5167\u5bb9', 'Show the rest');
         }
 
         return expanded
-            ? getText('\u6536\u8d77\u5f8b\u5e08\u56e2\u961f', 'Show fewer lawyers')
-            : getText('\u5c55\u5f00\u5269\u4f59\u5f8b\u5e08', 'Show more lawyers');
+            ? getText('\u6536\u8d77\u5f8b\u5e08\u56e2\u961f', '\u6536\u8d77\u5f8b\u5e2b\u5718\u968a', 'Show fewer lawyers')
+            : getText('\u5c55\u5f00\u5269\u4f59\u5f8b\u5e08', '\u5c55\u958b\u5269\u9918\u5f8b\u5e2b', 'Show more lawyers');
     }
 
     function setMobileCollapsibleState(section, expanded) {
@@ -240,31 +272,40 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     const phoneRules = {
-        '+60': {
-            pattern: /^[0-9]{9,11}$/,
-            message_zh: '\u8acb\u8f38\u51659-11\u4f4d\u6578\u5b57\uff08\u5982\uff1a123456789\uff09',
-            message_en: 'Please enter 9-11 digits (e.g., 123456789)',
-            alert_zh: '\u99ac\u4f86\u897f\u4e9e\u96fb\u8a71\u865f\u78bc\u5fc5\u9808\u662f9-11\u4f4d\u6578\u5b57',
-            alert_en: 'Malaysian phone number must be 9-11 digits',
-            placeholder_zh: '\u8acb\u8f38\u51659-11\u4f4d\u6578\u5b57',
-            placeholder_en: 'Enter 9-11 digits'
-        },
-        '+65': {
+        '+853': {
             pattern: /^[0-9]{8}$/,
-            message_zh: '\u8acb\u8f38\u51658\u4f4d\u6578\u5b57',
+            message_zh_cn: '\u8bf7\u8f93\u51658\u4f4d\u6570\u5b57',
+            message_zh_hant: '\u8acb\u8f38\u51658\u4f4d\u6578\u5b57',
             message_en: 'Please enter 8 digits',
-            alert_zh: '\u65b0\u52a0\u5761\u96fb\u8a71\u865f\u78bc\u5fc5\u9808\u662f8\u4f4d\u6578\u5b57',
-            alert_en: 'Singapore phone number must be 8 digits',
-            placeholder_zh: '\u8acb\u8f38\u51658\u4f4d\u6578\u5b57',
+            alert_zh_cn: '\u6fb3\u95e8\u7535\u8bdd\u53f7\u7801\u5fc5\u987b\u662f8\u4f4d\u6570\u5b57',
+            alert_zh_hant: '\u6fb3\u9580\u96fb\u8a71\u865f\u78bc\u5fc5\u9808\u662f8\u4f4d\u6578\u5b57',
+            alert_en: 'Macau phone number must be 8 digits',
+            placeholder_zh_cn: '\u8bf7\u8f93\u51658\u4f4d\u6570\u5b57',
+            placeholder_zh_hant: '\u8acb\u8f38\u51658\u4f4d\u6578\u5b57',
+            placeholder_en: 'Enter 8 digits'
+        },
+        '+852': {
+            pattern: /^[0-9]{8}$/,
+            message_zh_cn: '\u8bf7\u8f93\u51658\u4f4d\u6570\u5b57',
+            message_zh_hant: '\u8acb\u8f38\u51658\u4f4d\u6578\u5b57',
+            message_en: 'Please enter 8 digits',
+            alert_zh_cn: '\u9999\u6e2f\u7535\u8bdd\u53f7\u7801\u5fc5\u987b\u662f8\u4f4d\u6570\u5b57',
+            alert_zh_hant: '\u9999\u6e2f\u96fb\u8a71\u865f\u78bc\u5fc5\u9808\u662f8\u4f4d\u6578\u5b57',
+            alert_en: 'Hong Kong phone number must be 8 digits',
+            placeholder_zh_cn: '\u8bf7\u8f93\u51658\u4f4d\u6570\u5b57',
+            placeholder_zh_hant: '\u8acb\u8f38\u51658\u4f4d\u6578\u5b57',
             placeholder_en: 'Enter 8 digits'
         },
         '+86': {
             pattern: /^[0-9]{11}$/,
-            message_zh: '\u8acb\u8f38\u516511\u4f4d\u6578\u5b57',
+            message_zh_cn: '\u8bf7\u8f93\u516511\u4f4d\u6570\u5b57',
+            message_zh_hant: '\u8acb\u8f38\u516511\u4f4d\u6578\u5b57',
             message_en: 'Please enter 11 digits',
-            alert_zh: '\u5167\u5730\u96fb\u8a71\u865f\u78bc\u5fc5\u9808\u662f11\u4f4d\u6578\u5b57',
-            alert_en: 'Mainland phone number must be 11 digits',
-            placeholder_zh: '\u8acb\u8f38\u516511\u4f4d\u6578\u5b57',
+            alert_zh_cn: '\u4e2d\u56fd\u5185\u5730\u7535\u8bdd\u53f7\u7801\u5fc5\u987b\u662f11\u4f4d\u6570\u5b57',
+            alert_zh_hant: '\u4e2d\u570b\u5167\u5730\u96fb\u8a71\u865f\u78bc\u5fc5\u9808\u662f11\u4f4d\u6578\u5b57',
+            alert_en: 'Mainland China phone number must be 11 digits',
+            placeholder_zh_cn: '\u8bf7\u8f93\u516511\u4f4d\u6570\u5b57',
+            placeholder_zh_hant: '\u8acb\u8f38\u516511\u4f4d\u6578\u5b57',
             placeholder_en: 'Enter 11 digits'
         }
     };
@@ -275,14 +316,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (!rule) {
             phoneHint.style.color = '#666';
-            phoneHint.textContent = getText('\u8acb\u8f38\u5165\u6709\u6548\u96fb\u8a71\u865f\u78bc', 'Please enter a valid phone number');
-            phoneInput.placeholder = getText('\u8acb\u8f38\u5165\u96fb\u8a71\u865f\u78bc', 'Enter your phone number');
+            phoneHint.textContent = getText('\u8bf7\u8f93\u5165\u6709\u6548\u7535\u8bdd\u53f7\u7801', '\u8acb\u8f38\u5165\u6709\u6548\u96fb\u8a71\u865f\u78bc', 'Please enter a valid phone number');
+            phoneInput.placeholder = getText('\u8bf7\u8f93\u5165\u7535\u8bdd\u53f7\u7801', '\u8acb\u8f38\u5165\u96fb\u8a71\u865f\u78bc', 'Enter your phone number');
             return;
         }
 
         phoneHint.style.color = '#666';
-        phoneHint.textContent = rule['message_' + lang];
-        phoneInput.placeholder = rule['placeholder_' + lang];
+        phoneHint.textContent = getRuleText(rule, 'message');
+        phoneInput.placeholder = getRuleText(rule, 'placeholder');
     }
 
     function validatePhoneNumber(phone, areaCode) {
@@ -291,7 +332,7 @@ document.addEventListener('DOMContentLoaded', function () {
             return false;
         }
 
-        return rule.pattern.test(phone.replace(/[-\s]/g, ''));
+        return rule.pattern.test(phone.replace(/[-\s()]/g, ''));
     }
 
     function showSuccessModal() {
@@ -375,7 +416,7 @@ document.addEventListener('DOMContentLoaded', function () {
         payload.append('page_url', window.location.href);
         payload.append('name', document.getElementById('name').value.trim());
         payload.append('area_code', areaCodeSelect.value);
-        payload.append('phone', phoneInput.value.trim().replace(/[-\s]/g, ''));
+        payload.append('phone', phoneInput.value.trim().replace(/[-\s()]/g, ''));
         payload.append('wechat', (document.getElementById('wechat').value || '').trim());
         payload.append('inquiry_type', selectedInquiry ? selectedInquiry.value : '');
         payload.append('message', (document.getElementById('message').value || '').trim());
@@ -399,12 +440,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (validatePhoneNumber(phone, areaCodeSelect.value)) {
             phoneHint.style.color = '#4CAF50';
-            phoneHint.textContent = lang === 'zh' ? '\u2713 \u683c\u5f0f\u6b63\u78ba' : '\u2713 Format correct';
+            phoneHint.textContent = lang === 'en'
+                ? '\u2713 Format correct'
+                : (lang === 'zh-Hant' ? '\u2713 \u683c\u5f0f\u6b63\u78ba' : '\u2713 \u683c\u5f0f\u6b63\u786e');
         } else {
             phoneHint.style.color = '#ff4444';
             phoneHint.textContent = phoneRules[areaCodeSelect.value]
-                ? phoneRules[areaCodeSelect.value]['message_' + lang]
-                : getText('\u8acb\u8f38\u5165\u6709\u6548\u96fb\u8a71\u865f\u78bc', 'Please enter a valid phone number');
+                ? getRuleText(phoneRules[areaCodeSelect.value], 'message')
+                : getText('\u8bf7\u8f93\u5165\u6709\u6548\u7535\u8bdd\u53f7\u7801', '\u8acb\u8f38\u5165\u6709\u6548\u96fb\u8a71\u865f\u78bc', 'Please enter a valid phone number');
         }
     });
 
@@ -418,24 +461,25 @@ document.addEventListener('DOMContentLoaded', function () {
         const endpoint = getFormEndpoint();
 
         if (!name) {
-            alert(getText('\u8acb\u586b\u5beb\u60a8\u7684\u7a31\u547c', 'Please enter your name'));
+            alert(getText('\u8bf7\u586b\u5199\u60a8\u7684\u79f0\u547c', '\u8acb\u586b\u5beb\u60a8\u7684\u7a31\u547c', 'Please enter your name'));
             return;
         }
 
         if (!phone) {
-            alert(getText('\u8acb\u586b\u5beb\u806f\u7d61\u96fb\u8a71', 'Please enter contact number'));
+            alert(getText('\u8bf7\u586b\u5199\u8054\u7cfb\u7535\u8bdd', '\u8acb\u586b\u5beb\u806f\u7d61\u96fb\u8a71', 'Please enter contact number'));
             return;
         }
 
         if (!validatePhoneNumber(phone, areaCode)) {
             const rule = phoneRules[areaCode];
-            alert(rule ? rule['alert_' + getCurrentLanguage()] : getText('\u8acb\u8f38\u5165\u6709\u6548\u7684\u96fb\u8a71\u865f\u78bc', 'Please enter a valid phone number'));
+            alert(rule ? getRuleText(rule, 'alert') : getText('\u8bf7\u8f93\u5165\u6709\u6548\u7684\u7535\u8bdd\u53f7\u7801', '\u8acb\u8f38\u5165\u6709\u6548\u7684\u96fb\u8a71\u865f\u78bc', 'Please enter a valid phone number'));
             phoneInput.focus();
             return;
         }
 
         if (!endpoint || endpoint.includes('PASTE_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE')) {
             alert(getText(
+                'Google \u8868\u683c\u63a5\u53e3\u8fd8\u6ca1\u914d\u7f6e\uff0c\u8bf7\u5148\u5728 site-config.js \u586b\u5165 Apps Script Web App URL\u3002',
                 'Google \u8868\u683c\u63a5\u53e3\u9084\u6c92\u914d\u7f6e\uff0c\u8acb\u5148\u5728 site-config.js \u586b\u5165 Apps Script Web App URL\u3002',
                 'Google Sheets is not configured yet. Please paste the Apps Script Web App URL into site-config.js first.'
             ));
@@ -447,12 +491,12 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         const originalText = submitBtn.textContent;
-        submitBtn.textContent = getText('\u6b63\u5728\u63d0\u4ea4\uff0c\u8bf7\u7a0d\u5019...', 'Submitting, please wait...');
+        submitBtn.textContent = getText('\u6b63\u5728\u63d0\u4ea4\uff0c\u8bf7\u7a0d\u5019...', '\u6b63\u5728\u63d0\u4ea4\uff0c\u8acb\u7a0d\u5019...', 'Submitting, please wait...');
         submitBtn.disabled = true;
         submitBtn.classList.add('is-loading');
         setSubmitFeedback(
             'loading',
-            getText('\u6b63\u5728\u5b89\u5168\u63d0\u4ea4\u60a8\u7684\u8d44\u6599\uff0c\u8bf7\u7a0d\u5019 1-2 \u79d2\u2026', 'Securely sending your details, please wait 1-2 seconds...')
+            getText('\u6b63\u5728\u5b89\u5168\u63d0\u4ea4\u60a8\u7684\u8d44\u6599\uff0c\u8bf7\u7a0d\u5019 1-2 \u79d2\u2026', '\u6b63\u5728\u5b89\u5168\u63d0\u4ea4\u60a8\u7684\u8cc7\u6599\uff0c\u8acb\u7a0d\u5019 1-2 \u79d2\u2026', 'Securely sending your details, please wait 1-2 seconds...')
         );
 
         try {
@@ -472,7 +516,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             setSubmitFeedback(
                 'success',
-                getText('\u63d0\u4ea4\u6210\u529f\uff0c\u6b63\u5728\u4e3a\u60a8\u663e\u793a\u786e\u8ba4\u4fe1\u606f\u2026', 'Sent successfully. Preparing your confirmation...')
+                getText('\u63d0\u4ea4\u6210\u529f\uff0c\u6b63\u5728\u4e3a\u60a8\u663e\u793a\u786e\u8ba4\u4fe1\u606f\u2026', '\u63d0\u4ea4\u6210\u529f\uff0c\u6b63\u5728\u70ba\u60a8\u986f\u793a\u78ba\u8a8d\u8a0a\u606f\u2026', 'Sent successfully. Preparing your confirmation...')
             );
             showSuccessModal();
             resetForm();
@@ -484,9 +528,9 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('Submission failed:', error);
             setSubmitFeedback(
                 'error',
-                getText('\u63d0\u4ea4\u5931\u8d25\uff0c\u8bf7\u7a0d\u5019\u91cd\u8bd5\u3002', 'Submission failed. Please try again in a moment.')
+                getText('\u63d0\u4ea4\u5931\u8d25\uff0c\u8bf7\u7a0d\u5019\u91cd\u8bd5\u3002', '\u63d0\u4ea4\u5931\u6557\uff0c\u8acb\u7a0d\u5019\u91cd\u8a66\u3002', 'Submission failed. Please try again in a moment.')
             );
-            alert(getText('\u63d0\u4ea4\u5931\u6557\uff0c\u8acb\u7a0d\u5f8c\u518d\u8a66\u3002', 'Submission failed. Please try again later.'));
+            alert(getText('\u63d0\u4ea4\u5931\u8d25\uff0c\u8bf7\u7a0d\u540e\u518d\u8bd5\u3002', '\u63d0\u4ea4\u5931\u6557\uff0c\u8acb\u7a0d\u5f8c\u518d\u8a66\u3002', 'Submission failed. Please try again later.'));
         } finally {
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
