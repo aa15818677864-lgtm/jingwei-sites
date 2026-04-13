@@ -325,17 +325,21 @@ html[lang="en"] .hero {
 .team-section,
 .why-choose-section,
 .about-section,
+.scope-section,
+.faq-section,
 .contact-section {
     padding: 90px 0;
 }
 
 .property-dispute-section,
 .why-choose-section,
+.faq-section,
 .contact-section {
     background: var(--bg-soft);
 }
 
 .team-section,
+.scope-section,
 .about-section {
     background: transparent;
 }
@@ -354,6 +358,8 @@ html[lang="en"] .hero {
 .property-dispute-section .section-title,
 .team-section .section-title,
 .why-choose-section .section-title,
+.scope-section .section-title,
+.faq-section .section-title,
 .contact-section .section-title,
 .about-section .section-title {
     position: relative;
@@ -363,6 +369,8 @@ html[lang="en"] .hero {
 .property-dispute-section .section-title::after,
 .team-section .section-title::after,
 .why-choose-section .section-title::after,
+.scope-section .section-title::after,
+.faq-section .section-title::after,
 .contact-section .section-title::after,
 .about-section .section-title::after {
     content: "";
@@ -687,6 +695,60 @@ html[lang="en"] .hero {
     line-height: 1.62;
 }
 
+.scope-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.scope-card {
+    padding: 28px 28px 26px;
+    border-radius: 28px;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: var(--shadow-sm);
+}
+
+.scope-card--fit {
+    border-top: 4px solid rgba(47, 122, 71, 0.52);
+}
+
+.scope-card--not-fit {
+    border-top: 4px solid rgba(196, 154, 69, 0.56);
+}
+
+.scope-card h3 {
+    margin-bottom: 18px;
+    color: var(--navy-900);
+    font-size: 1.26rem;
+    line-height: 1.25;
+}
+
+.scope-list {
+    list-style: none;
+    display: grid;
+    gap: 12px;
+}
+
+.scope-list li {
+    position: relative;
+    padding-left: 18px;
+    color: var(--text-body);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.scope-list li::before {
+    content: "";
+    position: absolute;
+    top: 11px;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: var(--gold-500);
+}
+
 .about-section .container {
     position: relative;
 }
@@ -696,7 +758,7 @@ html[lang="en"] .hero {
     position: absolute;
     inset: 0 auto auto 50%;
     width: min(92%, 1100px);
-    height: 52%;
+    height: 100%;
     transform: translateX(-50%);
     border-radius: var(--radius-lg);
     background: linear-gradient(180deg, rgba(248, 250, 252, 0.9), rgba(255, 255, 255, 0.85));
@@ -708,6 +770,49 @@ html[lang="en"] .hero {
 .about-top {
     max-width: 920px;
     margin: 0 auto 36px;
+}
+
+.route-steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin: 0 auto 34px;
+    max-width: 1100px;
+}
+
+.route-step {
+    padding: 22px 20px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    box-shadow: 0 16px 34px -28px rgba(6, 18, 36, 0.28);
+}
+
+.route-step-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+    padding: 6px 12px;
+    margin-bottom: 14px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--navy-850), var(--navy-900));
+    color: var(--gold-500);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.route-step h3 {
+    margin-bottom: 10px;
+    color: var(--navy-900);
+    font-size: 1.08rem;
+}
+
+.route-step p {
+    color: var(--text-body);
+    font-size: 0.92rem;
+    line-height: 1.68;
 }
 
 .about-text {
@@ -770,6 +875,58 @@ html[lang="en"] .hero {
     line-height: 1.62;
 }
 
+.faq-list {
+    max-width: 920px;
+    margin: 0 auto;
+    display: grid;
+    gap: 16px;
+}
+
+.faq-item {
+    border-radius: 22px;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 12px 28px -24px rgba(6, 18, 36, 0.28);
+    overflow: hidden;
+}
+
+.faq-item summary {
+    position: relative;
+    cursor: pointer;
+    list-style: none;
+    padding: 20px 56px 20px 22px;
+    color: var(--navy-900);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary::after {
+    content: "+";
+    position: absolute;
+    top: 50%;
+    right: 22px;
+    transform: translateY(-50%);
+    color: var(--gold-500);
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.faq-item[open] summary::after {
+    content: "−";
+}
+
+.faq-item p {
+    padding: 0 22px 20px;
+    color: var(--text-body);
+    font-size: 0.94rem;
+    line-height: 1.74;
+}
+
 .office-location-image {
     margin-top: 14px;
     width: 100%;
@@ -830,6 +987,65 @@ html[lang="en"] .hero {
 .phone-input-group .phone-hint {
     grid-column: 1 / -1;
     margin-top: -2px;
+}
+
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.checkbox-item {
+    position: relative;
+}
+
+.checkbox-item input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.checkbox-item label {
+    display: block;
+    min-height: 100%;
+    margin: 0;
+    padding: 16px 16px 16px 44px;
+    border-radius: 18px;
+    border: 1px solid rgba(15, 23, 42, 0.1);
+    background: rgba(248, 250, 252, 0.72);
+    color: var(--text-body);
+    font-size: 0.92rem;
+    font-weight: 600;
+    line-height: 1.58;
+    cursor: pointer;
+    transition: border-color var(--transition), box-shadow var(--transition), background-color var(--transition), transform var(--transition);
+}
+
+.checkbox-item label::before {
+    content: "";
+    position: absolute;
+    top: 18px;
+    left: 16px;
+    width: 16px;
+    height: 16px;
+    border-radius: 999px;
+    border: 2px solid rgba(17, 24, 39, 0.2);
+    background: #ffffff;
+    transition: border-color var(--transition), background-color var(--transition), box-shadow var(--transition);
+}
+
+.checkbox-item input[type="radio"]:checked + label {
+    border-color: rgba(196, 154, 69, 0.4);
+    background: #ffffff;
+    box-shadow: 0 16px 28px -24px rgba(6, 18, 36, 0.32);
+    transform: translateY(-1px);
+}
+
+.checkbox-item input[type="radio"]:checked + label::before {
+    border-color: var(--gold-500);
+    background:
+        radial-gradient(circle at center, var(--gold-500) 0 46%, transparent 50%);
+    box-shadow: 0 0 0 4px rgba(196, 154, 69, 0.12);
 }
 
 .area-code-select,
@@ -1134,6 +1350,8 @@ html[lang="en"] .hero {
         grid-template-columns: 1fr;
     }
 
+    .scope-grid,
+    .route-steps,
     .team-grid,
     .why-choose-content,
     .about-features {
@@ -1274,6 +1492,8 @@ html[lang="en"] .hero {
     .team-section,
     .why-choose-section,
     .about-section,
+    .scope-section,
+    .faq-section,
     .contact-section {
         padding: 68px 0;
     }
@@ -1310,6 +1530,12 @@ html[lang="en"] .hero {
     .why-choose-content,
     .about-features {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .scope-grid,
+    .route-steps {
+        grid-template-columns: 1fr;
         gap: 12px;
     }
 
@@ -1416,7 +1642,7 @@ html[lang="en"] .hero {
     .about-section .container::before {
         inset: 8px auto auto 50%;
         width: calc(100% - 8px);
-        height: 58%;
+        height: 100%;
     }
 
     .about-top {
@@ -1448,6 +1674,20 @@ html[lang="en"] .hero {
     .about-text p {
         font-size: 0.9rem;
         line-height: 1.72;
+    }
+
+    .route-step {
+        padding: 18px 16px;
+        border-radius: 20px;
+    }
+
+    .route-step h3 {
+        font-size: 0.96rem;
+    }
+
+    .route-step p {
+        font-size: 0.8rem;
+        line-height: 1.58;
     }
 
     .feature-item {
@@ -1500,6 +1740,23 @@ html[lang="en"] .hero {
     .phone-input-group {
         grid-template-columns: 1fr;
         gap: 8px;
+    }
+
+    .checkbox-group {
+        grid-template-columns: 1fr;
+    }
+
+    .checkbox-item label {
+        padding: 14px 14px 14px 40px;
+        border-radius: 16px;
+        font-size: 0.84rem;
+    }
+
+    .checkbox-item label::before {
+        top: 16px;
+        left: 14px;
+        width: 14px;
+        height: 14px;
     }
 
     .area-code-select,
@@ -1618,6 +1875,26 @@ html[lang="en"] .hero {
     .about-text p {
         font-size: 0.84rem;
         line-height: 1.66;
+    }
+
+    .scope-card {
+        padding: 22px 18px 20px;
+        border-radius: 22px;
+    }
+
+    .scope-card h3,
+    .faq-item summary {
+        font-size: 0.94rem;
+    }
+
+    .scope-list li,
+    .faq-item p {
+        font-size: 0.82rem;
+        line-height: 1.62;
+    }
+
+    .route-step {
+        padding: 16px 14px;
     }
 
     .contact-form {
