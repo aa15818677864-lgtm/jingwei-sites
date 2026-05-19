@@ -4,6 +4,9 @@
   const form = document.getElementById("chatForm");
   const input = document.getElementById("chatInput");
   const submitButton = form?.querySelector("button[type='submit']");
+  const SESSION_KEY = "jingwei.ask.chat.session.v1";
+  const BACKUP_KEY = "jingwei.ask.chat.backup.v1";
+  const STORAGE_MAX_AGE_MS = 1000 * 60 * 60 * 24 * 3;
   let isComposing = false;
 
   const adTitle = document.getElementById("adTitle");
@@ -87,11 +90,13 @@
 
   function addBot(text) {
     state.messages.push({ role: "assistant", content: text });
+    saveChatSession();
     return addMessage(text, "bot");
   }
 
   function addUser(text) {
     state.messages.push({ role: "user", content: text });
+    saveChatSession();
     return addMessage(text, "user");
   }
 
@@ -117,6 +122,114 @@
 
   function updatePlaceholder(text) {
     input.placeholder = text || "也可以继续补充你的情况";
+  }
+
+  function stageUi(stage) {
+    if (stage === "region") {
+      return { chips: regionChips, placeholder: "也可以直接输入你现在主要所在地区" };
+    }
+    if (stage === "mainland") {
+      return { chips: mainlandChips, placeholder: "输入是否涉及中国内地" };
+    }
+    if (stage === "matter") {
+      return { chips: matterChips, placeholder: "输入大致事务类型" };
+    }
+    if (stage === "summary") {
+      return { chips: [], placeholder: "例如：我人在美国，对方公司在深圳，合同履行地在内地" };
+    }
+    return { chips: [], placeholder: "也可以继续补充你的情况" };
+  }
+
+  function parseJson(raw) {
+    try {
+      return JSON.parse(raw);
+    } catch {
+      return null;
+    }
+  }
+
+  function normalizeSavedMessages(messages) {
+    if (!Array.isArray(messages)) return [];
+    return messages
+      .map((message) => ({
+        role: message && message.role === "assistant" ? "assistant" : "user",
+        content: String(message && message.content ? message.content : "").trim()
+      }))
+      .filter((message) => message.content)
+      .slice(-80);
+  }
+
+  function readStoredPayload() {
+    try {
+      const sessionRaw = window.sessionStorage.getItem(SESSION_KEY);
+      const backupRaw = window.localStorage.getItem(BACKUP_KEY);
+      const session = sessionRaw ? parseJson(sessionRaw) : null;
+      const backup = backupRaw ? parseJson(backupRaw) : null;
+      return session || backup;
+    } catch {
+      return null;
+    }
+  }
+
+  function saveChatSession() {
+    const payload = {
+      savedAt: Date.now(),
+      state: {
+        stage: state.stage || localStage(),
+        region: state.region || "",
+        mainland: state.mainland || "",
+        matter: state.matter || "",
+        summary: state.summary || "",
+        messages: state.messages.slice(-80)
+      },
+      inputDraft: String(input && input.value ? input.value : "").slice(0, 1000)
+    };
+
+    try {
+      const raw = JSON.stringify(payload);
+      window.sessionStorage.setItem(SESSION_KEY, raw);
+      window.localStorage.setItem(BACKUP_KEY, raw);
+    } catch {
+      // ignore storage failures
+    }
+  }
+
+  function restoreChatSession() {
+    const payload = readStoredPayload();
+    if (!payload || !payload.state) return false;
+
+    const savedAt = Number(payload.savedAt || 0);
+    if (savedAt && Date.now() - savedAt > STORAGE_MAX_AGE_MS) return false;
+
+    const savedMessages = normalizeSavedMessages(payload.state.messages);
+    if (!savedMessages.length) return false;
+
+    state.stage = String(payload.state.stage || "region");
+    state.region = String(payload.state.region || "");
+    state.mainland = String(payload.state.mainland || "");
+    state.matter = String(payload.state.matter || "");
+    state.summary = String(payload.state.summary || "");
+    state.messages = savedMessages;
+
+    chatBody.innerHTML = '<div class="day-pill">今天</div>';
+    savedMessages.forEach((message) => {
+      addMessage(message.content, message.role === "assistant" ? "bot" : "user");
+    });
+
+    const stage = localStage();
+    state.stage = stage;
+    const ui = stageUi(stage);
+    setChips(ui.chips);
+    updatePlaceholder(ui.placeholder);
+    updateAd(routeForCurrentState(), stage);
+
+    if (payload.inputDraft) {
+      input.value = String(payload.inputDraft);
+      input.style.height = "auto";
+      input.style.height = Math.min(input.scrollHeight, 118) + "px";
+    }
+
+    return true;
   }
 
   function appendSummary(text) {
@@ -324,6 +437,7 @@
     applyChoice(cleaned, options);
     input.value = "";
     input.style.height = "auto";
+    saveChatSession();
 
     const requestId = ++state.activeRequestId;
     setBusy(true);
@@ -376,15 +490,20 @@
   input.addEventListener("input", function () {
     input.style.height = "auto";
     input.style.height = Math.min(input.scrollHeight, 118) + "px";
+    saveChatSession();
   });
 
-  chatBody.innerHTML = '<div class="day-pill">今天</div>';
-  renderAssistantReply({
-    stage: "region",
-    answer: "你好，我是刘毅律师团队的 AI 法律助理。先用聊天方式做初步判断，你现在主要在哪个地区？",
-    chips: regionChips,
-    inputPlaceholder: "也可以直接输入你现在主要所在地区",
-    route: null,
-    state: { region: "", mainland: "", matter: "", summary: "" }
-  });
+  window.addEventListener("pagehide", saveChatSession);
+
+  if (!restoreChatSession()) {
+    chatBody.innerHTML = '<div class="day-pill">今天</div>';
+    renderAssistantReply({
+      stage: "region",
+      answer: "你好，我是刘毅律师团队的 AI 法律助理。先用聊天方式做初步判断，你现在主要在哪个地区？",
+      chips: regionChips,
+      inputPlaceholder: "也可以直接输入你现在主要所在地区",
+      route: null,
+      state: { region: "", mainland: "", matter: "", summary: "" }
+    });
+  }
 })();
