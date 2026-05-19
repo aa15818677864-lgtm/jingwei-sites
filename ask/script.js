@@ -256,11 +256,26 @@
     if (/不涉及中国内地|不涉及中國內地|只涉及当地|纯美国|純美國|美国本地|美國本地|澳门本地|澳門本地|香港本地/.test(text)) return "no";
     if (/不确定|不確定|暂时不清楚|還不清楚|需要先判断/.test(text)) return "unsure";
     if (/中国内地|中國內地|内地|內地|大陆|大陸|mainland/i.test(text)) return "yes";
+    if (
+      /(深圳|广州|上海|北京|佛山|珠海|东莞|苏州|杭州|南京|天津|重庆|武汉|成都|西安|青岛|厦门|shenzhen|guangzhou|shanghai|beijing)/i.test(
+        text
+      ) &&
+      /(房产|房產|楼房|樓房|不动产|不動產|物业|物業|开发商|開發商|交房|收楼|办证|辦證|产证|產證|过户|過戶|合同|纠纷|公司|资产|證據|证据|property|developer|title|mortgage|contract)/i.test(
+        text
+      )
+    ) {
+      return "yes";
+    }
     return "unsure";
   }
 
   function inferMatter(text) {
-    if (/合同|合约|合約|合作|货款|貨款|商事|contract|breach|payment/i.test(text)) return "contract";
+    if (
+      /合同|合约|合約|合作|货款|貨款|商事|购房|購房|买房|買房|房产|房產|楼房|樓房|不动产|不動產|物业|物業|开发商|開發商|交房|收楼|办证|辦證|产证|產證|过户|過戶|产权|產權|按揭|房款|contract|breach|payment|property|developer|title|handover|mortgage/i.test(
+        text
+      )
+    )
+      return "contract";
     if (/公司|股权|股權|经营|經營|投资|投資|shareholder|equity|company/i.test(text)) return "company";
     if (/婚姻|离婚|離婚|继承|繼承|家事|遗产|遺產|family|divorce|inheritance/i.test(text)) return "family";
     if (/授权|授權|公证|公證|认证|認證|文件|身份|notarization|authentication|document/i.test(text)) return "identity";
@@ -376,9 +391,20 @@
     const value = options && options.value;
 
     if (!fromChip) appendSummary(text);
+    if (!fromChip) {
+      const inferredMainland = inferMainland(text);
+      if (inferredMainland && inferredMainland !== "unsure" && !state.mainland) state.mainland = inferredMainland;
+      const inferredMatter = inferMatter(text);
+      if (inferredMatter && !state.matter) state.matter = inferredMatter;
+    }
 
     if (state.stage === "region") {
-      state.region = fromChip ? value : inferRegion(text);
+      if (fromChip) {
+        state.region = value;
+      } else {
+        const inferredRegion = inferRegion(text);
+        state.region = inferredRegion === "other" ? "" : inferredRegion;
+      }
       return;
     }
     if (state.stage === "mainland") {
