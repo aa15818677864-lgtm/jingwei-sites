@@ -178,6 +178,10 @@ h1 {
 .chat-main {
   min-height: 0;
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.chat-main.has-ad {
   grid-template-columns: minmax(0, 1fr) 238px;
 }
 
@@ -351,6 +355,10 @@ h1 {
   gap: 10px;
 }
 
+.chat-ad[hidden] {
+  display: none !important;
+}
+
 .ad-badge {
   margin: 0;
   font-size: 12px;
@@ -421,6 +429,10 @@ h1 {
   }
 
   .chat-main {
+    grid-template-columns: 1fr;
+  }
+
+  .chat-main.has-ad {
     grid-template-columns: 1fr;
     grid-template-rows: minmax(0, 1fr) auto;
   }

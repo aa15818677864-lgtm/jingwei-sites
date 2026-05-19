@@ -1,5 +1,6 @@
 (function () {
   const chatBody = document.getElementById("chatBody");
+  const chatMain = document.querySelector(".chat-main");
   const quickReplies = document.getElementById("quickReplies");
   const form = document.getElementById("chatForm");
   const input = document.getElementById("chatInput");
@@ -12,6 +13,7 @@
   const adTitle = document.getElementById("adTitle");
   const adCopy = document.getElementById("adCopy");
   const adLink = document.getElementById("adLink");
+  const routeAd = document.getElementById("routeAd");
 
   const state = {
     stage: "region",
@@ -277,22 +279,17 @@
 
   function updateAd(route, stage) {
     const resolvedRoute = route && route.url ? route : stage === "done" ? routeForCurrentState() : null;
+    const shouldShow = stage === "done" && !!(resolvedRoute && resolvedRoute.url);
 
-    if (!resolvedRoute && state.mainland === "no") {
-      adTitle.textContent = "你当前的问题方向";
-      adCopy.textContent = "根据你目前提供的信息，这个问题更偏当地法律事务。你可以继续补充情况，我们会继续帮你梳理。";
-      adLink.textContent = "继续当前咨询";
-      adLink.removeAttribute("href");
-      adLink.classList.add("is-disabled");
-      return;
+    if (routeAd) {
+      routeAd.hidden = !shouldShow;
+      routeAd.setAttribute("aria-hidden", shouldShow ? "false" : "true");
+    }
+    if (chatMain) {
+      chatMain.classList.toggle("has-ad", shouldShow);
     }
 
-    if (!resolvedRoute) {
-      adTitle.textContent = "跨境中国内地法律事务";
-      adCopy.textContent = "如需进一步咨询或委托，可查看对应专题页了解服务内容与办理方式。";
-      adLink.href = "/us/index_cn.html?source=ask-chat";
-      adLink.textContent = "打开专题页";
-      adLink.classList.remove("is-disabled");
+    if (!shouldShow || !resolvedRoute) {
       return;
     }
 
