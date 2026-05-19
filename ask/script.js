@@ -4,6 +4,7 @@
   const form = document.getElementById("chatForm");
   const input = document.getElementById("chatInput");
   const submitButton = form?.querySelector("button[type='submit']");
+  let isComposing = false;
 
   const adTitle = document.getElementById("adTitle");
   const adCopy = document.getElementById("adCopy");
@@ -348,6 +349,28 @@
   form.addEventListener("submit", function (event) {
     event.preventDefault();
     handleTurn(input.value, { fromChip: false });
+  });
+
+  input.addEventListener("compositionstart", function () {
+    isComposing = true;
+  });
+
+  input.addEventListener("compositionend", function () {
+    isComposing = false;
+  });
+
+  input.addEventListener("keydown", function (event) {
+    if (event.key !== "Enter" || event.shiftKey) return;
+    if (event.isComposing || isComposing || event.keyCode === 229) return;
+    if (input.disabled) return;
+    if (!String(input.value || "").trim()) return;
+
+    event.preventDefault();
+    if (typeof form.requestSubmit === "function") {
+      form.requestSubmit();
+    } else {
+      form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
+    }
   });
 
   input.addEventListener("input", function () {
