@@ -5,6 +5,10 @@
   const input = document.getElementById("chatInput");
   const submitButton = form?.querySelector("button[type='submit']");
 
+  const adTitle = document.getElementById("adTitle");
+  const adCopy = document.getElementById("adCopy");
+  const adLink = document.getElementById("adLink");
+
   const state = {
     stage: "region",
     region: "",
@@ -12,8 +16,7 @@
     matter: "",
     summary: "",
     messages: [],
-    activeRequestId: 0,
-    lastRouteUrl: ""
+    activeRequestId: 0
   };
 
   const regionChips = [
@@ -40,46 +43,22 @@
   ];
 
   const localRoutes = {
-    us_chinese: {
-      label: "美国华人中文入口",
-      url: "/us/index_cn.html"
-    },
-    us_general: {
-      label: "美国客户英文入口",
-      url: "/us/index_us.html"
-    },
-    macau: {
-      label: "澳门繁体入口",
-      url: "/am/index_tc.html"
-    },
-    malaysia: {
-      label: "马来西亚中文入口",
-      url: "/ml/index_cn.html"
-    },
-    singapore: {
-      label: "新加坡中文入口",
-      url: "/xj/index_cn.html"
-    },
-    other: {
-      label: "美国华人中文入口",
-      url: "/us/index_cn.html"
-    }
+    us_chinese: { label: "美国华人中文入口", url: "/us/index_cn.html" },
+    us_general: { label: "美国客户英文入口", url: "/us/index_us.html" },
+    macau: { label: "澳门繁体入口", url: "/am/index_tc.html" },
+    malaysia: { label: "马来西亚中文入口", url: "/ml/index_cn.html" },
+    singapore: { label: "新加坡中文入口", url: "/xj/index_cn.html" },
+    other: { label: "美国华人中文入口", url: "/us/index_cn.html" }
   };
 
   function apiEndpoint() {
-    if (window.JINGWEI_AI_API) {
-      return window.JINGWEI_AI_API;
-    }
-
-    if (window.SITE_CONFIG && window.SITE_CONFIG.aiEndpoint) {
-      return window.SITE_CONFIG.aiEndpoint;
-    }
+    if (window.JINGWEI_AI_API) return window.JINGWEI_AI_API;
+    if (window.SITE_CONFIG && window.SITE_CONFIG.aiEndpoint) return window.SITE_CONFIG.aiEndpoint;
 
     if (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") {
       return "http://127.0.0.1:4100/chat";
     }
-
-    return "https://jingwei-vercel-ai-api.vercel.app/chat";
+    return "https://api.jingwei-law.com/chat";
   }
 
   function scrollToBottom() {
@@ -116,9 +95,7 @@
   }
 
   function setBusy(busy) {
-    if (submitButton) {
-      submitButton.disabled = busy;
-    }
+    if (submitButton) submitButton.disabled = busy;
     input.disabled = busy;
   }
 
@@ -143,49 +120,39 @@
 
   function appendSummary(text) {
     const cleaned = String(text || "").trim();
-    if (!cleaned) {
-      return;
-    }
+    if (!cleaned) return;
 
-    const parts = state.summary
-      ? state.summary.split("\n").map(function (line) { return line.trim(); }).filter(Boolean)
-      : [];
-
-    if (!parts.includes(cleaned)) {
-      parts.push(cleaned);
-    }
-
+    const parts = state.summary ? state.summary.split("\n").map((line) => line.trim()).filter(Boolean) : [];
+    if (!parts.includes(cleaned)) parts.push(cleaned);
     state.summary = parts.join("\n").slice(0, 2000);
   }
 
   function inferRegion(text) {
     if (/澳门|澳門/.test(text)) return "macau";
-    if (/马来西亚|Malaysia/i.test(text)) return "malaysia";
+    if (/马来西亚|馬來西亞|Malaysia/i.test(text)) return "malaysia";
     if (/新加坡|Singapore/i.test(text)) return "singapore";
-    if (/美国华人|华人|中文客户/.test(text)) return "us_chinese";
-    if (/美国|U\.?S\.?|United States/i.test(text)) return "us_general";
+    if (/美国华人|華人|中文客户/.test(text)) return "us_chinese";
+    if (/美国|美國|U\.?S\.?|United States/i.test(text)) return "us_general";
     return "other";
   }
 
   function inferMainland(text) {
-    if (/不涉及中国内地|只涉及当地|当地法律|美国本地|澳门本地|香港本地/.test(text)) return "no";
-    if (/不确定|暂时不清楚|还不清楚|需要先判断/.test(text)) return "unsure";
-    if (/中国内地|内地|大陆|中国法律|境内/.test(text)) return "yes";
+    if (/不涉及中国内地|不涉及中國內地|只涉及当地|纯美国|純美國|美国本地|美國本地|澳门本地|澳門本地|香港本地/.test(text)) return "no";
+    if (/不确定|不確定|暂时不清楚|還不清楚|需要先判断/.test(text)) return "unsure";
+    if (/中国内地|中國內地|内地|內地|大陆|大陸|mainland/i.test(text)) return "yes";
     return "unsure";
   }
 
   function inferMatter(text) {
-    if (/合同|合作|买卖|货款|商业/.test(text)) return "contract";
-    if (/公司|股权|经营|投资|合伙/.test(text)) return "company";
-    if (/婚姻|离婚|继承|家事|抚养/.test(text)) return "family";
-    if (/授权|公证|认证|文件|身份|委托/.test(text)) return "identity";
+    if (/合同|合约|合約|合作|货款|貨款|商事|contract|breach|payment/i.test(text)) return "contract";
+    if (/公司|股权|股權|经营|經營|投资|投資|shareholder|equity|company/i.test(text)) return "company";
+    if (/婚姻|离婚|離婚|继承|繼承|家事|遗产|遺產|family|divorce|inheritance/i.test(text)) return "family";
+    if (/授权|授權|公证|公證|认证|認證|文件|身份|notarization|authentication|document/i.test(text)) return "identity";
     return "other";
   }
 
   function routeForCurrentState() {
-    if (state.mainland === "no") {
-      return null;
-    }
+    if (state.mainland === "no") return null;
     return localRoutes[state.region] || localRoutes.other;
   }
 
@@ -194,29 +161,32 @@
     return route.url + "?source=" + encodeURIComponent(source);
   }
 
-  function addCta(route) {
-    if (!route || !route.url) {
+  function updateAd(route, stage) {
+    const resolvedRoute = route && route.url ? route : stage === "done" ? routeForCurrentState() : null;
+
+    if (!resolvedRoute && state.mainland === "no") {
+      adTitle.textContent = "当前事项不在专题投放范围";
+      adCopy.textContent = "该问题更偏当地法律事务。AI可继续做初步判断，但不会推荐专题落地页。";
+      adLink.textContent = "无需跳转";
+      adLink.removeAttribute("href");
+      adLink.classList.add("is-disabled");
       return;
     }
 
-    const normalizedUrl = routeUrl(route);
-    if (state.lastRouteUrl === normalizedUrl) {
+    if (!resolvedRoute) {
+      adTitle.textContent = "跨境中国内地法律事务专题";
+      adCopy.textContent = "模型只回答法律问题。需要进一步委托时，可在此进入对应专题页。";
+      adLink.href = "/us/index_cn.html?source=ask-chat";
+      adLink.textContent = "打开专题页";
+      adLink.classList.remove("is-disabled");
       return;
     }
 
-    const lastBubble = chatBody.querySelector(".msg-row.bot:last-child .bubble");
-    if (!lastBubble) {
-      return;
-    }
-
-    const link = document.createElement("a");
-    link.className = "cta-link";
-    link.href = normalizedUrl;
-    link.textContent = "进入推荐表单";
-    lastBubble.appendChild(document.createElement("br"));
-    lastBubble.appendChild(link);
-    state.lastRouteUrl = normalizedUrl;
-    scrollToBottom();
+    adTitle.textContent = resolvedRoute.label || "专题落地页";
+    adCopy.textContent = "如需进一步处理，可在该专题页填写联系方式，由团队跟进。";
+    adLink.href = routeUrl(resolvedRoute);
+    adLink.textContent = "打开专题页";
+    adLink.classList.remove("is-disabled");
   }
 
   function localStage() {
@@ -234,7 +204,7 @@
     if (stage === "region") {
       return {
         stage: "region",
-        answer: "你好，我是刘毅律师团队的 AI 法律助理。我们先像聊天一样做一个初步判断。你现在主要在哪个地区？",
+        answer: "你好，我是刘毅律师团队的 AI 法律助理。先用聊天方式做初步判断，你现在主要在哪个地区？",
         chips: regionChips,
         inputPlaceholder: "也可以直接输入你现在主要所在地区",
         route: null
@@ -244,7 +214,7 @@
     if (stage === "mainland") {
       return {
         stage: "mainland",
-        answer: "这个事项是否涉及中国内地？比如对方、财产、公司、合同履行地或主要证据在中国内地。",
+        answer: "这个事项是否涉及中国内地？比如对方主体、财产所在地、合同履行地或主要证据在内地。",
         chips: mainlandChips,
         inputPlaceholder: "输入是否涉及中国内地",
         route: null
@@ -254,9 +224,9 @@
     if (stage === "matter") {
       return {
         stage: "matter",
-        answer: "大致属于哪一类事务？你先说合同合作、公司股权、婚姻家事、授权文件，或者其他民商事问题都可以。",
+        answer: "大致属于哪一类事务？你先说合同合作、公司股权、婚姻继承、授权文件，或其他民商事问题都可以。",
         chips: matterChips,
-        inputPlaceholder: "输入大致的事务类型",
+        inputPlaceholder: "输入大致事务类型",
         route: null
       };
     }
@@ -264,18 +234,17 @@
     if (stage === "summary") {
       return {
         stage: "summary",
-        answer: "最后用一句话说一下你的具体情况，比如你现在在哪、对方或财产在哪里、最想先解决什么问题。",
+        answer: "最后用一句话补充核心情况：你在哪里、对方或财产在哪里、最想先解决什么。",
         chips: [],
-        inputPlaceholder: "例如：我人在美国，对方公司和合同履行地在中国内地",
+        inputPlaceholder: "例如：我人在美国，对方公司在深圳，合同履行地在内地",
         route: null
       };
     }
 
-    const route = routeForCurrentState();
-    if (!route) {
+    if (state.mainland === "no") {
       return {
         stage: "done",
-        answer: "从你目前说的情况看，这个入口暂时不像是在处理中国内地法律事务。\n\n如果后面确认涉及中国内地主体、财产、合同履行地或主要证据，可以再回到这里继续判断。\n\n以上仅作初步信息整理，不构成正式法律意见。",
+        answer: "从你目前提供的信息看，这更偏当地法律事务，不是中国内地法律事项。你也可以继续补充事实，我可以再帮你细化判断。",
         chips: [],
         inputPlaceholder: "也可以继续补充你的情况",
         route: null
@@ -284,10 +253,10 @@
 
     return {
       stage: "done",
-      answer: "你这个情况可以先按对应中国内地法律事务方向整理。\n\n建议先提交所在地区、事项发生地、对方主体、现有材料和你最想解决的问题，律师团队再结合材料判断下一步。\n\n以上仅作初步信息整理，不构成正式法律意见。",
+      answer: "基于目前信息，这个事项可继续按中国内地法律路径做初步分析。你可以继续补充时间线、关键证据和目标，我会继续细化判断。",
       chips: [],
       inputPlaceholder: "也可以继续补充你的情况",
-      route: route
+      route: routeForCurrentState()
     };
   }
 
@@ -295,32 +264,25 @@
     const fromChip = options && options.fromChip;
     const value = options && options.value;
 
-    if (!fromChip) {
-      appendSummary(text);
-    }
+    if (!fromChip) appendSummary(text);
 
     if (state.stage === "region") {
       state.region = fromChip ? value : inferRegion(text);
       return;
     }
-
     if (state.stage === "mainland") {
       state.mainland = fromChip ? value : inferMainland(text);
       return;
     }
-
     if (state.stage === "matter") {
       state.matter = fromChip ? value : inferMatter(text);
-      return;
     }
   }
 
   async function askBackend() {
     const response = await fetch(apiEndpoint(), {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         region: state.region,
         mainland: state.mainland,
@@ -331,10 +293,7 @@
       })
     });
 
-    if (!response.ok) {
-      throw new Error("AI endpoint failed");
-    }
-
+    if (!response.ok) throw new Error("AI endpoint failed");
     return response.json();
   }
 
@@ -345,7 +304,6 @@
       state.matter = result.state.matter || state.matter;
       state.summary = result.state.summary || state.summary;
     }
-
     state.stage = (result && result.stage) || localStage();
   }
 
@@ -354,19 +312,12 @@
     addBot(result.answer || fallbackReply().answer);
     setChips(result.chips || []);
     updatePlaceholder(result.inputPlaceholder);
-
-    if (result.route) {
-      addCta(result.route);
-    } else if (state.stage !== "done") {
-      state.lastRouteUrl = "";
-    }
+    updateAd(result.route || null, state.stage);
   }
 
   async function handleTurn(text, options) {
     const cleaned = String(text || "").trim();
-    if (!cleaned) {
-      return;
-    }
+    if (!cleaned) return;
 
     addUser(cleaned);
     applyChoice(cleaned, options);
@@ -379,15 +330,11 @@
 
     try {
       const result = await askBackend();
-      if (requestId !== state.activeRequestId) {
-        return;
-      }
+      if (requestId !== state.activeRequestId) return;
       typing.remove();
       renderAssistantReply(result);
     } catch (error) {
-      if (requestId !== state.activeRequestId) {
-        return;
-      }
+      if (requestId !== state.activeRequestId) return;
       typing.remove();
       renderAssistantReply(fallbackReply());
     } finally {
@@ -411,15 +358,10 @@
   chatBody.innerHTML = '<div class="day-pill">今天</div>';
   renderAssistantReply({
     stage: "region",
-    answer: "你好，我是刘毅律师团队的 AI 法律助理。我们先像聊天一样做一个初步判断。你现在主要在哪个地区？",
+    answer: "你好，我是刘毅律师团队的 AI 法律助理。先用聊天方式做初步判断，你现在主要在哪个地区？",
     chips: regionChips,
     inputPlaceholder: "也可以直接输入你现在主要所在地区",
     route: null,
-    state: {
-      region: "",
-      mainland: "",
-      matter: "",
-      summary: ""
-    }
+    state: { region: "", mainland: "", matter: "", summary: "" }
   });
 })();

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI法律初步问答 | 刘毅律师团队</title>
-  <meta name="description" content="刘毅律师团队 AI 法律初步问答，通过对话方式整理跨境中国内地法律事务信息，并推荐合适的咨询入口。">
+  <meta name="description" content="刘毅律师团队 AI 法律初步问答。模型专注回答跨境中国内地法律事务问题，专题入口以右侧广告位展示。">
   <link rel="canonical" href="https://www.jingwei-law.com/ask/">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -21,7 +21,7 @@
       <div class="brand-copy">
         <p class="eyebrow">AI法律初步问答</p>
         <h1>像聊天一样，先把问题说清楚</h1>
-        <p>系统会根据你的所在地、事务类型和是否涉及中国内地，推荐对应的咨询表单入口。</p>
+        <p>模型会先围绕案件事实做初步法律判断。专题落地页入口放在右侧广告位，不混在对话内容中。</p>
       </div>
       <img class="office-image" src="/img/banner1.webp" alt="法律事务沟通场景" loading="lazy" decoding="async">
       <div class="side-note">仅作初步信息整理，不构成正式法律意见。</div>
@@ -40,14 +40,24 @@
         <a class="home-link" href="/articles/" aria-label="查看专题入口">专题入口</a>
       </header>
 
-      <div class="chat-body" id="chatBody" aria-live="polite"></div>
+      <div class="chat-main">
+        <section class="chat-stream" aria-label="对话区">
+          <div class="chat-body" id="chatBody" aria-live="polite"></div>
+          <div class="quick-replies" id="quickReplies" aria-label="快捷回复"></div>
+          <form class="composer" id="chatForm">
+            <textarea id="chatInput" rows="1" placeholder="输入你的情况"></textarea>
+            <button type="submit">发送</button>
+          </form>
+        </section>
 
-      <div class="quick-replies" id="quickReplies" aria-label="快捷回复"></div>
-
-      <form class="composer" id="chatForm">
-        <textarea id="chatInput" rows="1" placeholder="输入你的情况"></textarea>
-        <button type="submit">发送</button>
-      </form>
+        <aside class="chat-ad" id="routeAd" aria-label="专题广告位">
+          <p class="ad-badge">专题广告位</p>
+          <h2 class="ad-title" id="adTitle">跨境中国内地法律事务专题</h2>
+          <p class="ad-copy" id="adCopy">模型只回答法律问题。需要进一步委托时，可在此进入对应专题页。</p>
+          <a class="ad-link" id="adLink" href="/us/index_cn.html?source=ask-chat" target="_blank" rel="noopener">打开专题页</a>
+          <p class="ad-note">广告位独立展示，不影响对话逻辑。</p>
+        </aside>
+      </div>
     </section>
   </main>
 
