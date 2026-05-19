@@ -279,25 +279,25 @@
     const resolvedRoute = route && route.url ? route : stage === "done" ? routeForCurrentState() : null;
 
     if (!resolvedRoute && state.mainland === "no") {
-      adTitle.textContent = "当前事项不在专题投放范围";
-      adCopy.textContent = "该问题更偏当地法律事务。AI可继续做初步判断，但不会推荐专题落地页。";
-      adLink.textContent = "无需跳转";
+      adTitle.textContent = "你当前的问题方向";
+      adCopy.textContent = "根据你目前提供的信息，这个问题更偏当地法律事务。你可以继续补充情况，我们会继续帮你梳理。";
+      adLink.textContent = "继续当前咨询";
       adLink.removeAttribute("href");
       adLink.classList.add("is-disabled");
       return;
     }
 
     if (!resolvedRoute) {
-      adTitle.textContent = "跨境中国内地法律事务专题";
-      adCopy.textContent = "模型只回答法律问题。需要进一步委托时，可在此进入对应专题页。";
+      adTitle.textContent = "跨境中国内地法律事务";
+      adCopy.textContent = "如需进一步咨询或委托，可查看对应专题页了解服务内容与办理方式。";
       adLink.href = "/us/index_cn.html?source=ask-chat";
       adLink.textContent = "打开专题页";
       adLink.classList.remove("is-disabled");
       return;
     }
 
-    adTitle.textContent = resolvedRoute.label || "专题落地页";
-    adCopy.textContent = "如需进一步处理，可在该专题页填写联系方式，由团队跟进。";
+    adTitle.textContent = resolvedRoute.label || "相关专题页";
+    adCopy.textContent = "你可以打开该专题页查看对应服务，并按页面指引继续办理。";
     adLink.href = routeUrl(resolvedRoute);
     adLink.textContent = "打开专题页";
     adLink.classList.remove("is-disabled");
