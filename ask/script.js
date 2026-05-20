@@ -81,7 +81,7 @@
 
     const bubble = document.createElement("div");
     bubble.className = "bubble";
-    bubble.textContent = text;
+    bubble.textContent = options && options.typewriter ? "" : text;
 
     row.appendChild(avatar);
     row.appendChild(bubble);
@@ -90,10 +90,41 @@
     return row;
   }
 
-  function addBot(text) {
+  function sleep(ms) {
+    return new Promise((resolve) => window.setTimeout(resolve, ms));
+  }
+
+  async function typeBotMessage(row, text, requestId) {
+    const bubble = row.querySelector(".bubble");
+    const fullText = String(text || "");
+    if (!bubble || !fullText) return;
+
+    row.classList.add("is-typewriting");
+    bubble.textContent = "";
+
+    for (let index = 0; index < fullText.length; index += 1) {
+      if (requestId && requestId !== state.activeRequestId) {
+        bubble.textContent = fullText;
+        break;
+      }
+      bubble.textContent += fullText[index];
+      if (index % 4 === 0 || index === fullText.length - 1) scrollToBottom();
+      await sleep(index < 220 ? 18 : 7);
+    }
+
+    bubble.textContent = fullText;
+    row.classList.remove("is-typewriting");
+    scrollToBottom();
+  }
+
+  async function addBot(text, options) {
     state.messages.push({ role: "assistant", content: text });
     saveChatSession();
-    return addMessage(text, "bot");
+    const row = addMessage(text, "bot", { typewriter: options && options.typewriter });
+    if (options && options.typewriter) {
+      await typeBotMessage(row, text, options.requestId);
+    }
+    return row;
   }
 
   function addUser(text) {
@@ -444,9 +475,9 @@
     state.stage = (result && result.stage) || localStage();
   }
 
-  function renderAssistantReply(result) {
+  async function renderAssistantReply(result, options) {
     applyBackendState(result);
-    addBot(result.answer || fallbackReply().answer);
+    await addBot(result.answer || fallbackReply().answer, options);
     setChips(result.chips || []);
     updatePlaceholder(result.inputPlaceholder);
     updateAd(result.route || null, state.stage);
@@ -470,11 +501,11 @@
       const result = await askBackend();
       if (requestId !== state.activeRequestId) return;
       typing.remove();
-      renderAssistantReply(result);
+      await renderAssistantReply(result, { typewriter: true, requestId });
     } catch (error) {
       if (requestId !== state.activeRequestId) return;
       typing.remove();
-      renderAssistantReply(fallbackReply());
+      await renderAssistantReply(fallbackReply(), { typewriter: true, requestId });
     } finally {
       if (requestId === state.activeRequestId) {
         setBusy(false);
