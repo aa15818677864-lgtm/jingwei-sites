@@ -64,7 +64,7 @@
     if (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") {
       return "http://127.0.0.1:4100/chat";
     }
-    return "https://api.jingwei-law.com/chat";
+    return "https://jingwei-vercel-ai-api.vercel.app/chat";
   }
 
   function scrollToBottom() {
