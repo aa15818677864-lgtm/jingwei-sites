@@ -5,8 +5,11 @@
   const form = document.getElementById("chatForm");
   const input = document.getElementById("chatInput");
   const submitButton = form?.querySelector("button[type='submit']");
-  const SESSION_KEY = "jingwei.ask.chat.session.v1";
-  const BACKUP_KEY = "jingwei.ask.chat.backup.v1";
+  const urlParams = new URLSearchParams(window.location.search);
+  const activeTopic = urlParams.get("topic") || "";
+  const storageSuffix = activeTopic ? "." + activeTopic.replace(/[^a-z0-9_-]/gi, "") : "";
+  const SESSION_KEY = "jingwei.ask.chat.session.v1" + storageSuffix;
+  const BACKUP_KEY = "jingwei.ask.chat.backup.v1" + storageSuffix;
   const STORAGE_MAX_AGE_MS = 1000 * 60 * 60 * 24 * 3;
   let isComposing = false;
 
@@ -25,7 +28,25 @@
     activeRequestId: 0
   };
 
+  const topicPresets = {
+    "hk-mainland-property-inheritance": {
+      region: "hongkong",
+      mainland: "yes",
+      matter: "family",
+      summary: "客户从香港居民继承中国内地房产过户专题进入，重点关注内地不动产继承、香港文件公证转递、继承人一致性、税费和委托办理。",
+      greeting: "你好，这里先按“香港居民继承中国内地房产/物业过户”来做初步判断。你可以直接说：房子在哪个内地城市、登记在谁名下、被继承人是否已去世、有没有遗嘱或继承人争议。",
+      placeholder: "例如：父亲在深圳有房，香港去世，有两个子女，想问怎么过户",
+      chips: [
+        { label: "深圳房产继承", value: "我想咨询香港居民继承深圳房产过户" },
+        { label: "香港文件能否用", value: "香港死亡证明和亲属关系证明能不能直接拿到内地用？" },
+        { label: "继承人不同意", value: "继承人之间不同意，内地房产还能过户吗？" },
+        { label: "费用和周期", value: "香港居民继承内地房产大概费用和周期怎么判断？" }
+      ]
+    }
+  };
+
   const regionChips = [
+    { label: "香港", value: "hongkong" },
     { label: "美国华人", value: "us_chinese" },
     { label: "美国客户", value: "us_general" },
     { label: "澳门", value: "macau" },
@@ -49,6 +70,7 @@
   ];
 
   const localRoutes = {
+    hongkong: { label: "香港继承内地房产专题", url: "/articles/hk-mainland-property-inheritance/" },
     us_chinese: { label: "美国华人中文入口", url: "/us/index_cn.html" },
     us_general: { label: "美国客户英文入口", url: "/us/index_us.html" },
     macau: { label: "澳门繁体入口", url: "/am/index_tc.html" },
@@ -158,6 +180,10 @@
   }
 
   function stageUi(stage) {
+    const preset = topicPresets[activeTopic];
+    if (preset && stage === "done") {
+      return { chips: preset.chips || [], placeholder: preset.placeholder };
+    }
     if (stage === "region") {
       return { chips: regionChips, placeholder: "也可以直接输入你现在主要所在地区" };
     }
@@ -275,6 +301,7 @@
   }
 
   function inferRegion(text) {
+    if (/香港|港人|香港居民|Hong Kong|HK/i.test(text)) return "hongkong";
     if (/澳门|澳門/.test(text)) return "macau";
     if (/马来西亚|馬來西亞|Malaysia/i.test(text)) return "malaysia";
     if (/新加坡|Singapore/i.test(text)) return "singapore";
@@ -301,6 +328,7 @@
   }
 
   function inferMatter(text) {
+    if (/继承|繼承|遗产|遺產|遗嘱|遺囑|家事|family|inheritance|estate/i.test(text)) return "family";
     if (
       /合同|合约|合約|合作|货款|貨款|商事|购房|購房|买房|買房|房产|房產|楼房|樓房|不动产|不動產|物业|物業|开发商|開發商|交房|收楼|办证|辦證|产证|產證|过户|過戶|产权|產權|按揭|房款|contract|breach|payment|property|developer|title|handover|mortgage/i.test(
         text
@@ -308,7 +336,7 @@
     )
       return "contract";
     if (/公司|股权|股權|经营|經營|投资|投資|shareholder|equity|company/i.test(text)) return "company";
-    if (/婚姻|离婚|離婚|继承|繼承|家事|遗产|遺產|family|divorce|inheritance/i.test(text)) return "family";
+    if (/婚姻|离婚|離婚|family|divorce/i.test(text)) return "family";
     if (/授权|授權|公证|公證|认证|認證|文件|身份|notarization|authentication|document/i.test(text)) return "identity";
     return "other";
   }
@@ -319,13 +347,16 @@
   }
 
   function routeUrl(route) {
-    const source = new URLSearchParams(window.location.search).get("source") || "ask-chat";
-    return route.url + "?source=" + encodeURIComponent(source);
+    const source = urlParams.get("source") || "ask-chat";
+    const query = new URLSearchParams({ source });
+    if (activeTopic) query.set("topic", activeTopic);
+    return route.url + "?" + query.toString();
   }
 
   function updateAd(route, stage) {
     const resolvedRoute = route && route.url ? route : stage === "done" ? routeForCurrentState() : null;
-    const shouldShow = stage === "done" && !!(resolvedRoute && resolvedRoute.url);
+    const hasUserTurn = state.messages.some((message) => message.role === "user");
+    const shouldShow = stage === "done" && hasUserTurn && !!(resolvedRoute && resolvedRoute.url);
 
     if (routeAd) {
       routeAd.hidden = !shouldShow;
@@ -353,6 +384,18 @@
     if (!state.matter) return "matter";
     if (state.summary.replace(/\s+/g, "").length < 12) return "summary";
     return "done";
+  }
+
+  function applyTopicPreset() {
+    const preset = topicPresets[activeTopic];
+    if (!preset) return null;
+
+    state.region = preset.region || state.region;
+    state.mainland = preset.mainland || state.mainland;
+    state.matter = preset.matter || state.matter;
+    state.summary = preset.summary || state.summary;
+    state.stage = localStage();
+    return preset;
   }
 
   function fallbackReply() {
@@ -421,6 +464,10 @@
     const fromChip = options && options.fromChip;
     const value = options && options.value;
 
+    if (fromChip && activeTopic && !["region", "mainland", "matter"].includes(state.stage)) {
+      appendSummary(value || text);
+      return;
+    }
     if (!fromChip) appendSummary(text);
     if (!fromChip) {
       const inferredMainland = inferMainland(text);
@@ -550,14 +597,20 @@
   window.addEventListener("pagehide", saveChatSession);
 
   if (!restoreChatSession()) {
+    const preset = applyTopicPreset();
     chatBody.innerHTML = '<div class="day-pill">今天</div>';
     renderAssistantReply({
-      stage: "region",
-      answer: "你好，我是刘毅律师团队的 AI 法律助理。先用聊天方式做初步判断，你现在主要在哪个地区？",
-      chips: regionChips,
-      inputPlaceholder: "也可以直接输入你现在主要所在地区",
+      stage: preset ? "done" : "region",
+      answer: preset ? preset.greeting : "你好，我是刘毅律师团队的 AI 法律助理。先用聊天方式做初步判断，你现在主要在哪个地区？",
+      chips: preset ? preset.chips : regionChips,
+      inputPlaceholder: preset ? preset.placeholder : "也可以直接输入你现在主要所在地区",
       route: null,
-      state: { region: "", mainland: "", matter: "", summary: "" }
+      state: {
+        region: state.region,
+        mainland: state.mainland,
+        matter: state.matter,
+        summary: state.summary
+      }
     });
   }
 })();
