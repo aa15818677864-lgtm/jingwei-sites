@@ -17,6 +17,7 @@
   const adCopy = document.getElementById("adCopy");
   const adLink = document.getElementById("adLink");
   const routeAd = document.getElementById("routeAd");
+  const LAST_GOOD_ENDPOINT_KEY = "jingwei.ask.chat.endpoint.lastGood";
 
   const state = {
     stage: "region",
@@ -79,14 +80,67 @@
     other: { label: "美国华人中文入口", url: "/us/index_cn.html" }
   };
 
-  function apiEndpoint() {
-    if (window.JINGWEI_AI_API) return window.JINGWEI_AI_API;
-    if (window.SITE_CONFIG && window.SITE_CONFIG.aiEndpoint) return window.SITE_CONFIG.aiEndpoint;
-
+  function apiEndpointCandidates() {
     if (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") {
-      return "http://127.0.0.1:4100/chat";
+      return ["http://127.0.0.1:4100/chat"];
     }
-    return "https://jingwei-vercel-ai-api.vercel.app/chat";
+
+    const configured = [];
+    if (window.JINGWEI_AI_API) configured.push(window.JINGWEI_AI_API);
+    if (window.SITE_CONFIG) {
+      if (Array.isArray(window.SITE_CONFIG.aiEndpoints)) {
+        window.SITE_CONFIG.aiEndpoints.forEach((endpoint) => configured.push(endpoint));
+      }
+      if (window.SITE_CONFIG.aiEndpoint) configured.push(window.SITE_CONFIG.aiEndpoint);
+    }
+
+    configured.push("https://jingwei-vercel-ai-api.vercel.app/chat");
+
+    return Array.from(
+      new Set(
+        configured
+          .map((endpoint) => String(endpoint || "").trim())
+          .filter(Boolean)
+      )
+    );
+  }
+
+  function endpointTimeoutMs(endpoint, index) {
+    if (/api\.jingwei-law\.com/i.test(endpoint)) return 3500;
+    return index === 0 ? 12000 : 9000;
+  }
+
+  function preferredEndpointOrder(candidates) {
+    let lastGood = "";
+    try {
+      lastGood = window.sessionStorage.getItem(LAST_GOOD_ENDPOINT_KEY) || "";
+    } catch {
+      lastGood = "";
+    }
+
+    if (!lastGood || !candidates.includes(lastGood)) return candidates.slice();
+    return [lastGood].concat(candidates.filter((endpoint) => endpoint !== lastGood));
+  }
+
+  async function fetchChatJson(endpoint, payload, timeoutMs) {
+    const controller = new AbortController();
+    const timer = window.setTimeout(function () {
+      controller.abort();
+    }, timeoutMs);
+
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+        signal: controller.signal
+      });
+
+      if (!response.ok) throw new Error("AI endpoint failed");
+      return response.json();
+    } finally {
+      window.clearTimeout(timer);
+    }
   }
 
   function scrollToBottom() {
@@ -495,21 +549,35 @@
   }
 
   async function askBackend() {
-    const response = await fetch(apiEndpoint(), {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        region: state.region,
-        mainland: state.mainland,
-        matter: state.matter,
-        summary: state.summary,
-        language: "zh-CN",
-        messages: state.messages
-      })
-    });
+    const payload = {
+      topic: activeTopic || "",
+      region: state.region,
+      mainland: state.mainland,
+      matter: state.matter,
+      summary: state.summary,
+      language: "zh-CN",
+      messages: state.messages
+    };
 
-    if (!response.ok) throw new Error("AI endpoint failed");
-    return response.json();
+    const candidates = preferredEndpointOrder(apiEndpointCandidates());
+    let lastError = null;
+
+    for (let index = 0; index < candidates.length; index += 1) {
+      const endpoint = candidates[index];
+      try {
+        const result = await fetchChatJson(endpoint, payload, endpointTimeoutMs(endpoint, index));
+        try {
+          window.sessionStorage.setItem(LAST_GOOD_ENDPOINT_KEY, endpoint);
+        } catch {
+          // ignore storage failures
+        }
+        return result;
+      } catch (error) {
+        lastError = error;
+      }
+    }
+
+    throw lastError || new Error("AI endpoint failed");
   }
 
   function applyBackendState(result) {
