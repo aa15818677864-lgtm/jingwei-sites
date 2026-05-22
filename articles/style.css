@@ -391,6 +391,37 @@ h1 {
   color: var(--accent);
 }
 
+.related-box {
+  display: grid;
+  gap: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--soft);
+  padding: 18px;
+  margin: 26px 0 30px;
+}
+
+.related-box h2 {
+  margin: 0 0 2px;
+  font-size: 20px;
+}
+
+.related-box a {
+  display: block;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+  padding: 10px 12px;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.related-box a:hover {
+  border-color: #cddde2;
+  color: var(--brand);
+  text-decoration: none;
+}
+
 .cta-panel {
   background: var(--ink);
   color: #fff;
