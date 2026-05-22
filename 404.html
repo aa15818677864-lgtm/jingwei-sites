@@ -1,7 +1,103 @@
-<html>
-<head><title>404 Not Found</title></head>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>页面未找到 | 刘毅律师团队</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17212f;
+      --muted: #5f6b7a;
+      --line: #dfe4ea;
+      --brand: #8a1f2d;
+      --accent: #116466;
+      --soft: #f6f7f9;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100svh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 32px;
+      font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fff 0%, var(--soft) 100%);
+      line-height: 1.7;
+    }
+
+    main {
+      width: min(680px, 100%);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 34px;
+      box-shadow: 0 18px 50px rgba(23, 33, 47, 0.08);
+    }
+
+    .brand {
+      color: var(--brand);
+      font-weight: 800;
+      margin: 0 0 10px;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(30px, 5vw, 46px);
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0 0 22px;
+      color: var(--muted);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 16px;
+      border-radius: 6px;
+      border: 1px solid var(--line);
+      color: var(--ink);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    a.primary {
+      border-color: transparent;
+      background: var(--brand);
+      color: #fff;
+    }
+
+    a:hover {
+      border-color: var(--accent);
+    }
+  </style>
+</head>
 <body>
-<center><h1>404 Not Found</h1></center>
-<hr><center>nginx</center>
+  <main>
+    <p class="brand">刘毅律师团队</p>
+    <h1>页面暂时没有找到</h1>
+    <p>链接可能已经更新。你可以返回主站，查看跨境中国法律事务文章，或先进入 AI 初步问答说明情况。</p>
+    <div class="actions">
+      <a class="primary" href="/">返回主站</a>
+      <a href="/articles/">查看文章库</a>
+      <a href="/ask/">进入 AI 初步问答</a>
+    </div>
+  </main>
 </body>
 </html>
