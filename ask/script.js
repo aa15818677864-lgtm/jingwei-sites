@@ -8,6 +8,8 @@
   const urlParams = new URLSearchParams(window.location.search);
   const activeTopic = urlParams.get("topic") || "";
   const storageSuffix = activeTopic ? "." + activeTopic.replace(/[^a-z0-9_-]/gi, "") : "";
+  const SESSION_BASE_KEY = "jingwei.ask.chat.session.v1";
+  const BACKUP_BASE_KEY = "jingwei.ask.chat.backup.v1";
   const SESSION_KEY = "jingwei.ask.chat.session.v1" + storageSuffix;
   const BACKUP_KEY = "jingwei.ask.chat.backup.v1" + storageSuffix;
   const STORAGE_MAX_AGE_MS = 1000 * 60 * 60 * 24 * 3;
@@ -106,7 +108,7 @@
   }
 
   function endpointTimeoutMs(endpoint, index) {
-    if (/api\.jingwei-law\.com/i.test(endpoint)) return 3500;
+    if (/api\.jingwei-law\.com/i.test(endpoint)) return 13000;
     return index === 0 ? 12000 : 9000;
   }
 
@@ -278,7 +280,27 @@
       const backupRaw = window.localStorage.getItem(BACKUP_KEY);
       const session = sessionRaw ? parseJson(sessionRaw) : null;
       const backup = backupRaw ? parseJson(backupRaw) : null;
-      return session || backup;
+      if (session || backup) return session || backup;
+
+      const genericSessionRaw = window.sessionStorage.getItem(SESSION_BASE_KEY);
+      const genericBackupRaw = window.localStorage.getItem(BACKUP_BASE_KEY);
+      const genericSession = genericSessionRaw ? parseJson(genericSessionRaw) : null;
+      const genericBackup = genericBackupRaw ? parseJson(genericBackupRaw) : null;
+      if (activeTopic) {
+        const generic = genericSession || genericBackup;
+        return generic && generic.topic === activeTopic ? generic : null;
+      }
+      if (genericSession || genericBackup) return genericSession || genericBackup;
+
+      let newest = null;
+      for (let index = 0; index < window.localStorage.length; index += 1) {
+        const key = window.localStorage.key(index);
+        if (!key || !key.startsWith(BACKUP_BASE_KEY + ".")) continue;
+        const payload = parseJson(window.localStorage.getItem(key));
+        if (!payload || !payload.savedAt) continue;
+        if (!newest || Number(payload.savedAt) > Number(newest.savedAt || 0)) newest = payload;
+      }
+      return newest;
     } catch {
       return null;
     }
@@ -286,6 +308,7 @@
 
   function saveChatSession() {
     const payload = {
+      topic: activeTopic,
       savedAt: Date.now(),
       state: {
         stage: state.stage || localStage(),
@@ -302,6 +325,8 @@
       const raw = JSON.stringify(payload);
       window.sessionStorage.setItem(SESSION_KEY, raw);
       window.localStorage.setItem(BACKUP_KEY, raw);
+      window.sessionStorage.setItem(SESSION_BASE_KEY, raw);
+      window.localStorage.setItem(BACKUP_BASE_KEY, raw);
     } catch {
       // ignore storage failures
     }
@@ -310,6 +335,16 @@
   function restoreChatSession() {
     const payload = readStoredPayload();
     if (!payload || !payload.state) return false;
+
+    const preset = topicPresets[activeTopic];
+    if (preset) {
+      const savedState = payload.state || {};
+      const mismatchedTopic = payload.topic && payload.topic !== activeTopic;
+      const mismatchedRegion = savedState.region && savedState.region !== preset.region;
+      const mismatchedMainland = savedState.mainland && savedState.mainland !== preset.mainland;
+      const mismatchedMatter = savedState.matter && savedState.matter !== preset.matter;
+      if (mismatchedTopic || mismatchedRegion || mismatchedMainland || mismatchedMatter) return false;
+    }
 
     const savedAt = Number(payload.savedAt || 0);
     if (savedAt && Date.now() - savedAt > STORAGE_MAX_AGE_MS) return false;
