@@ -7,6 +7,8 @@
   const submitButton = form?.querySelector("button[type='submit']");
   const urlParams = new URLSearchParams(window.location.search);
   const activeTopic = urlParams.get("topic") || "";
+  const sourceParam = urlParams.get("source") || "";
+  const intentParam = urlParams.get("intent") || "";
   const storageSuffix = activeTopic ? "." + activeTopic.replace(/[^a-z0-9_-]/gi, "") : "";
   const SESSION_BASE_KEY = "jingwei.ask.chat.session.v1";
   const BACKUP_BASE_KEY = "jingwei.ask.chat.backup.v1";
@@ -73,7 +75,7 @@
   ];
 
   const localRoutes = {
-    hongkong: { label: "香港继承内地房产专题", url: "/articles/hk-mainland-property-inheritance/" },
+    hongkong: { label: "香港继承内地房产咨询入口", url: "/topics/hk-mainland-property-inheritance/" },
     us_chinese: { label: "美国华人中文入口", url: "/us/index_cn.html" },
     us_general: { label: "美国客户英文入口", url: "/us/index_us.html" },
     macau: { label: "澳门繁体入口", url: "/am/index_tc.html" },
@@ -436,10 +438,12 @@
   }
 
   function routeUrl(route) {
-    const source = urlParams.get("source") || "ask-chat";
-    const query = new URLSearchParams({ source });
-    if (activeTopic) query.set("topic", activeTopic);
-    return route.url + "?" + query.toString();
+    const target = new URL(route.url, window.location.origin);
+    target.searchParams.set("source", "ask-recommendation");
+    if (sourceParam) target.searchParams.set("from", sourceParam);
+    if (activeTopic) target.searchParams.set("topic", activeTopic);
+    if (intentParam) target.searchParams.set("intent", intentParam);
+    return target.pathname + target.search + target.hash;
   }
 
   function updateAd(route, stage) {
@@ -460,7 +464,7 @@
     }
 
     adTitle.textContent = resolvedRoute.label || "相关专题页";
-    adCopy.textContent = "你可以打开该专题页查看对应服务，并按页面指引继续办理。";
+    adCopy.textContent = "如果想让律师团队进一步联系，可以打开专题页提交基本情况。";
     adLink.href = routeUrl(resolvedRoute);
     adLink.textContent = "打开专题页";
     adLink.classList.remove("is-disabled");
@@ -591,6 +595,9 @@
       matter: state.matter,
       summary: state.summary,
       language: "zh-CN",
+      source: sourceParam,
+      intent: intentParam,
+      pageUrl: window.location.href,
       messages: state.messages
     };
 
@@ -627,10 +634,10 @@
 
   async function renderAssistantReply(result, options) {
     applyBackendState(result);
-    await addBot(result.answer || fallbackReply().answer, options);
     setChips(result.chips || []);
     updatePlaceholder(result.inputPlaceholder);
     updateAd(result.route || null, state.stage);
+    await addBot(result.answer || fallbackReply().answer, options);
   }
 
   async function handleTurn(text, options) {
