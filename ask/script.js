@@ -535,6 +535,49 @@
     return matched ? matched[0] : "";
   }
 
+  function regexMatches(text, pattern) {
+    const flags = pattern.flags.includes("g") ? pattern.flags : pattern.flags + "g";
+    const regex = new RegExp(pattern.source, flags);
+    const matches = [];
+    let matched = regex.exec(String(text || ""));
+    while (matched) {
+      matches.push({
+        index: matched.index,
+        end: matched.index + matched[0].length
+      });
+      if (!matched[0]) regex.lastIndex += 1;
+      matched = regex.exec(String(text || ""));
+    }
+    return matches;
+  }
+
+  function insideSpan(index, spans) {
+    return spans.some((span) => index >= span.index && index < span.end);
+  }
+
+  function latestCaseSignal(source, positivePattern, negativePattern) {
+    const negativeSpans = regexMatches(source, negativePattern);
+    const events = negativeSpans.map((span) => ({
+      index: span.index,
+      end: span.end,
+      value: "no"
+    }));
+
+    regexMatches(source, positivePattern).forEach((span) => {
+      if (!insideSpan(span.index, negativeSpans)) {
+        events.push({
+          index: span.index,
+          end: span.end,
+          value: "yes"
+        });
+      }
+    });
+
+    if (!events.length) return "";
+    events.sort((a, b) => a.index - b.index || a.end - b.end);
+    return events[events.length - 1].value;
+  }
+
   function userCaseSource() {
     const presetSummary = String((topicPresets[activeTopic] && topicPresets[activeTopic].summary) || "");
     const parts = [];
@@ -570,6 +613,17 @@
       source,
       /深圳|广州|廣州|上海|北京|佛山|珠海|东莞|東莞|苏州|蘇州|杭州|南京|天津|重庆|重慶|武汉|武漢|成都|西安|青岛|青島|厦门|廈門/i
     );
+  }
+
+  function propertyAreaFact(source) {
+    const pattern = /(\d{1,4}(?:\.\d{1,2})?)\s*(?:平方米|平方|平米|平|㎡|m2|m²)/gi;
+    let matched = pattern.exec(String(source || ""));
+    let area = "";
+    while (matched) {
+      area = matched[1].replace(/\.0+$/, "");
+      matched = pattern.exec(String(source || ""));
+    }
+    return area ? "面积约" + area + "平" : "";
   }
 
   function deceasedFact(source) {
@@ -617,19 +671,49 @@
     ).test(source);
   }
 
+  function lostContactStatus(source) {
+    return latestCaseSignal(
+      source,
+      /失联|失聯|联系不上|聯繫不上|联络不上|聯絡不上|找不到人/i,
+      /(?:没有|沒有|无|無|暂无|暫無|不存在|没人|沒人|没有人|沒有人)[^，。；、,.\n]{0,10}(?:失联|失聯|联系不上|聯繫不上|联络不上|聯絡不上|找不到人)|(?:都|全部|全都)[^，。；、,.\n]{0,8}(?:联系得上|聯繫得上|能联系|能聯繫|可联系|可聯繫)/i
+    );
+  }
+
+  function disputeStatus(source) {
+    return latestCaseSignal(
+      source,
+      /不同意|不配合|争议|爭議|纠纷|糾紛|反对|反對/i,
+      /(?:没有|沒有|无|無|暂无|暫無|不存在)[^，。；、,.\n]{0,10}(?:争议|爭議|纠纷|糾紛|不配合|不同意|反对|反對)|(?:都|全部|全都|一致)[^，。；、,.\n]{0,8}(?:同意|配合)/i
+    );
+  }
+
+  function agreementConfirmed(source) {
+    return /都同意|全部同意|全都同意|一致同意|都配合|全部配合|没有争议|沒有爭議|无争议|無爭議/i.test(source);
+  }
+
+  function hasCaseConflict(source) {
+    return lostContactStatus(source) === "yes" || disputeStatus(source) === "yes";
+  }
+
   function collectCaseFacts(source) {
     const facts = [];
     const city = mainlandCityFact(source);
     const region = regionFact(source);
     const deceased = deceasedFact(source);
+    const area = propertyAreaFact(source);
+    const lostStatus = lostContactStatus(source);
+    const conflictStatus = disputeStatus(source);
 
     if (region) facts.push(region);
     if (city) facts.push(city + "房产");
+    if (area) facts.push(area);
     if (deceased) facts.push(deceased);
     if (/没有遗嘱|沒有遺囑|无遗嘱|無遺囑|没遗嘱|沒遺囑/i.test(source)) facts.push("无遗嘱");
     else if (/有遗嘱|有遺囑|留了遗嘱|留了遺囑|遗嘱|遺囑/i.test(source)) facts.push("有遗嘱");
-    if (/都同意|全部同意|一致同意|没有争议|沒有爭議/i.test(source)) facts.push("继承人同意");
-    if (/不同意|不配合|失联|失聯|联系不上|聯繫不上|争议|爭議/i.test(source)) facts.push("有争议/失联");
+    if (agreementConfirmed(source) || conflictStatus === "no") facts.push("继承人同意");
+    if (conflictStatus === "yes") facts.push("有争议/不配合");
+    if (lostStatus === "yes") facts.push("有继承人失联");
+    else if (lostStatus === "no") facts.push("没有失联");
     if (/放弃继承|放棄繼承|放弃份额|放棄份額/i.test(source)) facts.push("有人放弃继承");
     if (hasUnclearTitleInfo(source)) facts.push("房产证未确认");
     else if (hasPositiveTitleInfo(source)) facts.push("已有产权证");
@@ -644,7 +728,7 @@
     const city = mainlandCityFact(source);
     const property = city ? city + "房产" : "内地房产";
     if (/卖房|賣房|卖掉|賣掉|出售|转卖|轉賣/i.test(source)) return "继承后出售" + property;
-    if (/不同意|不配合|失联|失聯|联系不上|聯繫不上|争议|爭議/i.test(source)) return "处理" + property + "继承问题";
+    if (hasCaseConflict(source)) return "处理" + property + "继承问题";
     if (/文件|死亡证明|死亡證明|亲属关系|親屬關係|公证|公證|转递|轉遞/i.test(source)) return "确认香港文件能否用于内地";
     if (/继承|繼承|过户|過戶|楼盘|樓盤|房产|房產|不动产|不動產/i.test(source)) return "继承" + property;
     return "整理跨境继承事项";
@@ -655,7 +739,9 @@
     const hasCity = !!mainlandCityFact(source);
     const hasDeceased = !!deceasedFact(source);
     const hasWill = /遗嘱|遺囑/i.test(source);
-    const hasAgreement = /都同意|全部同意|一致同意|没有争议|沒有爭議|不同意|不配合|失联|失聯|联系不上|聯繫不上|争议|爭議/i.test(source);
+    const lostStatus = lostContactStatus(source);
+    const conflictStatus = disputeStatus(source);
+    const hasAgreement = agreementConfirmed(source) || conflictStatus || lostStatus === "yes";
     const hasTitle = hasUnclearTitleInfo(source) || hasPositiveTitleInfo(source) || /房产证|房產證|不动产权证|不動產權證|产权证|產權證/i.test(source);
     const hasDocuments = /死亡证明|死亡證明|亲属关系|親屬關係|香港文件|公证|公證|转递|轉遞/i.test(source);
     const hasRegion = !!regionFact(source);
@@ -665,7 +751,9 @@
     if (!hasDeceased) items.push("谁去世了，与客户是什么关系");
     items.push("配偶、父母、子女和全部继承人范围");
     if (!hasWill) items.push("是否有遗嘱或遗产分配文件");
-    if (!hasAgreement) items.push("继承人是否全部同意，有无失联或不配合");
+    if (!hasAgreement) {
+      items.push(lostStatus === "no" ? "继承人是否全部同意，有无不配合" : "继承人是否全部同意，有无失联或不配合");
+    }
     if (!hasTitle) items.push("房产证/不动产权证是否已有");
     if (!hasDocuments) items.push("香港死亡证明、亲属关系证明是否已准备");
     if (hasDocuments && !/公证|公證|转递|轉遞/i.test(source)) items.push("香港文件是否已公证转递");
