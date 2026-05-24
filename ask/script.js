@@ -21,6 +21,11 @@
   const adCopy = document.getElementById("adCopy");
   const adLink = document.getElementById("adLink");
   const routeAd = document.getElementById("routeAd");
+  const caseEmpty = document.getElementById("caseEmpty");
+  const caseContent = document.getElementById("caseContent");
+  const caseGoal = document.getElementById("caseGoal");
+  const caseFacts = document.getElementById("caseFacts");
+  const caseMissing = document.getElementById("caseMissing");
   const LAST_GOOD_ENDPOINT_KEY = "jingwei.ask.chat.endpoint.lastGood";
 
   const state = {
@@ -449,6 +454,7 @@
     setChips(ui.chips);
     updatePlaceholder(ui.placeholder);
     updateAd(routeForCurrentState(), stage);
+    updateCasePanel();
     if (activeTopic && !state.messages.some((message) => message.role === "user")) {
       renderStartGuide();
     }
@@ -510,6 +516,146 @@
     if (/婚姻|离婚|離婚|family|divorce/i.test(text)) return "family";
     if (/授权|授權|公证|公證|认证|認證|文件|身份|notarization|authentication|document/i.test(text)) return "identity";
     return "other";
+  }
+
+  function firstMatch(text, pattern) {
+    const matched = String(text || "").match(pattern);
+    return matched ? matched[0] : "";
+  }
+
+  function userCaseSource() {
+    const presetSummary = String((topicPresets[activeTopic] && topicPresets[activeTopic].summary) || "");
+    const parts = [];
+    state.messages
+      .filter((message) => message.role === "user")
+      .map((message) => message.content)
+      .forEach((content) => parts.push(content));
+
+    String(state.summary || "")
+      .split("\n")
+      .map((line) => line.trim())
+      .filter((line) => line && line !== presetSummary)
+      .forEach((line) => parts.push(line));
+
+    return Array.from(new Set(parts.map((part) => String(part || "").trim()).filter(Boolean))).join("\n");
+  }
+
+  function regionFact(source) {
+    if (/香港|港人|香港居民|香港人/i.test(source)) return "香港居民";
+    if (/澳门|澳門/i.test(source)) return "澳门居民";
+    if (/美国|美國|纽约|紐約|加州|洛杉矶|洛杉磯/i.test(source)) return /华人|華人/.test(source) ? "美国华人" : "美国客户";
+    if (/加拿大|温哥华|溫哥華|多伦多|多倫多/i.test(source)) return /华人|華人/.test(source) ? "加拿大华人" : "加拿大客户";
+    if (/英国|英國|伦敦|倫敦/i.test(source)) return /华人|華人/.test(source) ? "英国华人" : "英国客户";
+    if (/澳大利亚|澳大利亞|澳洲|悉尼|雪梨|墨尔本|墨爾本/i.test(source)) return /华人|華人/.test(source) ? "澳大利亚华人" : "澳大利亚客户";
+    if (/日本|东京|東京|大阪/i.test(source)) return /华人|華人/.test(source) ? "日本华人" : "日本客户";
+    if (/新加坡/i.test(source)) return "新加坡居民";
+    if (/马来西亚|馬來西亞/i.test(source)) return "马来西亚客户";
+    return "";
+  }
+
+  function mainlandCityFact(source) {
+    return firstMatch(
+      source,
+      /深圳|广州|廣州|上海|北京|佛山|珠海|东莞|東莞|苏州|蘇州|杭州|南京|天津|重庆|重慶|武汉|武漢|成都|西安|青岛|青島|厦门|廈門/i
+    );
+  }
+
+  function deceasedFact(source) {
+    if (!/去世|过世|過世|死亡|身故|离世|離世/i.test(source)) return "";
+    if (/父亲|父親|爸爸|爹/i.test(source)) return "父亲去世";
+    if (/母亲|母親|妈妈|媽媽/i.test(source)) return "母亲去世";
+    if (/爷爷|爺爺|祖父/i.test(source)) return "祖父去世";
+    if (/奶奶|祖母/i.test(source)) return "祖母去世";
+    if (/丈夫|先生|老公/i.test(source)) return "配偶去世";
+    if (/妻子|太太|老婆/i.test(source)) return "配偶去世";
+    return "亲人已去世";
+  }
+
+  function collectCaseFacts(source) {
+    const facts = [];
+    const city = mainlandCityFact(source);
+    const region = regionFact(source);
+    const deceased = deceasedFact(source);
+
+    if (region) facts.push(region);
+    if (city) facts.push(city + "房产");
+    if (deceased) facts.push(deceased);
+    if (/没有遗嘱|沒有遺囑|无遗嘱|無遺囑|没遗嘱|沒遺囑/i.test(source)) facts.push("无遗嘱");
+    else if (/有遗嘱|有遺囑|留了遗嘱|留了遺囑|遗嘱|遺囑/i.test(source)) facts.push("有遗嘱");
+    if (/都同意|全部同意|一致同意|没有争议|沒有爭議/i.test(source)) facts.push("继承人同意");
+    if (/不同意|不配合|失联|失聯|联系不上|聯繫不上|争议|爭議/i.test(source)) facts.push("有争议/失联");
+    if (/放弃继承|放棄繼承|放弃份额|放棄份額/i.test(source)) facts.push("有人放弃继承");
+    if (/未办证|未辦證|没办.*证|沒辦.*證|没有.*房产证|沒有.*房產證|没有.*不动产权证|沒有.*不動產權證/i.test(source)) facts.push("房产证未确认");
+    else if (/房产证|房產證|不动产权证|不動產權證|产权证|產權證/i.test(source)) facts.push("提到产权证");
+    if (/死亡证明|死亡證明|亲属关系|親屬關係|香港文件|公证|公證|转递|轉遞|委托书|委託書/i.test(source)) facts.push("提到文件材料");
+    if (/委托|委託|代办|代辦|回不去|不到内地|不到內地/i.test(source)) facts.push("想委托办理");
+    if (/卖房|賣房|卖掉|賣掉|出售|转卖|轉賣/i.test(source)) facts.push("继承后出售");
+    return Array.from(new Set(facts)).slice(0, 8);
+  }
+
+  function caseGoalText(source) {
+    const city = mainlandCityFact(source);
+    const property = city ? city + "房产" : "内地房产";
+    if (/卖房|賣房|卖掉|賣掉|出售|转卖|轉賣/i.test(source)) return "继承后出售" + property;
+    if (/不同意|不配合|失联|失聯|联系不上|聯繫不上|争议|爭議/i.test(source)) return "处理" + property + "继承问题";
+    if (/文件|死亡证明|死亡證明|亲属关系|親屬關係|公证|公證|转递|轉遞/i.test(source)) return "确认香港文件能否用于内地";
+    if (/继承|繼承|过户|過戶|楼盘|樓盤|房产|房產|不动产|不動產/i.test(source)) return "继承" + property;
+    return "整理跨境继承事项";
+  }
+
+  function caseMissingItems(source) {
+    const items = [];
+    const hasCity = !!mainlandCityFact(source);
+    const hasDeceased = !!deceasedFact(source);
+    const hasWill = /遗嘱|遺囑/i.test(source);
+    const hasAgreement = /都同意|全部同意|一致同意|没有争议|沒有爭議|不同意|不配合|失联|失聯|联系不上|聯繫不上|争议|爭議/i.test(source);
+    const hasTitle = /房产证|房產證|不动产权证|不動產權證|产权证|產權證|未办证|未辦證|没办.*证|沒辦.*證/i.test(source);
+    const hasDocuments = /死亡证明|死亡證明|亲属关系|親屬關係|香港文件|公证|公證|转递|轉遞/i.test(source);
+    const hasRegion = !!regionFact(source);
+
+    if (!hasRegion) items.push("客户是否为香港居民或其他境外身份");
+    if (!hasCity) items.push("房产具体在哪个内地城市");
+    if (!hasDeceased) items.push("谁去世了，与客户是什么关系");
+    items.push("配偶、父母、子女和全部继承人范围");
+    if (!hasWill) items.push("是否有遗嘱或遗产分配文件");
+    if (!hasAgreement) items.push("继承人是否全部同意，有无失联或不配合");
+    if (!hasTitle) items.push("房产证/不动产权证是否已有");
+    if (!hasDocuments) items.push("香港死亡证明、亲属关系证明是否已准备");
+    if (hasDocuments && !/公证|公證|转递|轉遞/i.test(source)) items.push("香港文件是否已公证转递");
+
+    return Array.from(new Set(items)).slice(0, 5);
+  }
+
+  function updateCasePanel() {
+    if (!caseEmpty || !caseContent || !caseGoal || !caseFacts || !caseMissing) return;
+    const source = userCaseSource();
+    const hasUserTurn = state.messages.some((message) => message.role === "user");
+
+    if (!hasUserTurn || !source) {
+      caseEmpty.hidden = false;
+      caseContent.hidden = true;
+      return;
+    }
+
+    caseEmpty.hidden = true;
+    caseContent.hidden = false;
+    caseGoal.textContent = caseGoalText(source);
+
+    caseFacts.innerHTML = "";
+    const facts = collectCaseFacts(source);
+    (facts.length ? facts : ["已开始整理"]).forEach((fact) => {
+      const tag = document.createElement("span");
+      tag.className = "case-tag";
+      tag.textContent = fact;
+      caseFacts.appendChild(tag);
+    });
+
+    caseMissing.innerHTML = "";
+    caseMissingItems(source).forEach((item) => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      caseMissing.appendChild(li);
+    });
   }
 
   function routeForCurrentState() {
@@ -717,6 +863,7 @@
     setChips(result.chips || []);
     updatePlaceholder(result.inputPlaceholder);
     updateAd(result.route || null, state.stage);
+    updateCasePanel();
     await addBot(result.answer || fallbackReply().answer, options);
   }
 
@@ -727,6 +874,7 @@
     removeStartGuide();
     addUser(cleaned);
     applyChoice(cleaned, options);
+    updateCasePanel();
     input.value = "";
     input.style.height = "auto";
     saveChatSession();
