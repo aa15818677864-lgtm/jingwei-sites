@@ -282,8 +282,36 @@ h1 span {
   box-shadow: 0 0 0 3px rgba(9, 189, 115, 0.12);
 }
 
-.home-link {
+.chat-actions {
   justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.clear-chat {
+  min-width: 50px;
+  min-height: 34px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: #64748b;
+  padding: 7px 10px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.2;
+  cursor: pointer;
+}
+
+.clear-chat:hover,
+.clear-chat:focus-visible {
+  border-color: var(--line-blue);
+  background: #f8fafc;
+  color: var(--navy);
+}
+
+.home-link {
   min-width: 108px;
   min-height: 34px;
   display: inline-flex;
@@ -888,6 +916,17 @@ h1 span {
 
   .chat-person strong {
     font-size: 18px;
+  }
+
+  .chat-actions {
+    gap: 6px;
+  }
+
+  .clear-chat {
+    min-width: 42px;
+    min-height: 30px;
+    padding: 7px 6px;
+    font-size: 13px;
   }
 
   .home-link {

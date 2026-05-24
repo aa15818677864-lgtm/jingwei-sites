@@ -5,6 +5,7 @@
   const form = document.getElementById("chatForm");
   const input = document.getElementById("chatInput");
   const submitButton = form?.querySelector("button[type='submit']");
+  const clearChatButton = document.getElementById("clearChat");
   const urlParams = new URLSearchParams(window.location.search);
   const activeTopic = urlParams.get("topic") || "";
   const sourceParam = urlParams.get("source") || "";
@@ -416,6 +417,17 @@
     }
   }
 
+  function clearStoredSession() {
+    try {
+      window.sessionStorage.removeItem(SESSION_KEY);
+      window.localStorage.removeItem(BACKUP_KEY);
+      window.sessionStorage.removeItem(SESSION_BASE_KEY);
+      window.localStorage.removeItem(BACKUP_BASE_KEY);
+    } catch {
+      // ignore storage failures
+    }
+  }
+
   function restoreChatSession() {
     const payload = readStoredPayload();
     if (!payload || !payload.state) return false;
@@ -752,6 +764,26 @@
     return preset;
   }
 
+  function renderInitialChat() {
+    const preset = applyTopicPreset();
+    chatBody.innerHTML = '<div class="day-pill">今天</div>';
+    return renderAssistantReply({
+      stage: preset ? "done" : "region",
+      answer: preset ? preset.greeting : "你好，我是刘毅律师团队的 AI 法律助理。先用聊天方式做初步判断，你现在主要在哪个地区？",
+      chips: preset ? preset.chips : regionChips,
+      inputPlaceholder: preset ? preset.placeholder : "也可以直接输入你现在主要所在地区",
+      route: null,
+      state: {
+        region: state.region,
+        mainland: state.mainland,
+        matter: state.matter,
+        summary: state.summary
+      }
+    }).then(function () {
+      if (preset) renderStartGuide();
+    });
+  }
+
   function fallbackReply() {
     const stage = localStage();
 
@@ -968,25 +1000,26 @@
     saveChatSession();
   });
 
+  if (clearChatButton) {
+    clearChatButton.addEventListener("click", function () {
+      state.activeRequestId += 1;
+      state.stage = "region";
+      state.region = "";
+      state.mainland = "";
+      state.matter = "";
+      state.summary = "";
+      state.messages = [];
+      input.value = "";
+      input.style.height = "auto";
+      clearStoredSession();
+      setBusy(false);
+      renderInitialChat();
+    });
+  }
+
   window.addEventListener("pagehide", saveChatSession);
 
   if (!restoreChatSession()) {
-    const preset = applyTopicPreset();
-    chatBody.innerHTML = '<div class="day-pill">今天</div>';
-    renderAssistantReply({
-      stage: preset ? "done" : "region",
-      answer: preset ? preset.greeting : "你好，我是刘毅律师团队的 AI 法律助理。先用聊天方式做初步判断，你现在主要在哪个地区？",
-      chips: preset ? preset.chips : regionChips,
-      inputPlaceholder: preset ? preset.placeholder : "也可以直接输入你现在主要所在地区",
-      route: null,
-      state: {
-        region: state.region,
-        mainland: state.mainland,
-        matter: state.matter,
-        summary: state.summary
-      }
-    }).then(function () {
-      if (preset) renderStartGuide();
-    });
+    renderInitialChat();
   }
 })();
