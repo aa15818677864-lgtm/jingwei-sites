@@ -511,6 +511,57 @@ h1 {
   line-height: 1.15;
 }
 
+.reading-meta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--soft);
+  color: var(--muted);
+  padding: 0 15px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.article-brief {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 24px 0 28px;
+}
+
+.article-brief article {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 4px 12px;
+  align-content: start;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  padding: 15px;
+}
+
+.article-brief strong {
+  grid-row: 1 / span 2;
+  color: var(--brand);
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.article-brief span {
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.article-brief small {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
 .article-main h2 {
   position: relative;
   margin-top: 40px;
@@ -740,13 +791,16 @@ h1 {
 .toc a {
   display: block;
   border-left: 3px solid transparent;
+  border-radius: 8px;
   margin: 4px 0;
-  padding: 7px 0 7px 11px;
+  padding: 7px 8px 7px 11px;
   font-size: 14px;
 }
 
-.toc a:hover {
+.toc a:hover,
+.toc a.is-active {
   border-left-color: var(--brand);
+  background: var(--blue-soft);
   color: var(--brand);
   text-decoration: none;
 }
@@ -763,7 +817,60 @@ h1 {
 }
 
 .mobile-action-bar {
-  display: none;
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  bottom: max(12px, env(safe-area-inset-bottom));
+  z-index: 30;
+  display: flex;
+  gap: 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 253, 248, 0.96);
+  padding: 8px;
+  box-shadow: 0 18px 38px rgba(16, 42, 70, 0.18);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(18px);
+  transition: opacity 160ms ease, transform 160ms ease;
+  backdrop-filter: blur(12px);
+}
+
+.mobile-action-bar.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.mobile-action-bar a {
+  flex: 1 1 0;
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  padding: 0 12px;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.mobile-action-bar a:first-child {
+  border-color: var(--brand);
+  background: var(--brand);
+  color: #fff;
+}
+
+.mobile-action-bar a:hover {
+  text-decoration: none;
+}
+
+@media (min-width: 861px) {
+  .mobile-action-bar {
+    display: none;
+  }
 }
 
 @media (min-width: 981px) {
@@ -795,6 +902,10 @@ h1 {
 @media (max-width: 860px) {
   body {
     padding-bottom: 78px;
+  }
+
+  .site-header {
+    position: static;
   }
 
   .nav,
@@ -850,47 +961,6 @@ h1 {
     width: 100%;
   }
 
-  .mobile-action-bar {
-    position: fixed;
-    left: 12px;
-    right: 12px;
-    bottom: 12px;
-    z-index: 30;
-    display: flex;
-    gap: 8px;
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    background: rgba(255, 253, 248, 0.96);
-    padding: 8px;
-    box-shadow: 0 18px 38px rgba(16, 42, 70, 0.18);
-    backdrop-filter: blur(12px);
-  }
-
-  .mobile-action-bar a {
-    flex: 1 1 0;
-    min-height: 42px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    background: #fff;
-    color: var(--ink);
-    padding: 0 12px;
-    font-size: 14px;
-    font-weight: 800;
-  }
-
-  .mobile-action-bar a:first-child {
-    border-color: var(--brand);
-    background: var(--brand);
-    color: #fff;
-  }
-
-  .mobile-action-bar a:hover {
-    text-decoration: none;
-  }
-
   .inline-cta a {
     grid-column: 1;
     grid-row: auto;
@@ -930,6 +1000,37 @@ h1 {
 
   .meta {
     gap: 7px;
+  }
+
+  .reading-meta {
+    width: 100%;
+    min-height: 38px;
+    margin-top: 2px;
+    font-size: 12px;
+  }
+
+  .article-brief {
+    grid-template-columns: 1fr;
+    gap: 0;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fff;
+  }
+
+  .article-brief article {
+    grid-template-columns: 22px minmax(0, 1fr);
+    border: 0;
+    border-radius: 0;
+    padding: 13px 16px;
+  }
+
+  .article-brief article + article {
+    border-top: 1px solid var(--line);
+  }
+
+  .article-brief small {
+    display: none;
   }
 
   .article-visual img {
@@ -973,7 +1074,8 @@ h1 {
   }
 
   .reading-progress span,
-  .card:hover {
+  .card:hover,
+  .mobile-action-bar {
     transition: none;
   }
 }
