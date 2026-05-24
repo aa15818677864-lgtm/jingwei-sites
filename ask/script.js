@@ -626,8 +626,18 @@
     return area ? "面积约" + area + "平" : "";
   }
 
+  function deathStatus(source) {
+    return latestCaseSignal(
+      source,
+      /去世|过世|過世|死亡|身故|离世|離世|过身|過身/i,
+      /(?:没人|沒人|没有人|沒有人|无人|無人|没有亲人|沒有親人|没有家人|沒有家人|没有谁|沒有誰|没有任何人|沒有任何人)[^，。；、,.\n]{0,8}(?:去世|过世|過世|死亡|身故|离世|離世|过身|過身)|(?:没有去世|沒有去世|没去世|沒去世|还没去世|還沒去世|尚未去世|未去世|没有发生死亡|沒有發生死亡)|(?:都|全部|全都)[^，。；、,.\n]{0,8}(?:健在|在世|还在|還在)/i
+    );
+  }
+
   function deceasedFact(source) {
-    if (!/去世|过世|過世|死亡|身故|离世|離世/i.test(source)) return "";
+    const status = deathStatus(source);
+    if (status === "no") return "无人去世";
+    if (status !== "yes") return "";
     if (/父亲|父親|爸爸|爹/i.test(source)) return "父亲去世";
     if (/母亲|母親|妈妈|媽媽/i.test(source)) return "母亲去世";
     if (/爷爷|爺爺|祖父/i.test(source)) return "祖父去世";
@@ -727,6 +737,7 @@
   function caseGoalText(source) {
     const city = mainlandCityFact(source);
     const property = city ? city + "房产" : "内地房产";
+    if (deathStatus(source) === "no") return "确认" + property + "安排";
     if (/卖房|賣房|卖掉|賣掉|出售|转卖|轉賣/i.test(source)) return "继承后出售" + property;
     if (hasCaseConflict(source)) return "处理" + property + "继承问题";
     if (/文件|死亡证明|死亡證明|亲属关系|親屬關係|公证|公證|转递|轉遞/i.test(source)) return "确认香港文件能否用于内地";
@@ -737,7 +748,8 @@
   function caseMissingItems(source) {
     const items = [];
     const hasCity = !!mainlandCityFact(source);
-    const hasDeceased = !!deceasedFact(source);
+    const death = deathStatus(source);
+    const hasDeceased = death === "yes";
     const hasWill = /遗嘱|遺囑/i.test(source);
     const lostStatus = lostContactStatus(source);
     const conflictStatus = disputeStatus(source);
@@ -748,6 +760,11 @@
 
     if (!hasRegion) items.push("客户是否为香港居民或其他境外身份");
     if (!hasCity) items.push("房产具体在哪个内地城市");
+    if (death === "no") {
+      items.push("想办理赠与/买卖过户、遗嘱安排，还是提前了解将来继承");
+      if (!hasTitle) items.push("房产登记在谁名下，是否已有房产证/不动产权证");
+      return Array.from(new Set(items)).slice(0, 5);
+    }
     if (!hasDeceased) items.push("谁去世了，与客户是什么关系");
     items.push("配偶、父母、子女和全部继承人范围");
     if (!hasWill) items.push("是否有遗嘱或遗产分配文件");
