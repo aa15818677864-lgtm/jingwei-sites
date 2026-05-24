@@ -571,6 +571,40 @@
     return "亲人已去世";
   }
 
+  function hasPositiveTitleInfo(source) {
+    const titleWords = "房产证|房產證|不动产权证|不動產權證|产权证|產權證";
+    return new RegExp(
+      [
+        "(?:已有|已經有|已经有|有)\\s*(?:" + titleWords + ")",
+        "(?:拿到|取得|可提供|可以提供)[^\\n，。；、,.]{0,6}(?:" + titleWords + ")",
+        "(?:" + titleWords + ")(?:已经有|已經有|已有|在手|齐全|齊全|可以提供|可提供)"
+      ].join("|"),
+      "i"
+    ).test(source);
+  }
+
+  function hasUnclearTitleInfo(source) {
+    const shortText = "[^\\n，。；、,.]{0,8}";
+    const titleWords = "房产证|房產證|不动产权证|不動產權證|产权证|產權證";
+    return new RegExp(
+      [
+        "未办证",
+        "未辦證",
+        "没办" + shortText + "证",
+        "沒辦" + shortText + "證",
+        "没有" + shortText + "(?:" + titleWords + ")",
+        "沒有" + shortText + "(?:" + titleWords + ")",
+        "不清楚" + shortText + "(?:" + titleWords + ")",
+        "不确定" + shortText + "(?:" + titleWords + ")",
+        "不知道" + shortText + "(?:" + titleWords + ")",
+        "是否有" + shortText + "(?:" + titleWords + ")",
+        "有没有" + shortText + "(?:" + titleWords + ")",
+        "有沒有" + shortText + "(?:" + titleWords + ")"
+      ].join("|"),
+      "i"
+    ).test(source);
+  }
+
   function collectCaseFacts(source) {
     const facts = [];
     const city = mainlandCityFact(source);
@@ -585,7 +619,8 @@
     if (/都同意|全部同意|一致同意|没有争议|沒有爭議/i.test(source)) facts.push("继承人同意");
     if (/不同意|不配合|失联|失聯|联系不上|聯繫不上|争议|爭議/i.test(source)) facts.push("有争议/失联");
     if (/放弃继承|放棄繼承|放弃份额|放棄份額/i.test(source)) facts.push("有人放弃继承");
-    if (/未办证|未辦證|没办.*证|沒辦.*證|没有.*房产证|沒有.*房產證|没有.*不动产权证|沒有.*不動產權證/i.test(source)) facts.push("房产证未确认");
+    if (hasUnclearTitleInfo(source)) facts.push("房产证未确认");
+    else if (hasPositiveTitleInfo(source)) facts.push("已有产权证");
     else if (/房产证|房產證|不动产权证|不動產權證|产权证|產權證/i.test(source)) facts.push("提到产权证");
     if (/死亡证明|死亡證明|亲属关系|親屬關係|香港文件|公证|公證|转递|轉遞|委托书|委託書/i.test(source)) facts.push("提到文件材料");
     if (/委托|委託|代办|代辦|回不去|不到内地|不到內地/i.test(source)) facts.push("想委托办理");
@@ -609,7 +644,7 @@
     const hasDeceased = !!deceasedFact(source);
     const hasWill = /遗嘱|遺囑/i.test(source);
     const hasAgreement = /都同意|全部同意|一致同意|没有争议|沒有爭議|不同意|不配合|失联|失聯|联系不上|聯繫不上|争议|爭議/i.test(source);
-    const hasTitle = /房产证|房產證|不动产权证|不動產權證|产权证|產權證|未办证|未辦證|没办.*证|沒辦.*證/i.test(source);
+    const hasTitle = hasUnclearTitleInfo(source) || hasPositiveTitleInfo(source) || /房产证|房產證|不动产权证|不動產權證|产权证|產權證/i.test(source);
     const hasDocuments = /死亡证明|死亡證明|亲属关系|親屬關係|香港文件|公证|公證|转递|轉遞/i.test(source);
     const hasRegion = !!regionFact(source);
 
