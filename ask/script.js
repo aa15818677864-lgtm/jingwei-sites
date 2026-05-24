@@ -36,6 +36,8 @@
     matter: "",
     summary: "",
     messages: [],
+    casePanel: null,
+    casePanelPending: false,
     activeRequestId: 0
   };
 
@@ -348,6 +350,26 @@
     }
   }
 
+  function normalizeCasePanel(panel) {
+    if (!panel || typeof panel !== "object") return null;
+    const goal = String(panel.goal || "").trim().slice(0, 28);
+    const facts = Array.isArray(panel.facts) ? panel.facts : [];
+    const missing = Array.isArray(panel.missing) ? panel.missing : [];
+    const cleanList = (items, limit) => Array.from(new Set(items
+      .map((item) => String(item || "").trim())
+      .filter(Boolean)
+      .map((item) => item.slice(0, 42)))).slice(0, limit);
+    const cleanFacts = cleanList(facts, 8);
+    const cleanMissing = cleanList(missing, 5);
+    if (!goal && !cleanFacts.length && !cleanMissing.length) return null;
+    const normalized = {
+      goal: goal || "整理案情",
+      facts: cleanFacts,
+      missing: cleanMissing
+    };
+    return normalized;
+  }
+
   function normalizeSavedMessages(messages) {
     if (!Array.isArray(messages)) return [];
     return messages
@@ -401,6 +423,7 @@
         mainland: state.mainland || "",
         matter: state.matter || "",
         summary: state.summary || "",
+        casePanel: state.casePanel || null,
         messages: state.messages.slice(-80)
       },
       inputDraft: String(input && input.value ? input.value : "").slice(0, 1000)
@@ -454,6 +477,8 @@
     state.matter = String(payload.state.matter || "");
     state.summary = String(payload.state.summary || "");
     state.messages = savedMessages;
+    state.casePanel = normalizeCasePanel(payload.state.casePanel);
+    state.casePanelPending = false;
 
     chatBody.innerHTML = '<div class="day-pill">今天</div>';
     savedMessages.forEach((message) => {
@@ -791,10 +816,32 @@
 
     caseEmpty.hidden = true;
     caseContent.hidden = false;
-    caseGoal.textContent = caseGoalText(source);
+    const panel = state.casePanelPending
+      ? {
+          goal: "正在整理",
+          facts: ["等待AI判断"],
+          missing: ["根据你刚补充的内容更新案情要点"]
+        }
+      : state.casePanel;
+
+    if (!panel) {
+      caseGoal.textContent = "等待补充";
+      caseFacts.innerHTML = "";
+      const tag = document.createElement("span");
+      tag.className = "case-tag";
+      tag.textContent = "等待AI判断";
+      caseFacts.appendChild(tag);
+      caseMissing.innerHTML = "";
+      const li = document.createElement("li");
+      li.textContent = "继续说你的情况，我会重新整理右侧要点";
+      caseMissing.appendChild(li);
+      return;
+    }
+
+    caseGoal.textContent = panel.goal || "整理案情";
 
     caseFacts.innerHTML = "";
-    const facts = collectCaseFacts(source);
+    const facts = Array.isArray(panel.facts) ? panel.facts : [];
     (facts.length ? facts : ["已开始整理"]).forEach((fact) => {
       const tag = document.createElement("span");
       tag.className = "case-tag";
@@ -803,7 +850,8 @@
     });
 
     caseMissing.innerHTML = "";
-    caseMissingItems(source).forEach((item) => {
+    const missing = Array.isArray(panel.missing) ? panel.missing : [];
+    missing.forEach((item) => {
       const li = document.createElement("li");
       li.textContent = item;
       caseMissing.appendChild(li);
@@ -1032,6 +1080,8 @@
 
   async function renderAssistantReply(result, options) {
     applyBackendState(result);
+    state.casePanel = normalizeCasePanel(result && result.casePanel);
+    state.casePanelPending = false;
     setChips(result.chips || []);
     updatePlaceholder(result.inputPlaceholder);
     updateAd(result.route || null, state.stage);
@@ -1046,6 +1096,8 @@
     removeStartGuide();
     addUser(cleaned);
     applyChoice(cleaned, options);
+    state.casePanel = null;
+    state.casePanelPending = true;
     updateCasePanel();
     input.value = "";
     input.style.height = "auto";
@@ -1114,6 +1166,8 @@
       state.matter = "";
       state.summary = "";
       state.messages = [];
+      state.casePanel = null;
+      state.casePanelPending = false;
       input.value = "";
       input.style.height = "auto";
       clearStoredSession();
