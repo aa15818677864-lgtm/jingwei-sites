@@ -19,12 +19,20 @@
         </span>
       </a>
       <div class="brand-copy">
-        <p class="eyebrow">AI法律初步问答</p>
-        <h1>先把情况说清楚，AI 帮你初步判断</h1>
-        <p>不需要一次讲完整，先说你在哪里、对方或财产在哪里、发生了什么。</p>
+        <h1><span>不用懂法律，</span><span>先说情况</span></h1>
+        <p>点一个入口，或直接输入情况。</p>
       </div>
-      <img class="office-image" src="/img/banner1.webp" alt="法律事务沟通场景" loading="eager" fetchpriority="high" decoding="async">
-      <div class="side-note">温馨提示：在线回复仅供参考，正式方案以律师审核意见为准。</div>
+      <div class="trust-stack" aria-label="使用提示">
+        <article class="trust-card">
+          <strong>先不用留电话</strong>
+          <p>姓名、证件号、联系方式都可先不填。</p>
+        </article>
+        <article class="trust-card">
+          <strong>律师知识库辅助</strong>
+          <p>基于 v9 核心知识卡，保留回答边界。</p>
+        </article>
+      </div>
+      <p class="side-note">仅供参考，正式方案以律师审核为准。</p>
     </section>
 
     <section class="chat-phone" aria-label="AI法律对话窗口">
@@ -34,10 +42,10 @@
           <span class="avatar">律</span>
           <span>
             <strong>AI法律助理</strong>
-            <em><i></i>在线初步问答</em>
+            <em><i></i>先聊天，再判断</em>
           </span>
         </div>
-        <a class="home-link" href="/articles/" aria-label="查看专题入口">专题</a>
+        <a class="home-link" href="/topics/hk-mainland-property-inheritance/" aria-label="查看香港房产继承专题">香港房产继承</a>
       </header>
 
       <div class="chat-main">
@@ -45,20 +53,55 @@
           <div class="chat-body" id="chatBody" aria-live="polite"></div>
           <div class="quick-replies" id="quickReplies" aria-label="快捷回复"></div>
           <form class="composer" id="chatForm">
-            <textarea id="chatInput" rows="1" placeholder="输入你的情况" enterkeyhint="send"></textarea>
+            <textarea id="chatInput" rows="1" placeholder="直接说情况，不用写姓名" enterkeyhint="send"></textarea>
             <button type="submit">发送</button>
           </form>
         </section>
-
-        <aside class="chat-ad" id="routeAd" aria-label="相关专题入口" hidden>
-          <p class="ad-badge">相关专题</p>
-          <h2 class="ad-title" id="adTitle">跨境中国内地法律事务</h2>
-          <p class="ad-copy" id="adCopy">如需进一步咨询或委托，可查看对应专题页了解服务内容与办理方式。</p>
-          <a class="ad-link" id="adLink" href="/topics/hk-mainland-property-inheritance/?source=ask-recommendation" target="_blank" rel="noopener">打开专题页</a>
-          <p class="ad-note">可按你的情况选择最合适的专题入口。</p>
-        </aside>
       </div>
     </section>
+
+    <aside class="support-pane" aria-label="问答说明">
+      <div class="support-heading">
+        <p>你会得到什么</p>
+        <h2>把事情拆清楚</h2>
+      </div>
+      <div class="support-list">
+        <article class="support-item">
+          <span>1</span>
+          <div>
+            <strong>整理事实</strong>
+            <p>城市、房产、继承人、文件。</p>
+          </div>
+        </article>
+        <article class="support-item">
+          <span>2</span>
+          <div>
+            <strong>继续追问</strong>
+            <p>缺什么，AI 接着问。</p>
+          </div>
+        </article>
+        <article class="support-item">
+          <span>3</span>
+          <div>
+            <strong>初步路径</strong>
+            <p>公证、登记、法院或香港文件。</p>
+          </div>
+        </article>
+      </div>
+
+      <article class="lawyer-card">
+        <strong>何时律师看？</strong>
+        <p>有争议、失联、文件缺失、未办证或准备出售。</p>
+      </article>
+
+      <aside class="chat-ad" id="routeAd" aria-label="相关专题入口" hidden>
+        <p class="ad-badge">推荐下一步</p>
+        <h2 class="ad-title" id="adTitle">需要律师进一步看？</h2>
+        <p class="ad-copy" id="adCopy">有争议、文件缺失、继承人失联或准备出售时，可以让律师团队继续判断。</p>
+        <a class="ad-link" id="adLink" href="/topics/hk-mainland-property-inheritance/?source=ask-recommendation" target="_blank" rel="noopener">查看专题入口</a>
+        <p class="ad-note">先聊清楚，再决定是否继续。</p>
+      </aside>
+    </aside>
   </main>
 
   <script src="/site-config.js"></script>

@@ -39,16 +39,35 @@
       mainland: "yes",
       matter: "family",
       summary: "客户从香港居民继承中国内地房产过户专题进入，重点关注内地不动产继承、香港文件公证转递、继承人一致性、税费和委托办理。",
-      greeting: "你好，这里先按“香港居民继承中国内地房产/物业过户”来做初步判断。你可以直接说：房子在哪个内地城市、登记在谁名下、被继承人是否已去世、有没有遗嘱或继承人争议。",
-      placeholder: "例如：父亲在深圳有房，香港去世，有两个子女，想问怎么过户",
+      greeting: "我先帮你理顺继承过户。点一个问题，或直接说情况。",
+      placeholder: "直接说情况，不用写姓名",
       chips: [
         { label: "深圳房产继承", value: "我想咨询香港居民继承深圳房产过户" },
         { label: "香港文件能否用", value: "香港死亡证明和亲属关系证明能不能直接拿到内地用？" },
         { label: "继承人不同意", value: "继承人之间不同意，内地房产还能过户吗？" },
-        { label: "费用和周期", value: "香港居民继承内地房产大概费用和周期怎么判断？" }
+        { label: "费用周期", value: "香港居民继承内地房产，费用和周期主要看哪些情况？" },
+        { label: "委托办理", value: "香港居民可以委托律师办理内地房产继承过户吗？" }
       ]
     }
   };
+
+  const topicStartOptions = [
+    {
+      title: "怎么继承过户",
+      text: "内地房产，亲人已去世",
+      value: "亲人在香港去世，名下有中国内地房产，想先了解继承过户怎么走。"
+    },
+    {
+      title: "香港文件怎么用",
+      text: "死亡证明、亲属关系、委托书",
+      value: "想问香港死亡证明、亲属关系或委托书，怎么拿到内地使用。"
+    },
+    {
+      title: "有人不同意/联系不上",
+      text: "争议、失联、不配合",
+      value: "继承人有人不同意、失联或不配合，想问内地房产还能不能处理。"
+    }
+  ];
 
   const regionChips = [
     { label: "香港", value: "hongkong" },
@@ -237,6 +256,62 @@
     input.placeholder = text || "也可以继续补充你的情况";
   }
 
+  function removeStartGuide() {
+    const guide = document.getElementById("startGuide");
+    if (guide) guide.remove();
+  }
+
+  function renderStartGuide() {
+    if (!activeTopic || document.getElementById("startGuide")) return;
+
+    const guide = document.createElement("div");
+    guide.className = "start-guide";
+    guide.id = "startGuide";
+
+    const label = document.createElement("p");
+    label.className = "start-label";
+    label.textContent = "先问哪件事？";
+    guide.appendChild(label);
+
+    const optionsWrap = document.createElement("div");
+    optionsWrap.className = "start-options";
+
+    topicStartOptions.forEach((item, index) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "start-card" + (index === 0 ? " is-active" : "");
+      button.dataset.value = item.value;
+
+      const title = document.createElement("strong");
+      title.textContent = item.title;
+      const text = document.createElement("span");
+      text.textContent = item.text;
+
+      button.appendChild(title);
+      button.appendChild(text);
+      button.addEventListener("click", function () {
+        handleTurn(item.value, { fromChip: true, value: item.value });
+      });
+
+      optionsWrap.appendChild(button);
+    });
+
+    guide.appendChild(optionsWrap);
+
+    const sample = document.createElement("div");
+    sample.className = "sample-prompt";
+    sample.innerHTML = "<strong>可以直接套一句</strong><p>父亲在深圳有房，香港去世，想继承过户。</p>";
+    guide.appendChild(sample);
+
+    const note = document.createElement("p");
+    note.className = "guide-note";
+    note.textContent = "先不用写姓名、证件号或电话。";
+    guide.appendChild(note);
+
+    chatBody.appendChild(guide);
+    scrollToBottom();
+  }
+
   function stageUi(stage) {
     const preset = topicPresets[activeTopic];
     if (preset && stage === "done") {
@@ -372,6 +447,9 @@
     setChips(ui.chips);
     updatePlaceholder(ui.placeholder);
     updateAd(routeForCurrentState(), stage);
+    if (activeTopic && !state.messages.some((message) => message.role === "user")) {
+      renderStartGuide();
+    }
 
     if (payload.inputDraft) {
       input.value = String(payload.inputDraft);
@@ -463,10 +541,10 @@
       return;
     }
 
-    adTitle.textContent = resolvedRoute.label || "相关专题页";
-    adCopy.textContent = "如果想让律师团队进一步联系，可以打开专题页提交基本情况。";
+    adTitle.textContent = resolvedRoute.label || "需要律师进一步看？";
+    adCopy.textContent = "有争议、文件缺失、继承人失联或准备出售时，可以让律师团队继续判断。";
     adLink.href = routeUrl(resolvedRoute);
-    adLink.textContent = "打开专题页";
+    adLink.textContent = "查看专题入口";
     adLink.classList.remove("is-disabled");
   }
 
@@ -644,6 +722,7 @@
     const cleaned = String(text || "").trim();
     if (!cleaned) return;
 
+    removeStartGuide();
     addUser(cleaned);
     applyChoice(cleaned, options);
     input.value = "";
@@ -721,6 +800,8 @@
         matter: state.matter,
         summary: state.summary
       }
+    }).then(function () {
+      if (preset) renderStartGuide();
     });
   }
 })();
