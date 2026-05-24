@@ -6,6 +6,7 @@
   const status = document.getElementById("formStatus");
   const modal = document.getElementById("successModal");
   const closeButton = document.getElementById("modalCloseBtn");
+  const mobileAction = document.querySelector(".mobile-topic-action");
 
   const phoneRules = {
     "+852": { pattern: /^[0-9]{8}$/, hint: "香港电话请输入 8 位数字", alert: "香港电话请输入 8 位数字" },
@@ -76,17 +77,32 @@
   areaCode.addEventListener("change", updateHint);
   phone.addEventListener("input", function () {
     if (!phone.value) {
+      phone.classList.remove("is-valid");
       updateHint();
       return;
     }
     if (validatePhone()) {
       phoneHint.textContent = "格式正确";
       phoneHint.style.color = "#116466";
+      phone.classList.add("is-valid");
     } else {
       updateHint();
       phoneHint.style.color = "#8a1f2d";
+      phone.classList.remove("is-valid");
     }
   });
+
+  function updateMobileAction() {
+    if (!mobileAction) return;
+    const footer = document.querySelector(".site-footer");
+    const footerTop = footer ? footer.getBoundingClientRect().top : window.innerHeight + 1;
+    const shouldShow = window.scrollY > 360 && footerTop > window.innerHeight + 80;
+    mobileAction.classList.toggle("is-visible", shouldShow);
+  }
+
+  window.addEventListener("scroll", updateMobileAction, { passive: true });
+  window.addEventListener("resize", updateMobileAction);
+  updateMobileAction();
 
   form.addEventListener("submit", async function (event) {
     event.preventDefault();
