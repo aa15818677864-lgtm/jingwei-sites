@@ -237,6 +237,10 @@
     input.disabled = busy;
   }
 
+  function isSystemShortcut(event) {
+    return event.ctrlKey || event.metaKey || event.altKey;
+  }
+
   function setChips(items) {
     quickReplies.innerHTML = "";
     (items || []).forEach((item) => {
@@ -745,7 +749,6 @@
     } finally {
       if (requestId === state.activeRequestId) {
         setBusy(false);
-        input.focus();
       }
     }
   }
@@ -764,6 +767,7 @@
   });
 
   input.addEventListener("keydown", function (event) {
+    if (isSystemShortcut(event)) return;
     if (event.key !== "Enter" || event.shiftKey) return;
     if (event.isComposing || isComposing || event.keyCode === 229) return;
     if (input.disabled) return;
