@@ -8,6 +8,10 @@
   const attachButton = document.getElementById("attachButton");
   const attachmentInput = document.getElementById("attachmentInput");
   const attachmentList = document.getElementById("attachmentList");
+  const historyChatButton = document.getElementById("historyChat");
+  const historyPopover = document.getElementById("historyPopover");
+  const historyList = document.getElementById("historyList");
+  const historyCloseButton = document.getElementById("historyClose");
   const clearChatButton = document.getElementById("clearChat");
   const urlParams = new URLSearchParams(window.location.search);
   const DEFAULT_TOPIC = "hk-mainland-property-inheritance";
@@ -17,9 +21,12 @@
   const storageSuffix = activeTopic ? "." + activeTopic.replace(/[^a-z0-9_-]/gi, "") : "";
   const SESSION_BASE_KEY = "jingwei.ask.chat.session.v1";
   const BACKUP_BASE_KEY = "jingwei.ask.chat.backup.v1";
+  const ARCHIVE_BASE_KEY = "jingwei.ask.chat.archive.v1";
   const SESSION_KEY = "jingwei.ask.chat.session.v1" + storageSuffix;
   const BACKUP_KEY = "jingwei.ask.chat.backup.v1" + storageSuffix;
+  const ARCHIVE_KEY = "jingwei.ask.chat.archive.v1" + storageSuffix;
   const STORAGE_MAX_AGE_MS = 1000 * 60 * 60 * 24 * 3;
+  const ARCHIVE_LIMIT = 12;
   let isComposing = false;
 
   const adTitle = document.getElementById("adTitle");
@@ -37,6 +44,7 @@
   const MAX_ATTACHMENT_TEXT = 2600;
 
   const state = {
+    sessionId: createSessionId(),
     stage: "region",
     region: "",
     mainland: "",
@@ -538,6 +546,10 @@
     }
   }
 
+  function createSessionId() {
+    return "ask-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 8);
+  }
+
   function casePanelItemKey(item) {
     const variants = {
       "廣": "广",
@@ -620,6 +632,130 @@
       .slice(-80);
   }
 
+  function hasSavedUserTurn(payload) {
+    return normalizeSavedMessages(payload && payload.state && payload.state.messages)
+      .some((message) => message.role === "user");
+  }
+
+  function buildSessionPayload() {
+    return {
+      id: state.sessionId || createSessionId(),
+      topic: activeTopic,
+      savedAt: Date.now(),
+      state: {
+        stage: state.stage || localStage(),
+        region: state.region || "",
+        mainland: state.mainland || "",
+        matter: state.matter || "",
+        summary: state.summary || "",
+        casePanel: state.casePanel || null,
+        messages: state.messages.slice(-80)
+      },
+      inputDraft: String(input && input.value ? input.value : "").slice(0, 1000)
+    };
+  }
+
+  function archiveTitle(payload) {
+    const messages = normalizeSavedMessages(payload && payload.state && payload.state.messages);
+    const firstUser = messages.find((message) => message.role === "user");
+    const text = String((firstUser && (firstUser.displayContent || firstUser.content)) || "").replace(/\s+/g, " ").trim();
+    if (text) return text.slice(0, 28);
+    const goal = payload && payload.state && payload.state.casePanel && payload.state.casePanel.goal;
+    return String(goal || "未命名对话").slice(0, 28);
+  }
+
+  function archiveSubtitle(payload) {
+    const messages = normalizeSavedMessages(payload && payload.state && payload.state.messages);
+    const userCount = messages.filter((message) => message.role === "user").length;
+    const savedAt = new Date(Number(payload && payload.savedAt) || Date.now());
+    const dateText = savedAt.toLocaleString("zh-CN", {
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit"
+    });
+    return `${dateText} · ${userCount}轮咨询`;
+  }
+
+  function readArchives() {
+    try {
+      const raw = window.localStorage.getItem(ARCHIVE_KEY) || window.localStorage.getItem(ARCHIVE_BASE_KEY);
+      const parsed = parseJson(raw);
+      return Array.isArray(parsed)
+        ? parsed.filter((item) => item && item.state && (!item.topic || item.topic === activeTopic) && hasSavedUserTurn(item)).slice(0, ARCHIVE_LIMIT)
+        : [];
+    } catch {
+      return [];
+    }
+  }
+
+  function writeArchives(items) {
+    try {
+      const cleaned = (items || []).filter((item) => item && item.state && hasSavedUserTurn(item)).slice(0, ARCHIVE_LIMIT);
+      const raw = JSON.stringify(cleaned);
+      window.localStorage.setItem(ARCHIVE_KEY, raw);
+      window.localStorage.setItem(ARCHIVE_BASE_KEY, raw);
+    } catch {
+      // ignore storage failures
+    }
+  }
+
+  function archiveCurrentSession() {
+    const payload = buildSessionPayload();
+    if (!hasSavedUserTurn(payload)) return;
+
+    const entry = {
+      ...payload,
+      id: payload.id || state.sessionId || createSessionId(),
+      archivedAt: Date.now(),
+      title: archiveTitle(payload),
+      subtitle: archiveSubtitle(payload)
+    };
+    const archives = readArchives().filter((item) => item.id !== entry.id);
+    writeArchives([entry].concat(archives));
+    renderHistoryList();
+  }
+
+  function setHistoryOpen(open) {
+    if (!historyPopover || !historyChatButton) return;
+    historyPopover.hidden = !open;
+    historyChatButton.setAttribute("aria-expanded", open ? "true" : "false");
+    if (open) renderHistoryList();
+  }
+
+  function renderHistoryList() {
+    if (!historyList) return;
+    const archives = readArchives();
+    historyList.innerHTML = "";
+    if (!archives.length) {
+      const empty = document.createElement("div");
+      empty.className = "history-empty";
+      empty.innerHTML = "<strong>暂无历史对话</strong><span>清空当前对话后，会保留在这里。</span>";
+      historyList.appendChild(empty);
+      return;
+    }
+
+    archives.forEach((item) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "history-item";
+
+      const title = document.createElement("strong");
+      title.textContent = item.title || archiveTitle(item);
+      const subtitle = document.createElement("span");
+      subtitle.textContent = item.subtitle || archiveSubtitle(item);
+
+      button.appendChild(title);
+      button.appendChild(subtitle);
+      button.addEventListener("click", () => {
+        applyStoredPayload(item, false);
+        saveChatSession();
+        setHistoryOpen(false);
+      });
+      historyList.appendChild(button);
+    });
+  }
+
   function readStoredPayload() {
     try {
       const sessionRaw = window.sessionStorage.getItem(SESSION_KEY);
@@ -653,20 +789,7 @@
   }
 
   function saveChatSession() {
-    const payload = {
-      topic: activeTopic,
-      savedAt: Date.now(),
-      state: {
-        stage: state.stage || localStage(),
-        region: state.region || "",
-        mainland: state.mainland || "",
-        matter: state.matter || "",
-        summary: state.summary || "",
-        casePanel: state.casePanel || null,
-        messages: state.messages.slice(-80)
-      },
-      inputDraft: String(input && input.value ? input.value : "").slice(0, 1000)
-    };
+    const payload = buildSessionPayload();
 
     try {
       const raw = JSON.stringify(payload);
@@ -690,10 +813,8 @@
     }
   }
 
-  function restoreChatSession() {
-    const payload = readStoredPayload();
+  function storedPayloadCompatible(payload) {
     if (!payload || !payload.state) return false;
-
     const preset = topicPresets[activeTopic];
     if (preset) {
       const savedState = payload.state || {};
@@ -706,10 +827,16 @@
 
     const savedAt = Number(payload.savedAt || 0);
     if (savedAt && Date.now() - savedAt > STORAGE_MAX_AGE_MS) return false;
+    return true;
+  }
+
+  function applyStoredPayload(payload, restoreDraft) {
+    if (!storedPayloadCompatible(payload)) return false;
 
     const savedMessages = normalizeSavedMessages(payload.state.messages);
     if (!savedMessages.length) return false;
 
+    state.sessionId = String(payload.id || createSessionId());
     state.stage = String(payload.state.stage || "region");
     state.region = String(payload.state.region || "");
     state.mainland = String(payload.state.mainland || "");
@@ -735,13 +862,21 @@
       renderStartGuide();
     }
 
-    if (payload.inputDraft) {
+    if (restoreDraft && payload.inputDraft) {
       input.value = String(payload.inputDraft);
       input.style.height = "auto";
       input.style.height = Math.min(input.scrollHeight, 118) + "px";
+    } else {
+      input.value = "";
+      input.style.height = "auto";
     }
 
     return true;
+  }
+
+  function restoreChatSession() {
+    const payload = readStoredPayload();
+    return applyStoredPayload(payload, true);
   }
 
   function appendSummary(text) {
@@ -898,7 +1033,7 @@
   function mainlandCityFact(source) {
     return firstMatch(
       source,
-      /深圳|广州|廣州|上海|北京|佛山|珠海|东莞|東莞|苏州|蘇州|杭州|南京|天津|重庆|重慶|武汉|武漢|成都|西安|青岛|青島|厦门|廈門/i
+      /深圳|广州|廣州|中山|上海|北京|佛山|珠海|东莞|東莞|苏州|蘇州|杭州|南京|天津|重庆|重慶|武汉|武漢|成都|西安|青岛|青島|厦门|廈門/i
     );
   }
 
@@ -935,7 +1070,7 @@
   }
 
   function hasPositiveTitleInfo(source) {
-    const titleWords = "房产证|房產證|不动产权证|不動產權證|产权证|產權證";
+    const titleWords = "房产证|房產證|不动产权证|不動產權證|产权证|產權證|屋契|契纸|契紙";
     return new RegExp(
       [
         "(?:已有|已經有|已经有|有)\\s*(?:" + titleWords + ")",
@@ -948,11 +1083,13 @@
 
   function hasUnclearTitleInfo(source) {
     const shortText = "[^\\n，。；、,.]{0,8}";
-    const titleWords = "房产证|房產證|不动产权证|不動產權證|产权证|產權證";
+    const titleWords = "房产证|房產證|不动产权证|不動產權證|产权证|產權證|屋契|契纸|契紙";
     return new RegExp(
       [
         "未办证",
         "未辦證",
+        "(?:" + titleWords + ")" + shortText + "(?:失去|丢失|遺失|遗失|不见|不見|找不到|只得副本|只有副本|没有正本|沒有正本)",
+        "(?:正本|副本|复印件|影印本)" + shortText + "(?:" + titleWords + ")",
         "没办" + shortText + "证",
         "沒辦" + shortText + "證",
         "没有" + shortText + "(?:" + titleWords + ")",
@@ -1039,6 +1176,8 @@
     if ((isInheritance || /房产|房產|不动产|不動產/.test(source)) && hasUnclearTitleInfo(source)) facts.push("房产证未确认");
     else if ((isInheritance || /房产|房產|不动产|不動產/.test(source)) && hasPositiveTitleInfo(source)) facts.push("已有产权证");
     else if ((isInheritance || /房产|房產|不动产|不動產/.test(source)) && /房产证|房產證|不动产权证|不動產權證|产权证|產權證/i.test(source)) facts.push("提到产权证");
+    if (/屋契|契纸|契紙|正本|副本|复印件|影印本/i.test(source) && hasUnclearTitleInfo(source)) facts.push("权属文件待核");
+    if (/掉空|空置|破落|荒废|荒廢|没有跟进|沒有跟進|长期未处理|長期未處理/i.test(source)) facts.push("长期未处理");
     if (isInheritance && /死亡证明|死亡證明|亲属关系|親屬關係|香港文件|公证|公證|转递|轉遞|委托书|委託書/i.test(source)) facts.push("提到文件材料");
     if (/委托|委託|代办|代辦|回不去|不到内地|不到內地/i.test(source)) facts.push("想委托办理");
     if (isInheritance && /卖房|賣房|卖掉|賣掉|出售|转卖|轉賣/i.test(source)) facts.push("继承后出售");
@@ -1073,8 +1212,9 @@
     const lostStatus = lostContactStatus(source);
     const conflictStatus = disputeStatus(source);
     const hasAgreement = agreementConfirmed(source) || conflictStatus || lostStatus === "yes";
-    const hasTitle = hasUnclearTitleInfo(source) || hasPositiveTitleInfo(source) || /房产证|房產證|不动产权证|不動產權證|产权证|產權證/i.test(source);
+    const hasTitle = hasUnclearTitleInfo(source) || hasPositiveTitleInfo(source) || /房产证|房產證|不动产权证|不動產權證|产权证|產權證|屋契|契纸|契紙/i.test(source);
     const hasDocuments = /死亡证明|死亡證明|亲属关系|親屬關係|香港文件|公证|公證|转递|轉遞/i.test(source);
+    const hasTitleDocIssue = /屋契|契纸|契紙|正本|副本|复印件|影印本/i.test(source) && hasUnclearTitleInfo(source);
     const hasRegion = !!regionFact(source);
 
     if (!isInheritance) {
@@ -1103,7 +1243,10 @@
     if (!hasAgreement) {
       items.push(lostStatus === "no" ? "继承人是否全部同意，有无不配合" : "继承人是否全部同意，有无失联或不配合");
     }
-    if (!hasTitle) items.push("房产证/不动产权证是否已有");
+    if (hasTitleDocIssue) {
+      items.push("登记查册结果和证号");
+      items.push("副本内容是否完整");
+    } else if (!hasTitle) items.push("房产证/不动产权证是否已有");
     if (!hasDocuments) items.push("香港死亡证明、亲属关系证明是否已准备");
     if (hasDocuments && !/公证|公證|转递|轉遞/i.test(source)) items.push("香港文件是否已公证转递");
 
@@ -1506,7 +1649,9 @@
 
   if (clearChatButton) {
     clearChatButton.addEventListener("click", function () {
+      archiveCurrentSession();
       state.activeRequestId += 1;
+      state.sessionId = createSessionId();
       state.stage = "region";
       state.region = "";
       state.mainland = "";
@@ -1522,12 +1667,33 @@
       setBusy(false);
       renderAttachments();
       renderInitialChat();
+      renderHistoryList();
     });
   }
+
+  if (historyChatButton) {
+    historyChatButton.addEventListener("click", function (event) {
+      event.stopPropagation();
+      setHistoryOpen(historyPopover ? historyPopover.hidden : true);
+    });
+  }
+
+  if (historyCloseButton) {
+    historyCloseButton.addEventListener("click", function () {
+      setHistoryOpen(false);
+    });
+  }
+
+  document.addEventListener("click", function (event) {
+    if (!historyPopover || historyPopover.hidden) return;
+    if (historyPopover.contains(event.target) || (historyChatButton && historyChatButton.contains(event.target))) return;
+    setHistoryOpen(false);
+  });
 
   window.addEventListener("pagehide", saveChatSession);
 
   if (!restoreChatSession()) {
     renderInitialChat();
   }
+  renderHistoryList();
 })();
