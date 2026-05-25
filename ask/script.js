@@ -545,9 +545,9 @@
     const missing = Array.isArray(panel.missing) ? panel.missing : [];
     const cleanList = (items, limit) => Array.from(new Set(items
       .map((item) => String(item || "").trim())
-      .filter(Boolean)
-      .map((item) => item.slice(0, 42)))).slice(0, limit);
-    const cleanFacts = cleanList(facts, 8);
+        .filter(Boolean)
+        .map((item) => item.slice(0, 42)))).slice(0, limit);
+    const cleanFacts = reconcileCaseFacts(cleanList(facts, 8));
     const cleanMissing = cleanList(missing, 5);
     if (!goal && !cleanFacts.length && !cleanMissing.length) return null;
     const normalized = {
@@ -556,6 +556,16 @@
       missing: cleanMissing
     };
     return normalized;
+  }
+
+  function reconcileCaseFacts(facts) {
+    const hasConflict = facts.some((fact) => /有争议|有爭議|不配合|不同意|反对|反對|失联|失聯/.test(fact));
+    const hasNotStarted = facts.some((fact) => /未发生继承|未發生繼承|提前安排/.test(fact));
+    return facts.filter((fact) => {
+      if (hasConflict && /继承人同意|繼承人同意|全部同意|一致同意|没有争议|沒有爭議|无争议|無爭議/.test(fact)) return false;
+      if (hasNotStarted && /继承办理|繼承辦理/.test(fact)) return false;
+      return true;
+    });
   }
 
   function normalizeSavedMessages(messages) {
