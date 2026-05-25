@@ -1336,6 +1336,34 @@
     return localRoutes[state.region] || localRoutes.other;
   }
 
+  function inheritanceFallbackReply() {
+    if (activeTopic !== "hk-mainland-property-inheritance") return null;
+    const source = userCaseSource();
+    const city = mainlandCityFact(source);
+    const hasTitle = hasPositiveTitleInfo(source) || hasUnclearTitleInfo(source) || /登记|登記|名下|房产证|房產證|不动产权证|不動產權證|产权证|產權證|屋契|契纸|契紙/i.test(source);
+    const hasWill = /遗嘱|遺囑|遗产分配|遺產分配|遗赠|遺贈|认证|認證|承办|承辦|probate/i.test(source);
+    const hasHeirInfo = /继承人|繼承人|兄弟|姐妹|姊妹|配偶|父母|子女|儿子|兒子|女儿|女兒|同意|反对|反對|争议|爭議|不配合|失联|失聯/i.test(source);
+    const hasDocumentUse = /公证|公證|转递|轉遞|正本|副本|文件在手|材料在手|证明|證明/i.test(source);
+    const items = [];
+
+    if (!city) items.push("房子具体在哪个内地城市或区");
+    if (!hasTitle) items.push("房子现在登记在谁名下，是否有房产证/不动产权证");
+    if (hasWill) items.push("香港遗嘱认证文件是否明确写到这套房，正本是否在手");
+    else items.push("是否有遗嘱、遗产分配或放弃继承文件");
+    if (!hasHeirInfo) items.push("配偶、父母、子女或其他继承人是否都同意");
+    if (!hasDocumentUse) items.push("香港死亡证明、亲属关系证明或委托文件是否已准备");
+
+    const intro = city
+      ? `我已记下：${city}房产。先不用你整理复杂资料，知道就答，不知道就写不知道：`
+      : "先不用你整理复杂资料。这类问题先看几个具体点，知道就答，不知道就写不知道：";
+
+    return {
+      answer: [intro, ...items.slice(0, 4).map((item, index) => `${index + 1}. ${item}`)].join("\n"),
+      chips: city ? ["登记在谁名下", "遗嘱文件在手", "其他继承人同意"] : ["广州房产", "深圳房产", "遗嘱文件在手"],
+      inputPlaceholder: "知道多少说多少，不知道就写不知道"
+    };
+  }
+
   function routeUrl(route) {
     const target = new URL(route.url, window.location.origin);
     target.searchParams.set("source", "ask-recommendation");
@@ -1463,9 +1491,20 @@
       };
     }
 
+    const inheritanceFallback = inheritanceFallbackReply();
+    if (inheritanceFallback) {
+      return {
+        stage: "done",
+        answer: inheritanceFallback.answer,
+        chips: inheritanceFallback.chips,
+        inputPlaceholder: inheritanceFallback.inputPlaceholder,
+        route: routeForCurrentState()
+      };
+    }
+
     return {
       stage: "done",
-      answer: "基于目前信息，这个事项可继续按中国内地法律路径做初步分析。你可以继续补充时间线、关键证据和目标，我会继续细化判断。",
+      answer: "基于目前信息，这个事项可继续按中国内地法律路径做初步分析。你可以直接说：谁和谁发生什么、事情在哪里、现在最想先解决哪一件事。",
       chips: [],
       inputPlaceholder: "也可以继续补充你的情况",
       route: routeForCurrentState()
