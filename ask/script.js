@@ -55,31 +55,31 @@
       mainland: "yes",
       matter: "family",
       summary: "客户从香港居民继承中国内地房产过户专题进入，重点关注内地不动产继承、香港文件公证转递、继承人一致性、税费和委托办理。",
-      greeting: "我先帮你理顺继承过户。直接说房产城市、谁去世、继承人情况。",
+      greeting: "我先帮你理顺香港居民处理内地房产。先说房子在哪、是否已有人去世、现在想过户还是提前安排。",
       placeholder: "直接说情况，不用写姓名",
       chips: [
-        { label: "深圳房产继承", value: "我想咨询香港居民继承深圳房产过户" },
-        { label: "继承人不同意", value: "继承人之间不同意，内地房产还能过户吗？" },
-        { label: "香港文件能否用", value: "香港死亡证明和亲属关系证明能不能直接拿到内地用？" }
+        { label: "已有人去世", value: "我是香港人，内地有房产，亲人已经去世，想了解继承过户怎么走。" },
+        { label: "还没人去世", value: "我是香港人，内地有房产，目前还没人去世，想提前安排将来继承或过户。" },
+        { label: "文件/家人配合", value: "我是香港人，内地房产涉及香港文件、公证转递或家人不同意，想先判断怎么处理。" }
       ]
     }
   };
 
   const topicStartOptions = [
     {
-      title: "怎么继承过户",
-      text: "内地房产，亲人已去世",
-      value: "亲人在香港去世，名下有中国内地房产，想先了解继承过户怎么走。"
+      title: "已有人去世",
+      text: "继承过户、确认材料",
+      value: "我是香港人，内地有房产，亲人已经去世，想了解继承过户怎么走。"
     },
     {
-      title: "香港文件怎么用",
-      text: "死亡证明、亲属关系、委托书",
-      value: "想问香港死亡证明、亲属关系或委托书，怎么拿到内地使用。"
+      title: "还没人去世",
+      text: "提前安排、避免争议",
+      value: "我是香港人，内地有房产，目前还没人去世，想提前了解将来继承或过户安排。"
     },
     {
-      title: "有人不同意/联系不上",
-      text: "争议、失联、不配合",
-      value: "继承人有人不同意、失联或不配合，想问内地房产还能不能处理。"
+      title: "文件/家人配合",
+      text: "公证转递、同意或失联",
+      value: "我是香港人，内地房产涉及香港文件或家人不同意、联系不上，想先判断怎么处理。"
     }
   ];
 
@@ -477,7 +477,7 @@
 
     const sample = document.createElement("div");
     sample.className = "sample-prompt";
-    sample.innerHTML = "<strong>可以直接套一句</strong><p>父亲在深圳有房，香港去世，想继承过户。</p>";
+    sample.innerHTML = "<strong>可以直接套一句</strong><p>我人在香港，深圳有房，想了解继承或提前安排。</p>";
     guide.appendChild(sample);
 
     chatBody.appendChild(guide);
@@ -506,7 +506,7 @@
 
   function summaryQuestion() {
     if (activeTopic === "hk-mainland-property-inheritance") {
-      return "再补充一句：房子在哪个内地城市、谁去世、继承人是否都同意。";
+      return "再补充一句：房子在哪个内地城市、目前是否已有人去世、现在想继承过户还是提前安排。";
     }
     if (state.region && state.mainland === "yes") {
       return "再补充一句：对方、财产或主要证据在内地哪里，最想先解决什么。";
@@ -519,7 +519,7 @@
 
   function summaryPlaceholder() {
     if (activeTopic === "hk-mainland-property-inheritance") {
-      return "例如：父亲在深圳有房，香港去世，想继承过户";
+      return "例如：我人在香港，深圳有房，目前还没人去世，想提前安排";
     }
     if (state.region && state.mainland === "yes") {
       return "例如：对方公司在深圳，合同履行地在内地，想追回货款";
@@ -972,7 +972,8 @@
     const isInheritance = hasInheritanceContext(source);
     const matter = matterFact(source);
 
-    if (region) facts.push(region);
+    if (isInheritance && state.region === "hongkong" && (!region || /香港/.test(region))) facts.push("香港居民");
+    else if (region) facts.push(region);
     if (/中国内地|中國內地|内地|內地|大陆|大陸|mainland/i.test(source) || state.mainland === "yes") facts.push("涉及中国内地");
     if (matter) facts.push(matter);
     if (city) facts.push(isInheritance || /房产|房產|楼房|樓房|不动产|不動產|物业|物業/i.test(source) ? city + "房产" : city);
@@ -1041,7 +1042,12 @@
       if (!hasTitle) items.push("房产登记在谁名下，是否已有房产证/不动产权证");
       return Array.from(new Set(items)).slice(0, 5);
     }
-    if (!hasDeceased) items.push("谁去世了，与客户是什么关系");
+    if (!hasDeceased) {
+      items.push("目前是否已有人去世；如无，是提前安排还是将来继承");
+      if (!hasTitle) items.push("房产登记在谁名下，是否已有房产证/不动产权证");
+      items.push("相关家人或可能继承人是否知情、有无争议");
+      return Array.from(new Set(items)).slice(0, 5);
+    }
     items.push("配偶、父母、子女和全部继承人范围");
     if (!hasWill) items.push("是否有遗嘱或遗产分配文件");
     if (!hasAgreement) {
