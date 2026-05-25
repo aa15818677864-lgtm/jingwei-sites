@@ -65,7 +65,7 @@ p {
 .page-shell {
   min-height: 100svh;
   display: grid;
-  grid-template-columns: 208px minmax(620px, 660px) 212px;
+  grid-template-columns: 258px minmax(620px, 660px) 240px;
   gap: 20px;
   align-items: start;
   justify-content: center;
@@ -87,9 +87,9 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 18px;
+  gap: 14px;
   min-width: 0;
-  padding: 20px 18px;
+  padding: 20px 20px;
 }
 
 .brand {
@@ -152,10 +152,85 @@ h1 span {
   line-height: 1.55;
 }
 
+.lawyer-profile {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  align-items: center;
+  gap: 13px;
+  margin-top: 18px;
+}
+
+.lawyer-profile img {
+  width: 92px;
+  height: 92px;
+  border: 1px solid var(--line-blue);
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: 50% 24%;
+  background: #eef2f7;
+  box-shadow: 0 12px 28px rgba(13, 41, 71, 0.12);
+}
+
+.lawyer-name {
+  display: grid;
+  gap: 5px;
+}
+
+.lawyer-name p {
+  color: var(--brand);
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.lawyer-name h1 {
+  font-size: 25px;
+  line-height: 1.05;
+}
+
+.lawyer-name span {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.lawyer-intro {
+  border-left: 3px solid var(--brand);
+  padding-left: 12px;
+}
+
+.lawyer-intro p {
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.lawyer-focus {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.lawyer-focus span {
+  min-height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line-blue);
+  border-radius: 6px;
+  background: #f8fafc;
+  color: var(--navy);
+  padding: 7px 8px;
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1.2;
+  text-align: center;
+}
+
 .trust-stack {
   display: grid;
-  gap: 26px;
-  margin-top: 38px;
+  gap: 12px;
+  margin-top: 2px;
 }
 
 .trust-card,
@@ -168,7 +243,7 @@ h1 span {
 }
 
 .trust-card {
-  padding: 15px 13px;
+  padding: 12px 13px;
 }
 
 .trust-card:first-child {
@@ -188,7 +263,7 @@ h1 span {
 .lawyer-card p,
 .ad-copy,
 .ad-note {
-  margin-top: 8px;
+  margin-top: 7px;
   color: var(--muted);
   font-size: 12px;
   line-height: 1.55;
@@ -200,7 +275,7 @@ h1 span {
   border-radius: 6px;
   background: var(--orange-soft);
   color: var(--orange-ink);
-  padding: 14px 12px;
+  padding: 12px 12px;
   font-size: 12px;
   line-height: 1.55;
 }
@@ -865,8 +940,27 @@ h1 span {
 
 @media (max-width: 1160px) {
   .page-shell {
-    grid-template-columns: 190px minmax(560px, 1fr) 196px;
+    grid-template-columns: 220px minmax(560px, 1fr) 210px;
     padding: 28px 20px;
+  }
+
+  .brand-pane,
+  .support-pane {
+    padding: 20px 16px;
+  }
+
+  .lawyer-profile img {
+    width: 82px;
+    height: 82px;
+  }
+
+  .lawyer-profile {
+    grid-template-columns: 82px minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .lawyer-name h1 {
+    font-size: 23px;
   }
 
   .start-guide {
