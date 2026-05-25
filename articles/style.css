@@ -1258,8 +1258,7 @@ body.articles-index::before,
 .articles-index .topic-browser {
   grid-column: 2;
   grid-row: 1;
-  position: sticky;
-  top: 108px;
+  position: static;
 }
 
 .articles-index .all-articles,
