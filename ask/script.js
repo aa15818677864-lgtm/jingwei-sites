@@ -10,7 +10,8 @@
   const attachmentList = document.getElementById("attachmentList");
   const clearChatButton = document.getElementById("clearChat");
   const urlParams = new URLSearchParams(window.location.search);
-  const activeTopic = urlParams.get("topic") || "";
+  const DEFAULT_TOPIC = "hk-mainland-property-inheritance";
+  const activeTopic = urlParams.get("topic") || DEFAULT_TOPIC;
   const sourceParam = urlParams.get("source") || "";
   const intentParam = urlParams.get("intent") || "";
   const storageSuffix = activeTopic ? "." + activeTopic.replace(/[^a-z0-9_-]/gi, "") : "";
@@ -504,6 +505,9 @@
   }
 
   function summaryQuestion() {
+    if (activeTopic === "hk-mainland-property-inheritance") {
+      return "再补充一句：房子在哪个内地城市、谁去世、继承人是否都同意。";
+    }
     if (state.region && state.mainland === "yes") {
       return "再补充一句：对方、财产或主要证据在内地哪里，最想先解决什么。";
     }
@@ -514,6 +518,9 @@
   }
 
   function summaryPlaceholder() {
+    if (activeTopic === "hk-mainland-property-inheritance") {
+      return "例如：父亲在深圳有房，香港去世，想继承过户";
+    }
     if (state.region && state.mainland === "yes") {
       return "例如：对方公司在深圳，合同履行地在内地，想追回货款";
     }
