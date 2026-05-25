@@ -633,6 +633,60 @@ h1 span {
   display: none;
 }
 
+.attachment-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 22px 0;
+  border-top: 1px solid var(--line);
+  background: #fff;
+}
+
+.attachment-list[hidden] {
+  display: none;
+}
+
+.attachment-pill {
+  min-height: 30px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  max-width: 100%;
+  border: 1px solid var(--line-blue);
+  border-radius: 6px;
+  background: #f8fafc;
+  color: var(--navy);
+  padding: 5px 8px 5px 10px;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.attachment-pill small {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.attachment-pill button {
+  width: 18px;
+  height: 18px;
+  border: 0;
+  border-radius: 50%;
+  background: #e2e8f0;
+  color: var(--navy);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.attachment-pill.is-error {
+  border-color: var(--orange-line);
+  background: var(--orange-soft);
+  color: var(--orange-ink);
+}
+
 .reply-chip {
   flex: 0 0 auto;
   min-height: 30px;
@@ -656,7 +710,7 @@ h1 span {
 
 .composer {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 74px;
+  grid-template-columns: 38px minmax(0, 1fr) 74px;
   gap: 12px;
   padding: 10px 22px;
   border-top: 1px solid var(--line);
@@ -686,13 +740,29 @@ h1 span {
   min-height: 32px;
   border: 0;
   border-radius: 6px;
-  background: var(--green);
-  color: #fff;
   cursor: pointer;
   font-weight: 900;
 }
 
-.composer button:hover {
+.attach-button {
+  border: 1px solid var(--line-blue) !important;
+  background: #f8fafc;
+  color: var(--navy);
+  font-size: 22px;
+  line-height: 1;
+}
+
+.attach-button:hover {
+  border-color: var(--navy) !important;
+  background: #fff;
+}
+
+.send-button {
+  background: var(--green);
+  color: #fff;
+}
+
+.send-button:hover {
   background: var(--green-deep);
 }
 
@@ -1115,9 +1185,13 @@ h1 span {
   }
 
   .composer {
-    grid-template-columns: minmax(0, 1fr) 68px;
+    grid-template-columns: 36px minmax(0, 1fr) 68px;
     gap: 12px;
     padding: 10px 16px;
+  }
+
+  .attachment-list {
+    padding: 10px 16px 0;
   }
 
   .composer textarea,

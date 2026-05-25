@@ -71,9 +71,12 @@
         <section class="chat-stream" aria-label="对话区">
           <div class="chat-body" id="chatBody" aria-live="polite"></div>
           <div class="quick-replies" id="quickReplies" aria-label="快捷回复"></div>
+          <div class="attachment-list" id="attachmentList" aria-live="polite" hidden></div>
           <form class="composer" id="chatForm">
+            <input id="attachmentInput" type="file" accept=".pdf,.docx,.txt,.md,.csv,.json,image/*" multiple hidden>
+            <button class="attach-button" id="attachButton" type="button" aria-label="上传图片、PDF或文档" title="上传资料">+</button>
             <textarea id="chatInput" rows="1" placeholder="直接说情况，不用写姓名" enterkeyhint="send"></textarea>
-            <button type="submit">发送</button>
+            <button class="send-button" type="submit">发送</button>
           </form>
         </section>
       </div>

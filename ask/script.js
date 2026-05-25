@@ -5,6 +5,9 @@
   const form = document.getElementById("chatForm");
   const input = document.getElementById("chatInput");
   const submitButton = form?.querySelector("button[type='submit']");
+  const attachButton = document.getElementById("attachButton");
+  const attachmentInput = document.getElementById("attachmentInput");
+  const attachmentList = document.getElementById("attachmentList");
   const clearChatButton = document.getElementById("clearChat");
   const urlParams = new URLSearchParams(window.location.search);
   const activeTopic = urlParams.get("topic") || "";
@@ -28,6 +31,9 @@
   const caseFacts = document.getElementById("caseFacts");
   const caseMissing = document.getElementById("caseMissing");
   const LAST_GOOD_ENDPOINT_KEY = "jingwei.ask.chat.endpoint.lastGood";
+  const MAX_ATTACHMENTS = 3;
+  const MAX_ATTACHMENT_BYTES = 3 * 1024 * 1024;
+  const MAX_ATTACHMENT_TEXT = 2600;
 
   const state = {
     stage: "region",
@@ -36,6 +42,7 @@
     matter: "",
     summary: "",
     messages: [],
+    pendingAttachments: [],
     casePanel: null,
     casePanelPending: false,
     activeRequestId: 0
@@ -151,6 +158,10 @@
     return [lastGood].concat(candidates.filter((endpoint) => endpoint !== lastGood));
   }
 
+  function extractEndpointCandidates() {
+    return apiEndpointCandidates().map((endpoint) => endpoint.replace(/\/chat(?:\?.*)?$/i, "/extract-file"));
+  }
+
   async function fetchChatJson(endpoint, payload, timeoutMs) {
     const controller = new AbortController();
     const timer = window.setTimeout(function () {
@@ -166,6 +177,26 @@
       });
 
       if (!response.ok) throw new Error("AI endpoint failed");
+      return response.json();
+    } finally {
+      window.clearTimeout(timer);
+    }
+  }
+
+  async function fetchExtractJson(endpoint, payload) {
+    const controller = new AbortController();
+    const timer = window.setTimeout(function () {
+      controller.abort();
+    }, 18000);
+
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+        signal: controller.signal
+      });
+      if (!response.ok) throw new Error("File extraction failed");
       return response.json();
     } finally {
       window.clearTimeout(timer);
@@ -232,19 +263,154 @@
     return row;
   }
 
-  function addUser(text) {
-    state.messages.push({ role: "user", content: text });
+  function addUser(text, displayText) {
+    state.messages.push({ role: "user", content: text, displayContent: displayText || text });
     saveChatSession();
-    return addMessage(text, "user");
+    return addMessage(displayText || text, "user");
   }
 
   function setBusy(busy) {
     if (submitButton) submitButton.disabled = busy;
+    if (attachButton) attachButton.disabled = busy;
     input.disabled = busy;
   }
 
   function isSystemShortcut(event) {
     return event.ctrlKey || event.metaKey || event.altKey;
+  }
+
+  function formatBytes(bytes) {
+    const size = Number(bytes || 0);
+    if (size >= 1024 * 1024) return (size / 1024 / 1024).toFixed(1) + "MB";
+    if (size >= 1024) return Math.round(size / 1024) + "KB";
+    return size + "B";
+  }
+
+  function fileKindLabel(kind, type) {
+    if (kind === "pdf") return "PDF";
+    if (kind === "docx") return "Word";
+    if (kind === "image" || /^image\//i.test(type || "")) return "图片";
+    if (kind === "text") return "文本";
+    return "附件";
+  }
+
+  function readFileData(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(String(reader.result || ""));
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  function attachmentMessage(attachments) {
+    const usable = (attachments || []).slice(0, MAX_ATTACHMENTS);
+    if (!usable.length) return "";
+
+    const parts = ["\n\n[客户上传资料]"];
+    usable.forEach((file, index) => {
+      const text = String(file.text || "").trim().slice(0, MAX_ATTACHMENT_TEXT);
+      parts.push(`${index + 1}. ${file.name}（${fileKindLabel(file.kind, file.type)}，${formatBytes(file.size)}）`);
+      if (text) {
+        parts.push("可读取文字摘录：");
+        parts.push(text);
+      }
+      if (file.note) parts.push("读取说明：" + file.note);
+    });
+    parts.push("[请结合客户文字和上述附件内容判断；若附件是图片或扫描件且没有可读取文字，请追问客户补充图片上的关键内容，不要假装已经看清图片。]");
+    return parts.join("\n");
+  }
+
+  function attachmentDisplay(attachments) {
+    const names = (attachments || []).map((file) => file.name).filter(Boolean);
+    return names.length ? "\n\n已上传资料：" + names.join("、") : "";
+  }
+
+  function renderAttachments() {
+    if (!attachmentList) return;
+    attachmentList.innerHTML = "";
+    if (!state.pendingAttachments.length) {
+      attachmentList.hidden = true;
+      return;
+    }
+
+    state.pendingAttachments.forEach((file, index) => {
+      const pill = document.createElement("span");
+      pill.className = "attachment-pill" + (file.error ? " is-error" : "");
+
+      const label = document.createElement("span");
+      label.textContent = file.name;
+      const meta = document.createElement("small");
+      meta.textContent = fileKindLabel(file.kind, file.type) + " " + formatBytes(file.size);
+      const remove = document.createElement("button");
+      remove.type = "button";
+      remove.textContent = "×";
+      remove.setAttribute("aria-label", "移除 " + file.name);
+      remove.addEventListener("click", () => {
+        state.pendingAttachments.splice(index, 1);
+        renderAttachments();
+      });
+
+      pill.appendChild(label);
+      pill.appendChild(meta);
+      pill.appendChild(remove);
+      attachmentList.appendChild(pill);
+    });
+    attachmentList.hidden = false;
+  }
+
+  async function extractFiles(files) {
+    const selected = Array.from(files || []).slice(0, MAX_ATTACHMENTS);
+    if (!selected.length) return;
+
+    const tooLarge = selected.filter((file) => file.size > MAX_ATTACHMENT_BYTES).map((file) => ({
+      name: file.name,
+      type: file.type,
+      kind: "",
+      size: file.size,
+      text: "",
+      note: "文件超过 3MB，未读取内容。",
+      error: true
+    }));
+    const readable = selected.filter((file) => file.size <= MAX_ATTACHMENT_BYTES);
+    const payloadFiles = [];
+
+    for (const file of readable) {
+      payloadFiles.push({
+        name: file.name,
+        type: file.type,
+        size: file.size,
+        data: await readFileData(file)
+      });
+    }
+
+    let extracted = [];
+    if (payloadFiles.length) {
+      const endpoints = extractEndpointCandidates();
+      for (let index = 0; index < endpoints.length; index += 1) {
+        try {
+          const result = await fetchExtractJson(endpoints[index], { files: payloadFiles });
+          extracted = Array.isArray(result.attachments) ? result.attachments : [];
+          break;
+        } catch {
+          extracted = [];
+        }
+      }
+      if (!extracted.length) {
+        extracted = payloadFiles.map((file) => ({
+          name: file.name,
+          type: file.type,
+          kind: /^image\//i.test(file.type || "") ? "image" : "unknown",
+          size: file.size,
+          text: "",
+          note: "暂时无法读取附件内容，请补充关键文字。",
+          error: true
+        }));
+      }
+    }
+
+    state.pendingAttachments = extracted.concat(tooLarge).slice(0, MAX_ATTACHMENTS);
+    renderAttachments();
   }
 
   function setChips(items) {
@@ -375,7 +541,8 @@
     return messages
       .map((message) => ({
         role: message && message.role === "assistant" ? "assistant" : "user",
-        content: String(message && message.content ? message.content : "").trim()
+        content: String(message && message.content ? message.content : "").trim(),
+        displayContent: String(message && message.displayContent ? message.displayContent : "").trim()
       }))
       .filter((message) => message.content)
       .slice(-80);
@@ -482,7 +649,7 @@
 
     chatBody.innerHTML = '<div class="day-pill">今天</div>';
     savedMessages.forEach((message) => {
-      addMessage(message.content, message.role === "assistant" ? "bot" : "user");
+      addMessage(message.displayContent || message.content, message.role === "assistant" ? "bot" : "user");
     });
 
     const stage = localStage();
@@ -1091,16 +1258,22 @@
 
   async function handleTurn(text, options) {
     const cleaned = String(text || "").trim();
-    if (!cleaned) return;
+    const attachments = state.pendingAttachments.slice();
+    if (!cleaned && !attachments.length) return;
+    const userText = cleaned || "我上传了资料，请先帮我看重点。";
+    const fullText = userText + attachmentMessage(attachments);
+    const displayText = userText + attachmentDisplay(attachments);
 
     removeStartGuide();
-    addUser(cleaned);
-    applyChoice(cleaned, options);
+    addUser(fullText, displayText);
+    applyChoice(userText, options);
     state.casePanel = null;
     state.casePanelPending = true;
     updateCasePanel();
     input.value = "";
     input.style.height = "auto";
+    state.pendingAttachments = [];
+    renderAttachments();
     saveChatSession();
 
     const requestId = ++state.activeRequestId;
@@ -1141,7 +1314,7 @@
     if (event.key !== "Enter" || event.shiftKey) return;
     if (event.isComposing || isComposing || event.keyCode === 229) return;
     if (input.disabled) return;
-    if (!String(input.value || "").trim()) return;
+    if (!String(input.value || "").trim() && !state.pendingAttachments.length) return;
 
     event.preventDefault();
     if (typeof form.requestSubmit === "function") {
@@ -1157,6 +1330,17 @@
     saveChatSession();
   });
 
+  if (attachButton && attachmentInput) {
+    attachButton.addEventListener("click", function () {
+      attachmentInput.click();
+    });
+
+    attachmentInput.addEventListener("change", async function () {
+      await extractFiles(attachmentInput.files);
+      attachmentInput.value = "";
+    });
+  }
+
   if (clearChatButton) {
     clearChatButton.addEventListener("click", function () {
       state.activeRequestId += 1;
@@ -1166,12 +1350,14 @@
       state.matter = "";
       state.summary = "";
       state.messages = [];
+      state.pendingAttachments = [];
       state.casePanel = null;
       state.casePanelPending = false;
       input.value = "";
       input.style.height = "auto";
       clearStoredSession();
       setBusy(false);
+      renderAttachments();
       renderInitialChat();
     });
   }
