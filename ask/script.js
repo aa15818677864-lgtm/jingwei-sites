@@ -783,7 +783,9 @@
   }
 
   function regionFact(source) {
-    if (/香港|港人|香港居民|香港人/i.test(source)) return "香港居民";
+    if (/香港居民|香港人|港人/i.test(source)) return "香港居民";
+    if (/我在香港|人在香港|目前在香港|现在在香港|現在在香港|身在香港|住在香港/i.test(source)) return "当前地区：香港";
+    if (/香港/i.test(source)) return "香港";
     if (/澳门|澳門/i.test(source)) return "澳门居民";
     if (/美国|美國|纽约|紐約|加州|洛杉矶|洛杉磯/i.test(source)) return /华人|華人/.test(source) ? "美国华人" : "美国客户";
     if (/加拿大|温哥华|溫哥華|多伦多|多倫多/i.test(source)) return /华人|華人/.test(source) ? "加拿大华人" : "加拿大客户";
@@ -935,6 +937,7 @@
   function caseMissingItems(source) {
     const items = [];
     const hasCity = !!mainlandCityFact(source);
+    const hasMainlandContext = /中国内地|中國內地|内地|內地|大陆|大陸|国内|國內|深圳|广州|廣州|上海|北京|佛山|珠海|东莞|東莞|房产|房產|不动产|不動產/i.test(source);
     const death = deathStatus(source);
     const hasDeceased = death === "yes";
     const hasWill = /遗嘱|遺囑/i.test(source);
@@ -945,6 +948,9 @@
     const hasDocuments = /死亡证明|死亡證明|亲属关系|親屬關係|香港文件|公证|公證|转递|轉遞/i.test(source);
     const hasRegion = !!regionFact(source);
 
+    if (state.region && !state.mainland && !hasMainlandContext) {
+      return ["事项是否涉及中国内地"];
+    }
     if (!hasRegion) items.push("客户是否为香港居民或其他境外身份");
     if (!hasCity) items.push("房产具体在哪个内地城市");
     if (death === "no") {
@@ -965,6 +971,28 @@
     return Array.from(new Set(items)).slice(0, 5);
   }
 
+  function buildLocalCasePanel(source) {
+    const facts = collectCaseFacts(source);
+    const missing = caseMissingItems(source);
+    if (!facts.length && !missing.length) return null;
+    const hasMatter = /继承|繼承|过户|過戶|楼盘|樓盤|房产|房產|不动产|不動產|中国内地|中國內地|内地|內地|大陆|大陸|合同|公司|股权|股權|婚姻|离婚|離婚|授权|授權|文件|公证|公證|纠纷|糾紛/i.test(source);
+    return normalizeCasePanel({
+      goal: hasMatter ? caseGoalText(source) : "等待补充",
+      facts,
+      missing
+    });
+  }
+
+  function mergeCasePanels(primary, fallback) {
+    if (!primary) return fallback;
+    if (!fallback) return primary;
+    return normalizeCasePanel({
+      goal: primary.goal || fallback.goal,
+      facts: [...(fallback.facts || []), ...(primary.facts || [])],
+      missing: (primary.missing && primary.missing.length) ? primary.missing : fallback.missing
+    });
+  }
+
   function updateCasePanel() {
     if (!caseEmpty || !caseContent || !caseGoal || !caseFacts || !caseMissing) return;
     const source = userCaseSource();
@@ -978,13 +1006,14 @@
 
     caseEmpty.hidden = true;
     caseContent.hidden = false;
+    const localPanel = buildLocalCasePanel(source);
     const panel = state.casePanelPending
-      ? {
+      ? localPanel || {
           goal: "正在整理",
-          facts: ["等待AI判断"],
+          facts: ["AI正在核对"],
           missing: ["根据你刚补充的内容更新案情要点"]
         }
-      : state.casePanel;
+      : mergeCasePanels(state.casePanel, localPanel);
 
     if (!panel) {
       caseGoal.textContent = "等待补充";
