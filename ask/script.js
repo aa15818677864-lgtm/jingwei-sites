@@ -538,15 +538,55 @@
     }
   }
 
+  function casePanelItemKey(item) {
+    const variants = {
+      "廣": "广",
+      "東": "东",
+      "臺": "台",
+      "灣": "湾",
+      "國": "国",
+      "內": "内",
+      "產": "产",
+      "證": "证",
+      "權": "权",
+      "繼": "继",
+      "過": "过",
+      "戶": "户",
+      "與": "与",
+      "爭": "争",
+      "議": "议",
+      "聯": "联",
+      "係": "系",
+      "親": "亲",
+      "屬": "属",
+      "無": "无",
+      "發": "发",
+      "辦": "办"
+    };
+    return String(item || "")
+      .toLowerCase()
+      .replace(/\s+/g, "")
+      .replace(/[，,。；;、]/g, "")
+      .replace(/[廣東臺灣國內產證權繼過戶與爭議聯係親屬無發辦]/g, (char) => variants[char] || char);
+  }
+
   function normalizeCasePanel(panel) {
     if (!panel || typeof panel !== "object") return null;
     const goal = String(panel.goal || "").trim().slice(0, 28);
     const facts = Array.isArray(panel.facts) ? panel.facts : [];
     const missing = Array.isArray(panel.missing) ? panel.missing : [];
-    const cleanList = (items, limit) => Array.from(new Set(items
-      .map((item) => String(item || "").trim())
-        .filter(Boolean)
-        .map((item) => item.slice(0, 42)))).slice(0, limit);
+    const cleanList = (items, limit) => {
+      const cleaned = [];
+      const seen = new Set();
+      items.forEach((raw) => {
+        const item = String(raw || "").trim().slice(0, 42);
+        const key = casePanelItemKey(item);
+        if (!item || seen.has(key) || cleaned.length >= limit) return;
+        seen.add(key);
+        cleaned.push(item);
+      });
+      return cleaned;
+    };
     const cleanFacts = reconcileCaseFacts(cleanList(facts, 8));
     const cleanMissing = cleanList(missing, 5);
     if (!goal && !cleanFacts.length && !cleanMissing.length) return null;
