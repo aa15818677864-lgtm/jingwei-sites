@@ -55,11 +55,11 @@
       mainland: "yes",
       matter: "family",
       summary: "客户从香港居民继承中国内地房产过户专题进入，重点关注内地不动产继承、香港文件公证转递、继承人一致性、税费和委托办理。",
-      greeting: "我先帮你理顺香港居民处理内地房产。先说房子在哪、是否已有人去世、现在想过户还是提前安排。",
+      greeting: "我先帮你理顺香港居民处理内地房产。先说房子在哪、现在要办继承还是提前安排。",
       placeholder: "直接说情况，不用写姓名",
       chips: [
-        { label: "已有人去世", value: "我是香港人，内地有房产，亲人已经去世，想了解继承过户怎么走。" },
-        { label: "还没人去世", value: "我是香港人，内地有房产，目前还没人去世，想提前安排将来继承或过户。" },
+        { label: "继承办理", value: "我是香港人，内地有房产，现在需要办理继承过户，想了解怎么走。" },
+        { label: "提前安排", value: "我是香港人，内地有房产，目前只是想提前安排将来继承或过户。" },
         { label: "文件/家人配合", value: "我是香港人，内地房产涉及香港文件、公证转递或家人不同意，想先判断怎么处理。" }
       ]
     }
@@ -67,14 +67,14 @@
 
   const topicStartOptions = [
     {
-      title: "已有人去世",
+      title: "继承办理",
       text: "继承过户、确认材料",
-      value: "我是香港人，内地有房产，亲人已经去世，想了解继承过户怎么走。"
+      value: "我是香港人，内地有房产，现在需要办理继承过户，想了解怎么走。"
     },
     {
-      title: "还没人去世",
+      title: "提前安排",
       text: "提前安排、避免争议",
-      value: "我是香港人，内地有房产，目前还没人去世，想提前了解将来继承或过户安排。"
+      value: "我是香港人，内地有房产，目前只是想提前了解将来继承或过户安排。"
     },
     {
       title: "文件/家人配合",
@@ -506,7 +506,7 @@
 
   function summaryQuestion() {
     if (activeTopic === "hk-mainland-property-inheritance") {
-      return "再补充一句：房子在哪个内地城市、目前是否已有人去世、现在想继承过户还是提前安排。";
+      return "再补充一句：房子在哪个内地城市、现在是要办继承，还是提前安排。";
     }
     if (state.region && state.mainland === "yes") {
       return "再补充一句：对方、财产或主要证据在内地哪里，最想先解决什么。";
@@ -519,7 +519,7 @@
 
   function summaryPlaceholder() {
     if (activeTopic === "hk-mainland-property-inheritance") {
-      return "例如：我人在香港，深圳有房，目前还没人去世，想提前安排";
+      return "例如：我人在香港，深圳有房，想提前安排";
     }
     if (state.region && state.mainland === "yes") {
       return "例如：对方公司在深圳，合同履行地在内地，想追回货款";
@@ -873,15 +873,15 @@
 
   function deceasedFact(source) {
     const status = deathStatus(source);
-    if (status === "no") return "无人去世";
+    if (status === "no") return "未发生继承";
     if (status !== "yes") return "";
-    if (/父亲|父親|爸爸|爹/i.test(source)) return "父亲去世";
-    if (/母亲|母親|妈妈|媽媽/i.test(source)) return "母亲去世";
-    if (/爷爷|爺爺|祖父/i.test(source)) return "祖父去世";
-    if (/奶奶|祖母/i.test(source)) return "祖母去世";
-    if (/丈夫|先生|老公/i.test(source)) return "配偶去世";
-    if (/妻子|太太|老婆/i.test(source)) return "配偶去世";
-    return "亲人已去世";
+    if (/父亲|父親|爸爸|爹/i.test(source)) return "父亲相关继承";
+    if (/母亲|母親|妈妈|媽媽/i.test(source)) return "母亲相关继承";
+    if (/爷爷|爺爺|祖父/i.test(source)) return "祖父相关继承";
+    if (/奶奶|祖母/i.test(source)) return "祖母相关继承";
+    if (/丈夫|先生|老公/i.test(source)) return "配偶相关继承";
+    if (/妻子|太太|老婆/i.test(source)) return "配偶相关继承";
+    return "继承办理";
   }
 
   function hasPositiveTitleInfo(source) {
@@ -1043,7 +1043,7 @@
       return Array.from(new Set(items)).slice(0, 5);
     }
     if (!hasDeceased) {
-      items.push("目前是否已有人去世；如无，是提前安排还是将来继承");
+      items.push("现在是要办理继承，还是提前安排");
       if (!hasTitle) items.push("房产登记在谁名下，是否已有房产证/不动产权证");
       items.push("相关家人或可能继承人是否知情、有无争议");
       return Array.from(new Set(items)).slice(0, 5);
