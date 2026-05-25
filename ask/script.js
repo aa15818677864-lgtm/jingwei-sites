@@ -498,9 +498,29 @@
       return { chips: matterChips, placeholder: "输入大致事务类型" };
     }
     if (stage === "summary") {
-      return { chips: [], placeholder: "例如：我人在美国，对方公司在深圳，合同履行地在内地" };
+      return { chips: [], placeholder: summaryPlaceholder() };
     }
     return { chips: [], placeholder: "也可以继续补充你的情况" };
+  }
+
+  function summaryQuestion() {
+    if (state.region && state.mainland === "yes") {
+      return "再补充一句：对方、财产或主要证据在内地哪里，最想先解决什么。";
+    }
+    if (state.region) {
+      return "再补充一句：事项是否涉及内地、对方或财产在哪里、最想先解决什么。";
+    }
+    return "最后用一句话补充核心情况：你在哪里、对方或财产在哪里、最想先解决什么。";
+  }
+
+  function summaryPlaceholder() {
+    if (state.region && state.mainland === "yes") {
+      return "例如：对方公司在深圳，合同履行地在内地，想追回货款";
+    }
+    if (state.region) {
+      return "例如：对方公司在深圳，想先判断能不能起诉";
+    }
+    return "例如：我人在美国，对方公司在深圳，合同履行地在内地";
   }
 
   function parseJson(raw) {
@@ -676,6 +696,27 @@
     state.summary = parts.join("\n").slice(0, 2000);
   }
 
+  function isRoutingOnlyLine(line) {
+    const value = String(line || "").trim();
+    if (!value) return true;
+    if (/^(我在|人在|目前在|现在在|現在在|身在|住在)?(香港|澳门|澳門|新加坡|马来西亚|馬來西亞|美国|美國|美国华人|美國華人)$/.test(value)) return true;
+    if (/^(涉及中国内地|涉及中國內地|不涉及中国内地|不涉及中國內地|暂时不确定|暫時不確定|不确定|不確定|只涉及当地法律|只涉及本地法律)$/.test(value)) return true;
+    if (/^(合同\/商业合作|合同\/商業合作|公司\/股权|公司\/股權|婚姻家事\/继承|婚姻家事\/繼承|身份\/授权\/文件|身份\/授權\/文件|其他民商事问题|其他民商事問題)$/.test(value)) return true;
+    return false;
+  }
+
+  function caseDetailSource() {
+    return userCaseSource()
+      .split("\n")
+      .map((line) => line.trim())
+      .filter((line) => line && !isRoutingOnlyLine(line))
+      .join("\n");
+  }
+
+  function hasCaseDetails() {
+    return caseDetailSource().replace(/\s+/g, "").length >= 8;
+  }
+
   function inferRegion(text) {
     if (/香港|港人|香港居民|Hong Kong|HK/i.test(text)) return "hongkong";
     if (/澳门|澳門/.test(text)) return "macau";
@@ -714,7 +755,7 @@
     if (/公司|股权|股權|经营|經營|投资|投資|shareholder|equity|company/i.test(text)) return "company";
     if (/婚姻|离婚|離婚|family|divorce/i.test(text)) return "family";
     if (/授权|授權|公证|公證|认证|認證|文件|身份|notarization|authentication|document/i.test(text)) return "identity";
-    return "other";
+    return "";
   }
 
   function firstMatch(text, pattern) {
@@ -894,6 +935,25 @@
     return lostContactStatus(source) === "yes" || disputeStatus(source) === "yes";
   }
 
+  function hasInheritanceContext(source) {
+    if (activeTopic === "hk-mainland-property-inheritance") return true;
+    return /继承|繼承|遗产|遺產|遗嘱|遺囑|法定继承|法定繼承|过世|過世|去世|死亡|身故|继承人|繼承人/i.test(source);
+  }
+
+  function hasMatterSignal(source) {
+    return /合同|合约|合約|合作|货款|貨款|公司|股权|股權|投资|投資|婚姻|离婚|離婚|继承|繼承|遗产|遺產|授权|授權|委托|委託|公证|公證|认证|認證|文件|身份|纠纷|糾紛|诉讼|訴訟|律师|律師|法院|房产|房產|不动产|不動產/i.test(source);
+  }
+
+  function matterFact(source) {
+    const matter = state.matter || inferMatter(source);
+    if (matter === "contract") return "合同/商业合作";
+    if (matter === "company") return "公司/股权";
+    if (matter === "family") return "婚姻家事/继承";
+    if (matter === "identity") return "身份/授权/文件";
+    if (matter === "other" && hasMatterSignal(source)) return "其他民商事问题";
+    return "";
+  }
+
   function collectCaseFacts(source) {
     const facts = [];
     const city = mainlandCityFact(source);
@@ -902,30 +962,40 @@
     const area = propertyAreaFact(source);
     const lostStatus = lostContactStatus(source);
     const conflictStatus = disputeStatus(source);
+    const isInheritance = hasInheritanceContext(source);
+    const matter = matterFact(source);
 
     if (region) facts.push(region);
-    if (city) facts.push(city + "房产");
+    if (/中国内地|中國內地|内地|內地|大陆|大陸|mainland/i.test(source) || state.mainland === "yes") facts.push("涉及中国内地");
+    if (matter) facts.push(matter);
+    if (city) facts.push(isInheritance || /房产|房產|楼房|樓房|不动产|不動產|物业|物業/i.test(source) ? city + "房产" : city);
     if (area) facts.push(area);
-    if (deceased) facts.push(deceased);
-    if (/没有遗嘱|沒有遺囑|无遗嘱|無遺囑|没遗嘱|沒遺囑/i.test(source)) facts.push("无遗嘱");
-    else if (/有遗嘱|有遺囑|留了遗嘱|留了遺囑|遗嘱|遺囑/i.test(source)) facts.push("有遗嘱");
-    if (agreementConfirmed(source) || conflictStatus === "no") facts.push("继承人同意");
-    if (conflictStatus === "yes") facts.push("有争议/不配合");
-    if (lostStatus === "yes") facts.push("有继承人失联");
-    else if (lostStatus === "no") facts.push("没有失联");
-    if (/放弃继承|放棄繼承|放弃份额|放棄份額/i.test(source)) facts.push("有人放弃继承");
-    if (hasUnclearTitleInfo(source)) facts.push("房产证未确认");
-    else if (hasPositiveTitleInfo(source)) facts.push("已有产权证");
-    else if (/房产证|房產證|不动产权证|不動產權證|产权证|產權證/i.test(source)) facts.push("提到产权证");
-    if (/死亡证明|死亡證明|亲属关系|親屬關係|香港文件|公证|公證|转递|轉遞|委托书|委託書/i.test(source)) facts.push("提到文件材料");
+    if (isInheritance && deceased) facts.push(deceased);
+    if (isInheritance && /没有遗嘱|沒有遺囑|无遗嘱|無遺囑|没遗嘱|沒遺囑/i.test(source)) facts.push("无遗嘱");
+    else if (isInheritance && /有遗嘱|有遺囑|留了遗嘱|留了遺囑|遗嘱|遺囑/i.test(source)) facts.push("有遗嘱");
+    if (isInheritance && (agreementConfirmed(source) || conflictStatus === "no")) facts.push("继承人同意");
+    if (isInheritance && conflictStatus === "yes") facts.push("有争议/不配合");
+    if (isInheritance && lostStatus === "yes") facts.push("有继承人失联");
+    else if (isInheritance && lostStatus === "no") facts.push("没有失联");
+    if (isInheritance && /放弃继承|放棄繼承|放弃份额|放棄份額/i.test(source)) facts.push("有人放弃继承");
+    if ((isInheritance || /房产|房產|不动产|不動產/.test(source)) && hasUnclearTitleInfo(source)) facts.push("房产证未确认");
+    else if ((isInheritance || /房产|房產|不动产|不動產/.test(source)) && hasPositiveTitleInfo(source)) facts.push("已有产权证");
+    else if ((isInheritance || /房产|房產|不动产|不動產/.test(source)) && /房产证|房產證|不动产权证|不動產權證|产权证|產權證/i.test(source)) facts.push("提到产权证");
+    if (isInheritance && /死亡证明|死亡證明|亲属关系|親屬關係|香港文件|公证|公證|转递|轉遞|委托书|委託書/i.test(source)) facts.push("提到文件材料");
     if (/委托|委託|代办|代辦|回不去|不到内地|不到內地/i.test(source)) facts.push("想委托办理");
-    if (/卖房|賣房|卖掉|賣掉|出售|转卖|轉賣/i.test(source)) facts.push("继承后出售");
+    if (isInheritance && /卖房|賣房|卖掉|賣掉|出售|转卖|轉賣/i.test(source)) facts.push("继承后出售");
     return Array.from(new Set(facts)).slice(0, 8);
   }
 
   function caseGoalText(source) {
     const city = mainlandCityFact(source);
     const property = city ? city + "房产" : "内地房产";
+    if (!hasInheritanceContext(source)) {
+      const matter = matterFact(source);
+      if (matter) return "整理" + matter + "问题";
+      if (state.mainland === "yes" || /中国内地|中國內地|内地|內地|大陆|大陸/i.test(source)) return "整理内地法律事项";
+      return "等待补充";
+    }
     if (deathStatus(source) === "no") return "确认" + property + "安排";
     if (/卖房|賣房|卖掉|賣掉|出售|转卖|轉賣/i.test(source)) return "继承后出售" + property;
     if (hasCaseConflict(source)) return "处理" + property + "继承问题";
@@ -938,6 +1008,7 @@
     const items = [];
     const hasCity = !!mainlandCityFact(source);
     const hasMainlandContext = /中国内地|中國內地|内地|內地|大陆|大陸|国内|國內|深圳|广州|廣州|上海|北京|佛山|珠海|东莞|東莞|房产|房產|不动产|不動產/i.test(source);
+    const isInheritance = hasInheritanceContext(source);
     const death = deathStatus(source);
     const hasDeceased = death === "yes";
     const hasWill = /遗嘱|遺囑/i.test(source);
@@ -948,8 +1019,13 @@
     const hasDocuments = /死亡证明|死亡證明|亲属关系|親屬關係|香港文件|公证|公證|转递|轉遞/i.test(source);
     const hasRegion = !!regionFact(source);
 
-    if (state.region && !state.mainland && !hasMainlandContext) {
-      return ["事项是否涉及中国内地"];
+    if (!isInheritance) {
+      if (!hasRegion) items.push("客户目前所在地区或身份");
+      if (!state.mainland && !hasMainlandContext) items.push("事项是否涉及中国内地");
+      if (!state.matter || (state.matter === "other" && !hasMatterSignal(source))) items.push("大致属于哪类法律事务");
+      if (state.mainland === "yes" || hasMainlandContext) items.push("对方、财产或证据在内地哪里");
+      items.push("最想先解决什么");
+      return Array.from(new Set(items)).slice(0, 5);
     }
     if (!hasRegion) items.push("客户是否为香港居民或其他境外身份");
     if (!hasCity) items.push("房产具体在哪个内地城市");
@@ -1092,7 +1168,7 @@
     if (!state.mainland) return "mainland";
     if (state.mainland === "no") return "done";
     if (!state.matter) return "matter";
-    if (state.summary.replace(/\s+/g, "").length < 12) return "summary";
+    if (!hasCaseDetails()) return "summary";
     return "done";
   }
 
@@ -1164,9 +1240,9 @@
     if (stage === "summary") {
       return {
         stage: "summary",
-        answer: "最后用一句话补充核心情况：你在哪里、对方或财产在哪里、最想先解决什么。",
+        answer: summaryQuestion(),
         chips: [],
-        inputPlaceholder: "例如：我人在美国，对方公司在深圳，合同履行地在内地",
+        inputPlaceholder: summaryPlaceholder(),
         route: null
       };
     }
