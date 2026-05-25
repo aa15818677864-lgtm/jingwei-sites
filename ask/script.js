@@ -479,11 +479,6 @@
     sample.innerHTML = "<strong>可以直接套一句</strong><p>父亲在深圳有房，香港去世，想继承过户。</p>";
     guide.appendChild(sample);
 
-    const note = document.createElement("p");
-    note.className = "guide-note";
-    note.textContent = "先不用写姓名、证件号或电话。";
-    guide.appendChild(note);
-
     chatBody.appendChild(guide);
     scrollToBottom();
   }
