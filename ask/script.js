@@ -139,7 +139,8 @@
       if (window.SITE_CONFIG.aiEndpoint) configured.push(window.SITE_CONFIG.aiEndpoint);
     }
 
-    configured.push("https://jingwei-vercel-ai-api.vercel.app/chat");
+    configured.push("https://api.jingwei-law.com/api/chat");
+    configured.push("https://jingwei-vercel-ai-api.vercel.app/api/chat");
 
     return Array.from(
       new Set(
@@ -151,8 +152,8 @@
   }
 
   function endpointTimeoutMs(endpoint, index) {
-    if (/api\.jingwei-law\.com/i.test(endpoint)) return 13000;
-    return index === 0 ? 12000 : 9000;
+    if (/api\.jingwei-law\.com/i.test(endpoint)) return 45000;
+    return index === 0 ? 35000 : 30000;
   }
 
   function preferredEndpointOrder(candidates) {
