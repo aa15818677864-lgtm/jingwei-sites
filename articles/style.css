@@ -3045,7 +3045,7 @@ body.articles-index-v24::before {
 
 .v24-stage {
   min-height: 100vh;
-  padding: 16px 0 26px;
+  padding: 14px 0 24px;
   overflow: hidden;
   background:
     linear-gradient(90deg, rgba(4, 13, 22, 0.30), rgba(255, 245, 228, 0.08) 23%, rgba(255, 245, 228, 0.14) 64%, rgba(4, 13, 22, 0.38)),
@@ -3063,12 +3063,12 @@ body.articles-index-v24::before {
 }
 
 .v24-header {
-  min-height: 68px;
+  min-height: 62px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 28px;
-  padding: 12px 34px 12px 28px;
+  padding: 10px 34px 10px 28px;
   border: 1px solid rgba(128, 94, 52, 0.22);
   border-radius: 5px;
   background: rgba(255, 245, 228, 0.91);
@@ -3084,15 +3084,15 @@ body.articles-index-v24::before {
 }
 
 .v24-seal {
-  width: 42px;
-  height: 42px;
+  width: 38px;
+  height: 38px;
   display: grid;
   place-items: center;
   border-radius: 5px;
   color: #fff;
   background: var(--v24-red);
   font-family: "Noto Serif SC", "Microsoft YaHei", serif;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
   line-height: 1;
 }
@@ -3100,7 +3100,7 @@ body.articles-index-v24::before {
 .v24-brand strong {
   display: block;
   font-family: "Noto Serif SC", "Microsoft YaHei", serif;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 1.18;
 }
 
@@ -3108,7 +3108,7 @@ body.articles-index-v24::before {
   display: block;
   margin-top: 2px;
   color: var(--v24-muted);
-  font-size: 12px;
+  font-size: 11px;
   line-height: 1.2;
 }
 
@@ -3173,7 +3173,7 @@ body.articles-index-v24::before {
 
 .v24-hero-card,
 .v24-guide {
-  min-height: 360px;
+  min-height: 330px;
   margin-top: 0;
   border-radius: 6px;
   box-shadow: var(--v24-shadow);
@@ -3181,7 +3181,7 @@ body.articles-index-v24::before {
 }
 
 .v24-hero-card {
-  padding: 24px 34px 22px;
+  padding: 22px 34px 20px;
   border: 1px solid rgba(128, 94, 52, 0.52);
   background:
     linear-gradient(90deg, rgba(255, 255, 255, 0.20), rgba(255, 245, 228, 0.75)),
@@ -3189,7 +3189,7 @@ body.articles-index-v24::before {
 }
 
 .v24-breadcrumb {
-  margin: 0 0 14px;
+  margin: 0 0 12px;
   color: rgba(7, 23, 37, 0.70);
   font-size: 12px;
   line-height: 1.5;
@@ -3197,29 +3197,29 @@ body.articles-index-v24::before {
 
 .v24-hero h1 {
   max-width: 570px;
-  font-size: 42px;
-  line-height: 1.24;
+  font-size: 39px;
+  line-height: 1.22;
 }
 
 .v24-hero-lead {
   max-width: 550px;
-  margin: 14px 0 0;
+  margin: 12px 0 0;
   color: rgba(7, 23, 37, 0.78);
-  font-size: 15px;
-  line-height: 1.72;
+  font-size: 14px;
+  line-height: 1.68;
 }
 
 .v24-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  margin-top: 16px;
+  margin-top: 14px;
 }
 
 .v24-primary,
 .v24-secondary {
   display: inline-flex;
-  height: 34px;
+  height: 32px;
   align-items: center;
   justify-content: center;
   border-radius: 3px;
@@ -3256,7 +3256,7 @@ body.articles-index-v24::before {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 10px;
-  margin-top: 18px;
+  margin-top: 16px;
 }
 
 .v24-trust-row span {
@@ -3280,7 +3280,7 @@ body.articles-index-v24::before {
 }
 
 .v24-guide {
-  padding: 24px 28px 22px;
+  padding: 22px 28px 20px;
   border: 1px solid rgba(189, 141, 77, 0.42);
   background:
     linear-gradient(155deg, rgba(6, 21, 34, 0.98), rgba(7, 18, 28, 0.93)),
@@ -3317,8 +3317,8 @@ body.articles-index-v24::before {
 
 .v24-guide ol {
   display: grid;
-  gap: 11px;
-  margin: 16px 0 0;
+  gap: 10px;
+  margin: 14px 0 0;
   padding: 0;
   list-style: none;
 }
@@ -3360,20 +3360,20 @@ body.articles-index-v24::before {
 
 .articles-index-v24 .v24-guide > a {
   display: inline-block;
-  margin-top: 14px;
+  margin-top: 12px;
   color: var(--v24-gold);
   font-size: 13px;
   font-weight: 800;
 }
 
 .v24-checks {
-  min-height: 112px;
+  min-height: 104px;
   display: grid;
   grid-template-columns: 190px repeat(4, minmax(0, 1fr));
   gap: 30px;
   align-items: center;
-  margin-top: 8px;
-  padding: 20px 48px;
+  margin-top: 6px;
+  padding: 18px 48px;
   background: rgba(6, 21, 34, 0.98);
   box-shadow: 0 18px 52px rgba(5, 16, 28, 0.24);
 }
@@ -3425,7 +3425,7 @@ body.articles-index-v24::before {
   display: grid;
   grid-template-columns: 170px minmax(0, 642px) 260px;
   gap: 34px;
-  padding: 30px 48px 36px;
+  padding: 28px 48px 34px;
   background: rgba(255, 245, 228, 0.96);
   box-shadow: 0 26px 72px rgba(5, 16, 28, 0.18);
 }
