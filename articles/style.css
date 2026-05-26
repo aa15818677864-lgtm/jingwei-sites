@@ -3045,7 +3045,7 @@ body.articles-index-v24::before {
 
 .v24-stage {
   min-height: 100vh;
-  padding: 18px 0 28px;
+  padding: 16px 0 26px;
   overflow: hidden;
   background:
     linear-gradient(90deg, rgba(4, 13, 22, 0.30), rgba(255, 245, 228, 0.08) 23%, rgba(255, 245, 228, 0.14) 64%, rgba(4, 13, 22, 0.38)),
@@ -3063,12 +3063,12 @@ body.articles-index-v24::before {
 }
 
 .v24-header {
-  min-height: 74px;
+  min-height: 68px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 28px;
-  padding: 16px 38px 16px 28px;
+  padding: 12px 34px 12px 28px;
   border: 1px solid rgba(128, 94, 52, 0.22);
   border-radius: 5px;
   background: rgba(255, 245, 228, 0.91);
@@ -3166,14 +3166,14 @@ body.articles-index-v24::before {
   display: grid;
   grid-template-columns: minmax(0, 670px) 300px;
   gap: 24px;
-  align-items: stretch;
+  align-items: start;
   margin: 2px auto 0;
   padding-top: 0;
 }
 
 .v24-hero-card,
 .v24-guide {
-  min-height: 384px;
+  min-height: 360px;
   margin-top: 0;
   border-radius: 6px;
   box-shadow: var(--v24-shadow);
@@ -3181,7 +3181,7 @@ body.articles-index-v24::before {
 }
 
 .v24-hero-card {
-  padding: 30px 36px 28px;
+  padding: 24px 34px 22px;
   border: 1px solid rgba(128, 94, 52, 0.52);
   background:
     linear-gradient(90deg, rgba(255, 255, 255, 0.20), rgba(255, 245, 228, 0.75)),
@@ -3189,7 +3189,7 @@ body.articles-index-v24::before {
 }
 
 .v24-breadcrumb {
-  margin: 0 0 22px;
+  margin: 0 0 14px;
   color: rgba(7, 23, 37, 0.70);
   font-size: 12px;
   line-height: 1.5;
@@ -3197,34 +3197,34 @@ body.articles-index-v24::before {
 
 .v24-hero h1 {
   max-width: 570px;
-  font-size: 46px;
-  line-height: 1.28;
+  font-size: 42px;
+  line-height: 1.24;
 }
 
 .v24-hero-lead {
   max-width: 550px;
-  margin: 18px 0 0;
+  margin: 14px 0 0;
   color: rgba(7, 23, 37, 0.78);
-  font-size: 16px;
-  line-height: 1.82;
+  font-size: 15px;
+  line-height: 1.72;
 }
 
 .v24-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  margin-top: 20px;
+  margin-top: 16px;
 }
 
 .v24-primary,
 .v24-secondary {
   display: inline-flex;
-  height: 38px;
+  height: 34px;
   align-items: center;
   justify-content: center;
   border-radius: 3px;
-  padding: 0 26px;
-  font-size: 14px;
+  padding: 0 22px;
+  font-size: 13px;
   font-weight: 800;
 }
 
@@ -3255,24 +3255,24 @@ body.articles-index-v24::before {
 .v24-trust-row {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
-  margin-top: 30px;
+  gap: 10px;
+  margin-top: 18px;
 }
 
 .v24-trust-row span {
   display: grid;
-  grid-template-columns: 26px minmax(0, 1fr);
-  gap: 10px;
+  grid-template-columns: 22px minmax(0, 1fr);
+  gap: 8px;
   align-items: center;
   color: rgba(100, 88, 70, 0.86);
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
-  line-height: 1.45;
+  line-height: 1.38;
 }
 
 .v24-trust-row b {
-  width: 25px;
-  height: 25px;
+  width: 22px;
+  height: 22px;
   display: block;
   border: 1px solid rgba(189, 141, 77, 0.82);
   border-radius: 50%;
@@ -3280,7 +3280,7 @@ body.articles-index-v24::before {
 }
 
 .v24-guide {
-  padding: 30px 28px 26px;
+  padding: 24px 28px 22px;
   border: 1px solid rgba(189, 141, 77, 0.42);
   background:
     linear-gradient(155deg, rgba(6, 21, 34, 0.98), rgba(7, 18, 28, 0.93)),
@@ -3296,7 +3296,7 @@ body.articles-index-v24::before {
 
 .v24-guide h2 {
   color: var(--v24-gold);
-  font-size: 24px;
+  font-size: 23px;
   line-height: 1.25;
 }
 
@@ -3305,20 +3305,20 @@ body.articles-index-v24::before {
   display: block;
   width: 42px;
   height: 1px;
-  margin-top: 10px;
+  margin-top: 8px;
   background: var(--v24-gold);
 }
 
 .v24-guide-head span {
   color: rgba(189, 141, 77, 0.78);
   font-family: "Noto Serif SC", "Microsoft YaHei", serif;
-  font-size: 24px;
+  font-size: 22px;
 }
 
 .v24-guide ol {
   display: grid;
-  gap: 14px;
-  margin: 20px 0 0;
+  gap: 11px;
+  margin: 16px 0 0;
   padding: 0;
   list-style: none;
 }
@@ -3326,13 +3326,13 @@ body.articles-index-v24::before {
 .v24-guide li {
   display: grid;
   grid-template-columns: 32px minmax(0, 1fr);
-  gap: 16px;
+  gap: 14px;
   align-items: start;
 }
 
 .v24-guide li span {
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   display: grid;
   place-items: center;
   border: 1px solid rgba(189, 141, 77, 0.85);
@@ -3346,49 +3346,49 @@ body.articles-index-v24::before {
   display: block;
   grid-column: 2;
   color: rgba(255, 245, 228, 0.92);
-  font-size: 13px;
-  line-height: 1.45;
+  font-size: 12px;
+  line-height: 1.4;
 }
 
 .v24-guide p {
   grid-column: 2;
-  margin: 2px 0 0;
+  margin: 1px 0 0;
   color: rgba(255, 245, 228, 0.58);
-  font-size: 11px;
-  line-height: 1.45;
+  font-size: 10px;
+  line-height: 1.4;
 }
 
 .articles-index-v24 .v24-guide > a {
   display: inline-block;
-  margin-top: 18px;
+  margin-top: 14px;
   color: var(--v24-gold);
   font-size: 13px;
   font-weight: 800;
 }
 
 .v24-checks {
-  min-height: 128px;
+  min-height: 112px;
   display: grid;
   grid-template-columns: 190px repeat(4, minmax(0, 1fr));
   gap: 30px;
   align-items: center;
-  margin-top: 10px;
-  padding: 24px 48px;
+  margin-top: 8px;
+  padding: 20px 48px;
   background: rgba(6, 21, 34, 0.98);
   box-shadow: 0 18px 52px rgba(5, 16, 28, 0.24);
 }
 
 .v24-checks-title h2 {
   color: var(--v24-gold);
-  font-size: 24px;
+  font-size: 22px;
   line-height: 1.3;
 }
 
 .v24-checks-title p,
 .v24-checks article p {
   color: rgba(255, 245, 228, 0.62);
-  font-size: 13px;
-  line-height: 1.62;
+  font-size: 12px;
+  line-height: 1.55;
 }
 
 .v24-checks-title p {
@@ -3396,7 +3396,7 @@ body.articles-index-v24::before {
 }
 
 .v24-checks article {
-  min-height: 74px;
+  min-height: 66px;
   border-left: 1px solid rgba(189, 141, 77, 0.30);
   padding-left: 28px;
 }
@@ -3410,22 +3410,22 @@ body.articles-index-v24::before {
 }
 
 .v24-checks h3 {
-  margin-top: 8px;
+  margin-top: 6px;
   color: var(--v24-gold);
   font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.35;
 }
 
 .v24-checks article p {
-  margin: 7px 0 0;
+  margin: 5px 0 0;
 }
 
 .v24-article-board {
   display: grid;
   grid-template-columns: 170px minmax(0, 642px) 260px;
   gap: 34px;
-  padding: 34px 48px 38px;
+  padding: 30px 48px 36px;
   background: rgba(255, 245, 228, 0.96);
   box-shadow: 0 26px 72px rgba(5, 16, 28, 0.18);
 }
