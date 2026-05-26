@@ -605,7 +605,8 @@
     const normalized = {
       goal: goal || "整理案情",
       facts: cleanFacts,
-      missing: cleanMissing
+      missing: cleanMissing,
+      matterType: String(panel.matterType || "").trim().slice(0, 48)
     };
     return normalized;
   }
@@ -1277,10 +1278,23 @@
 
   function updateCasePanel() {
     if (!caseEmpty || !caseContent || !caseGoal || !caseFacts || !caseMissing) return;
-    const source = userCaseSource();
     const hasUserTurn = state.messages.some((message) => message.role === "user");
 
-    if (!hasUserTurn || !source) {
+    if (!hasUserTurn) {
+      caseEmpty.hidden = false;
+      caseContent.hidden = true;
+      return;
+    }
+
+    const panel = state.casePanelPending
+      ? {
+          goal: "正在整理",
+          facts: ["AI正在核对"],
+          missing: ["根据你刚补充的内容更新案情要点"]
+        }
+      : state.casePanel;
+
+    if (!panel) {
       caseEmpty.hidden = false;
       caseContent.hidden = true;
       return;
@@ -1288,28 +1302,6 @@
 
     caseEmpty.hidden = true;
     caseContent.hidden = false;
-    const localPanel = buildLocalCasePanel(source);
-    const panel = state.casePanelPending
-      ? localPanel || {
-          goal: "正在整理",
-          facts: ["AI正在核对"],
-          missing: ["根据你刚补充的内容更新案情要点"]
-        }
-      : mergeCasePanels(state.casePanel, localPanel);
-
-    if (!panel) {
-      caseGoal.textContent = "等待补充";
-      caseFacts.innerHTML = "";
-      const tag = document.createElement("span");
-      tag.className = "case-tag";
-      tag.textContent = "等待AI判断";
-      caseFacts.appendChild(tag);
-      caseMissing.innerHTML = "";
-      const li = document.createElement("li");
-      li.textContent = "继续说你的情况，我会重新整理右侧要点";
-      caseMissing.appendChild(li);
-      return;
-    }
 
     caseGoal.textContent = panel.goal || "整理案情";
 
@@ -1491,20 +1483,9 @@
       };
     }
 
-    const inheritanceFallback = inheritanceFallbackReply();
-    if (inheritanceFallback) {
-      return {
-        stage: "done",
-        answer: inheritanceFallback.answer,
-        chips: inheritanceFallback.chips,
-        inputPlaceholder: inheritanceFallback.inputPlaceholder,
-        route: routeForCurrentState()
-      };
-    }
-
     return {
       stage: "done",
-      answer: "基于目前信息，这个事项可继续按中国内地法律路径做初步分析。你可以直接说：谁和谁发生什么、事情在哪里、现在最想先解决哪一件事。",
+      answer: "暂时没能连接 AI。你可以稍后重试，或继续补充事实，我会重新整理。",
       chips: [],
       inputPlaceholder: "也可以继续补充你的情况",
       route: routeForCurrentState()
