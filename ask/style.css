@@ -584,6 +584,7 @@ h1 span {
 .msg-row.user .bubble {
   background: #dcfce7;
   color: #123423;
+  min-width: 72px;
 }
 
 .bubble::before {
