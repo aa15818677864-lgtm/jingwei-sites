@@ -577,7 +577,7 @@ h1 span {
   color: #203650;
   font-size: 15px;
   line-height: 1.68;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
   white-space: pre-wrap;
 }
 

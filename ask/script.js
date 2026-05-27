@@ -1490,8 +1490,13 @@
     return preset;
   }
 
-  function renderInitialChat() {
-    const preset = applyTopicPreset();
+function renderInitialChat() {
+  const preset = applyTopicPreset();
+  if (preset) {
+    preset.greeting =
+      preset.neutralGreeting ||
+      "\u4f60\u5f53\u524d\u5728\u300c\u9999\u6e2f\u623f\u4ea7\u7ee7\u627f\u300d\u4e13\u9898\u9875\uff0c\u4e0d\u4ee3\u8868\u4f60\u4e00\u5b9a\u662f\u8fd9\u7c7b\u6848\u4ef6\u3002\u4f60\u53ef\u4ee5\u76f4\u63a5\u95ee\u4efb\u4f55\u6cd5\u5f8b\u95ee\u9898\uff1b\u5982\u679c\u521a\u597d\u662f\u8be5\u4e13\u9898\uff0c\u518d\u8bf4\u623f\u5b50\u5728\u54ea\u3001\u73b0\u5728\u8981\u529e\u7ee7\u627f\u8fd8\u662f\u63d0\u524d\u5b89\u6392\u3002";
+  }
     chatBody.innerHTML = '<div class="day-pill">今天</div>';
     return renderAssistantReply({
       stage: preset ? "done" : "region",
