@@ -534,8 +534,18 @@ h1 span {
   margin: 14px 0;
 }
 
+.msg-content {
+  min-width: 0;
+  display: grid;
+  gap: 8px;
+}
+
 .msg-row.user {
   justify-content: flex-end;
+}
+
+.msg-row.user .msg-content {
+  justify-items: end;
 }
 
 .msg-avatar {
@@ -598,6 +608,42 @@ h1 span {
 
 .typing .bubble {
   color: var(--muted);
+}
+
+.thinking-block {
+  width: min(468px, calc(100% - 54px));
+  max-width: 100%;
+  border: 1px solid #d6dde8;
+  border-radius: 8px;
+  background: #f7f9fc;
+  color: #334155;
+  padding: 10px 12px;
+}
+
+.thinking-block summary {
+  cursor: pointer;
+  color: #1f3c62;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.thinking-steps {
+  margin: 8px 0 0 16px;
+  padding: 0;
+  display: grid;
+  gap: 5px;
+  color: #475569;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.thinking-text {
+  margin: 8px 0 0;
+  white-space: pre-wrap;
+  color: #475569;
+  font-size: 13px;
+  line-height: 1.55;
 }
 
 .msg-row.is-typewriting .bubble::after {

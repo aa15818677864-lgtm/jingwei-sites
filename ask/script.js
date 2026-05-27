@@ -14,7 +14,7 @@
   const historyCloseButton = document.getElementById("historyClose");
   const clearChatButton = document.getElementById("clearChat");
   const urlParams = new URLSearchParams(window.location.search);
-  const DEFAULT_TOPIC = "hk-mainland-property-inheritance";
+  const DEFAULT_TOPIC = "";
   const activeTopic = urlParams.get("topic") || DEFAULT_TOPIC;
   const sourceParam = urlParams.get("source") || "";
   const intentParam = urlParams.get("intent") || "";
@@ -217,6 +217,69 @@
     chatBody.scrollTop = chatBody.scrollHeight;
   }
 
+  function normalizeThinkingPayload(thinking) {
+    if (!thinking) return null;
+    const value = typeof thinking === "string" ? { content: thinking } : thinking;
+    const content = String(value.content || "").replace(/\r\n/g, "\n").trim().slice(0, 24000);
+    if (!content) return null;
+    const title = String(value.title || "思考过程").trim().slice(0, 24) || "思考过程";
+    const summary = String(value.summary || "已思考").trim().slice(0, 60) || "已思考";
+    return { title, summary, content };
+  }
+
+  function normalizeThinkingForStorage(thinking) {
+    const normalized = normalizeThinkingPayload(thinking);
+    return normalized
+      ? {
+          title: normalized.title,
+          summary: normalized.summary,
+          content: normalized.content
+        }
+      : null;
+  }
+
+  function thinkingStepLines(content) {
+    return String(content || "")
+      .split("\n")
+      .map((line) => line.trim())
+      .filter(Boolean)
+      .map((line) => line.replace(/^(?:[-*•]|\d+[.)、])\s+/, "").trim())
+      .filter(Boolean)
+      .slice(0, 12);
+  }
+
+  function buildThinkingBlock(thinking, openByDefault) {
+    const normalized = normalizeThinkingPayload(thinking);
+    if (!normalized) return null;
+
+    const wrap = document.createElement("details");
+    wrap.className = "thinking-block";
+    if (openByDefault) wrap.open = true;
+
+    const summary = document.createElement("summary");
+    summary.textContent = normalized.summary || normalized.title || "已思考";
+    wrap.appendChild(summary);
+
+    const steps = thinkingStepLines(normalized.content);
+    if (steps.length >= 2) {
+      const list = document.createElement("ol");
+      list.className = "thinking-steps";
+      steps.forEach((step) => {
+        const item = document.createElement("li");
+        item.textContent = step;
+        list.appendChild(item);
+      });
+      wrap.appendChild(list);
+    } else {
+      const text = document.createElement("p");
+      text.className = "thinking-text";
+      text.textContent = normalized.content;
+      wrap.appendChild(text);
+    }
+
+    return wrap;
+  }
+
   function addMessage(text, type, options) {
     const row = document.createElement("div");
     row.className = "msg-row " + type + (options && options.typing ? " typing" : "");
@@ -229,8 +292,16 @@
     bubble.className = "bubble";
     bubble.textContent = options && options.typewriter ? "" : text;
 
+    const content = document.createElement("div");
+    content.className = "msg-content";
+    content.appendChild(bubble);
+    if (type === "bot" && !(options && options.typing)) {
+      const thinkingBlock = buildThinkingBlock(options && options.thinking, options && options.thinkingOpen);
+      if (thinkingBlock) content.appendChild(thinkingBlock);
+    }
+
     row.appendChild(avatar);
-    row.appendChild(bubble);
+    row.appendChild(content);
     chatBody.appendChild(row);
     scrollToBottom();
     return row;
@@ -264,9 +335,14 @@
   }
 
   async function addBot(text, options) {
-    state.messages.push({ role: "assistant", content: text });
+    const storedThinking = normalizeThinkingForStorage(options && options.thinking);
+    state.messages.push({ role: "assistant", content: text, thinking: storedThinking });
     saveChatSession();
-    const row = addMessage(text, "bot", { typewriter: options && options.typewriter });
+    const row = addMessage(text, "bot", {
+      typewriter: options && options.typewriter,
+      thinking: storedThinking,
+      thinkingOpen: !!(options && options.thinkingOpen)
+    });
     if (options && options.typewriter) {
       await typeBotMessage(row, text, options.requestId);
     }
@@ -628,7 +704,8 @@
       .map((message) => ({
         role: message && message.role === "assistant" ? "assistant" : "user",
         content: String(message && message.content ? message.content : "").trim(),
-        displayContent: String(message && message.displayContent ? message.displayContent : "").trim()
+        displayContent: String(message && message.displayContent ? message.displayContent : "").trim(),
+        thinking: normalizeThinkingForStorage(message && message.thinking)
       }))
       .filter((message) => message.content)
       .slice(-80);
@@ -850,7 +927,9 @@
 
     chatBody.innerHTML = '<div class="day-pill">今天</div>';
     savedMessages.forEach((message) => {
-      addMessage(message.displayContent || message.content, message.role === "assistant" ? "bot" : "user");
+      addMessage(message.displayContent || message.content, message.role === "assistant" ? "bot" : "user", {
+        thinking: message.role === "assistant" ? message.thinking : null
+      });
     });
 
     const stage = localStage();
@@ -1580,7 +1659,11 @@
     updatePlaceholder(result.inputPlaceholder);
     updateAd(result.route || null, state.stage);
     updateCasePanel();
-    await addBot(result.answer || fallbackReply().answer, options);
+    await addBot(result.answer || fallbackReply().answer, {
+      ...(options || {}),
+      thinking: normalizeThinkingPayload(result && result.thinking),
+      thinkingOpen: !!(result && result.thinking && result.stage === "done")
+    });
   }
 
   async function handleTurn(text, options) {
