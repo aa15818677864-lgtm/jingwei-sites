@@ -54,6 +54,10 @@
     pendingAttachments: [],
     casePanel: null,
     casePanelPending: false,
+    workflow: null,
+    intake: null,
+    conversion: null,
+    lead: null,
     activeRequestId: 0
   };
 
@@ -728,6 +732,10 @@
         matter: state.matter || "",
         summary: state.summary || "",
         casePanel: state.casePanel || null,
+        workflow: state.workflow || null,
+        intake: state.intake || null,
+        conversion: state.conversion || null,
+        lead: state.lead || null,
         messages: state.messages.slice(-80)
       },
       inputDraft: String(input && input.value ? input.value : "").slice(0, 1000)
@@ -923,6 +931,10 @@
     state.summary = String(payload.state.summary || "");
     state.messages = savedMessages;
     state.casePanel = normalizeCasePanel(payload.state.casePanel);
+    state.workflow = payload.state.workflow || null;
+    state.intake = payload.state.intake || null;
+    state.conversion = payload.state.conversion || null;
+    state.lead = payload.state.lead || null;
     state.casePanelPending = false;
 
     chatBody.innerHTML = '<div class="day-pill">今天</div>';
@@ -1383,10 +1395,22 @@
     caseEmpty.hidden = true;
     caseContent.hidden = false;
 
-    caseGoal.textContent = panel.goal || "整理案情";
+    const workflowLabel = state.workflow && state.workflow.label ? state.workflow.label : "";
+    const statusLabels = {
+      intake: "\u6536\u6848\u4e2d",
+      plan_ready: "\u53ef\u51fa\u65b9\u6848",
+      plan_given: "\u5df2\u7ed9\u521d\u6b65\u65b9\u6848",
+      conversion_ready: "\u5df2\u5efa\u8bae\u5f8b\u5e08\u56e2\u961f\u8ddf\u8fdb",
+      done: "\u5df2\u521d\u6b65\u5224\u65ad"
+    };
+    const statusText = statusLabels[state.stage] || statusLabels[panel.stage] || "\u6b63\u5728\u6574\u7406";
+    caseGoal.textContent = workflowLabel ? `${workflowLabel} · ${statusText}` : (panel.goal || statusText);
 
     caseFacts.innerHTML = "";
-    const facts = Array.isArray(panel.facts) ? panel.facts : [];
+    const intakeFacts = state.intake && Array.isArray(state.intake.collectedFacts)
+      ? state.intake.collectedFacts.map((fact) => `${fact.label || fact.field}\uff1a${fact.value || "\u5df2\u6536\u96c6"}`)
+      : [];
+    const facts = intakeFacts.length ? intakeFacts : (Array.isArray(panel.facts) ? panel.facts : []);
     (facts.length ? facts : ["已开始整理"]).forEach((fact) => {
       const tag = document.createElement("span");
       tag.className = "case-tag";
@@ -1395,7 +1419,8 @@
     });
 
     caseMissing.innerHTML = "";
-    const missing = Array.isArray(panel.missing) ? panel.missing : [];
+    const intakeMissing = state.intake && Array.isArray(state.intake.missingFacts) ? state.intake.missingFacts : [];
+    const missing = intakeMissing.length ? intakeMissing : (Array.isArray(panel.missing) ? panel.missing : []);
     missing.forEach((item) => {
       const li = document.createElement("li");
       li.textContent = item;
@@ -1446,9 +1471,10 @@
   }
 
   function updateAd(route, stage) {
+    const conversion = state.conversion || {};
     const resolvedRoute = route && route.url ? route : stage === "done" ? routeForCurrentState() : null;
     const hasUserTurn = state.messages.some((message) => message.role === "user");
-    const shouldShow = stage === "done" && hasUserTurn && !!(resolvedRoute && resolvedRoute.url);
+    const shouldShow = hasUserTurn && conversion.show === true && !!(conversion.ctaUrl || (resolvedRoute && resolvedRoute.url));
 
     if (routeAd) {
       routeAd.hidden = !shouldShow;
@@ -1458,14 +1484,14 @@
       chatMain.classList.toggle("has-ad", shouldShow);
     }
 
-    if (!shouldShow || !resolvedRoute) {
+    if (!shouldShow) {
       return;
     }
 
-    adTitle.textContent = resolvedRoute.label || "需要律师进一步看？";
-    adCopy.textContent = "有争议、文件缺失、继承人失联或准备出售时，可以让律师团队继续判断。";
-    adLink.href = routeUrl(resolvedRoute);
-    adLink.textContent = "查看专题入口";
+    adTitle.textContent = conversion.ctaTitle || (resolvedRoute && resolvedRoute.label) || "\u9700\u8981\u5f8b\u5e08\u8fdb\u4e00\u6b65\u770b\uff1f";
+    adCopy.textContent = conversion.ctaCopy || "\u4f60\u5df2\u7ecf\u8865\u5145\u5230\u53ef\u4ee5\u521d\u6b65\u5224\u65ad\u7684\u7a0b\u5ea6\uff0c\u53ef\u4ee5\u8ba9\u5f8b\u5e08\u56e2\u961f\u7ee7\u7eed\u770b\u3002";
+    adLink.href = conversion.ctaUrl || routeUrl(resolvedRoute);
+    adLink.textContent = conversion.ctaLabel || "\u8ba9\u5f8b\u5e08\u56e2\u961f\u7ee7\u7eed\u5224\u65ad";
     adLink.classList.remove("is-disabled");
   }
 
@@ -1613,6 +1639,7 @@ function renderInitialChat() {
 
   async function askBackend() {
     const payload = {
+      sessionId: state.sessionId,
       topic: activeTopic || "",
       region: state.region,
       mainland: state.mainland,
@@ -1653,6 +1680,10 @@ function renderInitialChat() {
       state.matter = result.state.matter || state.matter;
       state.summary = result.state.summary || state.summary;
     }
+    state.workflow = result && result.workflow ? result.workflow : state.workflow;
+    state.intake = result && result.intake ? result.intake : state.intake;
+    state.conversion = result && result.conversion ? result.conversion : null;
+    state.lead = result && result.lead ? result.lead : state.lead;
     state.stage = (result && result.stage) || localStage();
   }
 
@@ -1770,6 +1801,10 @@ function renderInitialChat() {
       state.pendingAttachments = [];
       state.casePanel = null;
       state.casePanelPending = false;
+      state.workflow = null;
+      state.intake = null;
+      state.conversion = null;
+      state.lead = null;
       input.value = "";
       input.style.height = "auto";
       clearStoredSession();
