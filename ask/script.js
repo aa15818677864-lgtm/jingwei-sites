@@ -323,7 +323,7 @@
     row.classList.add("is-typewriting");
     bubble.textContent = "";
 
-    if (fullText.length > 260) {
+    if (document.hidden || fullText.length > 260) {
       bubble.textContent = fullText;
       row.classList.remove("is-typewriting");
       scrollToBottom();
