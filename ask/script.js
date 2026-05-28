@@ -323,8 +323,8 @@
     row.classList.add("is-typewriting");
     bubble.textContent = "";
 
-    const chunkSize = fullText.length > 260 ? 4 : 1;
-    const animatedLimit = fullText.length > 520 ? 360 : fullText.length;
+    const chunkSize = fullText.length > 260 ? 16 : 1;
+    const animatedLimit = fullText.length > 260 ? Math.min(fullText.length, 80) : fullText.length;
 
     for (let index = 0; index < animatedLimit; index += chunkSize) {
       if (requestId && requestId !== state.activeRequestId) {
