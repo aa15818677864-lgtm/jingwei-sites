@@ -323,14 +323,17 @@
     row.classList.add("is-typewriting");
     bubble.textContent = "";
 
-    for (let index = 0; index < fullText.length; index += 1) {
+    const chunkSize = fullText.length > 260 ? 4 : 1;
+    const animatedLimit = fullText.length > 520 ? 360 : fullText.length;
+
+    for (let index = 0; index < animatedLimit; index += chunkSize) {
       if (requestId && requestId !== state.activeRequestId) {
         bubble.textContent = fullText;
         break;
       }
-      bubble.textContent += fullText[index];
-      if (index % 4 === 0 || index === fullText.length - 1) scrollToBottom();
-      await sleep(index < 220 ? 18 : 7);
+      bubble.textContent += fullText.slice(index, index + chunkSize);
+      if (index % 16 === 0 || index + chunkSize >= animatedLimit) scrollToBottom();
+      await sleep(fullText.length > 260 ? 6 : index < 220 ? 18 : 7);
     }
 
     bubble.textContent = fullText;
