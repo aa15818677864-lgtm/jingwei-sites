@@ -15,16 +15,16 @@
   const clearChatButton = document.getElementById("clearChat");
   const urlParams = new URLSearchParams(window.location.search);
   const DEFAULT_TOPIC = "";
-  const activeTopic = urlParams.get("topic") || DEFAULT_TOPIC;
+  const activeTopic = DEFAULT_TOPIC;
   const sourceParam = urlParams.get("source") || "";
   const intentParam = urlParams.get("intent") || "";
-  const storageSuffix = activeTopic ? "." + activeTopic.replace(/[^a-z0-9_-]/gi, "") : "";
-  const SESSION_BASE_KEY = "jingwei.ask.chat.session.v1";
-  const BACKUP_BASE_KEY = "jingwei.ask.chat.backup.v1";
-  const ARCHIVE_BASE_KEY = "jingwei.ask.chat.archive.v1";
-  const SESSION_KEY = "jingwei.ask.chat.session.v1" + storageSuffix;
-  const BACKUP_KEY = "jingwei.ask.chat.backup.v1" + storageSuffix;
-  const ARCHIVE_KEY = "jingwei.ask.chat.archive.v1" + storageSuffix;
+  const storageSuffix = ".simple";
+  const SESSION_BASE_KEY = "jingwei.ask.simple.chat.session.v1";
+  const BACKUP_BASE_KEY = "jingwei.ask.simple.chat.backup.v1";
+  const ARCHIVE_BASE_KEY = "jingwei.ask.simple.chat.archive.v1";
+  const SESSION_KEY = "jingwei.ask.simple.chat.session.v1" + storageSuffix;
+  const BACKUP_KEY = "jingwei.ask.simple.chat.backup.v1" + storageSuffix;
+  const ARCHIVE_KEY = "jingwei.ask.simple.chat.archive.v1" + storageSuffix;
   const STORAGE_MAX_AGE_MS = 1000 * 60 * 60 * 24 * 3;
   const ARCHIVE_LIMIT = 12;
   let isComposing = false;
@@ -38,7 +38,7 @@
   const caseGoal = document.getElementById("caseGoal");
   const caseFacts = document.getElementById("caseFacts");
   const caseMissing = document.getElementById("caseMissing");
-  const LAST_GOOD_ENDPOINT_KEY = "jingwei.ask.chat.endpoint.lastGood";
+  const LAST_GOOD_ENDPOINT_KEY = "jingwei.ask.simple.chat.endpoint.lastGood";
   const MAX_ATTACHMENTS = 3;
   const MAX_ATTACHMENT_BYTES = 3 * 1024 * 1024;
   const MAX_ATTACHMENT_TEXT = 2600;
@@ -131,20 +131,12 @@
 
   function apiEndpointCandidates() {
     if (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") {
-      return ["http://127.0.0.1:4100/chat"];
+      return ["http://127.0.0.1:4100/chat-simple", "https://api.jingwei-law.com/api/chat-simple"];
     }
 
     const configured = [];
-    if (window.JINGWEI_AI_API) configured.push(window.JINGWEI_AI_API);
-    if (window.SITE_CONFIG) {
-      if (Array.isArray(window.SITE_CONFIG.aiEndpoints)) {
-        window.SITE_CONFIG.aiEndpoints.forEach((endpoint) => configured.push(endpoint));
-      }
-      if (window.SITE_CONFIG.aiEndpoint) configured.push(window.SITE_CONFIG.aiEndpoint);
-    }
-
-    configured.push("https://api.jingwei-law.com/api/chat");
-    configured.push("https://jingwei-vercel-ai-api.vercel.app/api/chat");
+    configured.push("https://api.jingwei-law.com/api/chat-simple");
+    configured.push("https://jingwei-vercel-ai-api.vercel.app/api/chat-simple");
 
     return Array.from(
       new Set(
@@ -173,7 +165,7 @@
   }
 
   function extractEndpointCandidates() {
-    return apiEndpointCandidates().map((endpoint) => endpoint.replace(/\/chat(?:\?.*)?$/i, "/extract-file"));
+    return apiEndpointCandidates().map((endpoint) => endpoint.replace(/\/(?:chat-simple|chat)(?:\?.*)?$/i, "/extract-file"));
   }
 
   async function fetchChatJson(endpoint, payload, timeoutMs) {
@@ -950,7 +942,7 @@
     chatBody.innerHTML = '<div class="day-pill">今天</div>';
     savedMessages.forEach((message) => {
       addMessage(message.displayContent || message.content, message.role === "assistant" ? "bot" : "user", {
-        thinking: message.role === "assistant" ? message.thinking : null
+        thinking: null
       });
     });
 
@@ -1527,18 +1519,13 @@
   }
 
 function renderInitialChat() {
-  const preset = applyTopicPreset();
-  if (preset) {
-    preset.greeting =
-      preset.neutralGreeting ||
-      "\u4f60\u5f53\u524d\u5728\u300c\u9999\u6e2f\u623f\u4ea7\u7ee7\u627f\u300d\u4e13\u9898\u9875\uff0c\u4e0d\u4ee3\u8868\u4f60\u4e00\u5b9a\u662f\u8fd9\u7c7b\u6848\u4ef6\u3002\u4f60\u53ef\u4ee5\u76f4\u63a5\u95ee\u4efb\u4f55\u6cd5\u5f8b\u95ee\u9898\uff1b\u5982\u679c\u521a\u597d\u662f\u8be5\u4e13\u9898\uff0c\u518d\u8bf4\u623f\u5b50\u5728\u54ea\u3001\u73b0\u5728\u8981\u529e\u7ee7\u627f\u8fd8\u662f\u63d0\u524d\u5b89\u6392\u3002";
-  }
+    state.stage = "done";
     chatBody.innerHTML = '<div class="day-pill">今天</div>';
     return renderAssistantReply({
-      stage: preset ? "done" : "region",
-      answer: preset ? preset.greeting : "你好，我是刘毅律师团队的 AI 法律助理。先用聊天方式做初步判断，你现在主要在哪个地区？",
-      chips: preset ? preset.chips : regionChips,
-      inputPlaceholder: preset ? preset.placeholder : "也可以直接输入你现在主要所在地区",
+      stage: "done",
+      answer: "你好，我是刘毅律师团队的 AI 法律助手。你可以直接输入法律问题或案情，我会先帮你做基础分析、整理关键事实和下一步思路。",
+      chips: [],
+      inputPlaceholder: "直接输入你的法律问题或案情",
       route: null,
       state: {
         region: state.region,
@@ -1546,12 +1533,18 @@ function renderInitialChat() {
         matter: state.matter,
         summary: state.summary
       }
-    }).then(function () {
-      if (preset) renderStartGuide();
     });
   }
 
   function fallbackReply() {
+    return {
+      stage: "done",
+      answer: "现在暂时连不上 AI。你可以稍后再试，或把问题拆成一句核心事实后重新发送。",
+      chips: [],
+      inputPlaceholder: "直接输入你的法律问题或案情",
+      route: null
+    };
+
     const stage = localStage();
 
     if (stage === "region") {
@@ -1659,6 +1652,7 @@ function renderInitialChat() {
       source: sourceParam,
       intent: intentParam,
       pageUrl: window.location.href,
+      assistantVariant: "ask-simple-primary",
       messages: state.messages
     };
 
@@ -1707,8 +1701,8 @@ function renderInitialChat() {
     updateCasePanel();
     await addBot(result.answer || fallbackReply().answer, {
       ...(options || {}),
-      thinking: normalizeThinkingPayload(result && result.thinking),
-      thinkingOpen: !!(result && result.thinking && result.stage === "done")
+      thinking: null,
+      thinkingOpen: false
     });
   }
 
@@ -1734,7 +1728,7 @@ function renderInitialChat() {
 
     const requestId = ++state.activeRequestId;
     setBusy(true);
-    const typing = addMessage("正在整理你的情况...", "bot", { typing: true });
+    const typing = addMessage("正在思考你的问题...", "bot", { typing: true });
 
     try {
       const result = await askBackend();
