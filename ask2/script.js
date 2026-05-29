@@ -942,7 +942,7 @@
     chatBody.innerHTML = '<div class="day-pill">今天</div>';
     savedMessages.forEach((message) => {
       addMessage(message.displayContent || message.content, message.role === "assistant" ? "bot" : "user", {
-        thinking: message.role === "assistant" ? message.thinking : null
+        thinking: null
       });
     });
 
@@ -1701,8 +1701,8 @@ function renderInitialChat() {
     updateCasePanel();
     await addBot(result.answer || fallbackReply().answer, {
       ...(options || {}),
-      thinking: normalizeThinkingPayload(result && result.thinking),
-      thinkingOpen: !!(result && result.thinking && result.stage === "done")
+      thinking: null,
+      thinkingOpen: false
     });
   }
 
@@ -1728,7 +1728,7 @@ function renderInitialChat() {
 
     const requestId = ++state.activeRequestId;
     setBusy(true);
-    const typing = addMessage("正在整理你的情况...", "bot", { typing: true });
+    const typing = addMessage("正在思考你的问题...", "bot", { typing: true });
 
     try {
       const result = await askBackend();
