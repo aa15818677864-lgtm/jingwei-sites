@@ -25,8 +25,6 @@
   const SESSION_KEY = "jingwei.ask.simple.chat.session.v1" + storageSuffix;
   const BACKUP_KEY = "jingwei.ask.simple.chat.backup.v1" + storageSuffix;
   const ARCHIVE_KEY = "jingwei.ask.simple.chat.archive.v1" + storageSuffix;
-  const STORAGE_MAX_AGE_MS = 1000 * 60 * 60 * 24 * 3;
-  const ARCHIVE_LIMIT = 20;
   let isComposing = false;
 
   const adTitle = document.getElementById("adTitle");
@@ -1224,7 +1222,7 @@
       const raw = window.localStorage.getItem(ARCHIVE_KEY) || window.localStorage.getItem(ARCHIVE_BASE_KEY);
       const parsed = parseJson(raw);
       return Array.isArray(parsed)
-        ? parsed.filter((item) => storedPayloadCompatible(item) && hasSavedUserTurn(item)).slice(0, ARCHIVE_LIMIT)
+        ? parsed.filter((item) => storedPayloadCompatible(item) && hasSavedUserTurn(item))
         : [];
     } catch {
       return [];
@@ -1232,14 +1230,37 @@
   }
 
   function writeArchives(items) {
-    try {
-      const cleaned = (items || []).filter((item) => storedPayloadCompatible(item) && hasSavedUserTurn(item)).slice(0, ARCHIVE_LIMIT);
-      const raw = JSON.stringify(cleaned);
-      window.localStorage.setItem(ARCHIVE_KEY, raw);
-      window.localStorage.setItem(ARCHIVE_BASE_KEY, raw);
-    } catch {
-      // ignore storage failures
+    const cleaned = (items || []).filter((item) => storedPayloadCompatible(item) && hasSavedUserTurn(item));
+    if (!cleaned.length) {
+      try {
+        window.localStorage.setItem(ARCHIVE_KEY, "[]");
+        window.localStorage.setItem(ARCHIVE_BASE_KEY, "[]");
+        return true;
+      } catch {
+        return false;
+      }
     }
+    let next = cleaned;
+    while (next.length) {
+      const raw = JSON.stringify(next);
+      try {
+        window.localStorage.setItem(ARCHIVE_KEY, raw);
+        try {
+          window.localStorage.setItem(ARCHIVE_BASE_KEY, raw);
+        } catch {
+          // The topic-specific key is enough; the base key is only a compatibility mirror.
+        }
+        return true;
+      } catch {
+        try {
+          window.localStorage.removeItem(ARCHIVE_BASE_KEY);
+        } catch {
+          // ignore storage cleanup failures
+        }
+        next = next.slice(0, -1);
+      }
+    }
+    return false;
   }
 
   function archiveCurrentSession(options) {
@@ -1417,9 +1438,6 @@
   function storedPayloadCompatible(payload) {
     if (!payload || !payload.state) return false;
     if (payload.topic && activeTopic && payload.topic !== activeTopic) return false;
-
-    const savedAt = Number(payload.savedAt || payload.archivedAt || 0);
-    if (savedAt && Date.now() - savedAt > STORAGE_MAX_AGE_MS) return false;
     return true;
   }
 
