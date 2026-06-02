@@ -333,6 +333,30 @@
     }
   }
 
+  function isDisplayTitleLine(line, index) {
+    const trimmed = String(line || "").trim();
+    if (!trimmed) return false;
+    if (!/[:\uff1a]$/.test(trimmed)) return false;
+    if (trimmed.length < 8 || trimmed.length > 38) return false;
+    if (/[\u3002\uff01\uff1f]/.test(trimmed)) return false;
+    return index === 0 || trimmed.length <= 24;
+  }
+
+  function parseNumberTitleLine(line) {
+    const trimmed = String(line || "").trim();
+    const match = trimmed.match(/^(\d+)[.)\u3001]\s*(.+)$/);
+    if (!match) return null;
+
+    const title = match[2].trim();
+    if (title.length < 4 || title.length > 36) return null;
+    if (/[\u3002\uff01\uff1f\uff1b\uff1a:]/.test(title)) return null;
+
+    return {
+      marker: match[1] + ".",
+      text: title
+    };
+  }
+
   function parseListLine(line) {
     const trimmed = String(line || "").trim();
     if (!trimmed) return null;
@@ -379,10 +403,30 @@
       return currentList;
     }
 
-    normalized.split("\n").forEach((rawLine) => {
+    normalized.split("\n").forEach((rawLine, index) => {
       const line = rawLine.trim();
       if (!line) {
         closeList();
+        return;
+      }
+
+      if (isDisplayTitleLine(line, index)) {
+        closeList();
+        const heading = document.createElement("p");
+        heading.className = "bubble-display-title";
+        heading.textContent = line;
+        fragment.appendChild(heading);
+        return;
+      }
+
+      const numberTitle = parseNumberTitleLine(line);
+      if (numberTitle) {
+        closeList();
+        const heading = document.createElement("p");
+        heading.className = "bubble-number-title";
+        heading.dataset.marker = numberTitle.marker;
+        appendInlineRuns(heading, numberTitle.text);
+        fragment.appendChild(heading);
         return;
       }
 

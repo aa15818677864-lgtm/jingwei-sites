@@ -582,6 +582,12 @@ h1 span {
 }
 
 .msg-row.bot .bubble {
+  max-width: min(620px, calc(100% - 54px));
+  padding: 24px 26px 22px;
+  border: 1px solid #e3eaf3;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+  box-shadow: 0 16px 34px rgba(17, 34, 68, 0.08);
   white-space: normal;
 }
 
@@ -597,45 +603,79 @@ h1 span {
   overflow-wrap: normal;
 }
 
-.bubble-section-title,
-.bubble-paragraph {
+.msg-row.bot .bubble > * {
   margin: 0;
 }
 
-.bubble-paragraph + .bubble-paragraph,
-.bubble-section-title + .bubble-paragraph,
-.bubble-list + .bubble-paragraph,
-.bubble-paragraph + .bubble-list,
-.bubble-section-title + .bubble-list,
-.bubble-list + .bubble-section-title,
-.bubble-paragraph + .bubble-section-title {
-  margin-top: 12px;
+.msg-row.bot .bubble > * + * {
+  margin-top: 14px;
+}
+
+.msg-row.bot .bubble > .bubble-paragraph:first-child {
+  color: #10243d;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.8;
+}
+
+.bubble-display-title {
+  color: #10243d;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1.45;
+}
+
+.bubble-number-title {
+  position: relative;
+  padding-left: 28px;
+  color: #10243d;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1.5;
+}
+
+.bubble-number-title::before {
+  content: attr(data-marker);
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #10243d;
+  font-size: 18px;
+  font-weight: 900;
 }
 
 .bubble-section-title {
-  color: var(--navy);
-  font-size: 16px;
+  color: #10243d;
+  font-size: 17px;
   font-weight: 900;
-  line-height: 1.35;
+  line-height: 1.45;
+}
+
+.bubble-paragraph {
+  color: #203650;
+  font-size: 15.5px;
+  line-height: 1.82;
 }
 
 .bubble-inline-title,
 .bubble-inline-strong {
-  color: var(--navy);
+  color: #10243d;
   font-weight: 900;
 }
 
 .bubble-list {
-  margin: 12px 0 0;
   padding: 0;
   list-style: none;
   display: grid;
-  gap: 10px;
+  gap: 12px;
 }
 
 .bubble-list-item {
   position: relative;
-  padding-left: 16px;
+  padding-left: 18px;
+  color: #203650;
+  font-size: 15.5px;
+  line-height: 1.82;
 }
 
 .bubble-list-item::before {
@@ -646,12 +686,12 @@ h1 span {
   width: 5px;
   height: 5px;
   border-radius: 999px;
-  background: #b62c3d;
+  background: #4a5b72;
   transform: translateY(-50%);
 }
 
 .bubble-list-item.is-numbered {
-  padding-left: 24px;
+  padding-left: 26px;
 }
 
 .bubble-list-item.is-numbered::before {
@@ -660,8 +700,8 @@ h1 span {
   height: auto;
   border-radius: 0;
   background: transparent;
-  color: var(--navy);
-  font-size: 13px;
+  color: #10243d;
+  font-size: 15px;
   font-weight: 900;
   transform: none;
   top: 0;
@@ -678,8 +718,7 @@ h1 span {
 }
 
 .msg-row.bot .bubble::before {
-  left: -6px;
-  border-right: 6px solid #fff;
+  display: none;
 }
 
 .msg-row.user .bubble::before {
@@ -1352,6 +1391,31 @@ h1 span {
     font-size: 15px;
   }
 
+  .msg-row.bot .bubble {
+    max-width: min(344px, calc(100% - 52px));
+    padding: 20px 20px 18px;
+    border-radius: 14px;
+  }
+
+  .msg-row.bot .bubble > .bubble-paragraph:first-child {
+    font-size: 15.5px;
+  }
+
+  .bubble-display-title {
+    font-size: 18px;
+  }
+
+  .bubble-number-title,
+  .bubble-number-title::before,
+  .bubble-section-title {
+    font-size: 16px;
+  }
+
+  .bubble-paragraph,
+  .bubble-list-item {
+    font-size: 15px;
+  }
+
   .start-guide {
     margin: 24px 18px 6px 50px;
     gap: 14px;
@@ -1439,6 +1503,15 @@ h1 span {
 
   .bubble {
     max-width: min(300px, calc(100% - 50px));
+  }
+
+  .msg-row.bot .bubble {
+    max-width: min(318px, calc(100% - 50px));
+    padding: 18px 18px 16px;
+  }
+
+  .bubble-display-title {
+    font-size: 17px;
   }
 
   .reply-chip {
