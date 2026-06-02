@@ -26,7 +26,7 @@
   const BACKUP_KEY = "jingwei.ask.simple.chat.backup.v1" + storageSuffix;
   const ARCHIVE_KEY = "jingwei.ask.simple.chat.archive.v1" + storageSuffix;
   const STORAGE_MAX_AGE_MS = 1000 * 60 * 60 * 24 * 3;
-  const ARCHIVE_LIMIT = 12;
+  const ARCHIVE_LIMIT = 20;
   let isComposing = false;
 
   const adTitle = document.getElementById("adTitle");
@@ -1197,26 +1197,26 @@
     };
   }
 
-  function archiveTitle(payload) {
+  function archiveDisplayTitle(payload) {
     const messages = normalizeSavedMessages(payload && payload.state && payload.state.messages);
     const firstUser = messages.find((message) => message.role === "user");
     const text = String((firstUser && (firstUser.displayContent || firstUser.content)) || "").replace(/\s+/g, " ").trim();
     if (text) return text.slice(0, 28);
     const goal = payload && payload.state && payload.state.casePanel && payload.state.casePanel.goal;
-    return String(goal || "未命名对话").slice(0, 28);
+    return String(goal || "\u672a\u547d\u540d\u5bf9\u8bdd").slice(0, 28);
   }
 
-  function archiveSubtitle(payload) {
+  function archiveDisplaySubtitle(payload) {
     const messages = normalizeSavedMessages(payload && payload.state && payload.state.messages);
     const userCount = messages.filter((message) => message.role === "user").length;
-    const savedAt = new Date(Number(payload && payload.savedAt) || Date.now());
+    const savedAt = new Date(Number(payload && (payload.archivedAt || payload.savedAt)) || Date.now());
     const dateText = savedAt.toLocaleString("zh-CN", {
       month: "2-digit",
       day: "2-digit",
       hour: "2-digit",
       minute: "2-digit"
     });
-    return `${dateText} · ${userCount}轮咨询`;
+    return `${dateText} \u00b7 ${userCount}\u8f6e\u54a8\u8be2`;
   }
 
   function readArchives() {
@@ -1224,7 +1224,7 @@
       const raw = window.localStorage.getItem(ARCHIVE_KEY) || window.localStorage.getItem(ARCHIVE_BASE_KEY);
       const parsed = parseJson(raw);
       return Array.isArray(parsed)
-        ? parsed.filter((item) => item && item.state && (!item.topic || item.topic === activeTopic) && hasSavedUserTurn(item)).slice(0, ARCHIVE_LIMIT)
+        ? parsed.filter((item) => storedPayloadCompatible(item) && hasSavedUserTurn(item)).slice(0, ARCHIVE_LIMIT)
         : [];
     } catch {
       return [];
@@ -1233,7 +1233,7 @@
 
   function writeArchives(items) {
     try {
-      const cleaned = (items || []).filter((item) => item && item.state && hasSavedUserTurn(item)).slice(0, ARCHIVE_LIMIT);
+      const cleaned = (items || []).filter((item) => storedPayloadCompatible(item) && hasSavedUserTurn(item)).slice(0, ARCHIVE_LIMIT);
       const raw = JSON.stringify(cleaned);
       window.localStorage.setItem(ARCHIVE_KEY, raw);
       window.localStorage.setItem(ARCHIVE_BASE_KEY, raw);
@@ -1242,20 +1242,27 @@
     }
   }
 
-  function archiveCurrentSession() {
+  function archiveCurrentSession(options) {
     const payload = buildSessionPayload();
-    if (!hasSavedUserTurn(payload)) return;
+    if (!hasSavedUserTurn(payload)) return false;
 
+    const archives = readArchives();
+    const existing = archives.find((item) => item && item.id === payload.id);
+    const markJust = !!(options && options.markJust);
     const entry = {
       ...payload,
       id: payload.id || state.sessionId || createSessionId(),
       archivedAt: Date.now(),
-      title: archiveTitle(payload),
-      subtitle: archiveSubtitle(payload)
+      title: archiveDisplayTitle(payload),
+      subtitle: archiveDisplaySubtitle(payload),
+      justArchivedAt: markJust ? Date.now() : Number(existing && existing.justArchivedAt) || 0
     };
-    const archives = readArchives().filter((item) => item.id !== entry.id);
-    writeArchives([entry].concat(archives));
+    const nextArchives = archives
+      .filter((item) => item.id !== entry.id)
+      .map((item) => (markJust ? { ...item, justArchivedAt: 0 } : item));
+    writeArchives([entry].concat(nextArchives));
     renderHistoryList();
+    return true;
   }
 
   function setHistoryOpen(open) {
@@ -1268,30 +1275,82 @@
   function renderHistoryList() {
     if (!historyList) return;
     const archives = readArchives();
+    const currentPayload = buildSessionPayload();
+    const currentId = String(state.sessionId || "");
+    const currentEntry = hasSavedUserTurn(currentPayload)
+      ? {
+          ...currentPayload,
+          id: currentId || currentPayload.id || createSessionId(),
+          title: archiveDisplayTitle(currentPayload),
+          subtitle: archiveDisplaySubtitle(currentPayload),
+          isCurrentSession: true
+        }
+      : null;
+    const displayArchives = currentEntry
+      ? [currentEntry].concat(archives.filter((item) => String(item.id || "") !== String(currentEntry.id || "")))
+      : archives;
     historyList.innerHTML = "";
-    if (!archives.length) {
+    if (!displayArchives.length) {
       const empty = document.createElement("div");
       empty.className = "history-empty";
-      empty.innerHTML = "<strong>暂无历史对话</strong><span>清空当前对话后，会保留在这里。</span>";
+      const emptyTitle = document.createElement("strong");
+      emptyTitle.textContent = "\u6682\u65e0\u5386\u53f2\u5bf9\u8bdd";
+      const emptyCopy = document.createElement("span");
+      emptyCopy.textContent = "\u5f00\u59cb\u54a8\u8be2\u540e\uff0c\u8fd9\u91cc\u4f1a\u4fdd\u7559\u53ef\u5207\u6362\u7684\u5bf9\u8bdd\u3002";
+      empty.appendChild(emptyTitle);
+      empty.appendChild(emptyCopy);
       historyList.appendChild(empty);
       return;
     }
 
-    archives.forEach((item) => {
+    displayArchives.forEach((item) => {
+      const isCurrent = String(item.id || "") === currentId;
+      const isJust = !isCurrent && Number(item.justArchivedAt || 0) > 0;
       const button = document.createElement("button");
       button.type = "button";
       button.className = "history-item";
+      if (isCurrent) {
+        button.classList.add("is-current");
+        button.setAttribute("aria-current", "true");
+      }
+      if (isJust) button.classList.add("is-just");
+
+      const top = document.createElement("span");
+      top.className = "history-item-top";
+
+      const statusIcon = document.createElement("span");
+      statusIcon.className = "history-status-icon";
+      statusIcon.setAttribute("aria-hidden", "true");
 
       const title = document.createElement("strong");
-      title.textContent = item.title || archiveTitle(item);
-      const subtitle = document.createElement("span");
-      subtitle.textContent = item.subtitle || archiveSubtitle(item);
+      title.textContent = item.title || archiveDisplayTitle(item);
 
-      button.appendChild(title);
+      const badge = document.createElement("span");
+      badge.className = "history-badge";
+      if (isCurrent) {
+        badge.classList.add("history-badge--current");
+        badge.textContent = "\u5f53\u524d";
+      } else if (isJust) {
+        badge.classList.add("history-badge--just");
+        badge.textContent = "\u521a\u521a";
+      }
+
+      top.appendChild(statusIcon);
+      top.appendChild(title);
+      if (badge.textContent) top.appendChild(badge);
+
+      const subtitle = document.createElement("span");
+      subtitle.textContent = archiveDisplaySubtitle(item);
+
+      button.appendChild(top);
       button.appendChild(subtitle);
       button.addEventListener("click", () => {
+        if (String(item.id || "") !== currentId) {
+          archiveCurrentSession({ markJust: true });
+        }
         applyStoredPayload(item, false);
         saveChatSession();
+        renderHistoryList();
         setHistoryOpen(false);
       });
       historyList.appendChild(button);
@@ -1357,17 +1416,9 @@
 
   function storedPayloadCompatible(payload) {
     if (!payload || !payload.state) return false;
-    const preset = topicPresets[activeTopic];
-    if (preset) {
-      const savedState = payload.state || {};
-      const mismatchedTopic = payload.topic && payload.topic !== activeTopic;
-      const mismatchedRegion = savedState.region && savedState.region !== preset.region;
-      const mismatchedMainland = savedState.mainland && savedState.mainland !== preset.mainland;
-      const mismatchedMatter = savedState.matter && savedState.matter !== preset.matter;
-      if (mismatchedTopic || mismatchedRegion || mismatchedMainland || mismatchedMatter) return false;
-    }
+    if (payload.topic && activeTopic && payload.topic !== activeTopic) return false;
 
-    const savedAt = Number(payload.savedAt || 0);
+    const savedAt = Number(payload.savedAt || payload.archivedAt || 0);
     if (savedAt && Date.now() - savedAt > STORAGE_MAX_AGE_MS) return false;
     return true;
   }
