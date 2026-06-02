@@ -1067,16 +1067,17 @@ h1 span {
 
 .composer textarea {
   min-width: 0;
-  min-height: 32px;
-  max-height: 96px;
+  min-height: 58px;
+  max-height: 132px;
   resize: none;
   border: 1px solid var(--line-blue);
   border-radius: 6px;
   outline: none;
-  padding: 7px 12px;
+  padding: 8px 12px;
   background: #fff;
   color: var(--ink);
   line-height: 1.45;
+  overflow-y: hidden;
 }
 
 .composer textarea:focus {
@@ -1574,9 +1575,12 @@ h1 span {
     padding: 10px 16px 0;
   }
 
-  .composer textarea,
   .composer button {
     min-height: 32px;
+  }
+
+  .composer textarea {
+    min-height: 58px;
   }
 }
 

@@ -189,6 +189,99 @@
     }
   }
 
+  async function fetchChatStream(endpoint, payload, timeoutMs, handlers) {
+    const controller = new AbortController();
+    let timer = 0;
+    let streamStarted = false;
+
+    function refreshTimeout() {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(function () {
+        controller.abort();
+      }, timeoutMs);
+    }
+
+    refreshTimeout();
+
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "text/event-stream"
+        },
+        body: JSON.stringify({ ...payload, stream: true }),
+        signal: controller.signal
+      });
+
+      if (!response.ok || !response.body) throw new Error("AI stream failed");
+
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = "";
+      let meta = null;
+      let answer = "";
+
+      while (true) {
+        refreshTimeout();
+        const { value, done } = await reader.read();
+        buffer += decoder.decode(value || new Uint8Array(), { stream: !done }).replace(/\r\n/g, "\n").replace(/\r/g, "\n");
+
+        let boundary = buffer.indexOf("\n\n");
+        while (boundary !== -1) {
+          const rawEvent = buffer.slice(0, boundary).trim();
+          buffer = buffer.slice(boundary + 2);
+          boundary = buffer.indexOf("\n\n");
+          if (!rawEvent) continue;
+
+          const data = rawEvent
+            .split("\n")
+            .filter((line) => line.startsWith("data:"))
+            .map((line) => line.slice(5).trimStart())
+            .join("\n")
+            .trim();
+
+          if (!data) continue;
+          const event = parseJson(data);
+          if (!event || typeof event !== "object") continue;
+          streamStarted = true;
+
+          if (event.type === "meta" && event.payload) {
+            meta = event.payload;
+            if (handlers && typeof handlers.onMeta === "function") handlers.onMeta(meta);
+            continue;
+          }
+
+          if (event.type === "delta" && typeof event.content === "string" && event.content) {
+            answer += event.content;
+            if (handlers && typeof handlers.onDelta === "function") handlers.onDelta(event.content, answer);
+            continue;
+          }
+
+          if (event.type === "done") {
+            if (typeof event.answer === "string" && event.answer.trim()) answer = event.answer;
+            if (handlers && typeof handlers.onDone === "function") handlers.onDone(answer);
+            return { ...(meta || {}), answer };
+          }
+
+          if (event.type === "error") {
+            throw new Error(event.error || "AI stream failed");
+          }
+        }
+
+        if (done) break;
+      }
+
+      if (!answer) throw new Error("AI stream ended without an answer");
+      return { ...(meta || {}), answer };
+    } catch (error) {
+      if (error && typeof error === "object") error.streamStarted = streamStarted;
+      throw error;
+    } finally {
+      window.clearTimeout(timer);
+    }
+  }
+
   async function fetchExtractJson(endpoint, payload) {
     const controller = new AbortController();
     const timer = window.setTimeout(function () {
@@ -211,6 +304,28 @@
 
   function scrollToBottom() {
     chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  function resizeInput() {
+    if (!input) return;
+    const styles = window.getComputedStyle(input);
+    const lineHeight = parseFloat(styles.lineHeight) || 23;
+    const paddingY = (parseFloat(styles.paddingTop) || 0) + (parseFloat(styles.paddingBottom) || 0);
+    const borderY = (parseFloat(styles.borderTopWidth) || 0) + (parseFloat(styles.borderBottomWidth) || 0);
+    const boxY = paddingY + borderY;
+    const oneLineHeight = Math.ceil(lineHeight + boxY);
+    const minHeight = Math.ceil(lineHeight * 2 + boxY);
+    const threeLineHeight = Math.ceil(lineHeight * 3 + boxY);
+    const maxHeight = Math.ceil(lineHeight * 5 + boxY);
+
+    const previousMinHeight = input.style.minHeight;
+    input.style.minHeight = "0px";
+    input.style.height = "0px";
+    const naturalHeight = Math.max(oneLineHeight, input.scrollHeight + borderY);
+    input.style.minHeight = previousMinHeight;
+    const targetHeight = naturalHeight > oneLineHeight + 2 ? Math.max(threeLineHeight, naturalHeight) : minHeight;
+    input.style.height = Math.min(targetHeight, maxHeight) + "px";
+    input.style.overflowY = targetHeight > maxHeight ? "auto" : "hidden";
   }
 
   function normalizeThinkingPayload(thinking) {
@@ -521,6 +636,114 @@
     return 0;
   }
 
+  const streamStateByRow = new WeakMap();
+
+  function streamRevealProfile(queueLength) {
+    if (queueLength > 120) return { chunkSize: 5, delay: 6 };
+    if (queueLength > 72) return { chunkSize: 4, delay: 8 };
+    if (queueLength > 36) return { chunkSize: 3, delay: 11 };
+    if (queueLength > 16) return { chunkSize: 2, delay: 15 };
+    return { chunkSize: 1, delay: 20 };
+  }
+
+  function createStreamingBotRow(requestId) {
+    const row = addMessage('', 'bot', { typewriter: true });
+    const bubble = row.querySelector('.bubble');
+    if (bubble) bubble.textContent = '';
+    row.classList.add('is-streaming', 'is-typewriting');
+    streamStateByRow.set(row, {
+      requestId: requestId || 0,
+      pending: '',
+      displayed: '',
+      fullText: '',
+      draining: false
+    });
+    return row;
+  }
+
+  function ensureStreamDrain(row) {
+    const stream = streamStateByRow.get(row);
+    const bubble = row && row.querySelector ? row.querySelector('.bubble') : null;
+    if (!stream || !bubble || stream.draining) return;
+
+    stream.draining = true;
+    (async function () {
+      if (document.hidden) {
+        bubble.textContent += stream.pending;
+        stream.displayed += stream.pending;
+        stream.pending = '';
+        stream.draining = false;
+        scrollToBottom();
+        return;
+      }
+
+      while (stream.pending.length) {
+        if (stream.requestId && stream.requestId !== state.activeRequestId) {
+          stream.pending = '';
+          break;
+        }
+
+        const profile = streamRevealProfile(stream.pending.length);
+        const chunk = stream.pending.slice(0, profile.chunkSize);
+        stream.pending = stream.pending.slice(profile.chunkSize);
+        bubble.textContent += chunk;
+        stream.displayed += chunk;
+
+        if (stream.displayed.length % Math.max(12, profile.chunkSize * 12) === 0 || !stream.pending.length) {
+          scrollToBottom();
+        }
+
+        await sleep(profile.delay + typewriterPause(chunk));
+      }
+
+      stream.draining = false;
+      if (stream.pending.length) ensureStreamDrain(row);
+    })();
+  }
+
+  function queueStreamingDelta(row, chunk) {
+    const stream = streamStateByRow.get(row);
+    if (!stream || !chunk) return;
+    stream.pending += chunk;
+    stream.fullText += chunk;
+    ensureStreamDrain(row);
+  }
+
+  async function waitForStreamDrain(row) {
+    while (true) {
+      const stream = streamStateByRow.get(row);
+      if (!stream || (!stream.pending.length && !stream.draining)) return;
+      await sleep(16);
+    }
+  }
+
+  async function finalizeStreamingBotRow(row, text) {
+    if (!row) return String(text || '');
+    const stream = streamStateByRow.get(row);
+    const bubble = row.querySelector('.bubble');
+    if (stream && typeof text === 'string' && text) {
+      stream.fullText = text;
+    }
+
+    await waitForStreamDrain(row);
+
+    const finalText = String((stream && stream.fullText) || text || '');
+    if (bubble) {
+      if (finalText) renderBotBubble(bubble, finalText);
+      else bubble.textContent = '';
+    }
+    row.classList.remove('is-streaming', 'is-typewriting');
+    streamStateByRow.delete(row);
+    scrollToBottom();
+    return finalText;
+  }
+
+  function dropStreamingBotRow(row) {
+    if (!row) return;
+    streamStateByRow.delete(row);
+    row.remove();
+  }
+
   async function typeBotMessage(row, text, requestId) {
     const bubble = row.querySelector(".bubble");
     const fullText = String(text || "");
@@ -556,10 +779,15 @@
     scrollToBottom();
   }
 
-  async function addBot(text, options) {
+  function storeAssistantMessage(text, options) {
     const storedThinking = normalizeThinkingForStorage(options && options.thinking);
     state.messages.push({ role: "assistant", content: text, thinking: storedThinking });
     saveChatSession();
+    return storedThinking;
+  }
+
+  async function addBot(text, options) {
+    const storedThinking = storeAssistantMessage(text, options);
     const row = addMessage(text, "bot", {
       typewriter: options && options.typewriter,
       thinking: storedThinking,
@@ -1184,11 +1412,10 @@
 
     if (restoreDraft && payload.inputDraft) {
       input.value = String(payload.inputDraft);
-      input.style.height = "auto";
-      input.style.height = Math.min(input.scrollHeight, 118) + "px";
+      resizeInput();
     } else {
       input.value = "";
-      input.style.height = "auto";
+      resizeInput();
     }
 
     return true;
@@ -1865,8 +2092,8 @@ function renderInitialChat() {
     }
   }
 
-  async function askBackend() {
-    const payload = {
+  function buildChatPayload(streamMode) {
+    return {
       sessionId: state.sessionId,
       topic: activeTopic || "",
       region: state.region,
@@ -1878,9 +2105,13 @@ function renderInitialChat() {
       intent: intentParam,
       pageUrl: window.location.href,
       assistantVariant: "ask-simple-primary",
-      messages: state.messages
+      messages: state.messages,
+      stream: !!streamMode
     };
+  }
 
+  async function askBackend() {
+    const payload = buildChatPayload(false);
     const candidates = preferredEndpointOrder(apiEndpointCandidates());
     let lastError = null;
 
@@ -1902,6 +2133,30 @@ function renderInitialChat() {
     throw lastError || new Error("AI endpoint failed");
   }
 
+  async function askBackendStream(handlers) {
+    const payload = buildChatPayload(true);
+    const candidates = preferredEndpointOrder(apiEndpointCandidates());
+    let lastError = null;
+
+    for (let index = 0; index < candidates.length; index += 1) {
+      const endpoint = candidates[index];
+      try {
+        const result = await fetchChatStream(endpoint, payload, endpointTimeoutMs(endpoint, index), handlers);
+        try {
+          window.sessionStorage.setItem(LAST_GOOD_ENDPOINT_KEY, endpoint);
+        } catch {
+          // ignore storage failures
+        }
+        return result;
+      } catch (error) {
+        if (error && error.streamStarted) throw error;
+        lastError = error;
+      }
+    }
+
+    throw lastError || new Error("AI endpoint failed");
+  }
+
   function applyBackendState(result) {
     if (result && result.state) {
       state.region = result.state.region || state.region;
@@ -1916,7 +2171,7 @@ function renderInitialChat() {
     state.stage = (result && result.stage) || localStage();
   }
 
-  async function renderAssistantReply(result, options) {
+  function applyReplyUiState(result) {
     applyBackendState(result);
     state.casePanel = normalizeCasePanel(result && result.casePanel);
     state.casePanelPending = false;
@@ -1924,6 +2179,10 @@ function renderInitialChat() {
     updatePlaceholder(result.inputPlaceholder);
     updateAd(result.route || null, state.stage);
     updateCasePanel();
+  }
+
+  async function renderAssistantReply(result, options) {
+    applyReplyUiState(result);
     await addBot(result.answer || fallbackReply().answer, {
       ...(options || {}),
       thinking: null,
@@ -1931,11 +2190,21 @@ function renderInitialChat() {
     });
   }
 
+  async function renderStreamedAssistantReply(row, result, options) {
+    const answer = await finalizeStreamingBotRow(row, result.answer || fallbackReply().answer);
+    applyReplyUiState(result);
+    storeAssistantMessage(answer, {
+      thinking: options && options.thinking,
+      thinkingOpen: !!(options && options.thinkingOpen)
+    });
+    return row;
+  }
+
   async function handleTurn(text, options) {
     const cleaned = String(text || "").trim();
     const attachments = state.pendingAttachments.slice();
     if (!cleaned && !attachments.length) return;
-    const userText = cleaned || "我上传了资料，请先帮我看重点。";
+    const userText = cleaned || "\u6211\u4e0a\u4f20\u4e86\u8d44\u6599\uff0c\u8bf7\u5148\u5e2e\u6211\u770b\u91cd\u70b9\u3002";
     const fullText = userText + attachmentMessage(attachments);
     const displayText = userText + attachmentDisplay(attachments);
 
@@ -1946,23 +2215,48 @@ function renderInitialChat() {
     state.casePanelPending = true;
     updateCasePanel();
     input.value = "";
-    input.style.height = "auto";
+    resizeInput();
     state.pendingAttachments = [];
     renderAttachments();
     saveChatSession();
 
     const requestId = ++state.activeRequestId;
     setBusy(true);
-    const typing = addMessage("正在思考你的问题...", "bot", { typing: true });
+    const typing = addMessage("\u6b63\u5728\u601d\u8003\u4f60\u7684\u95ee\u9898...", "bot", { typing: true });
+    let streamRow = null;
 
     try {
-      const result = await askBackend();
+      const result = await askBackendStream({
+        onDelta(chunk) {
+          if (requestId !== state.activeRequestId) return;
+          if (!streamRow) {
+            if (typing.isConnected) typing.remove();
+            streamRow = createStreamingBotRow(requestId);
+          }
+          queueStreamingDelta(streamRow, chunk);
+        }
+      });
       if (requestId !== state.activeRequestId) return;
-      typing.remove();
-      await renderAssistantReply(result, { typewriter: true, requestId });
+      if (typing.isConnected) typing.remove();
+      if (streamRow) {
+        await renderStreamedAssistantReply(streamRow, result, { requestId });
+      } else {
+        await renderAssistantReply(result, { typewriter: true, requestId });
+      }
     } catch (error) {
       if (requestId !== state.activeRequestId) return;
-      typing.remove();
+      if (typing.isConnected) typing.remove();
+      if (streamRow) dropStreamingBotRow(streamRow);
+      if (!error || error.streamStarted !== true) {
+        try {
+          const result = await askBackend();
+          if (requestId !== state.activeRequestId) return;
+          await renderAssistantReply(result, { typewriter: true, requestId });
+          return;
+        } catch {
+          // ignore fallback request errors
+        }
+      }
       await renderAssistantReply(fallbackReply(), { typewriter: true, requestId });
     } finally {
       if (requestId === state.activeRequestId) {
@@ -2000,8 +2294,7 @@ function renderInitialChat() {
   });
 
   input.addEventListener("input", function () {
-    input.style.height = "auto";
-    input.style.height = Math.min(input.scrollHeight, 118) + "px";
+    resizeInput();
     saveChatSession();
   });
 
@@ -2035,7 +2328,7 @@ function renderInitialChat() {
       state.conversion = null;
       state.lead = null;
       input.value = "";
-      input.style.height = "auto";
+      resizeInput();
       clearStoredSession();
       setBusy(false);
       renderAttachments();
@@ -2068,5 +2361,6 @@ function renderInitialChat() {
   if (!restoreChatSession()) {
     renderInitialChat();
   }
+  resizeInput();
   renderHistoryList();
 })();

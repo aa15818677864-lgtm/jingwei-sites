@@ -6,7 +6,7 @@
   <title>AI法律助手 | 刘毅律师团队</title>
   <meta name="description" content="刘毅律师团队 AI 法律助手。直接输入法律问题，由 AI 先做基础分析、事实整理和下一步提示。">
   <link rel="canonical" href="https://www.jingwei-law.com/ask/">
-  <link rel="stylesheet" href="style.css?v=20260602-unified-typewriter">
+  <link rel="stylesheet" href="style.css?v=20260602-streaming-reply-v2">
 </head>
 <body>
   <main class="page-shell">
@@ -73,7 +73,7 @@
           <form class="composer" id="chatForm">
             <input id="attachmentInput" type="file" accept=".pdf,.docx,.txt,.md,.csv,.json,image/*" multiple hidden>
             <button class="attach-button" id="attachButton" type="button" aria-label="上传图片、PDF或文档" title="上传资料">+</button>
-            <textarea id="chatInput" rows="1" placeholder="直接说情况，不用写姓名" enterkeyhint="send"></textarea>
+            <textarea id="chatInput" rows="2" placeholder="直接说情况，不用写姓名" enterkeyhint="send"></textarea>
             <button class="send-button" type="submit">发送</button>
           </form>
         </section>
@@ -114,6 +114,6 @@
   </main>
 
   <script src="/site-config.js"></script>
-  <script src="script.js?v=20260602-unified-typewriter"></script>
+  <script src="script.js?v=20260602-streaming-reply-v2"></script>
 </body>
 </html>
