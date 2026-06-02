@@ -287,6 +287,9 @@
     const bubble = document.createElement("div");
     bubble.className = "bubble";
     bubble.textContent = options && options.typewriter ? "" : text;
+    if (type === "user" && !/[\r\n]/.test(String(text)) && String(text).trim().length <= 12) {
+      bubble.classList.add("bubble--single-line");
+    }
 
     const content = document.createElement("div");
     content.className = "msg-content";

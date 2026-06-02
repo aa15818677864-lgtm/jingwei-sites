@@ -587,6 +587,12 @@ h1 span {
   min-width: 72px;
 }
 
+.msg-row.user .bubble.bubble--single-line {
+  min-width: max-content;
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+
 .bubble::before {
   content: "";
   position: absolute;
