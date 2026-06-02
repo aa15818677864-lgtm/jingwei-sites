@@ -636,6 +636,16 @@
 
   const streamStateByRow = new WeakMap();
 
+  function renderProgressiveBotBubble(bubble, text) {
+    const value = String(text || "");
+    if (!bubble) return;
+    if (value.trim()) {
+      renderBotBubble(bubble, value);
+    } else {
+      bubble.textContent = value;
+    }
+  }
+
   function streamRevealProfile(queueLength) {
     if (queueLength > 120) return { chunkSize: 5, delay: 6 };
     if (queueLength > 72) return { chunkSize: 4, delay: 8 };
@@ -667,9 +677,9 @@
     stream.draining = true;
     (async function () {
       if (document.hidden) {
-        bubble.textContent += stream.pending;
         stream.displayed += stream.pending;
         stream.pending = '';
+        renderProgressiveBotBubble(bubble, stream.displayed);
         stream.draining = false;
         scrollToBottom();
         return;
@@ -684,8 +694,8 @@
         const profile = streamRevealProfile(stream.pending.length);
         const chunk = stream.pending.slice(0, profile.chunkSize);
         stream.pending = stream.pending.slice(profile.chunkSize);
-        bubble.textContent += chunk;
         stream.displayed += chunk;
+        renderProgressiveBotBubble(bubble, stream.displayed);
 
         if (stream.displayed.length % Math.max(12, profile.chunkSize * 12) === 0 || !stream.pending.length) {
           scrollToBottom();
@@ -748,7 +758,7 @@
     if (!bubble || !fullText) return;
 
     row.classList.add("is-typewriting");
-    bubble.textContent = "";
+    renderProgressiveBotBubble(bubble, "");
 
     if (document.hidden) {
       renderBotBubble(bubble, fullText);
@@ -767,7 +777,7 @@
         break;
       }
       const chunk = fullText.slice(index, index + chunkSize);
-      bubble.textContent += chunk;
+      renderProgressiveBotBubble(bubble, fullText.slice(0, index + chunkSize));
       if (index % Math.max(12, chunkSize * 10) === 0 || index + chunkSize >= animatedLimit) scrollToBottom();
       await sleep(profile.delay + typewriterPause(chunk));
     }
