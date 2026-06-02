@@ -286,7 +286,28 @@
 
     const bubble = document.createElement("div");
     bubble.className = "bubble";
-    if (type === "bot" && !(options && options.typewriter)) {
+    if (options && options.typing) {
+      bubble.classList.add("bubble--typing");
+
+      const typingWrap = document.createElement("div");
+      typingWrap.className = "typing-indicator";
+
+      const label = document.createElement("span");
+      label.className = "typing-label";
+      label.textContent = String(text || "正在思考你的问题").replace(/[.。…]+$/u, "");
+
+      const dots = document.createElement("span");
+      dots.className = "typing-dots";
+      dots.setAttribute("aria-hidden", "true");
+      for (let index = 0; index < 3; index += 1) {
+        const dot = document.createElement("i");
+        dots.appendChild(dot);
+      }
+
+      typingWrap.appendChild(label);
+      typingWrap.appendChild(dots);
+      bubble.appendChild(typingWrap);
+    } else if (type === "bot" && !(options && options.typewriter)) {
       renderBotBubble(bubble, text);
     } else {
       bubble.textContent = options && options.typewriter ? "" : text;
