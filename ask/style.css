@@ -581,6 +581,10 @@ h1 span {
   white-space: pre-wrap;
 }
 
+.msg-row.bot .bubble {
+  white-space: normal;
+}
+
 .msg-row.user .bubble {
   background: #dcfce7;
   color: #123423;
@@ -591,6 +595,76 @@ h1 span {
   min-width: max-content;
   white-space: nowrap;
   overflow-wrap: normal;
+}
+
+.bubble-section-title,
+.bubble-paragraph {
+  margin: 0;
+}
+
+.bubble-paragraph + .bubble-paragraph,
+.bubble-section-title + .bubble-paragraph,
+.bubble-list + .bubble-paragraph,
+.bubble-paragraph + .bubble-list,
+.bubble-section-title + .bubble-list,
+.bubble-list + .bubble-section-title,
+.bubble-paragraph + .bubble-section-title {
+  margin-top: 12px;
+}
+
+.bubble-section-title {
+  color: var(--navy);
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+.bubble-inline-title,
+.bubble-inline-strong {
+  color: var(--navy);
+  font-weight: 900;
+}
+
+.bubble-list {
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.bubble-list-item {
+  position: relative;
+  padding-left: 16px;
+}
+
+.bubble-list-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.75em;
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: #b62c3d;
+  transform: translateY(-50%);
+}
+
+.bubble-list-item.is-numbered {
+  padding-left: 24px;
+}
+
+.bubble-list-item.is-numbered::before {
+  content: attr(data-marker);
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  background: transparent;
+  color: var(--navy);
+  font-size: 13px;
+  font-weight: 900;
+  transform: none;
+  top: 0;
 }
 
 .bubble::before {

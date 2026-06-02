@@ -286,7 +286,11 @@
 
     const bubble = document.createElement("div");
     bubble.className = "bubble";
-    bubble.textContent = options && options.typewriter ? "" : text;
+    if (type === "bot" && !(options && options.typewriter)) {
+      renderBotBubble(bubble, text);
+    } else {
+      bubble.textContent = options && options.typewriter ? "" : text;
+    }
     if (type === "user" && !/[\r\n]/.test(String(text)) && String(text).trim().length <= 12) {
       bubble.classList.add("bubble--single-line");
     }
@@ -306,6 +310,130 @@
     return row;
   }
 
+  function appendInlineRuns(node, text) {
+    const content = String(text || "");
+    const pattern = /\*\*([^*\n]+)\*\*/g;
+    let lastIndex = 0;
+    let match = pattern.exec(content);
+
+    while (match) {
+      if (match.index > lastIndex) {
+        node.appendChild(document.createTextNode(content.slice(lastIndex, match.index)));
+      }
+      const strong = document.createElement("strong");
+      strong.className = "bubble-inline-strong";
+      strong.textContent = match[1];
+      node.appendChild(strong);
+      lastIndex = match.index + match[0].length;
+      match = pattern.exec(content);
+    }
+
+    if (lastIndex < content.length) {
+      node.appendChild(document.createTextNode(content.slice(lastIndex)));
+    }
+  }
+
+  function parseListLine(line) {
+    const trimmed = String(line || "").trim();
+    if (!trimmed) return null;
+
+    const bulletMatch = trimmed.match(/^[-*•]\s+(.+)$/);
+    if (bulletMatch) return { marker: "", text: bulletMatch[1].trim() };
+
+    const numberedMatch = trimmed.match(/^(\d+)[.)\u3001]\s*(.+)$/);
+    if (numberedMatch) {
+      return { marker: numberedMatch[1] + ".", text: numberedMatch[2].trim() };
+    }
+
+    return null;
+  }
+
+  function isSectionLabelLine(line) {
+    const trimmed = String(line || "").trim().replace(/[\uff1a:]$/, "");
+    if (!trimmed) return false;
+    if (trimmed.length < 2 || trimmed.length > 12) return false;
+    if (/^[-*•]/.test(trimmed)) return false;
+    if (/^\d+[.)\u3001]/.test(trimmed)) return false;
+    if (/[\u3002\uff01\uff1f]/.test(trimmed)) return false;
+    return true;
+  }
+
+  function renderBotBubble(bubble, text) {
+    const normalized = String(text || "").replace(/\r\n/g, "\n").trim();
+    bubble.textContent = "";
+    if (!normalized) return;
+
+    const fragment = document.createDocumentFragment();
+    let currentList = null;
+
+    function closeList() {
+      currentList = null;
+    }
+
+    function ensureList() {
+      if (!currentList) {
+        currentList = document.createElement("ul");
+        currentList.className = "bubble-list";
+        fragment.appendChild(currentList);
+      }
+      return currentList;
+    }
+
+    normalized.split("\n").forEach((rawLine) => {
+      const line = rawLine.trim();
+      if (!line) {
+        closeList();
+        return;
+      }
+
+      const listItem = parseListLine(line);
+      if (listItem) {
+        const list = ensureList();
+        const item = document.createElement("li");
+        item.className = "bubble-list-item";
+        if (listItem.marker) {
+          item.dataset.marker = listItem.marker;
+          item.classList.add("is-numbered");
+        }
+        appendInlineRuns(item, listItem.text);
+        list.appendChild(item);
+        return;
+      }
+
+      closeList();
+
+      const inlineTitleMatch = line.match(/^([^:\uff1a\n]{2,14})[:\uff1a]\s*(.+)$/);
+      if (inlineTitleMatch && !/[\u3002\uff01\uff1f]/.test(inlineTitleMatch[1])) {
+        const paragraph = document.createElement("p");
+        paragraph.className = "bubble-paragraph";
+
+        const title = document.createElement("strong");
+        title.className = "bubble-inline-title";
+        title.textContent = inlineTitleMatch[1].trim() + "\uff1a";
+        paragraph.appendChild(title);
+        paragraph.appendChild(document.createTextNode(" "));
+        appendInlineRuns(paragraph, inlineTitleMatch[2]);
+        fragment.appendChild(paragraph);
+        return;
+      }
+
+      if (isSectionLabelLine(line)) {
+        const heading = document.createElement("p");
+        heading.className = "bubble-section-title";
+        heading.textContent = line.replace(/[\uff1a:]$/, "");
+        fragment.appendChild(heading);
+        return;
+      }
+
+      const paragraph = document.createElement("p");
+      paragraph.className = "bubble-paragraph";
+      appendInlineRuns(paragraph, line);
+      fragment.appendChild(paragraph);
+    });
+
+    bubble.appendChild(fragment);
+  }
+
   function sleep(ms) {
     return new Promise((resolve) => window.setTimeout(resolve, ms));
   }
@@ -319,7 +447,7 @@
     bubble.textContent = "";
 
     if (document.hidden || fullText.length > 260) {
-      bubble.textContent = fullText;
+      renderBotBubble(bubble, fullText);
       row.classList.remove("is-typewriting");
       scrollToBottom();
       return;
@@ -330,7 +458,7 @@
 
     for (let index = 0; index < animatedLimit; index += chunkSize) {
       if (requestId && requestId !== state.activeRequestId) {
-        bubble.textContent = fullText;
+        renderBotBubble(bubble, fullText);
         break;
       }
       bubble.textContent += fullText.slice(index, index + chunkSize);
@@ -338,7 +466,7 @@
       await sleep(fullText.length > 260 ? 6 : index < 220 ? 18 : 7);
     }
 
-    bubble.textContent = fullText;
+    renderBotBubble(bubble, fullText);
     row.classList.remove("is-typewriting");
     scrollToBottom();
   }
