@@ -15,7 +15,7 @@
   const clearChatButton = document.getElementById("clearChat");
   const urlParams = new URLSearchParams(window.location.search);
   const DEFAULT_TOPIC = "";
-  const activeTopic = DEFAULT_TOPIC;
+  const activeTopic = String(urlParams.get("topic") || DEFAULT_TOPIC).trim();
   const sourceParam = urlParams.get("source") || "";
   const intentParam = urlParams.get("intent") || "";
   const storageSuffix = ".simple";
@@ -680,8 +680,13 @@
     renderAttachments();
   }
 
-  function setChips(items) {
+  function setChips(items, promptText) {
     quickReplies.innerHTML = "";
+    if (promptText) {
+      quickReplies.dataset.prompt = promptText;
+    } else {
+      delete quickReplies.dataset.prompt;
+    }
     (items || []).forEach((item) => {
       const button = document.createElement("button");
       button.type = "button";
@@ -751,23 +756,27 @@
   }
 
   function stageUi(stage) {
+    const hasUserTurn = state.messages.some((message) => message.role === "user");
+    if (!hasUserTurn) {
+      return { chips: [], prompt: "", placeholder: "直接输入你的法律问题或案情" };
+    }
     const preset = topicPresets[activeTopic];
     if (preset && stage === "done") {
-      return { chips: preset.chips || [], placeholder: preset.placeholder };
+      return { chips: [], prompt: "", placeholder: preset.placeholder };
     }
     if (stage === "region") {
-      return { chips: regionChips, placeholder: "也可以直接输入你现在主要所在地区" };
+      return { chips: regionChips, prompt: "", placeholder: "也可以直接输入你现在主要所在地区" };
     }
     if (stage === "mainland") {
-      return { chips: mainlandChips, placeholder: "输入是否涉及中国内地" };
+      return { chips: mainlandChips, prompt: "", placeholder: "输入是否涉及中国内地" };
     }
     if (stage === "matter") {
-      return { chips: matterChips, placeholder: "输入大致事务类型" };
+      return { chips: matterChips, prompt: "", placeholder: "输入大致事务类型" };
     }
     if (stage === "summary") {
-      return { chips: [], placeholder: summaryPlaceholder() };
+      return { chips: [], prompt: "", placeholder: summaryPlaceholder() };
     }
-    return { chips: [], placeholder: "也可以继续补充你的情况" };
+    return { chips: [], prompt: "", placeholder: "也可以继续补充你的情况" };
   }
 
   function summaryQuestion() {
@@ -1124,7 +1133,7 @@
     const stage = localStage();
     state.stage = stage;
     const ui = stageUi(stage);
-    setChips(ui.chips);
+    setChips(ui.chips, ui.prompt);
     updatePlaceholder(ui.placeholder);
     updateAd(routeForCurrentState(), stage);
     updateCasePanel();
@@ -1870,7 +1879,7 @@ function renderInitialChat() {
     applyBackendState(result);
     state.casePanel = normalizeCasePanel(result && result.casePanel);
     state.casePanelPending = false;
-    setChips(result.chips || []);
+    setChips(result.chips || [], result.chipsPrompt || "");
     updatePlaceholder(result.inputPlaceholder);
     updateAd(result.route || null, state.stage);
     updateCasePanel();

@@ -880,15 +880,26 @@ h1 span {
 
 .quick-replies {
   display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  padding: 12px 22px;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 10px 22px 14px;
   border-top: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.96);
 }
 
 .quick-replies:empty {
   display: none;
+}
+
+.quick-replies[data-prompt]::before {
+  content: attr(data-prompt);
+  flex: 0 0 100%;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 2px;
 }
 
 .attachment-list {
@@ -950,20 +961,23 @@ h1 span {
   min-height: 30px;
   border: 1px solid var(--line-blue);
   border-radius: 6px;
-  background: #fff;
+  background: #f8fafc;
   color: var(--navy);
   padding: 6px 14px;
   cursor: pointer;
   font-size: 13px;
   font-weight: 800;
   white-space: nowrap;
+  transition: border-color 120ms ease, background-color 120ms ease, color 120ms ease, transform 120ms ease;
 }
 
 .reply-chip:hover,
-.reply-chip:first-child {
+.reply-chip:focus-visible {
   border-color: var(--navy);
   background: var(--navy);
   color: #fff;
+  transform: translateY(-1px);
+  outline: none;
 }
 
 .composer {
@@ -1460,8 +1474,8 @@ h1 span {
     padding: 14px 16px 12px;
   }
 
-  .quick-replies::before {
-    content: "常用问题";
+  .quick-replies[data-prompt]::before {
+    content: attr(data-prompt);
     width: 100%;
     color: var(--muted);
     font-size: 12px;
