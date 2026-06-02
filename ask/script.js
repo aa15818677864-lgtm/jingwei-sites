@@ -503,6 +503,24 @@
     return new Promise((resolve) => window.setTimeout(resolve, ms));
   }
 
+  function typewriterProfile(text) {
+    const length = String(text || "").length;
+    if (length <= 180) return { chunkSize: 1, delay: 18 };
+    if (length <= 340) return { chunkSize: 2, delay: 13 };
+    if (length <= 560) return { chunkSize: 3, delay: 10 };
+    if (length <= 900) return { chunkSize: 4, delay: 8 };
+    return { chunkSize: 5, delay: 6 };
+  }
+
+  function typewriterPause(chunk) {
+    const tail = String(chunk || "");
+    if (!tail) return 0;
+    if (/[\n\r]$/.test(tail)) return 150;
+    if (/[。！？!?：:；;]$/.test(tail)) return 95;
+    if (/[，、,]$/.test(tail)) return 40;
+    return 0;
+  }
+
   async function typeBotMessage(row, text, requestId) {
     const bubble = row.querySelector(".bubble");
     const fullText = String(text || "");
@@ -511,14 +529,15 @@
     row.classList.add("is-typewriting");
     bubble.textContent = "";
 
-    if (document.hidden || fullText.length > 260) {
+    if (document.hidden) {
       renderBotBubble(bubble, fullText);
       row.classList.remove("is-typewriting");
       scrollToBottom();
       return;
     }
 
-    const chunkSize = 1;
+    const profile = typewriterProfile(fullText);
+    const chunkSize = profile.chunkSize;
     const animatedLimit = fullText.length;
 
     for (let index = 0; index < animatedLimit; index += chunkSize) {
@@ -526,9 +545,10 @@
         renderBotBubble(bubble, fullText);
         break;
       }
-      bubble.textContent += fullText.slice(index, index + chunkSize);
-      if (index % 16 === 0 || index + chunkSize >= animatedLimit) scrollToBottom();
-      await sleep(fullText.length > 260 ? 6 : index < 220 ? 18 : 7);
+      const chunk = fullText.slice(index, index + chunkSize);
+      bubble.textContent += chunk;
+      if (index % Math.max(12, chunkSize * 10) === 0 || index + chunkSize >= animatedLimit) scrollToBottom();
+      await sleep(profile.delay + typewriterPause(chunk));
     }
 
     renderBotBubble(bubble, fullText);
