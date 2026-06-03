@@ -841,6 +841,64 @@
     return "unknown";
   }
 
+  function extensionForMime(type) {
+    const value = String(type || "").toLowerCase();
+    if (value.includes("png")) return "png";
+    if (value.includes("jpeg") || value.includes("jpg")) return "jpg";
+    if (value.includes("webp")) return "webp";
+    if (value.includes("gif")) return "gif";
+    if (value.includes("pdf")) return "pdf";
+    if (value.includes("wordprocessingml")) return "docx";
+    if (value.startsWith("text/")) return "txt";
+    return "bin";
+  }
+
+  function normalizeClipboardFile(file, index) {
+    if (!file) return null;
+    if (file.name) return file;
+    const extension = extensionForMime(file.type);
+    const name = "clipboard-image-" + (index + 1) + "." + extension;
+    try {
+      return new File([file], name, {
+        type: file.type || "",
+        lastModified: file.lastModified || Date.now()
+      });
+    } catch {
+      return file;
+    }
+  }
+
+  function clipboardAttachmentFiles(clipboardData) {
+    if (!clipboardData) return [];
+    const items = Array.from(clipboardData.items || []);
+    const files = [];
+
+    items.forEach((item, index) => {
+      if (!item || item.kind !== "file" || typeof item.getAsFile !== "function") return;
+      const file = normalizeClipboardFile(item.getAsFile(), index);
+      if (file && inferFileKind(file) !== "unknown") files.push(file);
+    });
+
+    if (!files.length) {
+      Array.from(clipboardData.files || []).forEach((file, index) => {
+        const normalized = normalizeClipboardFile(file, index);
+        if (normalized && inferFileKind(normalized) !== "unknown") files.push(normalized);
+      });
+    }
+
+    return files.slice(0, MAX_ATTACHMENTS);
+  }
+
+  function insertTextAtCursor(element, text) {
+    const value = String(text || "");
+    if (!element || !value) return;
+    const start = Number.isFinite(element.selectionStart) ? element.selectionStart : element.value.length;
+    const end = Number.isFinite(element.selectionEnd) ? element.selectionEnd : start;
+    element.value = element.value.slice(0, start) + value + element.value.slice(end);
+    const nextPosition = start + value.length;
+    element.setSelectionRange(nextPosition, nextPosition);
+  }
+
   function fileKindLabel(kind, type) {
     if (kind === "pdf") return "PDF";
     if (kind === "docx") return "Word";
@@ -2432,6 +2490,20 @@ function renderInitialChat() {
   input.addEventListener("input", function () {
     resizeInput();
     saveChatSession();
+  });
+
+  input.addEventListener("paste", function (event) {
+    const files = clipboardAttachmentFiles(event.clipboardData);
+    if (!files.length) return;
+
+    const pastedText = event.clipboardData && typeof event.clipboardData.getData === "function"
+      ? event.clipboardData.getData("text/plain")
+      : "";
+    event.preventDefault();
+    insertTextAtCursor(input, pastedText);
+    resizeInput();
+    saveChatSession();
+    extractFiles(files);
   });
 
   if (attachButton && attachmentInput) {
