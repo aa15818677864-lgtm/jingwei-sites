@@ -58,7 +58,8 @@
     conversion: null,
     lead: null,
     activeRequestId: 0,
-    isBusy: false
+    isBusy: false,
+    attachmentLoadPromise: null
   };
 
   const topicPresets = {
@@ -820,6 +821,20 @@
     if (submitButton) submitButton.disabled = busy;
   }
 
+  function hasLoadingAttachments() {
+    return state.pendingAttachments.some((file) => file && file.loading);
+  }
+
+  async function waitForPendingAttachments() {
+    const pending = state.attachmentLoadPromise;
+    if (!pending) return;
+    try {
+      await pending;
+    } catch {
+      // Attachment extraction already falls back to a readable note.
+    }
+  }
+
   function isSystemShortcut(event) {
     return event.ctrlKey || event.metaKey || event.altKey;
   }
@@ -997,79 +1012,87 @@
     }));
     state.pendingAttachments = placeholders;
     renderAttachments();
+    const loadPromise = (async function () {
+      const readableEntries = selected
+        .map((file, index) => ({ file, placeholder: placeholders[index] }))
+        .filter((entry) => entry.file.size <= MAX_ATTACHMENT_BYTES);
+      const payloadFiles = [];
 
-    const readableEntries = selected
-      .map((file, index) => ({ file, placeholder: placeholders[index] }))
-      .filter((entry) => entry.file.size <= MAX_ATTACHMENT_BYTES);
-    const payloadFiles = [];
-
-    for (const entry of readableEntries) {
-      const file = entry.file;
-      payloadFiles.push({
-        name: file.name,
-        type: file.type,
-        size: file.size,
-        data: await readFileData(file),
-        uploadKey: entry.placeholder.uploadKey
-      });
-    }
-
-    let extracted = [];
-    if (payloadFiles.length) {
-      const endpoints = extractEndpointCandidates();
-      for (let index = 0; index < endpoints.length; index += 1) {
-        try {
-          const result = await fetchExtractJson(endpoints[index], { files: payloadFiles });
-          extracted = Array.isArray(result.attachments) ? result.attachments : [];
-          break;
-        } catch {
-          extracted = [];
-        }
-      }
-      if (!extracted.length) {
-        extracted = payloadFiles.map((file) => ({
+      for (const entry of readableEntries) {
+        const file = entry.file;
+        payloadFiles.push({
           name: file.name,
           type: file.type,
-          kind: inferFileKind(file),
           size: file.size,
-          text: "",
-          note: "\u9644\u4ef6\u5df2\u6536\u5230\uff0c\u6682\u65f6\u65e0\u6cd5\u8bfb\u53d6\u5185\u5bb9\uff1b\u8bf7\u8865\u5145\u5173\u952e\u6587\u5b57\u3002",
-          error: true,
-          uploadKey: file.uploadKey
-        }));
+          data: await readFileData(file),
+          uploadKey: entry.placeholder.uploadKey
+        });
       }
-    }
 
-    if (requestId !== attachmentRequestSerial) return;
+      let extracted = [];
+      if (payloadFiles.length) {
+        const endpoints = extractEndpointCandidates();
+        for (let index = 0; index < endpoints.length; index += 1) {
+          try {
+            const result = await fetchExtractJson(endpoints[index], { files: payloadFiles });
+            extracted = Array.isArray(result.attachments) ? result.attachments : [];
+            break;
+          } catch {
+            extracted = [];
+          }
+        }
+        if (!extracted.length) {
+          extracted = payloadFiles.map((file) => ({
+            name: file.name,
+            type: file.type,
+            kind: inferFileKind(file),
+            size: file.size,
+            text: "",
+            note: "\u9644\u4ef6\u5df2\u6536\u5230\uff0c\u6682\u65f6\u65e0\u6cd5\u8bfb\u53d6\u5185\u5bb9\uff1b\u8bf7\u8865\u5145\u5173\u952e\u6587\u5b57\u3002",
+            error: true,
+            uploadKey: file.uploadKey
+          }));
+        }
+      }
 
-    const visibleKeys = new Set(state.pendingAttachments.map((file) => file.uploadKey).filter(Boolean));
-    const extractedByKey = new Map();
-    payloadFiles.forEach((file, index) => {
-      const item = extracted[index] || {};
-      extractedByKey.set(file.uploadKey, {
-        ...item,
-        uploadBatchId: batchId,
-        uploadKey: file.uploadKey,
-        name: item.name || file.name,
-        type: item.type || file.type,
-        kind: item.kind || inferFileKind(file),
-        size: Number(item.size || file.size || 0),
-        text: String(item.text || ""),
-        note: String(item.note || ""),
-        loading: false,
-        error: !!item.error
+      if (requestId !== attachmentRequestSerial) return;
+
+      const visibleKeys = new Set(state.pendingAttachments.map((file) => file.uploadKey).filter(Boolean));
+      const extractedByKey = new Map();
+      payloadFiles.forEach((file, index) => {
+        const item = extracted[index] || {};
+        extractedByKey.set(file.uploadKey, {
+          ...item,
+          uploadBatchId: batchId,
+          uploadKey: file.uploadKey,
+          name: item.name || file.name,
+          type: item.type || file.type,
+          kind: item.kind || inferFileKind(file),
+          size: Number(item.size || file.size || 0),
+          text: String(item.text || ""),
+          note: String(item.note || ""),
+          loading: false,
+          error: !!item.error
+        });
       });
-    });
 
-    state.pendingAttachments = placeholders
-      .map((placeholder) => {
-        if (!visibleKeys.has(placeholder.uploadKey)) return null;
-        if (placeholder.error) return { ...placeholder, loading: false };
-        return extractedByKey.get(placeholder.uploadKey) || { ...placeholder, loading: false };
-      })
-      .filter(Boolean)
-      .slice(0, MAX_ATTACHMENTS);
-    renderAttachments();
+      state.pendingAttachments = placeholders
+        .map((placeholder) => {
+          if (!visibleKeys.has(placeholder.uploadKey)) return null;
+          if (placeholder.error) return { ...placeholder, loading: false };
+          return extractedByKey.get(placeholder.uploadKey) || { ...placeholder, loading: false };
+        })
+        .filter(Boolean)
+        .slice(0, MAX_ATTACHMENTS);
+      renderAttachments();
+    })();
+
+    state.attachmentLoadPromise = loadPromise;
+    await loadPromise.finally(function () {
+      if (state.attachmentLoadPromise === loadPromise) {
+        state.attachmentLoadPromise = null;
+      }
+    });
   }
 
   function setChips(items, promptText) {
@@ -2397,8 +2420,16 @@ function renderInitialChat() {
   async function handleTurn(text, options) {
     if (state.isBusy) return;
     const cleaned = String(text || "").trim();
+    if (!cleaned && !state.pendingAttachments.length) return;
+    if (hasLoadingAttachments()) {
+      setBusy(true);
+      await waitForPendingAttachments();
+    }
     const attachments = state.pendingAttachments.slice();
-    if (!cleaned && !attachments.length) return;
+    if (!cleaned && !attachments.length) {
+      setBusy(false);
+      return;
+    }
     const userText = cleaned || "\u6211\u4e0a\u4f20\u4e86\u8d44\u6599\uff0c\u8bf7\u5148\u5e2e\u6211\u770b\u91cd\u70b9\u3002";
     const fullText = userText + attachmentMessage(attachments);
     const displayText = userText + attachmentDisplay(attachments);
@@ -2548,6 +2579,7 @@ function renderInitialChat() {
       state.intake = null;
       state.conversion = null;
       state.lead = null;
+      state.attachmentLoadPromise = null;
       input.value = "";
       resizeInput();
       clearStoredSession();
