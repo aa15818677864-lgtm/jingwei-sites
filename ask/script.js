@@ -2239,6 +2239,28 @@
     });
   }
 
+  function resolvedCasePanel() {
+    const source = caseDetailSource() || userCaseSource();
+    const localPanel = buildLocalCasePanel(source);
+    return mergeCasePanels(state.casePanel, localPanel);
+  }
+
+  function pendingCasePanel(panel) {
+    const base = panel || {};
+    const facts = Array.isArray(base.facts) ? base.facts.slice() : [];
+    const missing = Array.isArray(base.missing) ? base.missing.slice() : [];
+    if (!facts.length) facts.push("AI正在核对");
+    if (!missing.includes("根据你刚补充的内容更新案情要点")) {
+      missing.unshift("根据你刚补充的内容更新案情要点");
+    }
+    return normalizeCasePanel({
+      goal: base.goal || "正在整理",
+      facts,
+      missing,
+      matterType: base.matterType || ""
+    });
+  }
+
   function updateCasePanel() {
     if (!caseEmpty || !caseContent || !caseGoal || !caseFacts || !caseMissing) return;
     const hasUserTurn = state.messages.some((message) => message.role === "user");
@@ -2249,13 +2271,8 @@
       return;
     }
 
-    const panel = state.casePanelPending
-      ? {
-          goal: "正在整理",
-          facts: ["AI正在核对"],
-          missing: ["根据你刚补充的内容更新案情要点"]
-        }
-      : state.casePanel;
+    const basePanel = resolvedCasePanel();
+    const panel = state.casePanelPending ? pendingCasePanel(basePanel) : basePanel;
 
     if (!panel) {
       caseEmpty.hidden = false;
@@ -2590,7 +2607,10 @@ function renderInitialChat() {
 
   function applyReplyUiState(result) {
     applyBackendState(result);
-    state.casePanel = normalizeCasePanel(result && result.casePanel);
+    state.casePanel = mergeCasePanels(
+      normalizeCasePanel(result && result.casePanel),
+      buildLocalCasePanel(caseDetailSource() || userCaseSource())
+    );
     state.casePanelPending = false;
     setChips(result.chips || [], result.chipsPrompt || "");
     updatePlaceholder(result.inputPlaceholder);
@@ -2642,7 +2662,7 @@ function renderInitialChat() {
     removeStartGuide();
     addUser(fullText, displayText);
     applyChoice(userText, options);
-    state.casePanel = null;
+    state.casePanel = resolvedCasePanel();
     state.casePanelPending = true;
     updateCasePanel();
     input.value = "";
