@@ -41,6 +41,7 @@
   const MAX_ATTACHMENTS = 3;
   const MAX_ATTACHMENT_BYTES = 3 * 1024 * 1024;
   const MAX_ATTACHMENT_TEXT = 2600;
+  const PROACTIVE_DELAYS = [30000, 90000, 180000];
   const BOTTOM_STICK_THRESHOLD = 72;
   let suppressScrollTracking = false;
 
@@ -858,6 +859,23 @@
     return !!String(input && input.value ? input.value : "").trim();
   }
 
+  function latestUserSource() {
+    return state.messages
+      .filter(function (message) {
+        return message && message.role === "user" && String(message.content || "").trim();
+      })
+      .slice(-6)
+      .map(function (message) {
+        return String(message.content || "").trim();
+      })
+      .join("\n")
+      .slice(0, 3200);
+  }
+
+  function proactiveDelayAt(index) {
+    return PROACTIVE_DELAYS[index] || PROACTIVE_DELAYS[PROACTIVE_DELAYS.length - 1];
+  }
+
   function normalizeProactiveFollowups(items) {
     if (!Array.isArray(items)) return [];
     return items
@@ -865,13 +883,103 @@
         const text = String(item && item.text ? item.text : "").trim();
         if (!text) return null;
         const delayMs = Number(item && item.delayMs);
+        const typingLabel = String(item && item.typingLabel ? item.typingLabel : "").trim();
         return {
           text,
-          delayMs: Number.isFinite(delayMs) && delayMs > 0 ? delayMs : [18000, 38000, 62000][index] || 62000
+          delayMs: Number.isFinite(delayMs) && delayMs > 0 ? delayMs : proactiveDelayAt(index),
+          typingLabel: typingLabel || "我继续帮你把关键点补齐"
         };
       })
       .filter(Boolean)
       .slice(0, 3);
+  }
+
+  function proactiveCaseType(source) {
+    const text = String(source || "");
+    if (activeTopic === "hk-mainland-property-inheritance") return "inheritance";
+    if (state.matter === "contract") return "contract";
+    if (state.matter === "family" && /继承|繼承|遗嘱|遺囑|遗产|遺產|房产|房產|过户|過戶/i.test(text)) return "inheritance";
+    if (/(协议|協議|合同|条款|條款|审阅|審閱|竞业|競業|保密|知识产权|知識產權|nda|non-?compete|intellectual property|\bip\b)/i.test(text)) return "contract";
+    if (/(继承|繼承|遗嘱|遺囑|遗产|遺產|房产|房產|不动产|不動產|过户|過戶|身故|去世|死亡证明|死亡證明)/i.test(text)) return "inheritance";
+    return "";
+  }
+
+  function buildInheritanceProactiveFallbacks(source) {
+    const items = [];
+    const text = String(source || "");
+    const typingLabel = "我继续帮你把继承路径补齐";
+
+    if (!/提前安排|提前规划|提前規劃|生前安排|还在世|還在世|人在世|仍在世|老人还在世|老人還在世|立遗嘱|立遺囑|预先安排|預先安排|赠与|贈與|买卖|買賣|继承|繼承|遗产|遺產|去世|過世|身故|死亡|办继承|辦繼承|过户|過戶/i.test(text)) {
+      items.push("我顺着你刚才这条先补一个定方向的事实：现在是已经发生继承、要办过户，还是还在提前安排将来继承？");
+    }
+    if (!/深圳|广州|上海|北京|珠海|佛山|东莞|中山|惠州|厦门|杭州|苏州|成都|重庆|武汉|南京|天津|长沙|宁波|青岛|无锡|福州|西安|郑州|南宁|昆明|合肥|南昌|海口|三亚|沈阳|大连|太原|济南|石家庄/i.test(text)) {
+      items.push("我再往下补一个最关键的事实：房子具体在哪个内地城市或区？不同城市后面的办理口径会有差别。");
+    }
+    if (!/登记在|登記在|名下|权属|權屬|产权证|產權證|房产证|房產證|不动产权证|不動產權證|房本|业主|業主|权利人|權利人/i.test(text)) {
+      items.push("再补一个权属点我就更好往下判断：房子现在登记在谁名下，是否已有房产证或不动产权证？");
+    }
+    if (!/没有遗嘱|沒有遺囑|无遗嘱|無遺囑|未立遗嘱|未立遺囑|没立遗嘱|沒立遺囑|有遗嘱|有遺囑|留有遗嘱|留有遺囑|立了遗嘱|立了遺囑|已有遗嘱|已有遺囑|公证遗嘱|公證遺囑|还没确认遗嘱|還沒確認遺囑|不确定有没有遗嘱|不確定有沒有遺囑|未确认遗嘱|未確認遺囑/i.test(text)) {
+      items.push("还有一个会直接影响路径的点：目前是有遗嘱、没有遗嘱，还是暂时还没确认？");
+    }
+    if (!/失联|失聯|联系不上|聯繫不上|不方便来内地|不方便來內地|不能来内地|不能來內地|人在海外不方便到场|人在海外不方便到場|不同意|不配合|有争议|有爭議|纠纷|糾紛|意见不一致|意見不一致|全部同意|都同意|一致同意|意见一致|意見一致|没有争议|沒有爭議|家人配合|可以配合|可配合/i.test(text)) {
+      items.push("如果你方便，再补一句其他继承人的配合情况：是否都同意，有没有失联、反对，或不方便到场的人。");
+    }
+    if (!/死亡证|死亡證|亲属关系|親屬關係|公证|公證|认证|認證|转递|轉遞|委托|委託|授权书|授權書|遗产承办|遺產承辦|probate/i.test(text)) {
+      items.push("顺手再补一句材料情况也会很有帮助：死亡证明、亲属关系证明、香港委托或公证文件，现在手上大概有哪几类？");
+    }
+
+    return items.slice(0, 3).map(function (text, index) {
+      return { text, delayMs: proactiveDelayAt(index), typingLabel };
+    });
+  }
+
+  function buildContractProactiveFallbacks(source) {
+    const items = [];
+    const text = String(source || "");
+    const typingLabel = "我继续帮你把审阅重点补齐";
+    const hasStage = /已经签|已經簽|已签|已簽|签了|簽了|正式生效|已经生效|已經生效|要我签|要我簽|公司让我签|公司讓我簽|公司给我签|公司給我簽|公司给了我协议|公司給了我協議|发给我签|發給我簽|offer|入职前|入職前|谈判|談判|协商|協商|修改中|修订中|修訂中|还没签|還沒簽|未签|未簽|草稿/i.test(text);
+    const hasPendingSign = /要我签|要我簽|公司让我签|公司讓我簽|公司给我签|公司給我簽|公司给了我协议|公司給了我協議|发给我签|發給我簽|offer|入职前|入職前/i.test(text);
+    const hasSigned = /已经签|已經簽|已签|已簽|签了|簽了|正式生效|已经生效|已經生效/i.test(text);
+    const hasRole = /研发|研發|技术|技術|工程师|工程師|程序员|程序員|开发|開發|算法|产品研发|產品研發|销售|銷售|客户|客戶|商务|商務|bd|市场|市場|渠道|招商|高管|管理层|管理層|主管|总监|總監|创始人|創始人|合伙人|合夥人|经理|經理/i.test(text);
+    const hasFocus = /竞业|競業|non-?compete|保密|nda|confidential|知识产权|知識產權|\bip\b|intellectual property/i.test(text);
+    const hasVersionInfo = /中文|英文|中英文|中文版本|英文版本|英文版|中文为准|中文版|english version/i.test(text);
+
+    if (!hasStage) {
+      items.push("我先把审阅场景卡准一点：这几份协议现在还在谈判、已经发给你待签，还是已经签了？");
+    }
+    if (!hasRole) {
+      items.push("再补一个会直接影响竞业判断的背景：你的岗位更偏研发、客户销售，还是管理岗？");
+    }
+    if (!hasFocus) {
+      items.push("如果你愿意，我也可以先盯你最担心的那块：是竞业范围、保密义务，还是知识产权归属？");
+    }
+    if (hasPendingSign) {
+      items.push("如果现在是待签阶段，再补一句：公司有没有留修改空间，还是基本要求你尽快签？");
+    } else if (hasSigned) {
+      items.push("如果已经签了，再补一句：你现在更担心公司后面执行条款，还是想先判断自己有哪些现实风险？");
+    }
+    if (!hasVersionInfo) {
+      items.push("如果协议有中英文两版，也可以顺手说一下哪一版写着优先适用或作为准据版本。");
+    }
+
+    return items.slice(0, 3).map(function (text, index) {
+      return { text, delayMs: proactiveDelayAt(index), typingLabel };
+    });
+  }
+
+  function selectProactiveFollowups(result) {
+    const apiItems = normalizeProactiveFollowups(result && result.proactiveFollowups);
+    const source = latestUserSource();
+    const caseType = proactiveCaseType(source);
+    if (!caseType) return apiItems;
+
+    const localItems =
+      caseType === "inheritance"
+        ? buildInheritanceProactiveFallbacks(source)
+        : buildContractProactiveFallbacks(source);
+
+    if (localItems.length) return localItems;
+    return apiItems;
   }
 
   function canRunProactiveFollowup(planToken) {
@@ -887,7 +995,7 @@
   async function fireProactiveFollowup(item, planToken) {
     if (!item || !canRunProactiveFollowup(planToken)) return;
 
-    proactiveTypingRow = addMessage("我再往前推一步", "bot", { typing: true });
+    proactiveTypingRow = addMessage(item.typingLabel || "我继续帮你把关键点补齐", "bot", { typing: true });
     await sleep(1100);
 
     if (!canRunProactiveFollowup(planToken)) {
@@ -901,7 +1009,7 @@
 
   function scheduleProactiveFollowups(result) {
     cancelProactiveFollowups();
-    const items = normalizeProactiveFollowups(result && result.proactiveFollowups);
+    const items = selectProactiveFollowups(result);
     if (!items.length) return;
 
     const planToken = ++proactivePlanToken;
