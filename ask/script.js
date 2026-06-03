@@ -26,6 +26,7 @@
   const BACKUP_KEY = "jingwei.ask.simple.chat.backup.v1" + storageSuffix;
   const ARCHIVE_KEY = "jingwei.ask.simple.chat.archive.v1" + storageSuffix;
   let isComposing = false;
+  let attachmentRequestSerial = 0;
 
   const adTitle = document.getElementById("adTitle");
   const adCopy = document.getElementById("adCopy");
@@ -284,7 +285,7 @@
     const controller = new AbortController();
     const timer = window.setTimeout(function () {
       controller.abort();
-    }, 18000);
+    }, 30000);
 
     try {
       const response = await fetch(endpoint, {
@@ -830,6 +831,16 @@
     return size + "B";
   }
 
+  function inferFileKind(file) {
+    const name = String((file && file.name) || "").toLowerCase();
+    const type = String((file && file.type) || "").toLowerCase();
+    if (type.includes("pdf") || name.endsWith(".pdf")) return "pdf";
+    if (type.includes("wordprocessingml") || name.endsWith(".docx")) return "docx";
+    if (type.startsWith("text/") || /\.(txt|md|csv|json|log)$/i.test(name)) return "text";
+    if (type.startsWith("image/") || /\.(png|jpe?g|webp|gif|bmp)$/i.test(name)) return "image";
+    return "unknown";
+  }
+
   function fileKindLabel(kind, type) {
     if (kind === "pdf") return "PDF";
     if (kind === "docx") return "Word";
@@ -881,11 +892,14 @@
     state.pendingAttachments.forEach((file, index) => {
       const pill = document.createElement("span");
       pill.className = "attachment-pill" + (file.error ? " is-error" : "");
+      if (file.loading) pill.classList.add("is-reading");
 
       const label = document.createElement("span");
       label.textContent = file.name;
       const meta = document.createElement("small");
-      meta.textContent = fileKindLabel(file.kind, file.type) + " " + formatBytes(file.size);
+      const metaParts = [fileKindLabel(file.kind, file.type), formatBytes(file.size)];
+      if (file.loading) metaParts.push("\u6b63\u5728\u8bfb\u53d6");
+      meta.textContent = metaParts.join(" ");
       const remove = document.createElement("button");
       remove.type = "button";
       remove.textContent = "×";
@@ -907,24 +921,38 @@
     const selected = Array.from(files || []).slice(0, MAX_ATTACHMENTS);
     if (!selected.length) return;
 
-    const tooLarge = selected.filter((file) => file.size > MAX_ATTACHMENT_BYTES).map((file) => ({
-      name: file.name,
-      type: file.type,
-      kind: "",
-      size: file.size,
+    const requestId = ++attachmentRequestSerial;
+    const batchId = "upload-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 8);
+    const placeholders = selected.map((file, index) => ({
+      uploadBatchId: batchId,
+      uploadKey: batchId + "-" + index,
+      name: String(file.name || "\u672a\u547d\u540d\u6587\u4ef6").slice(0, 120),
+      type: String(file.type || ""),
+      kind: inferFileKind(file),
+      size: Number(file.size || 0),
       text: "",
-      note: "文件超过 3MB，未读取内容。",
-      error: true
+      note: file.size > MAX_ATTACHMENT_BYTES
+        ? "\u6587\u4ef6\u8d85\u8fc7 3MB\uff0c\u672a\u8bfb\u53d6\u5185\u5bb9\u3002"
+        : "\u6b63\u5728\u8bfb\u53d6\u9644\u4ef6\u5185\u5bb9\u3002",
+      loading: file.size <= MAX_ATTACHMENT_BYTES,
+      error: file.size > MAX_ATTACHMENT_BYTES
     }));
-    const readable = selected.filter((file) => file.size <= MAX_ATTACHMENT_BYTES);
+    state.pendingAttachments = placeholders;
+    renderAttachments();
+
+    const readableEntries = selected
+      .map((file, index) => ({ file, placeholder: placeholders[index] }))
+      .filter((entry) => entry.file.size <= MAX_ATTACHMENT_BYTES);
     const payloadFiles = [];
 
-    for (const file of readable) {
+    for (const entry of readableEntries) {
+      const file = entry.file;
       payloadFiles.push({
         name: file.name,
         type: file.type,
         size: file.size,
-        data: await readFileData(file)
+        data: await readFileData(file),
+        uploadKey: entry.placeholder.uploadKey
       });
     }
 
@@ -944,16 +972,45 @@
         extracted = payloadFiles.map((file) => ({
           name: file.name,
           type: file.type,
-          kind: /^image\//i.test(file.type || "") ? "image" : "unknown",
+          kind: inferFileKind(file),
           size: file.size,
           text: "",
-          note: "暂时无法读取附件内容，请补充关键文字。",
-          error: true
+          note: "\u9644\u4ef6\u5df2\u6536\u5230\uff0c\u6682\u65f6\u65e0\u6cd5\u8bfb\u53d6\u5185\u5bb9\uff1b\u8bf7\u8865\u5145\u5173\u952e\u6587\u5b57\u3002",
+          error: true,
+          uploadKey: file.uploadKey
         }));
       }
     }
 
-    state.pendingAttachments = extracted.concat(tooLarge).slice(0, MAX_ATTACHMENTS);
+    if (requestId !== attachmentRequestSerial) return;
+
+    const visibleKeys = new Set(state.pendingAttachments.map((file) => file.uploadKey).filter(Boolean));
+    const extractedByKey = new Map();
+    payloadFiles.forEach((file, index) => {
+      const item = extracted[index] || {};
+      extractedByKey.set(file.uploadKey, {
+        ...item,
+        uploadBatchId: batchId,
+        uploadKey: file.uploadKey,
+        name: item.name || file.name,
+        type: item.type || file.type,
+        kind: item.kind || inferFileKind(file),
+        size: Number(item.size || file.size || 0),
+        text: String(item.text || ""),
+        note: String(item.note || ""),
+        loading: false,
+        error: !!item.error
+      });
+    });
+
+    state.pendingAttachments = placeholders
+      .map((placeholder) => {
+        if (!visibleKeys.has(placeholder.uploadKey)) return null;
+        if (placeholder.error) return { ...placeholder, loading: false };
+        return extractedByKey.get(placeholder.uploadKey) || { ...placeholder, loading: false };
+      })
+      .filter(Boolean)
+      .slice(0, MAX_ATTACHMENTS);
     renderAttachments();
   }
 
@@ -2379,6 +2436,14 @@ function renderInitialChat() {
 
   if (attachButton && attachmentInput) {
     attachButton.addEventListener("click", function () {
+      if (typeof attachmentInput.showPicker === "function") {
+        try {
+          attachmentInput.showPicker();
+          return;
+        } catch {
+          // Fall back to click() when showPicker is not available for this input.
+        }
+      }
       attachmentInput.click();
     });
 

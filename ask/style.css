@@ -1097,6 +1097,11 @@ h1 span {
   color: var(--orange-ink);
 }
 
+.attachment-pill.is-reading {
+  border-color: rgba(9, 189, 115, 0.4);
+  background: #f3fff9;
+}
+
 .reply-chip {
   flex: 0 0 auto;
   min-height: 32px;
