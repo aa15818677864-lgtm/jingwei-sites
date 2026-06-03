@@ -57,7 +57,8 @@
     intake: null,
     conversion: null,
     lead: null,
-    activeRequestId: 0
+    activeRequestId: 0,
+    isBusy: false
   };
 
   const topicPresets = {
@@ -815,9 +816,8 @@
   }
 
   function setBusy(busy) {
+    state.isBusy = !!busy;
     if (submitButton) submitButton.disabled = busy;
-    if (attachButton) attachButton.disabled = busy;
-    input.disabled = busy;
   }
 
   function isSystemShortcut(event) {
@@ -2395,6 +2395,7 @@ function renderInitialChat() {
   }
 
   async function handleTurn(text, options) {
+    if (state.isBusy) return;
     const cleaned = String(text || "").trim();
     const attachments = state.pendingAttachments.slice();
     if (!cleaned && !attachments.length) return;
@@ -2461,6 +2462,7 @@ function renderInitialChat() {
 
   form.addEventListener("submit", function (event) {
     event.preventDefault();
+    if (state.isBusy) return;
     handleTurn(input.value, { fromChip: false });
   });
 
@@ -2476,7 +2478,10 @@ function renderInitialChat() {
     if (isSystemShortcut(event)) return;
     if (event.key !== "Enter" || event.shiftKey) return;
     if (event.isComposing || isComposing || event.keyCode === 229) return;
-    if (input.disabled) return;
+    if (state.isBusy) {
+      event.preventDefault();
+      return;
+    }
     if (!String(input.value || "").trim() && !state.pendingAttachments.length) return;
 
     event.preventDefault();
