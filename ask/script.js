@@ -64,6 +64,9 @@
     attachmentLoadPromise: null,
     followLatest: true
   };
+  let proactivePlanToken = 0;
+  let proactiveTimers = [];
+  let proactiveTypingRow = null;
 
   const topicPresets = {
     "hk-mainland-property-inheritance": {
@@ -833,6 +836,80 @@
   function setBusy(busy) {
     state.isBusy = !!busy;
     if (submitButton) submitButton.disabled = busy;
+  }
+
+  function clearProactiveTimers() {
+    proactiveTimers.forEach((timer) => window.clearTimeout(timer));
+    proactiveTimers = [];
+  }
+
+  function removeProactiveTypingRow() {
+    if (proactiveTypingRow && proactiveTypingRow.isConnected) proactiveTypingRow.remove();
+    proactiveTypingRow = null;
+  }
+
+  function cancelProactiveFollowups() {
+    proactivePlanToken += 1;
+    clearProactiveTimers();
+    removeProactiveTypingRow();
+  }
+
+  function hasDraftReply() {
+    return !!String(input && input.value ? input.value : "").trim();
+  }
+
+  function normalizeProactiveFollowups(items) {
+    if (!Array.isArray(items)) return [];
+    return items
+      .map(function (item, index) {
+        const text = String(item && item.text ? item.text : "").trim();
+        if (!text) return null;
+        const delayMs = Number(item && item.delayMs);
+        return {
+          text,
+          delayMs: Number.isFinite(delayMs) && delayMs > 0 ? delayMs : [18000, 38000, 62000][index] || 62000
+        };
+      })
+      .filter(Boolean)
+      .slice(0, 3);
+  }
+
+  function canRunProactiveFollowup(planToken) {
+    return (
+      planToken === proactivePlanToken &&
+      !state.isBusy &&
+      !hasDraftReply() &&
+      !state.pendingAttachments.length &&
+      !hasLoadingAttachments()
+    );
+  }
+
+  async function fireProactiveFollowup(item, planToken) {
+    if (!item || !canRunProactiveFollowup(planToken)) return;
+
+    proactiveTypingRow = addMessage("我再往前推一步", "bot", { typing: true });
+    await sleep(1100);
+
+    if (!canRunProactiveFollowup(planToken)) {
+      removeProactiveTypingRow();
+      return;
+    }
+
+    removeProactiveTypingRow();
+    await addBot(item.text, { typewriter: true, requestId: state.activeRequestId });
+  }
+
+  function scheduleProactiveFollowups(result) {
+    cancelProactiveFollowups();
+    const items = normalizeProactiveFollowups(result && result.proactiveFollowups);
+    if (!items.length) return;
+
+    const planToken = ++proactivePlanToken;
+    proactiveTimers = items.map(function (item) {
+      return window.setTimeout(function () {
+        fireProactiveFollowup(item, planToken);
+      }, item.delayMs);
+    });
   }
 
   function hasLoadingAttachments() {
@@ -1605,6 +1682,7 @@
 
   function applyStoredPayload(payload, restoreDraft) {
     if (!storedPayloadCompatible(payload)) return false;
+    cancelProactiveFollowups();
 
     const savedMessages = normalizeSavedMessages(payload.state.messages);
     if (!savedMessages.length) return false;
@@ -2414,11 +2492,13 @@ function renderInitialChat() {
 
   async function renderAssistantReply(result, options) {
     applyReplyUiState(result);
-    await addBot(result.answer || fallbackReply().answer, {
+    const row = await addBot(result.answer || fallbackReply().answer, {
       ...(options || {}),
       thinking: null,
       thinkingOpen: false
     });
+    scheduleProactiveFollowups(result);
+    return row;
   }
 
   async function renderStreamedAssistantReply(row, result, options) {
@@ -2428,11 +2508,13 @@ function renderInitialChat() {
       thinking: options && options.thinking,
       thinkingOpen: !!(options && options.thinkingOpen)
     });
+    scheduleProactiveFollowups(result);
     return row;
   }
 
   async function handleTurn(text, options) {
     if (state.isBusy) return;
+    cancelProactiveFollowups();
     const cleaned = String(text || "").trim();
     if (!cleaned && !state.pendingAttachments.length) return;
     if (hasLoadingAttachments()) {
@@ -2540,6 +2622,7 @@ function renderInitialChat() {
   });
 
   input.addEventListener("input", function () {
+    if (String(input.value || "").trim()) cancelProactiveFollowups();
     resizeInput();
     saveChatSession();
   });
@@ -2548,6 +2631,7 @@ function renderInitialChat() {
     const files = clipboardAttachmentFiles(event.clipboardData);
     if (!files.length) return;
 
+    cancelProactiveFollowups();
     const pastedText = event.clipboardData && typeof event.clipboardData.getData === "function"
       ? event.clipboardData.getData("text/plain")
       : "";
@@ -2560,6 +2644,7 @@ function renderInitialChat() {
 
   if (attachButton && attachmentInput) {
     attachButton.addEventListener("click", function () {
+      cancelProactiveFollowups();
       if (typeof attachmentInput.showPicker === "function") {
         try {
           attachmentInput.showPicker();
@@ -2572,6 +2657,7 @@ function renderInitialChat() {
     });
 
     attachmentInput.addEventListener("change", async function () {
+      cancelProactiveFollowups();
       await extractFiles(attachmentInput.files);
       attachmentInput.value = "";
     });
@@ -2579,6 +2665,7 @@ function renderInitialChat() {
 
   if (clearChatButton) {
     clearChatButton.addEventListener("click", function () {
+      cancelProactiveFollowups();
       archiveCurrentSession();
       state.activeRequestId += 1;
       state.sessionId = createSessionId();
