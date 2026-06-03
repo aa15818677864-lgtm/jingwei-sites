@@ -41,6 +41,8 @@
   const MAX_ATTACHMENTS = 3;
   const MAX_ATTACHMENT_BYTES = 3 * 1024 * 1024;
   const MAX_ATTACHMENT_TEXT = 2600;
+  const BOTTOM_STICK_THRESHOLD = 72;
+  let suppressScrollTracking = false;
 
   const state = {
     sessionId: createSessionId(),
@@ -59,7 +61,8 @@
     lead: null,
     activeRequestId: 0,
     isBusy: false,
-    attachmentLoadPromise: null
+    attachmentLoadPromise: null,
+    followLatest: true
   };
 
   const topicPresets = {
@@ -303,8 +306,19 @@
     }
   }
 
-  function scrollToBottom() {
+  function isNearBottom() {
+    if (!chatBody) return true;
+    return chatBody.scrollHeight - chatBody.scrollTop - chatBody.clientHeight <= BOTTOM_STICK_THRESHOLD;
+  }
+
+  function scrollToBottom(force) {
+    if (!chatBody) return;
+    if (!force && !state.followLatest) return;
+    suppressScrollTracking = true;
     chatBody.scrollTop = chatBody.scrollHeight;
+    window.requestAnimationFrame(function () {
+      suppressScrollTracking = false;
+    });
   }
 
   function resizeInput() {
@@ -2434,6 +2448,7 @@ function renderInitialChat() {
     const fullText = userText + attachmentMessage(attachments);
     const displayText = userText + attachmentDisplay(attachments);
 
+    state.followLatest = true;
     removeStartGuide();
     addUser(fullText, displayText);
     applyChoice(userText, options);
@@ -2494,6 +2509,7 @@ function renderInitialChat() {
   form.addEventListener("submit", function (event) {
     event.preventDefault();
     if (state.isBusy) return;
+    state.followLatest = true;
     handleTurn(input.value, { fromChip: false });
   });
 
@@ -2580,6 +2596,7 @@ function renderInitialChat() {
       state.conversion = null;
       state.lead = null;
       state.attachmentLoadPromise = null;
+      state.followLatest = true;
       input.value = "";
       resizeInput();
       clearStoredSession();
@@ -2608,6 +2625,13 @@ function renderInitialChat() {
     if (historyPopover.contains(event.target) || (historyChatButton && historyChatButton.contains(event.target))) return;
     setHistoryOpen(false);
   });
+
+  if (chatBody) {
+    chatBody.addEventListener("scroll", function () {
+      if (suppressScrollTracking) return;
+      state.followLatest = isNearBottom();
+    }, { passive: true });
+  }
 
   window.addEventListener("pagehide", saveChatSession);
 
