@@ -22,6 +22,7 @@
   const SESSION_BASE_KEY = "jingwei.ask.simple.chat.session.v1";
   const BACKUP_BASE_KEY = "jingwei.ask.simple.chat.backup.v1";
   const ARCHIVE_BASE_KEY = "jingwei.ask.simple.chat.archive.v1";
+  const VISITOR_BASE_KEY = "jingwei.ask.simple.visitor.v1";
   const SESSION_KEY = "jingwei.ask.simple.chat.session.v1" + storageSuffix;
   const BACKUP_KEY = "jingwei.ask.simple.chat.backup.v1" + storageSuffix;
   const ARCHIVE_KEY = "jingwei.ask.simple.chat.archive.v1" + storageSuffix;
@@ -47,6 +48,7 @@
 
   const state = {
     sessionId: createSessionId(),
+    visitorId: getOrCreateVisitorId(),
     stage: "region",
     region: "",
     mainland: "",
@@ -268,6 +270,7 @@
 
           if (event.type === "done") {
             if (typeof event.answer === "string" && event.answer.trim()) answer = event.answer;
+            if (event.lead && meta) meta.lead = event.lead;
             if (handlers && typeof handlers.onDone === "function") handlers.onDone(answer);
             return { ...(meta || {}), answer };
           }
@@ -1431,6 +1434,22 @@
     return "ask-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 8);
   }
 
+  function createVisitorId() {
+    return "visitor-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 10);
+  }
+
+  function getOrCreateVisitorId() {
+    try {
+      const existing = String(window.localStorage.getItem(VISITOR_BASE_KEY) || "").trim();
+      if (existing) return existing;
+      const next = createVisitorId();
+      window.localStorage.setItem(VISITOR_BASE_KEY, next);
+      return next;
+    } catch {
+      return createVisitorId();
+    }
+  }
+
   function casePanelItemKey(item) {
     const variants = {
       "廣": "广",
@@ -1523,6 +1542,7 @@
   function buildSessionPayload() {
     return {
       id: state.sessionId || createSessionId(),
+      visitorId: state.visitorId || getOrCreateVisitorId(),
       topic: activeTopic,
       savedAt: Date.now(),
       state: {
@@ -1796,6 +1816,7 @@
     if (!savedMessages.length) return false;
 
     state.sessionId = String(payload.id || createSessionId());
+    state.visitorId = String(payload.visitorId || state.visitorId || getOrCreateVisitorId());
     state.stage = String(payload.state.stage || "region");
     state.region = String(payload.state.region || "");
     state.mainland = String(payload.state.mainland || "");
@@ -2529,6 +2550,7 @@ function renderInitialChat() {
   function buildChatPayload(streamMode) {
     return {
       sessionId: state.sessionId,
+      visitorId: state.visitorId || getOrCreateVisitorId(),
       topic: activeTopic || "",
       region: state.region,
       mainland: state.mainland,
