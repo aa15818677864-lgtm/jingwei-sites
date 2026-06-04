@@ -589,6 +589,10 @@ body.loaded {
     transition: var(--transition);
 }
 
+html[lang="en"] .lawyer-info h3 {
+    font-size: 1.22rem;
+}
+
 .lawyer-card:hover .lawyer-info h3 {
     color: var(--accent-color);
 }
