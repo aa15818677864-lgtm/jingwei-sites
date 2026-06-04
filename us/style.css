@@ -598,6 +598,7 @@ html[lang="en"] .hero {
 
 .lawyer-title-row {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
@@ -622,6 +623,8 @@ html[lang="en"] .hero {
     color: var(--text-soft);
     font-size: 0.83rem;
     font-weight: 600;
+    line-height: 1.45;
+    text-align: center;
 }
 
 .specialty {
