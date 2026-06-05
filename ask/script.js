@@ -899,11 +899,10 @@
 
   function proactiveCaseType(source) {
     const text = String(source || "");
-    if (activeTopic === "hk-mainland-property-inheritance") return "inheritance";
     if (state.matter === "contract") return "contract";
-    if (state.matter === "family" && /继承|繼承|遗嘱|遺囑|遗产|遺產|房产|房產|过户|過戶/i.test(text)) return "inheritance";
+    if (state.matter === "family" && hasExplicitInheritanceSignal(text)) return "inheritance";
     if (/(协议|協議|合同|条款|條款|审阅|審閱|竞业|競業|保密|知识产权|知識產權|nda|non-?compete|intellectual property|\bip\b)/i.test(text)) return "contract";
-    if (/(继承|繼承|遗嘱|遺囑|遗产|遺產|房产|房產|不动产|不動產|过户|過戶|身故|去世|死亡证明|死亡證明)/i.test(text)) return "inheritance";
+    if (hasExplicitInheritanceSignal(text)) return "inheritance";
     return "";
   }
 
