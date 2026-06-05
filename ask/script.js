@@ -2015,6 +2015,60 @@
     return "";
   }
 
+  function latestRegionMatch(source) {
+    const text = String(source || "");
+    const patterns = [
+      { code: "hongkong", label: "\u9999\u6e2f\u5c45\u6c11", regex: /(?:\u9999\u6e2f|\u6e2f\u4eba|\u9999\u6e2f\u5c45\u6c11|Hong Kong|HK)/gi },
+      { code: "macau", label: "\u6fb3\u95e8\u5c45\u6c11", regex: /(?:\u6fb3\u95e8|\u6fb3\u9580|Macau|Macao)/gi },
+      { code: "singapore", label: "\u65b0\u52a0\u5761\u5c45\u6c11", regex: /(?:\u65b0\u52a0\u5761|Singapore)/gi },
+      { code: "malaysia", label: "\u9a6c\u6765\u897f\u4e9a\u5ba2\u6237", regex: /(?:\u9a6c\u6765\u897f\u4e9a|\u99ac\u4f86\u897f\u4e9e|Malaysia)/gi },
+      { code: "us_general", label: "\u7f8e\u56fd\u5ba2\u6237", regex: /(?:\u7f8e\u56fd|\u7f8e\u570b|United States|U\.?S\.?|USA)/gi },
+      { code: "canada", label: "\u52a0\u62ff\u5927\u5ba2\u6237", regex: /(?:\u52a0\u62ff\u5927|Canada)/gi },
+      { code: "australia", label: "\u6fb3\u6d32\u5ba2\u6237", regex: /(?:\u6fb3\u6d32|\u6fb3\u5927\u5229\u4e9a|\u6fb3\u5927\u5229\u4e9e|Australia)/gi },
+      { code: "uk", label: "\u82f1\u56fd\u5ba2\u6237", regex: /(?:\u82f1\u56fd|\u82f1\u570b|United Kingdom|UK)/gi },
+      { code: "japan", label: "\u65e5\u672c\u5ba2\u6237", regex: /(?:\u65e5\u672c|Japan)/gi }
+    ];
+    const matches = [];
+    patterns.forEach((item) => {
+      item.regex.lastIndex = 0;
+      let matched = item.regex.exec(text);
+      while (matched) {
+        matches.push({ index: matched.index, code: item.code, label: item.label });
+        if (!matched[0]) item.regex.lastIndex += 1;
+        matched = item.regex.exec(text);
+      }
+    });
+    if (!matches.length) return null;
+    matches.sort((a, b) => a.index - b.index);
+    return matches[matches.length - 1];
+  }
+
+  function latestRegionFact(source) {
+    const matched = latestRegionMatch(source);
+    return matched ? matched.label : "";
+  }
+
+  function latestRegionCode(source) {
+    const matched = latestRegionMatch(source);
+    return matched ? matched.code : "";
+  }
+
+  function hasPropertySignal(source) {
+    return /(?:\u623f\u4ea7|\u623f\u7522|\u623f\u5b50|\u623f\u5c4b|\u697c|\u6a13|\u4e0d\u52a8\u4ea7|\u4e0d\u52d5\u7522|\u7269\u4e1a|\u7269\u696d|property|title)/i.test(String(source || ""));
+  }
+
+  function hasMainlandContextSignal(source) {
+    return /(?:\u4e2d\u56fd\u5185\u5730|\u4e2d\u570b\u5167\u5730|\u5185\u5730|\u5167\u5730|\u5927\u9646|\u5927\u9678|mainland)/i.test(String(source || "")) || !!mainlandCityFact(source);
+  }
+
+  function hasMainlandPropertySignal(source) {
+    return hasPropertySignal(source) && hasMainlandContextSignal(source);
+  }
+
+  function hasExplicitInheritanceSignal(source) {
+    return /(?:\u7ee7\u627f|\u7e7c\u627f|\u9057\u4ea7|\u907a\u7522|\u9057\u5631|\u907a\u56d1|\u53bb\u4e16|\u8fc7\u4e16|\u904e\u4e16|\u6b7b\u4ea1|\u8eab\u6545|\u88ab\u7ee7\u627f\u4eba|\u88ab\u7e7c\u627f\u4eba|inheritance|estate|probate)/i.test(String(source || ""));
+  }
+
   function mainlandCityFact(source) {
     return firstMatch(
       source,
@@ -2115,8 +2169,7 @@
   }
 
   function hasInheritanceContext(source) {
-    if (activeTopic === "hk-mainland-property-inheritance") return true;
-    return /继承|繼承|遗产|遺產|遗嘱|遺囑|法定继承|法定繼承|过世|過世|去世|死亡|身故|继承人|繼承人/i.test(source);
+    return hasExplicitInheritanceSignal(source);
   }
 
   function hasMatterSignal(source) {
@@ -2136,7 +2189,7 @@
   function collectCaseFacts(source) {
     const facts = [];
     const city = mainlandCityFact(source);
-    const region = regionFact(source);
+    const region = latestRegionFact(source) || regionFact(source);
     const deceased = deceasedFact(source);
     const area = propertyAreaFact(source);
     const lostStatus = lostContactStatus(source);
@@ -2147,7 +2200,8 @@
     if (isInheritance && state.region === "hongkong" && (!region || /香港/.test(region))) facts.push("香港居民");
     else if (region) facts.push(region);
     if (/中国内地|中國內地|内地|內地|大陆|大陸|mainland/i.test(source) || state.mainland === "yes") facts.push("涉及中国内地");
-    if (matter) facts.push(matter);
+    if (hasMainlandPropertySignal(source)) facts.push("内地房产事项");
+    else if (matter) facts.push(matter);
     if (city) facts.push(isInheritance || /房产|房產|楼房|樓房|不动产|不動產|物业|物業/i.test(source) ? city + "房产" : city);
     if (area) facts.push(area);
     if (isInheritance && deceased) facts.push(deceased);
@@ -2173,6 +2227,7 @@
     const city = mainlandCityFact(source);
     const property = city ? city + "房产" : "内地房产";
     if (!hasInheritanceContext(source)) {
+      if (hasMainlandPropertySignal(source)) return "整理内地房产事项";
       const matter = matterFact(source);
       if (matter) return "整理" + matter + "问题";
       if (state.mainland === "yes" || /中国内地|中國內地|内地|內地|大陆|大陸/i.test(source)) return "整理内地法律事项";
@@ -2200,9 +2255,16 @@
     const hasTitle = hasUnclearTitleInfo(source) || hasPositiveTitleInfo(source) || /房产证|房產證|不动产权证|不動產權證|产权证|產權證|屋契|契纸|契紙/i.test(source);
     const hasDocuments = /死亡证明|死亡證明|亲属关系|親屬關係|香港文件|公证|公證|转递|轉遞/i.test(source);
     const hasTitleDocIssue = /屋契|契纸|契紙|正本|副本|复印件|影印本/i.test(source) && hasUnclearTitleInfo(source);
-    const hasRegion = !!regionFact(source);
+    const hasRegion = !!(latestRegionFact(source) || regionFact(source));
 
     if (!isInheritance) {
+      if (hasMainlandPropertySignal(source)) {
+        if (!hasRegion) items.push("客户目前所在地区或身份");
+        if (!hasCity) items.push("房产具体在哪个内地城市");
+        items.push("现在最想办的是过户、继承、出售，还是家庭安排");
+        if (!hasTitle) items.push("房产登记在谁名下，是否已有房产证/不动产权证");
+        return Array.from(new Set(items)).slice(0, 5);
+      }
       if (!hasRegion) items.push("客户目前所在地区或身份");
       if (!state.mainland && !hasMainlandContext) items.push("事项是否涉及中国内地");
       if (!state.matter || (state.matter === "other" && !hasMatterSignal(source))) items.push("大致属于哪类法律事务");
@@ -2524,7 +2586,9 @@ function renderInitialChat() {
     if (!fromChip) appendSummary(text);
     if (!fromChip) {
       const inferredMainland = inferMainland(text);
-      if (inferredMainland && inferredMainland !== "unsure" && !state.mainland) state.mainland = inferredMainland;
+      const latestRegion = latestRegionCode(text);
+      if (latestRegion && latestRegion !== "other") state.region = latestRegion;
+      if (inferredMainland && inferredMainland !== "unsure") state.mainland = inferredMainland;
       const inferredMatter = inferMatter(text);
       if (inferredMatter && !state.matter) state.matter = inferredMatter;
     }
