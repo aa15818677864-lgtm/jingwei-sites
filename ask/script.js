@@ -2273,7 +2273,7 @@
     const hasTitle = hasUnclearTitleInfo(source) || hasPositiveTitleInfo(source) || /房产证|房產證|不动产权证|不動產權證|产权证|產權證|屋契|契纸|契紙/i.test(source);
     const hasDocuments = /死亡证明|死亡證明|亲属关系|親屬關係|香港文件|公证|公證|转递|轉遞/i.test(source);
     const hasTitleDocIssue = /屋契|契纸|契紙|正本|副本|复印件|影印本/i.test(source) && hasUnclearTitleInfo(source);
-    const hasRegion = !!(latestRegionFact(source) || regionFact(source));
+    const hasRegion = !!(latestRegionFact(source) || regionFact(source) || state.region);
 
     if (!isInheritance) {
       if (hasMainlandPropertySignal(source)) {
