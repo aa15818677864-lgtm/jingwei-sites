@@ -2154,12 +2154,13 @@
     const status = deathStatus(source);
     if (status === "no") return "未发生继承";
     if (status !== "yes") return "";
-    if (/父亲|父親|爸爸|爹/i.test(source)) return "父亲相关继承";
-    if (/母亲|母親|妈妈|媽媽/i.test(source)) return "母亲相关继承";
-    if (/爷爷|爺爺|祖父/i.test(source)) return "祖父相关继承";
-    if (/奶奶|祖母/i.test(source)) return "祖母相关继承";
-    if (/丈夫|先生|老公/i.test(source)) return "配偶相关继承";
-    if (/妻子|太太|老婆/i.test(source)) return "配偶相关继承";
+    const deathWords = "(?:去世|过世|過世|死亡|身故|离世|離世|过身|過身|走了|走咗)";
+    const died = (relative) => new RegExp("(?:" + relative + ")[^，。；、,.\\n]{0,12}" + deathWords + "|" + deathWords + "[^，。；、,.\\n]{0,12}(?:" + relative + ")", "i").test(source);
+    if (died("父亲|父親|爸爸|我爸|爹|家父")) return "父亲去世";
+    if (died("母亲|母親|妈妈|媽媽|我妈|家母")) return "母亲去世";
+    if (died("爷爷|爺爺|祖父")) return "祖父去世";
+    if (died("奶奶|祖母")) return "祖母去世";
+    if (died("丈夫|先生|老公|妻子|太太|老婆|配偶")) return "配偶去世";
     return "继承办理";
   }
 
