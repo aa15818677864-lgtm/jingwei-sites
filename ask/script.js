@@ -1513,9 +1513,12 @@
   function reconcileCaseFacts(facts) {
     const hasConflict = facts.some((fact) => /有争议|有爭議|不配合|不同意|反对|反對|失联|失聯/.test(fact));
     const hasNotStarted = facts.some((fact) => /未发生继承|未發生繼承|提前安排/.test(fact));
+    const regionFacts = facts.filter(isRegionFactTag);
+    const preferredRegion = regionFacts.length ? regionFacts[regionFacts.length - 1] : "";
     return facts.filter((fact) => {
       if (hasConflict && /继承人同意|繼承人同意|全部同意|一致同意|没有争议|沒有爭議|无争议|無爭議/.test(fact)) return false;
       if (hasNotStarted && /继承办理|繼承辦理/.test(fact)) return false;
+      if (isRegionFactTag(fact) && fact !== preferredRegion) return false;
       return true;
     });
   }
@@ -1999,18 +2002,32 @@
     return Array.from(new Set(parts.map((part) => String(part || "").trim()).filter(Boolean))).join("\n");
   }
 
+  function isRegionFactTag(fact) {
+    return /^(?:香港居民|当前地区：香港|香港|澳门居民|美国客户|美国华人|加拿大客户|加拿大华人|英国客户|英国华人|澳大利亚客户|澳大利亚华人|日本客户|日本华人|新加坡居民|马来西亚客户)$/.test(String(fact || "").trim());
+  }
+
+  function isPersonalRegionContext(text, index) {
+    const before = text.slice(Math.max(0, index - 24), index);
+    const after = text.slice(index, index + 24);
+    const windowText = before + after;
+    if (/(?:父亲|父親|母亲|母親|父母|祖父母|爷爷|爺爺|奶奶|外公|外婆|哥哥|姐姐|弟弟|妹妹|配偶|老婆|老公|对方|對方|公司)[^。\n，,；;：:]{0,16}$/.test(before)) return false;
+    if (/(?:过身|過身|去世|過世|身故|已故|死亡)/.test(after)) return false;
+    return /(?:我|本人|自己|客户|客戶|当事人|當事人|人在|目前在|现在在|現在在|身在|住在|我是|本人是|係|是香港人|是香港居民|是港人)/.test(windowText);
+  }
+
   function regionFact(source) {
-    if (/香港居民|香港人|港人/i.test(source)) return "香港居民";
-    if (/我在香港|人在香港|目前在香港|现在在香港|現在在香港|身在香港|住在香港/i.test(source)) return "当前地区：香港";
-    if (/香港/i.test(source)) return "香港";
-    if (/澳门|澳門/i.test(source)) return "澳门居民";
-    if (/美国|美國|纽约|紐約|加州|洛杉矶|洛杉磯/i.test(source)) return /华人|華人/.test(source) ? "美国华人" : "美国客户";
-    if (/加拿大|温哥华|溫哥華|多伦多|多倫多/i.test(source)) return /华人|華人/.test(source) ? "加拿大华人" : "加拿大客户";
-    if (/英国|英國|伦敦|倫敦/i.test(source)) return /华人|華人/.test(source) ? "英国华人" : "英国客户";
-    if (/澳大利亚|澳大利亞|澳洲|悉尼|雪梨|墨尔本|墨爾本/i.test(source)) return /华人|華人/.test(source) ? "澳大利亚华人" : "澳大利亚客户";
-    if (/日本|东京|東京|大阪/i.test(source)) return /华人|華人/.test(source) ? "日本华人" : "日本客户";
-    if (/新加坡/i.test(source)) return "新加坡居民";
-    if (/马来西亚|馬來西亞/i.test(source)) return "马来西亚客户";
+    const latest = latestRegionFact(source);
+    if (latest) return latest;
+    if (/(?:我|本人|自己)[^。\n，,；;：:]{0,12}(?:香港居民|香港人|港人)|(?:香港居民|香港人|港人)[^。\n，,；;：:]{0,12}(?:我|本人|自己)/i.test(source)) return "香港居民";
+    if (/(?:我在香港|人在香港|目前在香港|现在在香港|現在在香港|身在香港|住在香港)/i.test(source)) return "当前地区：香港";
+    if (/(?:我|本人|自己)[^。\n，,；;：:]{0,12}(?:澳门|澳門)/i.test(source)) return "澳门居民";
+    if (/(?:我|本人|自己|客户|客戶|当事人|當事人)[^。\n，,；;：:]{0,12}(?:美国|美國|纽约|紐約|加州|洛杉矶|洛杉磯)/i.test(source)) return /华人|華人/.test(source) ? "美国华人" : "美国客户";
+    if (/(?:我|本人|自己|客户|客戶|当事人|當事人)[^。\n，,；;：:]{0,12}(?:加拿大|温哥华|溫哥華|多伦多|多倫多)/i.test(source)) return /华人|華人/.test(source) ? "加拿大华人" : "加拿大客户";
+    if (/(?:我|本人|自己|客户|客戶|当事人|當事人)[^。\n，,；;：:]{0,12}(?:英国|英國|伦敦|倫敦)/i.test(source)) return /华人|華人/.test(source) ? "英国华人" : "英国客户";
+    if (/(?:我|本人|自己|客户|客戶|当事人|當事人)[^。\n，,；;：:]{0,12}(?:澳大利亚|澳大利亞|澳洲|悉尼|雪梨|墨尔本|墨爾本)/i.test(source)) return /华人|華人/.test(source) ? "澳大利亚华人" : "澳大利亚客户";
+    if (/(?:我|本人|自己|客户|客戶|当事人|當事人)[^。\n，,；;：:]{0,12}(?:日本|东京|東京|大阪)/i.test(source)) return /华人|華人/.test(source) ? "日本华人" : "日本客户";
+    if (/(?:我|本人|自己|客户|客戶|当事人|當事人)[^。\n，,；;：:]{0,12}新加坡/i.test(source)) return "新加坡居民";
+    if (/(?:我|本人|自己|客户|客戶|当事人|當事人)[^。\n，,；;：:]{0,12}(?:马来西亚|馬來西亞)/i.test(source)) return "马来西亚客户";
     return "";
   }
 
@@ -2032,7 +2049,9 @@
       item.regex.lastIndex = 0;
       let matched = item.regex.exec(text);
       while (matched) {
-        matches.push({ index: matched.index, code: item.code, label: item.label });
+        if (isPersonalRegionContext(text, matched.index)) {
+          matches.push({ index: matched.index, code: item.code, label: item.label });
+        }
         if (!matched[0]) item.regex.lastIndex += 1;
         matched = item.regex.exec(text);
       }
