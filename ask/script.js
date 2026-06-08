@@ -2278,6 +2278,10 @@
     if ((isInheritance || /房产|房產|不动产|不動產/.test(source)) && hasUnclearTitleInfo(source)) facts.push("房产证未确认");
     else if ((isInheritance || /房产|房產|不动产|不動產/.test(source)) && hasPositiveTitleInfo(source)) facts.push("已有产权证");
     else if ((isInheritance || /房产|房產|不动产|不動產/.test(source)) && /房产证|房產證|不动产权证|不動產權證|产权证|產權證/i.test(source)) facts.push("提到产权证");
+    if (hasMainlandPropertySignal(source) && /(?:登记|登記|名下|名字).{0,12}(?:我|本人|自己|一人)|(?:我|本人|自己|一人).{0,12}(?:名下|名字)/i.test(source)) facts.push("本人名下");
+    if (hasMainlandPropertySignal(source) && /婚后|婚後|婚内|婚內/i.test(source)) facts.push("婚后取得");
+    if (hasMainlandPropertySignal(source) && /(?:配偶|老婆|老公|太太|妻子|丈夫).{0,12}(?:不同意|不配合|反对|反對)|(?:不同意|不配合|反对|反對).{0,12}(?:配偶|老婆|老公|太太|妻子|丈夫)/i.test(source)) facts.push("配偶不同意");
+    else if (hasMainlandPropertySignal(source) && /(?:配偶|老婆|老公|太太|妻子|丈夫).{0,12}(?:同意|配合)|(?:同意|配合).{0,12}(?:配偶|老婆|老公|太太|妻子|丈夫)/i.test(source)) facts.push("配偶配合");
     if (/屋契|契纸|契紙|正本|副本|复印件|影印本/i.test(source) && hasUnclearTitleInfo(source)) facts.push("权属文件待核");
     if (/掉空|空置|破落|荒废|荒廢|没有跟进|沒有跟進|长期未处理|長期未處理/i.test(source)) facts.push("长期未处理");
     if (isInheritance && /死亡证明|死亡證明|亲属关系|親屬關係|香港文件|公证|公證|转递|轉遞|委托书|委託書/i.test(source)) facts.push("提到文件材料");
