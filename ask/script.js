@@ -1527,11 +1527,13 @@
 
   function reconcileCaseFacts(facts) {
     const hasConflict = facts.some((fact) => /有争议|有爭議|不配合|不同意|反对|反對|失联|失聯/.test(fact));
-    const hasNotStarted = facts.some((fact) => /未发生继承|未發生繼承|提前安排/.test(fact));
+    const hasStartedInheritance = facts.some((fact) => /父亲|父親|母亲|母親|去世|过世|過世|过身|過身|死亡|身故|已故|继承办理|繼承辦理|法定继承|法定繼承|无遗嘱|無遺囑|有遗嘱|有遺囑/.test(fact));
+    const hasNotStarted = !hasStartedInheritance && facts.some((fact) => /未发生继承|未發生繼承|提前安排/.test(fact));
     const regionFacts = facts.filter(isRegionFactTag);
     const preferredRegion = regionFacts.length ? regionFacts[regionFacts.length - 1] : "";
     return facts.filter((fact) => {
       if (hasConflict && /继承人同意|繼承人同意|全部同意|一致同意|没有争议|沒有爭議|无争议|無爭議/.test(fact)) return false;
+      if (hasStartedInheritance && /未发生继承|未發生繼承|提前安排/.test(fact)) return false;
       if (hasNotStarted && /继承办理|繼承辦理/.test(fact)) return false;
       if (isRegionFactTag(fact) && fact !== preferredRegion) return false;
       return true;
@@ -2389,10 +2391,18 @@
   function mergeCasePanels(primary, fallback) {
     if (!primary) return fallback;
     if (!fallback) return primary;
+    const fallbackText = [
+      fallback.goal || "",
+      ...(fallback.facts || []),
+      ...(fallback.missing || [])
+    ].join("\n");
+    const fallbackIsNewerInheritance = /父亲|父親|母亲|母親|去世|过世|過世|过身|過身|死亡|身故|已故|继承|繼承|无遗嘱|無遺囑|有遗嘱|有遺囑/.test(fallbackText) && !/未发生继承|未發生繼承|提前安排/.test(fallbackText);
+    const fallbackIsLivingProperty = /未发生继承|未發生繼承|生前|赠与|贈與|买卖|買賣|过户|過戶/.test(fallbackText) && !/去世|过世|過世|过身|過身|死亡|身故|已故/.test(fallbackText);
+    const preferFallback = fallbackIsNewerInheritance || fallbackIsLivingProperty;
     return normalizeCasePanel({
-      goal: primary.goal || fallback.goal,
+      goal: preferFallback ? fallback.goal : (primary.goal || fallback.goal),
       facts: [...(fallback.facts || []), ...(primary.facts || [])],
-      missing: (primary.missing && primary.missing.length) ? primary.missing : fallback.missing
+      missing: preferFallback ? fallback.missing : ((primary.missing && primary.missing.length) ? primary.missing : fallback.missing)
     });
   }
 
