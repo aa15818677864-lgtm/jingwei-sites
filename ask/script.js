@@ -2526,7 +2526,7 @@ function renderInitialChat() {
   function fallbackReply() {
     return {
       stage: "done",
-      answer: "现在暂时连不上 AI。你可以稍后再试，或把问题拆成一句核心事实后重新发送。",
+      answer: "刚才这句没有完整接上。你可以再发一次核心事实，或继续补充案情，我会接着帮你整理。",
       chips: [],
       inputPlaceholder: "直接输入你的法律问题或案情",
       route: null
