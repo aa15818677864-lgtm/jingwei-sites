@@ -899,11 +899,26 @@
 
   function proactiveCaseType(source) {
     const text = String(source || "");
-    if (state.matter === "contract") return "contract";
-    if (state.matter === "family" && hasExplicitInheritanceSignal(text)) return "inheritance";
-    if (/(协议|協議|合同|条款|條款|审阅|審閱|竞业|競業|保密|知识产权|知識產權|nda|non-?compete|intellectual property|\bip\b)/i.test(text)) return "contract";
-    if (hasExplicitInheritanceSignal(text)) return "inheritance";
+    if (/(协议|協議|条款|條款|审阅|審閱|竞业|競業|保密|知识产权|知識產權|nda|non-?compete|intellectual property|\bip\b)/i.test(text)) return "contract";
+    if (hasInheritanceContext(text)) return "inheritance";
     return "";
+  }
+
+  function filterProactiveFollowupsForCase(items, source) {
+    const text = String(source || "");
+    const isProperty = /房产|房產|房子|房屋|不动产|不動產|过户|過戶|转名|轉名|赠与|贈與|买卖|買賣/i.test(text);
+    const isDebt = hasDebtCollectionPanelContext(text);
+    const noMainland = hasNoMainlandConnectionSource(text);
+    return (Array.isArray(items) ? items : [])
+      .filter((item) => {
+        const itemText = String(item && item.text ? item.text : item || "");
+        if (!itemText) return false;
+        if (isProperty && /协议|協議|审阅|審閱|竞业|競業|保密|知识产权|知識產權|岗位|崗位|待签|待簽|已经签|已經簽/i.test(itemText)) return false;
+        if (isDebt && /继承|繼承|遗嘱|遺囑|房产|房產|过户|過戶|竞业|競業|知识产权|知識產權|岗位|崗位/i.test(itemText)) return false;
+        if (noMainland && /继承|繼承|过户|過戶|房产|房產|内地|內地|大陆|大陸/i.test(itemText)) return false;
+        return true;
+      })
+      .slice(0, 2);
   }
 
   function buildInheritanceProactiveFallbacks(source) {
@@ -970,8 +985,8 @@
   }
 
   function selectProactiveFollowups(result) {
-    const apiItems = normalizeProactiveFollowups(result && result.proactiveFollowups);
-    const source = latestUserSource();
+    const source = caseDetailSource() || latestUserSource();
+    const apiItems = filterProactiveFollowupsForCase(normalizeProactiveFollowups(result && result.proactiveFollowups), source);
     const caseType = proactiveCaseType(source);
     if (!caseType) return apiItems;
 
@@ -1902,7 +1917,7 @@
     if (/马来西亚|馬來西亞|Malaysia/i.test(text)) return "malaysia";
     if (/新加坡|Singapore/i.test(text)) return "singapore";
     if (/美国华人|華人|中文客户/.test(text)) return "us_chinese";
-    if (/美国|美國|U\.?S\.?|United States/i.test(text)) return "us_general";
+    if (/美国|美國|\bU\.?S\.?\b|United States/i.test(text)) return "us_general";
     return "other";
   }
 
@@ -1924,6 +1939,7 @@
   }
 
   function inferMatter(text) {
+    if (/欠款|欠钱|欠錢|拖欠|货款|貨款|尾款|账款|賬款|追款|催款|退款|拒绝退款|拒絕退款|债权|債權|债务|債務|收不回|不付款|不给钱|不給錢/i.test(text)) return "contract";
     if (/继承|繼承|遗产|遺產|遗嘱|遺囑|家事|family|inheritance|estate/i.test(text)) return "family";
     if (
       /合同|合约|合約|合作|货款|貨款|商事|购房|購房|买房|買房|房产|房產|楼房|樓房|不动产|不動產|物业|物業|开发商|開發商|交房|收楼|办证|辦證|产证|產證|过户|過戶|产权|產權|按揭|房款|contract|breach|payment|property|developer|title|handover|mortgage/i.test(
@@ -2038,7 +2054,7 @@
       { code: "macau", label: "\u6fb3\u95e8\u5c45\u6c11", regex: /(?:\u6fb3\u95e8|\u6fb3\u9580|Macau|Macao)/gi },
       { code: "singapore", label: "\u65b0\u52a0\u5761\u5c45\u6c11", regex: /(?:\u65b0\u52a0\u5761|Singapore)/gi },
       { code: "malaysia", label: "\u9a6c\u6765\u897f\u4e9a\u5ba2\u6237", regex: /(?:\u9a6c\u6765\u897f\u4e9a|\u99ac\u4f86\u897f\u4e9e|Malaysia)/gi },
-      { code: "us_general", label: "\u7f8e\u56fd\u5ba2\u6237", regex: /(?:\u7f8e\u56fd|\u7f8e\u570b|United States|U\.?S\.?|USA)/gi },
+      { code: "us_general", label: "\u7f8e\u56fd\u5ba2\u6237", regex: /(?:\u7f8e\u56fd|\u7f8e\u570b|United States|\bU\.?S\.?\b|USA)/gi },
       { code: "canada", label: "\u52a0\u62ff\u5927\u5ba2\u6237", regex: /(?:\u52a0\u62ff\u5927|Canada)/gi },
       { code: "australia", label: "\u6fb3\u6d32\u5ba2\u6237", regex: /(?:\u6fb3\u6d32|\u6fb3\u5927\u5229\u4e9a|\u6fb3\u5927\u5229\u4e9e|Australia)/gi },
       { code: "uk", label: "\u82f1\u56fd\u5ba2\u6237", regex: /(?:\u82f1\u56fd|\u82f1\u570b|United Kingdom|UK)/gi },
@@ -2085,6 +2101,25 @@
 
   function hasExplicitInheritanceSignal(source) {
     return /(?:\u7ee7\u627f|\u7e7c\u627f|\u9057\u4ea7|\u907a\u7522|\u9057\u5631|\u907a\u56d1|\u53bb\u4e16|\u8fc7\u4e16|\u904e\u4e16|\u6b7b\u4ea1|\u8eab\u6545|\u88ab\u7ee7\u627f\u4eba|\u88ab\u7e7c\u627f\u4eba|inheritance|estate|probate)/i.test(String(source || ""));
+  }
+
+  function hasDebtCollectionPanelContext(source) {
+    return /欠款|欠钱|欠錢|拖欠|货款|貨款|尾款|账款|賬款|追款|催款|付款记录|付款記錄|收不回|拒绝退款|拒絕退款|债权|債權|债务|債務|出货|出貨|送货|送貨|对账|對賬|不付款|不给钱|不給錢|未付款|退款|invoice|payment|debt|receivable/i.test(String(source || ""));
+  }
+
+  function hasNoMainlandConnectionSource(source) {
+    return /(?:没有|沒有|无|無|暂无|暫無|不涉及).{0,12}(?:内地|內地|中国内地|中國內地|大陆|大陸).{0,18}(?:财产|財產|资产|資產|房产|房產|公司|存款|关联|關聯|连接|連接)|(?:内地|內地|中国内地|中國內地|大陆|大陸).{0,18}(?:财产|財產|资产|資產|房产|房產|公司|存款|关联|關聯|连接|連接).{0,12}(?:没有|沒有|无|無|暂无|暫無|不涉及)|纯香港|純香港|香港本地/i.test(String(source || ""));
+  }
+
+  function hasLivingPropertyOverride(source) {
+    const text = String(source || "");
+    if (deathStatus(text) === "yes") return false;
+    const latest = latestCaseSignal(
+      text,
+      /继承|繼承|遗产|遺產|遗嘱|遺囑|去世|过世|過世|死亡|身故|inheritance|estate|probate/i,
+      /(?:不是|唔係|并非|並非).{0,8}(?:继承|繼承)|(?:没有人|沒有人|没人|冇人).{0,8}(?:去世|过世|過世|死亡|身故)|(?:没有|沒有|还没|還沒).{0,8}(?:发生死亡|發生死亡|去世|过世|過世)|生前|现在过户|現在過戶|想过户|想過戶|给孩子|給孩子|转给孩子|轉給孩子|赠与|贈與|买卖|買賣/i
+    );
+    return latest === "no";
   }
 
   function mainlandCityFact(source) {
@@ -2187,6 +2222,8 @@
   }
 
   function hasInheritanceContext(source) {
+    if (deathStatus(source) === "yes") return hasExplicitInheritanceSignal(source);
+    if (hasLivingPropertyOverride(source)) return false;
     return hasExplicitInheritanceSignal(source);
   }
 
@@ -2195,7 +2232,9 @@
   }
 
   function matterFact(source) {
-    const matter = state.matter || inferMatter(source);
+    if (hasDebtCollectionPanelContext(source)) return "债权追款";
+    if (hasNoMainlandConnectionSource(source) && /婚姻|离婚|離婚|divorce/i.test(source)) return "香港本地婚姻";
+    const matter = inferMatter(source) || state.matter;
     if (matter === "contract") return "合同/商业合作";
     if (matter === "company") return "公司/股权";
     if (matter === "family") return "婚姻家事/继承";
@@ -2214,11 +2253,14 @@
     const conflictStatus = disputeStatus(source);
     const isInheritance = hasInheritanceContext(source);
     const matter = matterFact(source);
+    const noMainland = hasNoMainlandConnectionSource(source);
+    const debtContext = hasDebtCollectionPanelContext(source);
 
     if (isInheritance && state.region === "hongkong" && (!region || /香港/.test(region))) facts.push("香港居民");
     else if (region) facts.push(region);
-    if (/中国内地|中國內地|内地|內地|大陆|大陸|mainland/i.test(source) || state.mainland === "yes") facts.push("涉及中国内地");
-    if (hasMainlandPropertySignal(source)) facts.push("内地房产事项");
+    if (!noMainland && (/中国内地|中國內地|内地|內地|大陆|大陸|mainland/i.test(source) || (state.mainland === "yes" && (hasMainlandContextSignal(source) || city || debtContext)))) facts.push("涉及中国内地");
+    if (debtContext) facts.push("债权追款");
+    else if (hasMainlandPropertySignal(source)) facts.push("内地房产事项");
     else if (matter) facts.push(matter);
     if (city) facts.push(isInheritance || /房产|房產|楼房|樓房|不动产|不動產|物业|物業/i.test(source) ? city + "房产" : city);
     if (area) facts.push(area);
@@ -2244,6 +2286,8 @@
   function caseGoalText(source) {
     const city = mainlandCityFact(source);
     const property = city ? city + "房产" : "内地房产";
+    if (hasNoMainlandConnectionSource(source) && /婚姻|离婚|離婚|divorce/i.test(source)) return "香港本地婚姻咨询";
+    if (hasDebtCollectionPanelContext(source)) return city ? city + "追款事项" : "整理债权追款事项";
     if (!hasInheritanceContext(source)) {
       if (hasMainlandPropertySignal(source)) return "整理内地房产事项";
       const matter = matterFact(source);
@@ -2274,6 +2318,18 @@
     const hasDocuments = /死亡证明|死亡證明|亲属关系|親屬關係|香港文件|公证|公證|转递|轉遞/i.test(source);
     const hasTitleDocIssue = /屋契|契纸|契紙|正本|副本|复印件|影印本/i.test(source) && hasUnclearTitleInfo(source);
     const hasRegion = !!(latestRegionFact(source) || regionFact(source) || state.region);
+    const noMainland = hasNoMainlandConnectionSource(source);
+
+    if (noMainland && /婚姻|离婚|離婚|divorce/i.test(source)) {
+      return ["如后续涉及内地财产、公司或文件，再补充这些连接点"];
+    }
+
+    if (hasDebtCollectionPanelContext(source)) {
+      if (!hasCity) items.push("对方或资产线索所在的内地城市");
+      if (!/公司全称|主体|营业执照|營業執照|统一社会信用代码|統一社會信用代碼/i.test(source)) items.push("对方主体名称或公司信息");
+      if (!/合同|订单|訂單|发票|發票|对账|對賬|付款|转账|轉賬|送货|送貨|交付|聊天|催款/i.test(source)) items.push("合同、付款交付和催款证据");
+      return Array.from(new Set(items)).slice(0, 4);
+    }
 
     if (!isInheritance) {
       if (hasMainlandPropertySignal(source)) {
@@ -2284,9 +2340,9 @@
         return Array.from(new Set(items)).slice(0, 5);
       }
       if (!hasRegion) items.push("客户目前所在地区或身份");
-      if (!state.mainland && !hasMainlandContext) items.push("事项是否涉及中国内地");
+      if (!noMainland && !state.mainland && !hasMainlandContext) items.push("事项是否涉及中国内地");
       if (!state.matter || (state.matter === "other" && !hasMatterSignal(source))) items.push("大致属于哪类法律事务");
-      if (state.mainland === "yes" || hasMainlandContext) items.push("对方、财产或证据在内地哪里");
+      if (!noMainland && (state.mainland === "yes" || hasMainlandContext)) items.push("对方、财产或证据在内地哪里");
       items.push("最想先解决什么");
       return Array.from(new Set(items)).slice(0, 5);
     }
