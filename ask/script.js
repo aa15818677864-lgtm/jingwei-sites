@@ -89,19 +89,19 @@
 
   const topicStartOptions = [
     {
-      title: "继承办理",
-      text: "继承过户、确认材料",
-      value: "我是香港人，内地有房产，现在需要办理继承过户，想了解怎么走。"
+      title: "继承 / 过户",
+      text: "房产、遗产、家人安排",
+      value: "我想咨询继承或房产过户问题，先帮我判断怎么处理。"
     },
     {
-      title: "提前安排",
-      text: "提前安排、避免争议",
-      value: "我是香港人，内地有房产，目前只是想提前了解将来继承或过户安排。"
+      title: "合同 / 债务",
+      text: "合同纠纷、货款追收",
+      value: "我想咨询合同或债务追款问题，先帮我梳理风险和下一步。"
     },
     {
-      title: "文件/家人配合",
-      text: "公证转递、同意或失联",
-      value: "我是香港人，内地房产涉及香港文件或家人不同意、联系不上，想先判断怎么处理。"
+      title: "婚姻 / 家事",
+      text: "离婚、财产、子女安排",
+      value: "我想咨询婚姻家事问题，先帮我判断要补充哪些情况。"
     }
   ];
 
@@ -1349,7 +1349,7 @@
 
     const label = document.createElement("p");
     label.className = "start-label";
-    label.textContent = "先问哪件事？";
+    label.textContent = "想咨询什么类型？";
     guide.appendChild(label);
 
     const optionsWrap = document.createElement("div");
@@ -1379,7 +1379,7 @@
 
     const sample = document.createElement("div");
     sample.className = "sample-prompt";
-    sample.innerHTML = "<strong>可以直接套一句</strong><p>我人在香港，深圳有房，想了解继承或提前安排。</p>";
+    sample.innerHTML = "<strong>也可以直接输入</strong><p>例如：我人在香港，想咨询内地房产、合同债务或婚姻家事问题。</p>";
     guide.appendChild(sample);
 
     chatBody.appendChild(guide);
