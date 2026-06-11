@@ -280,6 +280,131 @@ h1 span {
   line-height: 1.55;
 }
 
+.lead-capture {
+  border: 1px solid var(--line-blue);
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.lead-capture[hidden] {
+  display: none !important;
+}
+
+.lead-capture-form,
+.lead-capture-success {
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+}
+
+.lead-capture-form[hidden],
+.lead-capture-success[hidden] {
+  display: none !important;
+}
+
+.lead-eyebrow {
+  color: var(--brand);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.lead-title {
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.lead-copy {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.lead-form {
+  display: grid;
+  gap: 9px;
+}
+
+.lead-field {
+  display: grid;
+  gap: 6px;
+}
+
+.lead-field span {
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.lead-field input,
+.lead-field select {
+  width: 100%;
+  min-height: 38px;
+  border: 1px solid var(--line-blue);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--ink);
+  padding: 0 11px;
+  font-size: 13px;
+}
+
+.lead-field input:focus,
+.lead-field select:focus {
+  outline: none;
+  border-color: #9fb5ca;
+  box-shadow: 0 0 0 3px rgba(13, 44, 77, 0.08);
+}
+
+.lead-field-compact {
+  margin-top: -2px;
+}
+
+.lead-hint,
+.lead-status {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.lead-hint {
+  color: var(--muted);
+}
+
+.lead-status {
+  min-height: 18px;
+  color: var(--muted);
+}
+
+.lead-status.is-error {
+  color: #8a1f2d;
+}
+
+.lead-status.is-success {
+  color: #047857;
+}
+
+.lead-submit {
+  min-height: 40px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--green);
+  color: #fff;
+  padding: 0 12px;
+  font-size: 14px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: background 0.2s ease, opacity 0.2s ease;
+}
+
+.lead-submit:hover,
+.lead-submit:focus-visible {
+  background: var(--green-deep);
+}
+
+.lead-submit:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
 .chat-phone {
   width: 100%;
   height: min(654px, calc(100svh - 96px));

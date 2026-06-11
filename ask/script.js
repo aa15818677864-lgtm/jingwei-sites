@@ -33,6 +33,19 @@
   const adCopy = document.getElementById("adCopy");
   const adLink = document.getElementById("adLink");
   const routeAd = document.getElementById("routeAd");
+  const leadCaptureCard = document.getElementById("leadCaptureCard");
+  const leadCaptureForm = document.getElementById("leadCaptureForm");
+  const leadCaptureFormWrap = document.getElementById("leadCaptureFormWrap");
+  const leadCaptureSuccess = document.getElementById("leadCaptureSuccess");
+  const leadNameInput = document.getElementById("leadName");
+  const leadRegionSelect = document.getElementById("leadRegion");
+  const leadCustomCodeWrap = document.getElementById("leadCustomCodeWrap");
+  const leadCustomCodeInput = document.getElementById("leadCustomCode");
+  const leadPhoneInput = document.getElementById("leadPhone");
+  const leadPhoneHint = document.getElementById("leadPhoneHint");
+  const leadAltContactInput = document.getElementById("leadAltContact");
+  const leadStatus = document.getElementById("leadStatus");
+  const leadSubmitButton = document.getElementById("leadSubmitButton");
   const caseEmpty = document.getElementById("caseEmpty");
   const caseContent = document.getElementById("caseContent");
   const caseGoal = document.getElementById("caseGoal");
@@ -41,9 +54,11 @@
   const MAX_ATTACHMENTS = 3;
   const MAX_ATTACHMENT_BYTES = 3 * 1024 * 1024;
   const MAX_ATTACHMENT_TEXT = 2600;
+  const LEAD_CAPTURE_MIN_USER_TURNS = 3;
   const PROACTIVE_DELAYS = [30000, 90000, 180000];
   const BOTTOM_STICK_THRESHOLD = 72;
   let suppressScrollTracking = false;
+  let leadCaptureSubmitted = false;
 
   const state = {
     sessionId: createSessionId(),
@@ -136,6 +151,81 @@
     malaysia: { label: "马来西亚中文入口", url: "/ml/index_cn.html" },
     singapore: { label: "新加坡中文入口", url: "/xj/index_cn.html" },
     other: { label: "美国华人中文入口", url: "/us/index_cn.html" }
+  };
+
+  const leadRegionRules = {
+    hongkong: {
+      code: "+852",
+      hint: "香港电话请输入 8 位数字",
+      alert: "香港电话请输入 8 位数字",
+      validate(value) {
+        return /^\d{8}$/.test(value);
+      }
+    },
+    mainland: {
+      code: "+86",
+      hint: "中国内地手机请输入 11 位数字",
+      alert: "中国内地手机请输入 11 位数字",
+      validate(value) {
+        return /^\d{11}$/.test(value);
+      }
+    },
+    macau: {
+      code: "+853",
+      hint: "澳门电话请输入 8 位数字",
+      alert: "澳门电话请输入 8 位数字",
+      validate(value) {
+        return /^\d{8}$/.test(value);
+      }
+    },
+    us_ca: {
+      code: "+1",
+      hint: "美国 / 加拿大电话请输入 10 位数字",
+      alert: "美国 / 加拿大电话请输入 10 位数字",
+      validate(value) {
+        return /^\d{10}$/.test(value);
+      }
+    },
+    uk: {
+      code: "+44",
+      hint: "英国电话请输入 9 到 11 位数字",
+      alert: "英国电话请输入 9 到 11 位数字",
+      validate(value) {
+        return /^\d{9,11}$/.test(value);
+      }
+    },
+    australia: {
+      code: "+61",
+      hint: "澳大利亚电话请输入 9 位数字",
+      alert: "澳大利亚电话请输入 9 位数字",
+      validate(value) {
+        return /^\d{9}$/.test(value);
+      }
+    },
+    singapore: {
+      code: "+65",
+      hint: "新加坡电话请输入 8 位数字",
+      alert: "新加坡电话请输入 8 位数字",
+      validate(value) {
+        return /^\d{8}$/.test(value);
+      }
+    },
+    malaysia: {
+      code: "+60",
+      hint: "马来西亚电话请输入 8 到 10 位数字",
+      alert: "马来西亚电话请输入 8 到 10 位数字",
+      validate(value) {
+        return /^\d{8,10}$/.test(value);
+      }
+    },
+    other: {
+      code: "",
+      hint: "其他地区可输入常用号码，并补充国际区号",
+      alert: "请填写常用联系电话，并补充国际区号",
+      validate(value, customCode) {
+        return /^\d{6,20}$/.test(value) && /^\+\d{1,4}$/.test(customCode || "");
+      }
+    }
   };
 
   function apiEndpointCandidates() {
@@ -1809,6 +1899,343 @@
     }
   }
 
+  function cleanLeadPhoneNumber(value) {
+    return String(value || "").replace(/[^\d]/g, "");
+  }
+
+  function normalizeDialCode(value) {
+    const compact = String(value || "").trim().replace(/[^\d+]/g, "");
+    if (!compact) return "";
+    if (compact.startsWith("+")) {
+      return `+${compact.slice(1).replace(/[^\d]/g, "")}`;
+    }
+    return `+${compact.replace(/[^\d]/g, "")}`;
+  }
+
+  function leadRegionRule() {
+    return leadRegionRules[leadRegionSelect && leadRegionSelect.value] || leadRegionRules.hongkong;
+  }
+
+  function leadDialCode() {
+    const region = leadRegionSelect && leadRegionSelect.value;
+    if (region === "other") {
+      return normalizeDialCode(leadCustomCodeInput && leadCustomCodeInput.value);
+    }
+    return leadRegionRule().code || "";
+  }
+
+  function latestAssistantMessageText() {
+    for (let index = state.messages.length - 1; index >= 0; index -= 1) {
+      const message = state.messages[index];
+      if (message && message.role === "assistant" && String(message.content || "").trim()) {
+        return String(message.content || "").trim();
+      }
+    }
+    return "";
+  }
+
+  function userTurnCount() {
+    return state.messages.filter((message) => message && message.role === "user" && String(message.content || "").trim()).length;
+  }
+
+  function assistantAskedForContact(text) {
+    return /(?:留下|留个|留一下|留个联系方式|留聯繫方式|留联系方式|手机号|手機號|微信|wechat|WhatsApp|whatsapp|后续跟进|後續跟進|匿名记录|匿名記錄|联系你|聯繫你)/i.test(String(text || ""));
+  }
+
+  function hasLeadContact() {
+    if (!state.lead) return false;
+    if (state.lead.hasContact) return true;
+    return Array.isArray(state.lead.contacts) && state.lead.contacts.length > 0;
+  }
+
+  function leadRegionValueFromState() {
+    if (state.region === "hongkong") return "hongkong";
+    if (state.region === "macau") return "macau";
+    if (state.region === "singapore") return "singapore";
+    if (state.region === "malaysia") return "malaysia";
+    if (state.region === "us_chinese" || state.region === "us_general") return "us_ca";
+    return "hongkong";
+  }
+
+  function ensureLeadRegionSelection() {
+    if (!leadRegionSelect) return;
+    const current = String(leadRegionSelect.value || "").trim();
+    if (current) return;
+    leadRegionSelect.value = leadRegionValueFromState();
+  }
+
+  function setLeadStatus(message, isError) {
+    if (!leadStatus) return;
+    leadStatus.textContent = String(message || "");
+    leadStatus.classList.toggle("is-error", !!isError);
+    leadStatus.classList.toggle("is-success", !!message && !isError);
+  }
+
+  function updateLeadRegionUi() {
+    if (!leadRegionSelect || !leadPhoneHint) return;
+    const region = String(leadRegionSelect.value || "");
+    const rule = leadRegionRules[region] || leadRegionRules.hongkong;
+    const isOther = region === "other";
+    if (leadCustomCodeWrap) leadCustomCodeWrap.hidden = !isOther;
+    if (leadPhoneHint) leadPhoneHint.textContent = rule.hint;
+    if (!isOther && leadCustomCodeInput) leadCustomCodeInput.value = "";
+  }
+
+  function leadCaptureShouldShow() {
+    if (!leadCaptureCard || !leadCaptureForm) return false;
+    if (leadCaptureSubmitted || hasLeadContact()) return false;
+    if (userTurnCount() < LEAD_CAPTURE_MIN_USER_TURNS) return false;
+    return assistantAskedForContact(latestAssistantMessageText());
+  }
+
+  function renderLeadCapture() {
+    if (!leadCaptureCard) return;
+    const showSuccess = leadCaptureSubmitted;
+    const showForm = !showSuccess && leadCaptureShouldShow();
+
+    leadCaptureCard.hidden = !showForm && !showSuccess;
+    if (leadCaptureFormWrap) leadCaptureFormWrap.hidden = !showForm;
+    if (leadCaptureSuccess) leadCaptureSuccess.hidden = !showSuccess;
+
+    if (showForm) {
+      ensureLeadRegionSelection();
+      updateLeadRegionUi();
+    }
+  }
+
+  function leadSubjectText() {
+    if (state.casePanel && state.casePanel.goal) return String(state.casePanel.goal).trim().slice(0, 80);
+    if (state.workflow && state.workflow.label) return String(state.workflow.label).trim().slice(0, 80);
+    return "Ask 法律咨询";
+  }
+
+  function leadFactsForSubmission() {
+    const intakeFacts = state.intake && Array.isArray(state.intake.collectedFacts)
+      ? state.intake.collectedFacts
+          .map((fact) => {
+            const label = String(fact && (fact.label || fact.field) ? (fact.label || fact.field) : "").trim();
+            const value = String(fact && fact.value ? fact.value : "").trim();
+            if (!label || !value) return "";
+            return `${label}：${value}`;
+          })
+          .filter(Boolean)
+      : [];
+    if (intakeFacts.length) return intakeFacts.slice(0, 8);
+    return Array.isArray(state.casePanel && state.casePanel.facts) ? state.casePanel.facts.slice(0, 8) : [];
+  }
+
+  function leadConversationDigest() {
+    const parts = [];
+    const subject = leadSubjectText();
+    if (subject) parts.push(`主要诉求：${subject}`);
+
+    const facts = leadFactsForSubmission();
+    if (facts.length) parts.push(`关键信息：${facts.join("；")}`);
+
+    const recentUserTurns = state.messages
+      .filter((message) => message && message.role === "user" && String(message.displayContent || message.content || "").trim())
+      .slice(-4)
+      .map((message) => String(message.displayContent || message.content || "").replace(/\s+/g, " ").trim().slice(0, 120))
+      .filter(Boolean);
+    if (recentUserTurns.length) parts.push(`最近补充：${recentUserTurns.join(" / ")}`);
+
+    return parts.join("\n").slice(0, 1500);
+  }
+
+  function buildLeadSheetPayload() {
+    const data = new URLSearchParams();
+    const dialCode = leadDialCode();
+    data.append("enews", "AddFeedback");
+    data.append("bid", "2");
+    data.append("page_url", window.location.href);
+    data.append("name", String(leadNameInput && leadNameInput.value ? leadNameInput.value : "").trim() || "Ask访客");
+    data.append("quhao", dialCode);
+    data.append("mycall", cleanLeadPhoneNumber(leadPhoneInput && leadPhoneInput.value));
+    data.append("weixin", String(leadAltContactInput && leadAltContactInput.value ? leadAltContactInput.value : "").trim());
+    data.append("zxsx", leadSubjectText());
+    data.append("khly", leadConversationDigest());
+    data.append("source", sourceParam || "ask-lead-form");
+    data.append("topic", activeTopic || "ask-general");
+    return data;
+  }
+
+  function buildLeadSyncPayload() {
+    const dialCode = leadDialCode();
+    const phone = cleanLeadPhoneNumber(leadPhoneInput && leadPhoneInput.value);
+    const alt = String(leadAltContactInput && leadAltContactInput.value ? leadAltContactInput.value : "").trim();
+    const name = String(leadNameInput && leadNameInput.value ? leadNameInput.value : "").trim();
+    const contactPieces = [];
+    if (name) contactPieces.push(`称呼：${name}`);
+    if (dialCode || phone) contactPieces.push(`我的电话是 ${dialCode} ${phone}`.trim());
+    if (alt) contactPieces.push(`其他联系方式：${alt}`);
+    const contactMessage = contactPieces.join("，");
+
+    return {
+      ...buildChatPayload(false),
+      message: contactMessage,
+      latestMessage: contactMessage,
+      summary: [state.summary, leadConversationDigest()].filter(Boolean).join("\n").slice(0, 2400),
+      messages: state.messages.concat([{ role: "user", content: contactMessage }]).slice(-80),
+      source: sourceParam || "ask-lead-form",
+      pageUrl: window.location.href
+    };
+  }
+
+  function leadSubmitEndpoint() {
+    if (!window.SITE_CONFIG || typeof window.SITE_CONFIG.googleSheetsEndpoint !== "string") return "";
+    return String(window.SITE_CONFIG.googleSheetsEndpoint || "").trim();
+  }
+
+  function isLeadCaptureTestContext() {
+    const host = String(window.location.hostname || "").toLowerCase();
+    if (host === "127.0.0.1" || host === "localhost") return true;
+    const source = String(sourceParam || "").toLowerCase();
+    return /verify-local|test|codex/.test(source);
+  }
+
+  async function submitLeadSheet() {
+    if (isLeadCaptureTestContext()) return false;
+    const target = leadSubmitEndpoint();
+    if (!target) throw new Error("missing submit endpoint");
+    const controller = new AbortController();
+    const timer = window.setTimeout(function () {
+      controller.abort();
+    }, 4000);
+    try {
+      await fetch(target, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+        body: buildLeadSheetPayload().toString(),
+        signal: controller.signal
+      });
+    } catch (error) {
+      if (!error || error.name !== "AbortError") throw error;
+    } finally {
+      window.clearTimeout(timer);
+    }
+    return true;
+  }
+
+  async function syncLeadCaptureToBackend(timeoutOverrideMs) {
+    if (isLeadCaptureTestContext()) return null;
+    const payload = buildLeadSyncPayload();
+    const candidates = preferredEndpointOrder(apiEndpointCandidates());
+    let lastError = null;
+
+    for (let index = 0; index < candidates.length; index += 1) {
+      const endpoint = candidates[index];
+      try {
+        const timeoutMs = Number.isFinite(Number(timeoutOverrideMs))
+          ? Math.max(2500, Math.min(Number(timeoutOverrideMs), endpointTimeoutMs(endpoint, index)))
+          : endpointTimeoutMs(endpoint, index);
+        const result = await fetchChatJson(endpoint, payload, timeoutMs);
+        try {
+          window.sessionStorage.setItem(LAST_GOOD_ENDPOINT_KEY, endpoint);
+        } catch {
+          // ignore storage failures
+        }
+        return result;
+      } catch (error) {
+        lastError = error;
+      }
+    }
+
+    throw lastError || new Error("lead sync failed");
+  }
+
+  function validateLeadCaptureForm() {
+    const region = String(leadRegionSelect && leadRegionSelect.value ? leadRegionSelect.value : "hongkong");
+    const rule = leadRegionRules[region] || leadRegionRules.hongkong;
+    const phone = cleanLeadPhoneNumber(leadPhoneInput && leadPhoneInput.value);
+    const customCode = normalizeDialCode(leadCustomCodeInput && leadCustomCodeInput.value);
+
+    if (!phone) {
+      return { ok: false, message: "请填写联系电话", focus: leadPhoneInput };
+    }
+
+    if (!rule.validate(phone, customCode)) {
+      if (region === "other" && !/^\+\d{1,4}$/.test(customCode || "")) {
+        return { ok: false, message: "其他地区请先填写国际区号", focus: leadCustomCodeInput || leadPhoneInput };
+      }
+      return { ok: false, message: rule.alert, focus: leadPhoneInput };
+    }
+
+    return { ok: true };
+  }
+
+  async function handleLeadCaptureSubmit(event) {
+    event.preventDefault();
+    if (state.isBusy || !leadCaptureForm) return;
+
+    const validation = validateLeadCaptureForm();
+    if (!validation.ok) {
+      setLeadStatus(validation.message, true);
+      if (validation.focus && typeof validation.focus.focus === "function") validation.focus.focus();
+      return;
+    }
+
+    const originalText = leadSubmitButton ? leadSubmitButton.textContent : "";
+    if (leadSubmitButton) {
+      leadSubmitButton.disabled = true;
+      leadSubmitButton.textContent = "提交中...";
+    }
+    setLeadStatus("", false);
+
+    try {
+      let backendResult = null;
+      let submitted = false;
+
+      if (isLeadCaptureTestContext()) {
+        submitted = true;
+      } else {
+        try {
+          await submitLeadSheet();
+          submitted = true;
+        } catch {
+          backendResult = await syncLeadCaptureToBackend(8000);
+          submitted = true;
+        }
+      }
+
+      if (!submitted) throw new Error("lead submit failed");
+
+      state.lead = backendResult && backendResult.lead
+        ? backendResult.lead
+        : {
+            ...(state.lead || {}),
+            hasContact: true
+          };
+
+      leadCaptureSubmitted = true;
+      if (leadCaptureForm) leadCaptureForm.reset();
+      updateLeadRegionUi();
+      saveChatSession();
+      renderLeadCapture();
+      setLeadStatus("已提交，后续可继续补充情况。", false);
+
+      if (!isLeadCaptureTestContext()) {
+        syncLeadCaptureToBackend(8000)
+          .then(function (result) {
+            if (!result || !result.lead) return;
+            state.lead = result.lead;
+            saveChatSession();
+            renderLeadCapture();
+          })
+          .catch(function () {
+            // Ignore background sync failures so the front-end submit stays fast.
+          });
+      }
+    } catch {
+      setLeadStatus("提交失败，请稍后再试。", true);
+    } finally {
+      if (leadSubmitButton) {
+        leadSubmitButton.disabled = false;
+        leadSubmitButton.textContent = originalText || "提交联系方式";
+      }
+    }
+  }
+
   function clearStoredSession() {
     try {
       window.sessionStorage.removeItem(SESSION_KEY);
@@ -1829,6 +2256,8 @@
   function applyStoredPayload(payload, restoreDraft) {
     if (!storedPayloadCompatible(payload)) return false;
     cancelProactiveFollowups();
+    leadCaptureSubmitted = false;
+    setLeadStatus("", false);
 
     const savedMessages = normalizeSavedMessages(payload.state.messages);
     if (!savedMessages.length) return false;
@@ -1862,6 +2291,7 @@
     updatePlaceholder(ui.placeholder);
     updateAd(routeForCurrentState(), stage);
     updateCasePanel();
+    renderLeadCapture();
     if (activeTopic && !state.messages.some((message) => message.role === "user")) {
       renderStartGuide();
     }
@@ -2782,6 +3212,7 @@ function renderInitialChat() {
     updatePlaceholder(result.inputPlaceholder);
     updateAd(result.route || null, state.stage);
     updateCasePanel();
+    renderLeadCapture();
   }
 
   async function renderAssistantReply(result, options) {
@@ -2979,6 +3410,7 @@ function renderInitialChat() {
       state.lead = null;
       state.attachmentLoadPromise = null;
       state.followLatest = true;
+      leadCaptureSubmitted = false;
       input.value = "";
       resizeInput();
       clearStoredSession();
@@ -3015,6 +3447,34 @@ function renderInitialChat() {
     }, { passive: true });
   }
 
+  if (leadRegionSelect) {
+    leadRegionSelect.value = leadRegionValueFromState();
+    leadRegionSelect.addEventListener("change", function () {
+      updateLeadRegionUi();
+      setLeadStatus("", false);
+    });
+  }
+
+  if (leadCustomCodeInput) {
+    leadCustomCodeInput.addEventListener("input", function () {
+      if (leadRegionSelect && leadRegionSelect.value === "other") {
+        setLeadStatus("", false);
+      }
+    });
+  }
+
+  if (leadPhoneInput) {
+    leadPhoneInput.addEventListener("input", function () {
+      setLeadStatus("", false);
+    });
+  }
+
+  if (leadCaptureForm) {
+    leadCaptureForm.addEventListener("submit", handleLeadCaptureSubmit);
+  }
+
+  updateLeadRegionUi();
+
   window.addEventListener("pagehide", saveChatSession);
 
   if (!restoreChatSession()) {
@@ -3022,4 +3482,5 @@ function renderInitialChat() {
   }
   resizeInput();
   renderHistoryList();
+  renderLeadCapture();
 })();
