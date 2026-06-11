@@ -2826,6 +2826,7 @@ function renderInitialChat() {
 
     state.followLatest = true;
     removeStartGuide();
+    setChips([], "");
     addUser(fullText, displayText);
     applyChoice(userText, options);
     state.casePanel = resolvedCasePanel();
