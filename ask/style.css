@@ -1237,7 +1237,7 @@ h1 span {
 .case-label {
   margin: 0;
   color: var(--brand);
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 900;
 }
 
@@ -1275,8 +1275,8 @@ h1 span {
 .case-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 12px;
+  gap: 6px;
+  margin-top: 10px;
 }
 
 .case-tag {
@@ -1285,9 +1285,9 @@ h1 span {
   background: #fff;
   border: 1px solid var(--line-blue);
   color: var(--ink);
-  padding: 6px 9px;
-  font-size: 14px;
-  line-height: 1.2;
+  padding: 4px 8px;
+  font-size: 12px;
+  line-height: 1.15;
 }
 
 .case-content[hidden],
