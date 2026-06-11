@@ -1283,33 +1283,6 @@ h1 span {
   line-height: 1.2;
 }
 
-.case-missing {
-  display: grid;
-  gap: 9px;
-  margin: 12px 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.case-missing li {
-  position: relative;
-  padding-left: 14px;
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-.case-missing li::before {
-  content: "";
-  position: absolute;
-  top: 0.65em;
-  left: 0;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--green);
-}
-
 .case-content[hidden],
 .case-empty[hidden] {
   display: none !important;

@@ -37,7 +37,6 @@
   const caseContent = document.getElementById("caseContent");
   const caseGoal = document.getElementById("caseGoal");
   const caseFacts = document.getElementById("caseFacts");
-  const caseMissing = document.getElementById("caseMissing");
   const LAST_GOOD_ENDPOINT_KEY = "jingwei.ask.simple.chat.endpoint.lastGood";
   const MAX_ATTACHMENTS = 3;
   const MAX_ATTACHMENT_BYTES = 3 * 1024 * 1024;
@@ -2434,7 +2433,7 @@
   }
 
   function updateCasePanel() {
-    if (!caseEmpty || !caseContent || !caseGoal || !caseFacts || !caseMissing) return;
+    if (!caseEmpty || !caseContent || !caseGoal || !caseFacts) return;
     const hasUserTurn = state.messages.some((message) => message.role === "user");
 
     if (!hasUserTurn) {
@@ -2478,14 +2477,6 @@
       caseFacts.appendChild(tag);
     });
 
-    caseMissing.innerHTML = "";
-    const intakeMissing = state.intake && Array.isArray(state.intake.missingFacts) ? state.intake.missingFacts : [];
-    const missing = intakeMissing.length ? intakeMissing : (Array.isArray(panel.missing) ? panel.missing : []);
-    missing.forEach((item) => {
-      const li = document.createElement("li");
-      li.textContent = item;
-      caseMissing.appendChild(li);
-    });
   }
 
   function routeForCurrentState() {
