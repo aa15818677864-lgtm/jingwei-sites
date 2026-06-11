@@ -1191,6 +1191,13 @@ h1 span {
   cursor: not-allowed;
 }
 
+.composer-hint {
+  margin: 6px 22px 14px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
 .support-heading {
   display: grid;
   gap: 8px;

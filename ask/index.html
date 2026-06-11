@@ -71,11 +71,12 @@
           <div class="quick-replies" id="quickReplies" aria-label="快捷回复"></div>
           <div class="attachment-list" id="attachmentList" aria-live="polite" hidden></div>
           <form class="composer" id="chatForm">
-            <input id="attachmentInput" type="file" accept=".pdf,.docx,.txt,.md,.csv,.json,image/*" multiple hidden>
-            <button class="attach-button" id="attachButton" type="button" aria-label="上传图片、PDF或文档" title="上传资料">+</button>
+            <input id="attachmentInput" type="file" accept=".pdf,.docx,.txt,.md,.csv,.json,.log,image/*" multiple hidden>
+            <button class="attach-button" id="attachButton" type="button" aria-label="上传 PDF、Word、TXT 或图片资料" title="支持 PDF、Word、TXT、图片">+</button>
             <textarea id="chatInput" rows="2" placeholder="直接说情况，不用写姓名" enterkeyhint="send"></textarea>
             <button class="send-button" type="submit">发送</button>
           </form>
+          <p class="composer-hint">支持上传 PDF、Word、TXT、MD、CSV、JSON 和图片，最多 3 个文件，每个 3MB 以内。</p>
         </section>
       </div>
     </section>
