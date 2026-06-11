@@ -3260,9 +3260,6 @@ function renderInitialChat() {
     setChips([], "");
     addUser(fullText, displayText);
     applyChoice(userText, options);
-    state.casePanel = resolvedCasePanel();
-    state.casePanelPending = true;
-    updateCasePanel();
     input.value = "";
     resizeInput();
     state.pendingAttachments = [];
@@ -3272,30 +3269,14 @@ function renderInitialChat() {
     const requestId = ++state.activeRequestId;
     setBusy(true);
     const typing = addMessage("\u6b63\u5728\u601d\u8003\u4f60\u7684\u95ee\u9898...", "bot", { typing: true });
-    let streamRow = null;
-
     try {
-      const result = await askBackendStream({
-        onDelta(chunk) {
-          if (requestId !== state.activeRequestId) return;
-          if (!streamRow) {
-            if (typing.isConnected) typing.remove();
-            streamRow = createStreamingBotRow(requestId);
-          }
-          queueStreamingDelta(streamRow, chunk);
-        }
-      });
+      const result = await askBackendStream({});
       if (requestId !== state.activeRequestId) return;
       if (typing.isConnected) typing.remove();
-      if (streamRow) {
-        await renderStreamedAssistantReply(streamRow, result, { requestId });
-      } else {
-        await renderAssistantReply(result, { typewriter: true, requestId });
-      }
+      await renderAssistantReply(result, { typewriter: true, requestId });
     } catch (error) {
       if (requestId !== state.activeRequestId) return;
       if (typing.isConnected) typing.remove();
-      if (streamRow) dropStreamingBotRow(streamRow);
       if (!error || error.streamStarted !== true) {
         try {
           const result = await askBackend();
