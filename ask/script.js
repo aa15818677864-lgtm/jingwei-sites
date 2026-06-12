@@ -2045,17 +2045,34 @@
   function buildLeadSheetPayload() {
     const data = new URLSearchParams();
     const dialCode = leadDialCode();
+    const phone = cleanLeadPhoneNumber(leadPhoneInput && leadPhoneInput.value);
+    const altContact = String(leadAltContactInput && leadAltContactInput.value ? leadAltContactInput.value : "").trim();
+    const normalizedLeadName = String(leadNameInput && leadNameInput.value ? leadNameInput.value : "").trim() || "Ask visitor";
+    const subject = leadSubjectText();
+    const digest = leadConversationDigest();
+    const source = sourceParam || "ask-lead-form";
+    const topic = activeTopic || "ask-general";
+    data.append("submitted_at", new Date().toISOString());
+    data.append("site", "ask");
+    data.append("language", document.documentElement.lang || "zh-CN");
+    data.append("page_title", document.title);
+    data.append("user_agent", navigator.userAgent || "");
     data.append("enews", "AddFeedback");
     data.append("bid", "2");
     data.append("page_url", window.location.href);
-    data.append("name", String(leadNameInput && leadNameInput.value ? leadNameInput.value : "").trim() || "Ask访客");
+    data.append("name", normalizedLeadName);
+    data.append("area_code", dialCode);
+    data.append("phone", phone);
+    data.append("wechat", altContact);
+    data.append("inquiry_type", subject);
+    data.append("message", digest);
     data.append("quhao", dialCode);
-    data.append("mycall", cleanLeadPhoneNumber(leadPhoneInput && leadPhoneInput.value));
-    data.append("weixin", String(leadAltContactInput && leadAltContactInput.value ? leadAltContactInput.value : "").trim());
-    data.append("zxsx", leadSubjectText());
-    data.append("khly", leadConversationDigest());
-    data.append("source", sourceParam || "ask-lead-form");
-    data.append("topic", activeTopic || "ask-general");
+    data.append("mycall", phone);
+    data.append("weixin", altContact);
+    data.append("zxsx", subject);
+    data.append("khly", digest);
+    data.append("source", source);
+    data.append("topic", topic);
     return data;
   }
 
