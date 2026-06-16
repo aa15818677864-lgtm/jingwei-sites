@@ -27,7 +27,7 @@ const DISPLAY_HEADERS = [
   '\u79f0\u547c',
   '\u533a\u53f7',
   '\u8054\u7cfb\u7535\u8bdd',
-  '\u5fae\u4fe1',
+  '\u5fae\u4fe1 / \u90ae\u7bb1',
   '\u54a8\u8be2\u4e8b\u9879',
   '\u7559\u8a00\u5185\u5bb9',
   '\u6765\u6e90',
@@ -130,6 +130,7 @@ function sendNotificationEmail_(row) {
   });
 
   const siteLabel = getSiteLabel_(record.site);
+  const contactFieldLabel = getContactFieldLabel_(record);
   const inquiryLabel = record.inquiry_type || record.page_title || '\u8868\u5355\u63d0\u4ea4';
   const subject = '\u65b0\u5ba2\u6237\u54a8\u8be2 - ' + (record.name || '\u672a\u586b\u5199') + ' - ' + inquiryLabel;
   const phoneDisplay = formatPhone_(record.area_code, record.phone);
@@ -154,7 +155,7 @@ function sendNotificationEmail_(row) {
     '',
     '\u8054\u7cfb\u7535\u8bdd: ' + phoneDisplay,
     '',
-    '\u5fae\u4fe1\u8d26\u53f7: ' + (record.wechat || ''),
+    contactFieldLabel + ': ' + (record.wechat || ''),
     ...inquiryPlainLine,
     '',
     '\u5ba2\u6237\u7559\u8a00: ' + (record.message || ''),
@@ -173,7 +174,7 @@ function sendNotificationEmail_(row) {
     buildLinkFieldHtml_('\u6765\u6e90\u9875\u9762URL', record.page_url || ''),
     buildFieldHtml_('\u5ba2\u6237\u79f0\u547c', record.name || ''),
     buildFieldHtml_('\u8054\u7cfb\u7535\u8bdd', phoneDisplay),
-    buildFieldHtml_('\u5fae\u4fe1\u8d26\u53f7', record.wechat || ''),
+    buildFieldHtml_(contactFieldLabel, record.wechat || ''),
     ...inquiryHtmlLine,
     buildFieldHtml_('\u5ba2\u6237\u7559\u8a00', record.message || ''),
     buildFieldHtml_('\u5ba2\u6237IP', record.client_ip || ''),
@@ -199,6 +200,17 @@ function getSiteLabel_(site) {
   };
 
   return siteLabelMap[String(site || '').toLowerCase()] || '\u9759\u4e3a\u5f8b\u5e08\u4e8b\u52a1\u6240\u7f51\u7ad9';
+}
+
+function getContactFieldLabel_(record) {
+  const site = String(record.site || '').toLowerCase();
+  const pageUrl = String(record.page_url || '').toLowerCase();
+
+  if (site === 'us' || pageUrl.indexOf('/us/') !== -1) {
+    return '\u90ae\u7bb1';
+  }
+
+  return '\u5fae\u4fe1\u8d26\u53f7';
 }
 
 function formatPhone_(areaCode, phone) {
