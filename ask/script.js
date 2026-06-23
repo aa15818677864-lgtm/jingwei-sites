@@ -54,6 +54,7 @@
   const MAX_ATTACHMENTS = 3;
   const MAX_ATTACHMENT_BYTES = 3 * 1024 * 1024;
   const MAX_ATTACHMENT_TEXT = 2600;
+  const MAX_CHAT_HISTORY_MESSAGES = 400;
   const LEAD_CAPTURE_MIN_USER_TURNS = 3;
   const PROACTIVE_DELAYS = [30000, 90000, 180000];
   const BOTTOM_STICK_THRESHOLD = 72;
@@ -1639,7 +1640,7 @@
         thinking: normalizeThinkingForStorage(message && message.thinking)
       }))
       .filter((message) => message.content)
-      .slice(-80);
+      .slice(-MAX_CHAT_HISTORY_MESSAGES);
   }
 
   function hasSavedUserTurn(payload) {
@@ -1664,7 +1665,7 @@
         intake: state.intake || null,
         conversion: state.conversion || null,
         lead: state.lead || null,
-        messages: state.messages.slice(-80)
+        messages: state.messages.slice(-MAX_CHAT_HISTORY_MESSAGES)
       },
       inputDraft: String(input && input.value ? input.value : "").slice(0, 1000)
     };
@@ -2092,7 +2093,7 @@
       message: contactMessage,
       latestMessage: contactMessage,
       summary: [state.summary, leadConversationDigest()].filter(Boolean).join("\n").slice(0, 2400),
-      messages: state.messages.concat([{ role: "user", content: contactMessage }]).slice(-80),
+      messages: state.messages.concat([{ role: "user", content: contactMessage }]).slice(-MAX_CHAT_HISTORY_MESSAGES),
       source: sourceParam || "ask-lead-form",
       pageUrl: window.location.href
     };
@@ -3152,7 +3153,7 @@ function renderInitialChat() {
       intent: intentParam,
       pageUrl: window.location.href,
       assistantVariant: "ask-simple-primary",
-      messages: state.messages,
+      messages: state.messages.slice(-MAX_CHAT_HISTORY_MESSAGES),
       stream: !!streamMode
     };
   }
