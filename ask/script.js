@@ -60,6 +60,8 @@
   const MAX_CHAT_HISTORY_MESSAGES = 400;
   const LEAD_CAPTURE_MIN_USER_TURNS = 3;
   const PROACTIVE_DELAYS = [30000, 90000, 180000];
+  const GPT_IDLE_FOLLOWUP_DELAY_MS = 60000;
+  const GPT_IDLE_FOLLOWUP_COOLDOWN_MS = 10 * 60 * 1000;
   const BOTTOM_STICK_THRESHOLD = 72;
   let suppressScrollTracking = false;
   let leadCaptureSubmitted = false;
@@ -74,6 +76,7 @@
     summary: "",
     messages: [],
     pendingAttachments: [],
+    currentTurnAttachments: [],
     casePanel: null,
     casePanelPending: false,
     workflow: null,
@@ -88,6 +91,7 @@
   let proactivePlanToken = 0;
   let proactiveTimers = [];
   let proactiveTypingRow = null;
+  let lastGptIdleCareAt = 0;
 
   const topicPresets = {
     "hk-mainland-property-inheritance": {
@@ -1117,8 +1121,35 @@
     await addBot(item.text, { typewriter: true, requestId: state.activeRequestId });
   }
 
+  function scheduleGptIdleCare() {
+    const now = Date.now();
+    if (now - lastGptIdleCareAt < GPT_IDLE_FOLLOWUP_COOLDOWN_MS) return;
+    const planToken = ++proactivePlanToken;
+    proactiveTimers = [
+      window.setTimeout(async function () {
+        if (!canRunProactiveFollowup(planToken)) return;
+        lastGptIdleCareAt = Date.now();
+        proactiveTypingRow = addMessage("我还在这里", "bot", { typing: true });
+        await sleep(800);
+        if (!canRunProactiveFollowup(planToken)) {
+          removeProactiveTypingRow();
+          return;
+        }
+        removeProactiveTypingRow();
+        await addBot("还在的。如果你愿意，可以继续补充情况、材料或你最想解决的一步，我接着帮你整理。", {
+          typewriter: true,
+          requestId: state.activeRequestId
+        });
+      }, GPT_IDLE_FOLLOWUP_DELAY_MS)
+    ];
+  }
+
   function scheduleProactiveFollowups(result) {
     cancelProactiveFollowups();
+    if (isGptAskRoute) {
+      scheduleGptIdleCare();
+      return;
+    }
     const items = selectProactiveFollowups(result);
     if (!items.length) return;
 
@@ -1244,6 +1275,15 @@
     const usable = (attachments || []).slice(0, MAX_ATTACHMENTS);
     if (!usable.length) return "";
 
+    if (isGptAskRoute) {
+      const parts = ["\n\n[客户上传资料]"];
+      usable.forEach((file, index) => {
+        parts.push(`${index + 1}. ${file.name}（${fileKindLabel(file.kind, file.type)}，${formatBytes(file.size)}）`);
+      });
+      parts.push("[资料已随本轮请求发送给 GPT 直接读取。]");
+      return parts.join("\n");
+    }
+
     const parts = ["\n\n[客户上传资料]"];
     usable.forEach((file, index) => {
       const text = String(file.text || "").trim().slice(0, MAX_ATTACHMENT_TEXT);
@@ -1299,6 +1339,40 @@
     attachmentList.hidden = false;
   }
 
+  async function prepareGptAttachments(selected, placeholders, requestId) {
+    const batch = [];
+    for (let index = 0; index < selected.length; index += 1) {
+      const file = selected[index];
+      const placeholder = placeholders[index];
+      if (!file || !placeholder || placeholder.error) {
+        batch.push(placeholder ? { ...placeholder, loading: false } : null);
+        continue;
+      }
+      try {
+        batch.push({
+          ...placeholder,
+          data: await readFileData(file),
+          text: "",
+          note: "已准备随本轮请求发送给 GPT 直接读取。",
+          loading: false,
+          error: false
+        });
+      } catch {
+        batch.push({
+          ...placeholder,
+          text: "",
+          note: "附件读取失败，请重新上传或改用文字补充。",
+          loading: false,
+          error: true
+        });
+      }
+    }
+
+    if (requestId !== attachmentRequestSerial) return;
+    state.pendingAttachments = batch.filter(Boolean).slice(0, MAX_ATTACHMENTS);
+    renderAttachments();
+  }
+
   async function extractFiles(files) {
     const selected = Array.from(files || []).slice(0, MAX_ATTACHMENTS);
     if (!selected.length) return;
@@ -1321,6 +1395,18 @@
     }));
     state.pendingAttachments = placeholders;
     renderAttachments();
+
+    if (isGptAskRoute) {
+      const loadPromise = prepareGptAttachments(selected, placeholders, requestId);
+      state.attachmentLoadPromise = loadPromise;
+      await loadPromise.finally(function () {
+        if (state.attachmentLoadPromise === loadPromise) {
+          state.attachmentLoadPromise = null;
+        }
+      });
+      return;
+    }
+
     const loadPromise = (async function () {
       const readableEntries = selected
         .map((file, index) => ({ file, placeholder: placeholders[index] }))
@@ -2862,6 +2948,7 @@
   }
 
   function resolvedCasePanel() {
+    if (isGptAskRoute) return state.casePanel || null;
     const source = caseDetailSource() || userCaseSource();
     const localPanel = buildLocalCasePanel(source);
     return mergeCasePanels(state.casePanel, localPanel);
@@ -2917,6 +3004,9 @@
     caseGoal.textContent = workflowLabel ? `${workflowLabel} · ${statusText}` : (panel.goal || statusText);
 
     caseFacts.innerHTML = "";
+    if (isGptAskRoute) {
+      caseGoal.textContent = panel.goal || "整理法律问题";
+    }
     const intakeFacts = state.intake && Array.isArray(state.intake.collectedFacts)
       ? state.intake.collectedFacts.map((fact) => `${fact.label || fact.field}\uff1a${fact.value || "\u5df2\u6536\u96c6"}`)
       : [];
@@ -3158,6 +3248,7 @@ function renderInitialChat() {
       assistantVariant,
       modelProvider,
       messages: state.messages.slice(-MAX_CHAT_HISTORY_MESSAGES),
+      attachments: isGptAskRoute ? state.currentTurnAttachments.slice(0, MAX_ATTACHMENTS) : [],
       stream: !!streamMode
     };
   }
@@ -3225,10 +3316,16 @@ function renderInitialChat() {
 
   function applyReplyUiState(result) {
     applyBackendState(result);
-    state.casePanel = mergeCasePanels(
-      normalizeCasePanel(result && result.casePanel),
-      buildLocalCasePanel(caseDetailSource() || userCaseSource())
-    );
+    if (isGptAskRoute) {
+      state.workflow = null;
+      state.intake = null;
+      state.casePanel = normalizeCasePanel(result && result.casePanel) || state.casePanel;
+    } else {
+      state.casePanel = mergeCasePanels(
+        normalizeCasePanel(result && result.casePanel),
+        buildLocalCasePanel(caseDetailSource() || userCaseSource())
+      );
+    }
     state.casePanelPending = false;
     setChips(result.chips || [], result.chipsPrompt || "");
     updatePlaceholder(result.inputPlaceholder);
@@ -3276,6 +3373,17 @@ function renderInitialChat() {
     const userText = cleaned || "\u6211\u4e0a\u4f20\u4e86\u8d44\u6599\uff0c\u8bf7\u5148\u5e2e\u6211\u770b\u91cd\u70b9\u3002";
     const fullText = userText + attachmentMessage(attachments);
     const displayText = userText + attachmentDisplay(attachments);
+    state.currentTurnAttachments = isGptAskRoute
+      ? attachments
+          .filter((file) => file && !file.error && file.data)
+          .map((file) => ({
+            name: file.name,
+            type: file.type,
+            kind: file.kind,
+            size: file.size,
+            data: file.data
+          }))
+      : [];
 
     state.followLatest = true;
     removeStartGuide();
@@ -3311,6 +3419,7 @@ function renderInitialChat() {
       }
       await renderAssistantReply(fallbackReply(), { typewriter: true, requestId });
     } finally {
+      state.currentTurnAttachments = [];
       if (requestId === state.activeRequestId) {
         setBusy(false);
       }
@@ -3405,6 +3514,7 @@ function renderInitialChat() {
       state.summary = "";
       state.messages = [];
       state.pendingAttachments = [];
+      state.currentTurnAttachments = [];
       state.casePanel = null;
       state.casePanelPending = false;
       state.workflow = null;
@@ -3413,6 +3523,7 @@ function renderInitialChat() {
       state.lead = null;
       state.attachmentLoadPromise = null;
       state.followLatest = true;
+      lastGptIdleCareAt = 0;
       leadCaptureSubmitted = false;
       input.value = "";
       resizeInput();

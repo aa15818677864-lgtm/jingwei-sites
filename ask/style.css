@@ -1330,14 +1330,14 @@ h1 span {
 
 .case-panel {
   display: grid;
-  gap: 18px;
+  gap: 12px;
   min-height: 0;
 }
 
 .case-empty,
 .case-content {
   display: grid;
-  gap: 16px;
+  gap: 12px;
 }
 
 .case-empty {
@@ -1375,33 +1375,33 @@ h1 span {
 
 .case-goal {
   display: grid;
-  gap: 7px;
-  padding: 14px;
+  gap: 6px;
+  padding: 12px;
   background: var(--green-soft);
   border-color: #a7f3d0;
 }
 
 .case-goal span {
   color: #047857;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 900;
 }
 
 .case-goal strong {
   color: var(--ink);
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.32;
 }
 
 .case-section {
-  padding: 14px;
+  padding: 12px;
 }
 
 .case-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 10px;
+  gap: 5px;
+  margin-top: 8px;
 }
 
 .case-tag {
