@@ -18,7 +18,8 @@
   const activeTopic = String(urlParams.get("topic") || DEFAULT_TOPIC).trim();
   const sourceParam = urlParams.get("source") || "";
   const intentParam = urlParams.get("intent") || "";
-  const storageSuffix = ".simple";
+  const isGptAskRoute = /\/ask\/gpt\/?$/i.test(window.location.pathname);
+  const storageSuffix = isGptAskRoute ? ".gpt" : ".simple";
   const SESSION_BASE_KEY = "jingwei.ask.simple.chat.session.v1";
   const BACKUP_BASE_KEY = "jingwei.ask.simple.chat.backup.v1";
   const ARCHIVE_BASE_KEY = "jingwei.ask.simple.chat.archive.v1";

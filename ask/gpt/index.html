@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI法律助手 | 刘毅律师团队</title>
+  <meta name="description" content="刘毅律师团队 AI 法律助手。直接输入法律问题，先由 AI 帮你做基础分析、事实整理和下一步提示。">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://www.jingwei-law.com/ask/gpt/">
+  <link rel="stylesheet" href="../style.css?v=20260611-lead-capture-v1">
+</head>
+<body>
+  <main class="page-shell">
+    <section class="brand-pane" aria-label="刘毅律师团队">
+      <a class="brand" href="/">
+        <span class="brand-mark">刘</span>
+        <span>
+          <strong>刘毅律师团队</strong>
+        </span>
+      </a>
+
+      <div class="lawyer-profile">
+        <img src="../img/liu-yi-lawyer.webp" alt="刘毅律师" width="160" height="160" loading="eager">
+        <div class="lawyer-name">
+          <p>主任律师</p>
+          <h1>刘毅律师</h1>
+          <span>跨境中国法律事务</span>
+        </div>
+      </div>
+
+      <div class="lawyer-intro">
+        <p>先由 AI 帮你梳理法律问题、关键事实、风险点和下一步材料，再决定是否需要律师进一步看。</p>
+      </div>
+
+      <aside class="chat-ad" id="routeAd" aria-label="相关咨询入口" hidden>
+        <p class="ad-badge">推荐下一步</p>
+        <h2 class="ad-title" id="adTitle">需要律师进一步看？</h2>
+        <p class="ad-copy" id="adCopy">有争议、文件缺失、继承人失联或准备出售时，可以让律师团队继续判断。</p>
+        <a class="ad-link" id="adLink" href="/" target="_blank" rel="noopener">查看咨询入口</a>
+        <p class="ad-note">先聊清楚，再决定是否继续。</p>
+      </aside>
+
+      <aside class="lead-capture" id="leadCaptureCard" aria-label="留联系方式" hidden>
+        <div class="lead-capture-form" id="leadCaptureFormWrap">
+          <p class="lead-eyebrow">方便后续跟进</p>
+          <h2 class="lead-title">到需要团队联系时，再留联系方式就行</h2>
+          <p class="lead-copy">会连同当前对话重点一起提交，后续更容易接上。</p>
+          <form class="lead-form" id="leadCaptureForm" novalidate>
+            <label class="lead-field" for="leadName">
+              <span>称呼</span>
+              <input id="leadName" name="lead_name" type="text" autocomplete="name" placeholder="选填">
+            </label>
+
+            <label class="lead-field" for="leadRegion">
+              <span>地区 / 区号</span>
+              <select id="leadRegion" name="lead_region">
+                <option value="hongkong">香港 +852</option>
+                <option value="mainland">中国内地 +86</option>
+                <option value="macau">澳门 +853</option>
+                <option value="us_ca">美国 / 加拿大 +1</option>
+                <option value="uk">英国 +44</option>
+                <option value="australia">澳大利亚 +61</option>
+                <option value="singapore">新加坡 +65</option>
+                <option value="malaysia">马来西亚 +60</option>
+                <option value="other">其他地区</option>
+              </select>
+            </label>
+
+            <label class="lead-field lead-field-compact" id="leadCustomCodeWrap" for="leadCustomCode" hidden>
+              <span>自填区号</span>
+              <input id="leadCustomCode" name="lead_custom_code" type="text" inputmode="tel" autocomplete="off" placeholder="例如 +44">
+            </label>
+
+            <label class="lead-field" for="leadPhone">
+              <span>联系电话</span>
+              <input id="leadPhone" name="lead_phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="请输入电话号码">
+            </label>
+            <p class="lead-hint" id="leadPhoneHint">香港电话请输入 8 位数字</p>
+
+            <label class="lead-field" for="leadAltContact">
+              <span>微信 / WhatsApp / 邮箱</span>
+              <input id="leadAltContact" name="lead_alt_contact" type="text" autocomplete="off" placeholder="选填">
+            </label>
+
+            <button class="lead-submit" id="leadSubmitButton" type="submit">提交联系方式</button>
+            <p class="lead-status" id="leadStatus" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <div class="lead-capture-success" id="leadCaptureSuccess" hidden>
+          <p class="lead-eyebrow">已收到联系方式</p>
+          <h2 class="lead-title">后续可继续在对话里补充情况</h2>
+          <p class="lead-copy">团队后续联系时，会按这次咨询继续往下接。</p>
+        </div>
+      </aside>
+
+      <p class="side-note">仅供参考，正式方案以律师审核为准。</p>
+    </section>
+
+    <section class="chat-phone" aria-label="AI法律对话窗口">
+      <header class="chat-header">
+        <a class="back-link" href="/articles/" aria-label="返回文章页">←</a>
+        <div class="chat-person">
+          <span class="avatar">律</span>
+          <span>
+            <strong>AI法律助手</strong>
+          </span>
+        </div>
+        <div class="chat-actions">
+          <button class="history-chat" id="historyChat" type="button" aria-label="查看本机历史对话" aria-expanded="false">历史</button>
+          <button class="clear-chat" id="clearChat" type="button" aria-label="清空当前对话">清空</button>
+          <a class="home-link" href="/" aria-label="返回刘毅律师团队首页">首页</a>
+          <div class="history-popover" id="historyPopover" hidden>
+            <div class="history-head">
+              <strong>本机历史</strong>
+              <button type="button" id="historyClose" aria-label="关闭历史对话">×</button>
+            </div>
+            <div class="history-list" id="historyList"></div>
+          </div>
+        </div>
+      </header>
+
+      <div class="chat-main">
+        <section class="chat-stream" aria-label="对话区">
+          <div class="chat-body" id="chatBody" aria-live="polite"></div>
+          <div class="quick-replies" id="quickReplies" aria-label="快捷回复"></div>
+          <div class="attachment-list" id="attachmentList" aria-live="polite" hidden></div>
+          <form class="composer" id="chatForm">
+            <input id="attachmentInput" type="file" accept=".pdf,.docx,.txt,.md,.csv,.json,.log,image/*" multiple hidden>
+            <button class="attach-button" id="attachButton" type="button" aria-label="上传 PDF、Word、TXT 或图片资料" title="支持 PDF、Word、TXT、图片">+</button>
+            <textarea id="chatInput" rows="2" placeholder="继续输入你的问题、事实、材料或下一步想法" enterkeyhint="send"></textarea>
+            <button class="send-button" type="submit">发送</button>
+          </form>
+        </section>
+      </div>
+    </section>
+
+    <aside class="support-pane" aria-label="案情整理">
+      <section class="case-panel" id="casePanel" aria-live="polite">
+        <div class="case-empty" id="caseEmpty">
+          <h2>AI实时分析</h2>
+          <p>对话过程中整理记录及核对进展</p>
+        </div>
+
+        <div class="case-content" id="caseContent" hidden>
+          <article class="case-goal">
+            <span>主要诉求</span>
+            <strong id="caseGoal">法律问题整理</strong>
+          </article>
+
+          <section class="case-section">
+            <p class="case-label">案例关键信息</p>
+            <div class="case-tags" id="caseFacts"></div>
+          </section>
+        </div>
+      </section>
+    </aside>
+  </main>
+
+  <script src="/site-config.js"></script>
+  <script src="../script.js?v=20260611-lead-capture-v1"></script>
+</body>
+</html>
