@@ -19,6 +19,8 @@
   const sourceParam = urlParams.get("source") || "";
   const intentParam = urlParams.get("intent") || "";
   const isGptAskRoute = /\/ask\/gpt\/?$/i.test(window.location.pathname);
+  const assistantVariant = isGptAskRoute ? "ask-gpt-openai" : "ask-simple-primary";
+  const modelProvider = isGptAskRoute ? "openai" : "deepseek";
   const storageSuffix = isGptAskRoute ? ".gpt" : ".simple";
   const SESSION_BASE_KEY = "jingwei.ask.simple.chat.session.v1";
   const BACKUP_BASE_KEY = "jingwei.ask.simple.chat.backup.v1";
@@ -3153,7 +3155,8 @@ function renderInitialChat() {
       source: sourceParam,
       intent: intentParam,
       pageUrl: window.location.href,
-      assistantVariant: "ask-simple-primary",
+      assistantVariant,
+      modelProvider,
       messages: state.messages.slice(-MAX_CHAT_HISTORY_MESSAGES),
       stream: !!streamMode
     };
