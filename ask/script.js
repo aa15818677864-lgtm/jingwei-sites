@@ -368,8 +368,9 @@
           if (event.type === "done") {
             if (typeof event.answer === "string" && event.answer.trim()) answer = event.answer;
             if (event.lead && meta) meta.lead = event.lead;
+            if (event.casePanel && meta) meta.casePanel = event.casePanel;
             if (handlers && typeof handlers.onDone === "function") handlers.onDone(answer);
-            return { ...(meta || {}), answer };
+            return { ...(meta || {}), answer, casePanel: event.casePanel || (meta && meta.casePanel) || null };
           }
 
           if (event.type === "error") {
