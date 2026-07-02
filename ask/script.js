@@ -19,7 +19,8 @@
   const sourceParam = urlParams.get("source") || "";
   const intentParam = urlParams.get("intent") || "";
   const isGptAskRoute = /\/ask\/gpt\/?$/i.test(window.location.pathname);
-  const assistantVariant = isGptAskRoute ? "ask-gpt-openai" : "ask-simple-primary";
+  const isMinimalAskFramework = isGptAskRoute || /\/ask\/?$/i.test(window.location.pathname);
+  const assistantVariant = isGptAskRoute ? "ask-gpt-openai" : "ask-deepseek-minimal";
   const modelProvider = isGptAskRoute ? "openai" : "deepseek";
   const storageSuffix = isGptAskRoute ? ".gpt" : ".simple";
   const SESSION_BASE_KEY = "jingwei.ask.simple.chat.session.v1";
@@ -1147,7 +1148,7 @@
 
   function scheduleProactiveFollowups(result) {
     cancelProactiveFollowups();
-    if (isGptAskRoute) {
+    if (isMinimalAskFramework) {
       scheduleGptIdleCare();
       return;
     }
@@ -2949,7 +2950,7 @@
   }
 
   function resolvedCasePanel() {
-    if (isGptAskRoute) return state.casePanel || null;
+    if (isMinimalAskFramework) return state.casePanel || null;
     const source = caseDetailSource() || userCaseSource();
     const localPanel = buildLocalCasePanel(source);
     return mergeCasePanels(state.casePanel, localPanel);
@@ -3005,7 +3006,7 @@
     caseGoal.textContent = workflowLabel ? `${workflowLabel} · ${statusText}` : (panel.goal || statusText);
 
     caseFacts.innerHTML = "";
-    if (isGptAskRoute) {
+    if (isMinimalAskFramework) {
       caseGoal.textContent = panel.goal || "整理法律问题";
     }
     const intakeFacts = state.intake && Array.isArray(state.intake.collectedFacts)
@@ -3317,7 +3318,7 @@ function renderInitialChat() {
 
   function applyReplyUiState(result) {
     applyBackendState(result);
-    if (isGptAskRoute) {
+    if (isMinimalAskFramework) {
       state.workflow = null;
       state.intake = null;
       state.casePanel = normalizeCasePanel(result && result.casePanel) || state.casePanel;
