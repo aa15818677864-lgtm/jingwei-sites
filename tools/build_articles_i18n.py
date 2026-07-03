@@ -45,6 +45,16 @@ def remove_i18n_bits(html: str) -> str:
     return html + "\n"
 
 
+def normalize_reading_meta(html: str, text: str) -> str:
+    return re.sub(
+        r'<div class="reading-meta">.*?</div>',
+        f'<div class="reading-meta">{text}</div>',
+        html,
+        count=1,
+        flags=re.S,
+    )
+
+
 def cn_from_zh_path(zh_path: str) -> str:
     if zh_path == "/articles/":
         return "/articles/index_cn.html"
@@ -89,6 +99,7 @@ def switch_html(zh_path: str, cn_path: str, en_path: str, active: str, compact: 
 def chinese_page(rel: str, zh_path: str, cn_path: str, en_path: str, is_index: bool = False) -> None:
     html = cc.convert(read(rel))
     html = remove_i18n_bits(html)
+    html = normalize_reading_meta(html, f"最後更新：{TODAY}")
     html = html.replace('<html lang="zh-CN">', '<html lang="zh-Hant">')
     html = html.replace('content="zh_CN"', 'content="zh_HK"')
     html = html.replace('"inLanguage": "zh-CN"', '"inLanguage": "zh-Hant"')
@@ -141,6 +152,7 @@ def simplify_article_links(html: str) -> str:
 def simplified_page(src_rel: str, cn_rel: str, zh_path: str, cn_path: str, en_path: str, is_index: bool = False) -> None:
     html = cc_simplified.convert(read(src_rel))
     html = remove_i18n_bits(html)
+    html = normalize_reading_meta(html, f"最后更新：{TODAY}")
     html = html.replace('<html lang="zh-Hant">', '<html lang="zh-Hans">')
     html = html.replace('content="zh_HK"', 'content="zh_CN"')
     html = html.replace('"inLanguage": "zh-Hant"', '"inLanguage": "zh-Hans"')
@@ -634,7 +646,7 @@ def render_modern(slug: str, data: dict) -> str:
           <p class="eyebrow">{esc(data["eyebrow"])}</p>
           <h1>{esc(data["h1"])}</h1>
           <p class="article-lead">{esc(data["lead"])}</p>
-          <div class="reading-meta">{esc(data["reading"])}</div>
+          <div class="reading-meta">Last updated: {TODAY}</div>
         </div>
         <aside class="article-key-card" aria-label="Key points">
           <h2>{esc(data["key_title"])}</h2>
