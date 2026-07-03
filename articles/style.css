@@ -318,7 +318,7 @@ h1 {
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: #172338;
+  background: #172338 url("/articles/articles-index-v24-bg.webp") center center / cover no-repeat;
   margin: 28px 0 30px;
 }
 
