@@ -10,40 +10,6 @@
   progress.appendChild(progressBar);
   document.body.prepend(progress);
 
-  function estimateReadingMinutes() {
-    if (!article) return 0;
-    var text = article.innerText || "";
-    var compactLength = text.replace(/\s+/g, "").length;
-    return Math.max(2, Math.ceil(compactLength / 520));
-  }
-
-  function addReadingGuide() {
-    if (!article || article.querySelector(".reading-meta")) return;
-    var meta = article.querySelector(".meta");
-    if (!meta) return;
-
-    var readingMeta = document.createElement("div");
-    readingMeta.className = "reading-meta";
-    readingMeta.textContent = "约 " + estimateReadingMinutes() + " 分钟阅读 · 先看关键事实，再决定是否进入 AI 问答";
-    meta.insertAdjacentElement("afterend", readingMeta);
-
-    var guide = document.createElement("section");
-    guide.className = "article-brief";
-    guide.setAttribute("aria-label", "阅读路径");
-    [
-      ["1", "确认房产与继承人", "先看城市、登记人、继承人是否一致。"],
-      ["2", "处理香港文件", "死亡证明、授权、声明通常要区分用途。"],
-      ["3", "判断过户路径", "有争议或材料缺口时路径会不同。"]
-    ].forEach(function (item) {
-      var card = document.createElement("article");
-      card.innerHTML = "<strong>" + item[0] + "</strong><span>" + item[1] + "</span><small>" + item[2] + "</small>";
-      guide.appendChild(card);
-    });
-    readingMeta.insertAdjacentElement("afterend", guide);
-  }
-
-  addReadingGuide();
-
   function syncMobileQuickCheck() {
     if (!article) return;
 
