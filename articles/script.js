@@ -44,6 +44,42 @@
 
   addReadingGuide();
 
+  function syncMobileQuickCheck() {
+    if (!article) return;
+
+    var existing = article.querySelector(".mobile-quick-check-panel");
+    if (window.innerWidth > 980) {
+      if (existing) existing.remove();
+      return;
+    }
+
+    if (existing || !toc) return;
+
+    var sourceQuickCheck = toc.querySelector(".quick-check");
+    if (!sourceQuickCheck) return;
+
+    var title = sourceQuickCheck.querySelector("h2");
+    var list = sourceQuickCheck.querySelector("ul");
+    if (!title || !list) return;
+
+    var panel = document.createElement("section");
+    panel.className = "quick-check mobile-quick-check-panel";
+    panel.dataset.mobileQuickCheck = "true";
+
+    var label = sourceQuickCheck.getAttribute("aria-label");
+    if (label) panel.setAttribute("aria-label", label);
+
+    panel.appendChild(title.cloneNode(true));
+    panel.appendChild(list.cloneNode(true));
+
+    var anchor = article.querySelector(".answer-card");
+    if (anchor) {
+      anchor.insertAdjacentElement("afterend", panel);
+    } else {
+      article.prepend(panel);
+    }
+  }
+
   var tocLinks = toc ? Array.prototype.slice.call(toc.querySelectorAll('a[href^="#"]')) : [];
   var tocTargets = tocLinks
     .map(function (link) {
@@ -102,6 +138,7 @@
   }
 
   function updateUi() {
+    syncMobileQuickCheck();
     updateProgress();
     updateActionBar();
   }
