@@ -145,7 +145,7 @@ def header_detail(zh_path: str, en_path: str, active: str = "en") -> str:
       <div class="nav-links">
         <a href="/articles/index_en.html" aria-current="page">Articles</a>
         <a href="/articles/hk-mainland-property-inheritance/index_en.html">Topic</a>
-        <a href="/ask/gpt/?topic=hk-mainland-property-inheritance&amp;source=article-en-nav">Initial Q&amp;A</a>
+        <a href="/ask/gpt/?topic=hk-mainland-property-inheritance&amp;source=article-en-nav">Organise Facts</a>
         <a href="/">Main Site</a>
       </div>
       {switch_html(zh_path, en_path, active)}
@@ -154,13 +154,13 @@ def header_detail(zh_path: str, en_path: str, active: str = "en") -> str:
 
 
 def render_index_en() -> str:
-    title = "Hong Kong Inheritance of Mainland Property | Liu Yi Lawyer Team Articles"
-    desc = "A practical article hub for Hong Kong families handling Mainland property inheritance, Hong Kong documents, heir disputes, costs, timing and remote coordination."
+    title = "Hong Kong Families Inheriting Mainland Property | Liu Yi Lawyer Team Articles"
+    desc = "A practical article hub for Hong Kong families who need to understand the first step: the property, the heirs, the Hong Kong documents, family disagreement, timing and costs."
     zh_path = "/articles/"
     en_path = "/articles/index_en.html"
     item_urls = [
-        ("/articles/hk-mainland-property-inheritance/index_en.html", "Hong Kong residents inheriting Mainland property: where to start"),
-        ("/articles/hk-mainland-property-inheritance/documents_en.html", "Can Hong Kong death certificates and family relationship documents be used for Mainland inheritance?"),
+        ("/articles/hk-mainland-property-inheritance/index_en.html", "A Hong Kong family needs to inherit Mainland property: where should they start?"),
+        ("/articles/hk-mainland-property-inheritance/documents_en.html", "Can Hong Kong death certificates or family relationship documents be used?"),
         ("/articles/hk-mainland-property-inheritance/dispute_en.html", "What if heirs disagree or refuse to cooperate?"),
         ("/articles/hk-mainland-property-inheritance/tax-cost_en.html", "How to think about tax, timing and legal costs"),
         ("/articles/am/macau-client-mainland-lawyer.html", "Macau clients instructing Mainland lawyers for Mainland legal matters"),
@@ -216,7 +216,7 @@ def render_index_en() -> str:
       <nav class="v25-nav" aria-label="Main navigation">
         <a href="/articles/index_en.html" aria-current="page">Articles</a>
         <a href="/articles/hk-mainland-property-inheritance/index_en.html">Topic</a>
-        <a href="/ask/gpt/?topic=hk-mainland-property-inheritance&amp;source=articles-index-en-nav">Initial Q&amp;A</a>
+        <a href="/ask/gpt/?topic=hk-mainland-property-inheritance&amp;source=articles-index-en-nav">Organise Facts</a>
         <a href="/">Main Site</a>
       </nav>
       {switch_html(zh_path, en_path, "en", compact=True)}
@@ -226,39 +226,39 @@ def render_index_en() -> str:
     <section class="v25-hero" aria-labelledby="hero-title">
       <article class="v25-hero-main">
         <p class="v25-eyebrow">Hong Kong inheritance / Article hub</p>
-        <h1 id="hero-title">Start with the inheritance issue that is actually blocking you now</h1>
-        <p class="v25-lead">When a Hong Kong family handles Mainland property inheritance, the first obstacle may be property registration, Hong Kong documents, notarisation and forwarding, heir disagreement, costs, timing, or remote coordination. Use the closest situation below to choose the right article.</p>
+        <h1 id="hero-title">Start with the question your family is stuck on now</h1>
+        <p class="v25-lead">You may simply need to know whether the Mainland property can be handled, whether Hong Kong documents can be used, or what to do if a family member will not cooperate. Choose the closest situation first; you do not need to start with legal terminology.</p>
         <div class="v25-pills" aria-label="Reading priorities">
           <span>Start with the overview</span>
-          <span>Choose by situation</span>
-          <span>Prepare the facts</span>
+          <span>Choose your situation</span>
+          <span>List the facts</span>
         </div>
       </article>
       <aside class="v25-hero-side" aria-label="Suggested reading order">
         <h2>Suggested Order</h2>
         <ol>
-          <li>Read the overview first to identify whether the issue is property, funds, documents or family disagreement.</li>
-          <li>Then move to the document, dispute, cost or asset-specific article.</li>
-          <li>If documents are scattered, heirs live in different places, or someone controls the asset, read the situation-based articles first.</li>
-          <li>Use the topic page or initial Q&amp;A to organise the next step.</li>
+          <li>Read the overview first to see whether the problem is the property, documents, family cooperation or costs.</li>
+          <li>If you already have Hong Kong documents, read the document article; if someone refuses to cooperate, read the dispute article.</li>
+          <li>If records are scattered or family members live in different places, list the people, property and documents first.</li>
+          <li>If you are still unsure, use the initial Q&amp;A to organise the facts for a lawyer.</li>
         </ol>
         <div class="v25-hero-actions">
-          <a class="v25-primary" href="/articles/hk-mainland-property-inheritance/index_en.html">Enter Topic</a>
-          <a class="v25-secondary" href="/ask/gpt/?topic=hk-mainland-property-inheritance&amp;source=articles-index-en-hero">Ask First</a>
+          <a class="v25-primary" href="/articles/hk-mainland-property-inheritance/index_en.html">Read Overview</a>
+          <a class="v25-secondary" href="/ask/gpt/?topic=hk-mainland-property-inheritance&amp;source=articles-index-en-hero">Organise Facts</a>
         </div>
       </aside>
     </section>
 
     <section class="v25-checkbar" aria-labelledby="checkbar-title">
       <div class="v25-checkbar-intro">
-        <h2 id="checkbar-title">Choose the information you need first</h2>
-        <p>If you are not sure where to start, compare your situation with the four groups below.</p>
+        <h2 id="checkbar-title">Choose what you need first</h2>
+        <p>If you are not sure where to start, compare your situation with these four common questions.</p>
       </div>
       <div class="v25-check-items">
-        <article><span>01</span><strong>Overall Process</strong><p>Start with the full route and sequence</p></article>
-        <article><span>02</span><strong>Documents</strong><p>Check how Hong Kong documents connect with Mainland procedures</p></article>
-        <article><span>03</span><strong>Disputes</strong><p>Look at non-cooperation, possession and control issues</p></article>
-        <article><span>04</span><strong>Next Step</strong><p>Go to the topic page or initial Q&amp;A</p></article>
+        <article><span>01</span><strong>Where To Start</strong><p>Property, documents or family cooperation</p></article>
+        <article><span>02</span><strong>Hong Kong Documents</strong><p>Whether death certificates or authorisations can be used</p></article>
+        <article><span>03</span><strong>Family Disagreement</strong><p>Refusal to sign, missing heirs or control of the property</p></article>
+        <article><span>04</span><strong>Need Help</strong><p>Organise the facts before speaking to a lawyer</p></article>
       </div>
     </section>
 
@@ -266,18 +266,18 @@ def render_index_en() -> str:
       <div class="v25-main">
         <div class="v25-section-copy">
           <h2 id="article-index-title">Hong Kong Inheritance Article Guide</h2>
-          <p>Start from the overview, then move to the article that matches the point where your matter is stuck.</p>
+          <p>Start with the article closest to your situation: documents, family disagreement, timing and costs, or simply not knowing where to begin.</p>
         </div>
         <article class="v25-pillar-card">
           <div class="v25-card-label">Overview</div>
           <div class="v25-pillar-copy">
-            <h3>Hong Kong residents inheriting Mainland property: confirm inheritance rights before registration</h3>
-            <p>Use this first if you need the overall path: inheritance rights, Hong Kong documents, registration and what changes when heirs disagree.</p>
+            <h3>A Hong Kong family needs to inherit Mainland property: where should they start?</h3>
+            <p>Use this first if you do not yet know where to begin. It helps you list the property, family members, documents and any disagreement.</p>
           </div>
           <a class="v25-pill-action" href="/articles/hk-mainland-property-inheritance/index_en.html">Read Overview</a>
         </article>
         <div class="v25-article-grid" aria-label="Hong Kong inheritance articles">
-          <a class="v25-article-card" href="/articles/hk-mainland-property-inheritance/documents_en.html"><span class="v25-card-label v25-card-label-red">Article</span><h3>Can Hong Kong death certificates and family relationship documents be used?</h3><p>For questions about Hong Kong documents, notarisation, forwarding and local acceptance.</p></a>
+          <a class="v25-article-card" href="/articles/hk-mainland-property-inheritance/documents_en.html"><span class="v25-card-label v25-card-label-red">Article</span><h3>Can Hong Kong death certificates or family documents be used?</h3><p>For families who already have Hong Kong papers but do not know whether a Mainland office will accept them.</p></a>
           <a class="v25-article-card" href="/articles/hk-mainland-property-inheritance/dispute_en.html"><span class="v25-card-label v25-card-label-teal">Article</span><h3>What if heirs disagree or refuse to cooperate?</h3><p>For situations involving missing heirs, refusal to sign, will disputes or control of the asset.</p></a>
           <a class="v25-article-card" href="/articles/hk-mainland-property-inheritance/tax-cost_en.html"><span class="v25-card-label v25-card-label-red">Article</span><h3>How to think about tax, timing and legal costs</h3><p>For questions such as how long it may take and which facts may increase cost or delay.</p></a>
         </div>
@@ -293,17 +293,17 @@ def render_index_en() -> str:
       <aside class="v25-side" aria-label="Topic navigation and next step">
         <section class="v25-side-card">
           <h2>What This Group Helps You Clarify</h2>
-          <p>Use these article groups to decide whether to keep reading, enter the topic page, or organise facts through the initial Q&amp;A.</p>
+          <p>Use these article groups to decide whether to keep reading, submit basic facts, or organise the situation first.</p>
           <h3>Common Question Areas</h3>
-          <ul><li>Inheritance process and sequence</li><li>Documents, notarisation and authorisation</li><li>Heir disputes and non-cooperation</li><li>Tax, timing and costs</li><li>Property registration and transfer</li></ul>
+          <ul><li>Where to start</li><li>Hong Kong documents and authorisation</li><li>Family disagreement and non-cooperation</li><li>Tax, timing and costs</li><li>Property status and next step</li></ul>
           <h3>Common Extensions</h3>
           <ul><li>Heirs spread across Hong Kong, Mainland China and overseas</li><li>Company interests, business assets and relocation compensation</li><li>Renunciation, authorisation and declaration documents</li></ul>
         </section>
         <section class="v25-side-card v25-side-actions">
           <h2>Next Step</h2>
           <div class="v25-side-buttons">
-            <a class="v25-primary" href="/articles/hk-mainland-property-inheritance/index_en.html">Enter Topic</a>
-            <a class="v25-secondary" href="/ask/gpt/?topic=hk-mainland-property-inheritance&amp;source=articles-index-en-side">Ask First</a>
+            <a class="v25-primary" href="/articles/hk-mainland-property-inheritance/index_en.html">Read Overview</a>
+            <a class="v25-secondary" href="/ask/gpt/?topic=hk-mainland-property-inheritance&amp;source=articles-index-en-side">Organise Facts</a>
           </div>
         </section>
       </aside>
@@ -324,40 +324,40 @@ MODERN = {
         "zh": "/articles/hk-mainland-property-inheritance/",
         "en": "/articles/hk-mainland-property-inheritance/index_en.html",
         "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
-        "title": "Hong Kong Residents Inheriting Mainland Property: Where to Start | Liu Yi Lawyer Team",
-        "description": "For Hong Kong residents and families handling Mainland property inheritance: confirm inheritance rights, Hong Kong document use, heir disputes, registration, cost and remote coordination.",
+        "title": "A Hong Kong Family Needs to Inherit Mainland Property: Where to Start | Liu Yi Lawyer Team",
+        "description": "For Hong Kong families handling Mainland property inheritance: first list the property, heirs, Hong Kong documents and any family disagreement, then decide the next step.",
         "published": "2026-05-21",
         "reading": "Published: 2026-05-21 · Updated: 2026-07-03 · About 6 minutes",
         "eyebrow": "Article / Hong Kong inheritance / Mainland property",
-        "h1": "Hong Kong residents inheriting Mainland property: confirm inheritance rights before registration",
-        "lead": "For Hong Kong residents or families dealing with property in Shenzhen, Guangzhou, Zhuhai, Foshan, Shanghai, Beijing or other Mainland cities, the key is not to treat inheritance as an ordinary transfer. First confirm the inheritance relationship, the range of heirs and whether Hong Kong documents can be accepted for Mainland procedures.",
-        "key_title": "Key Points",
+        "h1": "A Hong Kong family needs to inherit Mainland property: where should they start?",
+        "lead": "If a family member left property in the Mainland, Hong Kong heirs usually get stuck on three things first: where the property is, who may inherit, and whether Hong Kong documents can be used. Once those facts are clear, it is easier to decide whether the next step is document preparation, family discussion or property handling.",
+        "key_title": "Start With These Points",
         "keys": [
-            "For Mainland real estate, the property location and registration requirements usually drive the process.",
-            "Hong Kong death certificates, relationship documents, declarations and authorisations often need document-use checks before they can support Mainland procedures.",
-            "A will, heir disagreement, mortgage, seizure or unclear title can change both timing and route.",
+            "Do not start with the question 'can we transfer it?' Start with the city, registered owner and property status.",
+            "Hong Kong death certificates, relationship documents or authorisations may need different preparation depending on use.",
+            "If someone refuses to cooperate, is missing, or the property has mortgage or seizure issues, the order of work changes.",
         ],
         "answer_title": "Start With the Practical Answer",
-        "answer": "This is usually not a matter of taking Hong Kong papers straight to a registry office. A steadier sequence is to confirm inheritance rights and the range of heirs, check whether Hong Kong documents can be used for Mainland procedures, and only then move to property transfer registration. If heirs disagree, someone is missing, or the property is mortgaged, seized or unclear, evidence and preliminary issues may need to be handled first.",
-        "path_title": "Confirm These Four Facts First",
-        "path_intro": "Once these facts are clear, it is much easier to discuss documents, timing, cost and whether a dispute route is needed.",
+        "answer": "This is usually not as simple as taking Hong Kong papers to a Mainland office. A steadier start is to organise the property information, the family relationship and the documents already held. If everyone cooperates, the next issue is usually documents and sequence. If someone refuses to sign, cannot be contacted, or the property itself has mortgage, seizure or unclear registration issues, evidence and family cooperation may need to be handled first.",
+        "path_title": "Answer These Four Questions First",
+        "path_intro": "You do not need to prepare every document before speaking to a lawyer. Start with these four questions.",
         "path": [
-            ("1. Where the property is", "Confirm the city, registered owner and whether there is a property ownership or real estate registration certificate."),
-            ("2. Information about the deceased", "Confirm the date and place of death, and where the death certificate and identity records were issued."),
-            ("3. Heirs and any will", "Check whether there is a will, whether all heirs agree, and whether anyone renounces or objects."),
-            ("4. Current property status", "Check mortgage, pledge, seizure, missing certificate, co-ownership or registration inconsistency."),
+            ("1. Where is the property?", "Give the city, neighbourhood if known, and whose name appears on the property records."),
+            ("2. When and where did the family member pass away?", "State the date and place of death, and where the death certificate is now held."),
+            ("3. Which family members may inherit?", "List the possible heirs and whether anyone objects, is missing or will not sign."),
+            ("4. Is there any property problem now?", "For example mortgage, seizure, missing certificate, someone living there or rent being collected."),
         ],
-        "facts_title": "A Clear Way to Brief the Lawyer",
+        "facts_title": "A Short Message You Can Send to a Lawyer",
         "facts_text": "The property is in [city] and is registered under [name]. The deceased passed away on [date / place]. The known heirs are [names / relationship]. Existing or missing documents include [will / death certificate / relationship proof / authorisation]. The property does or does not involve [mortgage / seizure / missing certificate / registration issue].",
         "facts": [
             "If you are in Hong Kong, state whether you can travel to the Mainland or prefer remote authorisation.",
-            "If Hong Kong documents already exist, state their type and whether any notarisation or forwarding has been done.",
+            "If Hong Kong documents already exist, state what they are and what they will be used for.",
             "If heirs disagree, identify who disagrees and what the disagreement is about.",
             "If you mainly want an estimate of time or cost, provide the city and heir situation first.",
         ],
         "sections": [
             ("Why the property location matters", "Mainland property inheritance is usually handled through the rules and registration practice of the property location. Hong Kong probate or estate administration alone does not replace Mainland property transfer procedures.", "Where heirs cooperate and documents are complete, the route can be relatively direct. Where documents or heir relationships are unclear, the matter often needs evidence work before registration."),
-            ("Hong Kong documents must match Mainland use requirements", "Death certificates, relationship documents, declarations and powers of attorney formed in Hong Kong are not automatically accepted for every Mainland step.", "The first question is not only whether the document exists, but what it will be used for, where it was formed, and whether the receiving institution requires notarisation, forwarding or supplemental materials."),
+            ("Hong Kong documents need to match the intended use", "Death certificates, relationship documents, declarations and powers of attorney formed in Hong Kong are not automatically accepted for every Mainland step.", "The first question is not only whether the document exists, but what it will be used for, where it was formed, and which Mainland office will receive it."),
             ("If heirs disagree, the route changes", "When heirs disagree, cannot be located or refuse to sign, the focus shifts from registration paperwork to confirming rights and resolving the distribution issue.", "In those cases, correspondence, evidence preservation, negotiation or court procedures may need to be considered before transfer registration."),
             ("Tax, timing and legal costs depend on the facts", "Costs and timing cannot be judged only by the property value. They depend on the city, document readiness, number and location of heirs, property status and whether any dispute exists.", "A clear fact summary usually gives a better first estimate than asking for a fixed quote at the start."),
         ],
@@ -365,11 +365,11 @@ MODERN = {
             ("Hong Kong document use in Mainland inheritance", "/articles/hk-mainland-property-inheritance/documents_en.html"),
             ("Heir disagreement or dispute", "/articles/hk-mainland-property-inheritance/dispute_en.html"),
             ("Tax, timing and cost", "/articles/hk-mainland-property-inheritance/tax-cost_en.html"),
-            ("Initial Q&A", "/ask/gpt/?topic=hk-mainland-property-inheritance&source=article-overview-en-related"),
+            ("Organise facts", "/ask/gpt/?topic=hk-mainland-property-inheritance&source=article-overview-en-related"),
         ],
         "faq": [
             ("Is Mainland property inheritance handled under Hong Kong law or Mainland procedures?", "For Mainland real estate, the property location and Mainland registration procedure are usually decisive. Hong Kong estate procedures cannot by themselves replace Mainland transfer registration."),
-            ("Can a Hong Kong death certificate or relationship document be used directly?", "Usually it depends on the document type, where it was formed and the receiving institution's requirements. Many cases require notarisation, forwarding or supplemental materials."),
+            ("Can a Hong Kong death certificate or relationship document be used directly?", "Usually it depends on the document type, where it was formed, what it will be used for and which Mainland office will receive it."),
             ("Can the property be transferred if heirs disagree?", "If heirs disagree, someone is missing or refuses to cooperate, the matter often cannot proceed as a simple registration case. Evidence, negotiation or court confirmation may be needed first."),
             ("Can tax and timing be estimated at the start?", "A rough direction may be possible, but a reliable estimate depends on the city, document status, heir cooperation and whether the property has mortgage, seizure or other registration issues."),
         ],
@@ -419,26 +419,27 @@ LEGACY = {
         "zh": "/articles/hk-mainland-property-inheritance/documents.html",
         "en": "/articles/hk-mainland-property-inheritance/documents_en.html",
         "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
-        "title": "Can Hong Kong Death Certificates and Family Relationship Documents Be Used for Mainland Property Inheritance?",
-        "description": "Hong Kong documents used in Mainland property inheritance usually need to be reviewed by document type, use, notarisation or forwarding requirements and the local registration practice.",
+        "title": "Can Hong Kong Death Certificates or Family Documents Be Used for Mainland Inheritance?",
+        "description": "For Hong Kong documents in Mainland property inheritance, first identify where the document was issued, what it will be used for and which city the property is in.",
         "published": "2026-05-22",
-        "eyebrow": "Hong Kong documents · Mainland inheritance transfer",
-        "h1": "Can Hong Kong death certificates and family relationship documents be used directly for Mainland property inheritance?",
-        "tags": ["Hong Kong documents", "Notarisation", "Mainland property inheritance"],
+        "eyebrow": "Hong Kong documents · Mainland inheritance",
+        "h1": "Can Hong Kong death certificates or family documents be used for Mainland inheritance?",
+        "tags": ["Hong Kong documents", "Document use", "Mainland property inheritance"],
         "image": "/img/lxwm1.webp",
+        "hide_image": True,
         "alt": "Hong Kong and Mainland cross-border documents for property inheritance",
         "caption": "For Mainland property inheritance, the key is not only whether a document exists, but whether it will be accepted for the specific Mainland procedure.",
-        "intro": "Hong Kong residents and families handling property inheritance in Shenzhen, Guangzhou, Zhuhai, Foshan, Shanghai, Beijing or other Mainland cities often ask whether a Hong Kong death certificate, relationship document, declaration or power of attorney can be used directly. The answer usually depends on the document source, purpose and the requirements of the Mainland institution receiving it.",
-        "notice": "This article is for initial orientation only. Whether a specific document can be used depends on the property location and the requirements of the registration office, notary office or court.",
+        "intro": "Many Hong Kong families already have a death certificate, family relationship material, declaration or power of attorney, but do not know whether it can be used for Mainland property inheritance. Do not start only with 'can this be used directly?' First clarify where the document was issued, which city will receive it, and whether it is for property handling, authorisation or a family dispute.",
+        "notice": "This article helps you classify the document issue. It is not a final checklist for a specific office; the exact route depends on the property city and document use.",
         "quick_eyebrow": "Start with document use",
-        "quick_title": "The same Hong Kong document may face different requirements at different steps",
-        "quick_text": "Documents used to prove death, heir identity, renunciation, authorisation or registration are not always treated the same way.",
-        "button": "Check document use first",
+        "quick_title": "The same Hong Kong document may be treated differently depending on use",
+        "quick_text": "A document used to prove death, show family relationship, authorise someone or handle property may need different preparation.",
+        "button": "Organise document questions",
         "sections": [
             ("Four common document groups", ["Death certificate: confirms death; the issuing place, original status and Mainland requirements matter.", "Family relationship materials: may need to connect birth, marriage, household or other records.", "Declaration or renunciation documents: usually require stricter identity and signing checks.", "Power of attorney: the scope of authorisation and document-use requirements should be checked if a Hong Kong heir cannot attend in person."]),
-            ("Why notarisation and forwarding are often mentioned", "Documents formed in Hong Kong are often prepared for Mainland use through a document-purpose review, notarisation, checking and forwarding process. The practical point is not to memorise institutional names, but to confirm the document type, use and place of submission."),
-            ("Registration also depends on inheritance materials", "Mainland registration for inherited real estate usually looks beyond one Hong Kong document. Death records, wills, heir agreements, relationship evidence, notarised materials or effective legal documents may all be relevant."),
-            ("Information to prepare first", ["Property city and registered owner.", "Where the deceased passed away and where the death certificate is held.", "The heir list and whether anyone is in Hong Kong, the Mainland or overseas.", "Whether any will, declaration, renunciation or authorisation already exists.", "Whether the document will be used for registration, notarisation, litigation or authorisation."]),
+            ("Why documents sometimes need extra handling", "For Hong Kong documents to be used in the Mainland, the practical question is not the label of the procedure. First confirm the document type, the receiving city, the intended use and the office that will receive it."),
+            ("Property matters look beyond one document", "Mainland property inheritance usually looks beyond one Hong Kong document. Death records, wills, family agreement, relationship evidence and property status may all matter together."),
+            ("Information to prepare first", ["Property city and registered owner.", "Where the deceased passed away and where the death certificate is held.", "The heir list and whether anyone is in Hong Kong, the Mainland or overseas.", "Whether any will, declaration, renunciation or authorisation already exists.", "Whether the document will be used for property handling, family discussion, dispute handling or authorisation."]),
         ],
         "related": [("Overview", "/articles/hk-mainland-property-inheritance/index_en.html"), ("Heir dispute", "/articles/hk-mainland-property-inheritance/dispute_en.html"), ("Tax and timing", "/articles/hk-mainland-property-inheritance/tax-cost_en.html")],
         "cta_title": "Describe the document situation first",
@@ -495,7 +496,7 @@ LEGACY = {
         "quick_text": "Tax rules, registration costs, document costs, dispute costs and lawyer assistance are different layers of the matter.",
         "button": "Ask about cost and timing",
         "sections": [
-            ("Separate the main cost groups", ["Tax: whether any exemption or reduction applies depends on inheritance type and local practice.", "Registration and document costs: certificates, searches, translations or replacement documents may create costs.", "Hong Kong document costs: notarisation, forwarding, declarations or authorisations may be needed.", "Dispute costs: disagreement, will disputes or abnormal property status can increase evidence and procedure costs.", "Legal assistance: fees depend on complexity, document readiness, cross-city coordination and dispute work."]),
+            ("Separate the main cost groups", ["Tax: whether any exemption or reduction applies depends on inheritance type and local practice.", "Registration and document costs: certificates, searches, translations or replacement documents may create costs.", "Hong Kong document costs: declarations, authorisations or other document preparation may be needed.", "Dispute costs: disagreement, will disputes or abnormal property status can increase evidence and procedure costs.", "Legal assistance: fees depend on complexity, document readiness, cross-city coordination and dispute work."]),
             ("Intestate inheritance and will-based inheritance differ", "Where statutory heirs are clear, documents are complete and no one objects, timing and cost are usually easier to assess. Wills, renunciation, gifts by will, missing heirs or objections require inheritance rights and document usability to be addressed first."),
             ("Why timing is hard to quote in one sentence", "Timing depends on the property city, registration requirements, Hong Kong document preparation, heir cooperation, mortgage, missing certificate, seizure or other title issues. One blocked step can change the schedule."),
             ("Information needed for a better estimate", ["Property city, property nature and whether there is a real estate certificate.", "Place of death and current death or relationship records.", "Whether there is a will, renunciation or statutory inheritance only.", "Number and location of heirs and whether all can sign.", "Mortgage, seizure, missing certificate or registration inconsistency."]),
@@ -579,10 +580,10 @@ def render_modern(slug: str, data: dict) -> str:
       <aside class="toc" aria-label="Article table of contents">
         <section class="quick-check"><h2>{esc(data["quick_title"])}</h2><ul>{quick}</ul></section>
         <h2>Contents</h2>{toc}
-        <a class="toc-cta" href="/ask/gpt/?topic=hk-mainland-property-inheritance&amp;source=article-{slug}-en-aside">Initial Q&amp;A →</a>
+        <a class="toc-cta" href="/ask/gpt/?topic=hk-mainland-property-inheritance&amp;source=article-{slug}-en-aside">Organise facts →</a>
       </aside>
     </div>
-    <section class="cta-panel"><h2>{esc(data["cta_title"])}</h2><p>{esc(data["cta_text"])}</p><a class="button" href="/ask/gpt/?topic=hk-mainland-property-inheritance&amp;source=article-{slug}-en-bottom">Start Initial Q&amp;A →</a></section>
+    <section class="cta-panel"><h2>{esc(data["cta_title"])}</h2><p>{esc(data["cta_text"])}</p><a class="button" href="/ask/gpt/?topic=hk-mainland-property-inheritance&amp;source=article-{slug}-en-bottom">Organise facts →</a></section>
   </main>
   <footer class="site-footer"><div class="footer-inner">This article is for initial information only. Specific matters should be reviewed by a lawyer together with the documents.</div></footer>
   <script src="/articles/script.js" defer></script>
@@ -606,6 +607,8 @@ def render_legacy(slug: str, data: dict) -> str:
         "mainEntityOfPage": url(data["en"]),
     }
     tags = "\n".join(f'<span class="tag">{esc(t)}</span>' for t in data["tags"])
+    image_html = "" if data.get("hide_image") else f'''
+      <figure class="article-visual"><img src="{data["image"]}" alt="{esc(data["alt"])}" loading="lazy" decoding="async"><figcaption>{esc(data["caption"])}</figcaption></figure>'''
     section_html = []
     for section in data["sections"]:
         h = section[0]
@@ -627,16 +630,16 @@ def render_legacy(slug: str, data: dict) -> str:
       <p class="eyebrow">{esc(data["eyebrow"])}</p>
       <h1>{esc(data["h1"])}</h1>
       <div class="meta"><span>Published: {data["published"]}</span>{tags}</div>
-      <figure class="article-visual"><img src="{data["image"]}" alt="{esc(data["alt"])}" loading="lazy" decoding="async"><figcaption>{esc(data["caption"])}</figcaption></figure>
+{image_html}
       <p>{esc(data["intro"])}</p>
       <div class="notice">{esc(data["notice"])}</div>
       <section class="quick-judge"><div><p class="eyebrow">{esc(data["quick_eyebrow"])}</p><h2>{esc(data["quick_title"])}</h2><p>{esc(data["quick_text"])}</p></div><div class="quick-actions"><a class="button" href="/ask/gpt/?topic=hk-mainland-property-inheritance&amp;source=article-{slug}-en-top">{esc(data["button"])}</a><a class="button-secondary" href="/topics/hk-mainland-property-inheritance/?source=article-{slug}-en-top">Submit Basic Facts</a></div></section>
       {''.join(section_html)}
-      <div class="inline-cta"><strong>Not sure yet?</strong><span>Prepare the city, documents, heirs and the immediate issue first.</span><a href="/ask/gpt/?topic=hk-mainland-property-inheritance&amp;source=article-{slug}-en-inline">Start Initial Q&amp;A</a></div>
+      <div class="inline-cta"><strong>Not sure yet?</strong><span>Prepare the city, documents, heirs and the immediate issue first.</span><a href="/ask/gpt/?topic=hk-mainland-property-inheritance&amp;source=article-{slug}-en-inline">Organise facts first</a></div>
       <div class="related-box"><h2>Related Reading</h2>{related}</div>
-      <div class="cta-panel"><h2>{esc(data["cta_title"])}</h2><p>{esc(data["cta_text"])}</p><div class="actions"><a class="button" href="/ask/gpt/?topic=hk-mainland-property-inheritance&amp;source=article-{slug}-en-bottom">Start Initial Q&amp;A</a><a class="button-secondary" href="/topics/hk-mainland-property-inheritance/?source=article-{slug}-en-bottom">Submit Basic Facts</a></div></div>
+      <div class="cta-panel"><h2>{esc(data["cta_title"])}</h2><p>{esc(data["cta_text"])}</p><div class="actions"><a class="button" href="/ask/gpt/?topic=hk-mainland-property-inheritance&amp;source=article-{slug}-en-bottom">Organise facts first</a><a class="button-secondary" href="/topics/hk-mainland-property-inheritance/?source=article-{slug}-en-bottom">Submit Basic Facts</a></div></div>
     </article>
-    <aside class="toc" aria-label="Article table of contents"><h2>Contents</h2><a href="/articles/hk-mainland-property-inheritance/index_en.html">Overview</a><a href="/articles/hk-mainland-property-inheritance/documents_en.html">Documents</a><a href="/articles/hk-mainland-property-inheritance/dispute_en.html">Disputes</a><a href="/articles/hk-mainland-property-inheritance/tax-cost_en.html">Costs</a><a href="/ask/gpt/?topic=hk-mainland-property-inheritance&amp;source=article-{slug}-en-toc">Initial Q&amp;A</a></aside>
+    <aside class="toc" aria-label="Article table of contents"><h2>Contents</h2><a href="/articles/hk-mainland-property-inheritance/index_en.html">Overview</a><a href="/articles/hk-mainland-property-inheritance/documents_en.html">Documents</a><a href="/articles/hk-mainland-property-inheritance/dispute_en.html">Disputes</a><a href="/articles/hk-mainland-property-inheritance/tax-cost_en.html">Costs</a><a href="/ask/gpt/?topic=hk-mainland-property-inheritance&amp;source=article-{slug}-en-toc">Organise facts</a></aside>
   </main>
   <footer class="site-footer"><div class="footer-inner">© 2026 Liu Yi Lawyer Team. This article is for initial information only. Specific matters should be reviewed by a lawyer together with the documents.</div></footer>
   <script src="/articles/script.js" defer></script>
