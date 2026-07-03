@@ -13,6 +13,7 @@ TODAY = "2026-07-03"
 BASE = "https://www.jingwei-law.com"
 IMAGE = f"{BASE}/articles/articles-index-v24-bg.webp"
 cc = OpenCC("s2hk")
+cc_simplified = OpenCC("hk2s")
 
 
 def esc(value: str) -> str:
@@ -44,9 +45,25 @@ def remove_i18n_bits(html: str) -> str:
     return html + "\n"
 
 
-def alternate_links(zh_path: str, en_path: str) -> str:
+def cn_from_zh_path(zh_path: str) -> str:
+    if zh_path == "/articles/":
+        return "/articles/index_cn.html"
+    if zh_path.endswith("/"):
+        return zh_path + "index_cn.html"
+    return zh_path.removesuffix(".html") + "_cn.html"
+
+
+def rel_to_cn(rel: str) -> str:
+    path = Path(rel)
+    if path.name == "index.html":
+        return str(path.with_name("index_cn.html")).replace("\\", "/")
+    return str(path.with_name(path.stem + "_cn.html")).replace("\\", "/")
+
+
+def alternate_links(zh_path: str, cn_path: str, en_path: str) -> str:
     return (
         f'  <link rel="alternate" hreflang="zh-Hant" href="{url(zh_path)}">\n'
+        f'  <link rel="alternate" hreflang="zh-Hans" href="{url(cn_path)}">\n'
         f'  <link rel="alternate" hreflang="en" href="{url(en_path)}">\n'
         f'  <link rel="alternate" hreflang="x-default" href="{url(zh_path)}">'
     )
@@ -60,15 +77,16 @@ def _legacy_switch_html(zh_path: str, en_path: str, active: str, compact: bool =
     return f'<div class="article-lang-switch{extra}" aria-label="{label}">{zh}{en}</div>'
 
 
-def switch_html(zh_path: str, en_path: str, active: str, compact: bool = False) -> str:
+def switch_html(zh_path: str, cn_path: str, en_path: str, active: str, compact: bool = False) -> str:
     label = "Language switch"
     zh = '<span aria-current="true">&#32321;</span>' if active == "zh" else f'<a href="{zh_path}" lang="zh-Hant">&#32321;</a>'
+    cn = '<span aria-current="true">&#31616;</span>' if active == "cn" else f'<a href="{cn_path}" lang="zh-Hans">&#31616;</a>'
     en = '<span aria-current="true">EN</span>' if active == "en" else f'<a href="{en_path}" lang="en">EN</a>'
     extra = " v25-lang-switch" if compact else ""
-    return f'<div class="article-lang-switch{extra}" aria-label="{label}">{zh}{en}</div>'
+    return f'<div class="article-lang-switch{extra}" aria-label="{label}">{zh}{cn}{en}</div>'
 
 
-def chinese_page(rel: str, zh_path: str, en_path: str, is_index: bool = False) -> None:
+def chinese_page(rel: str, zh_path: str, cn_path: str, en_path: str, is_index: bool = False) -> None:
     html = cc.convert(read(rel))
     html = remove_i18n_bits(html)
     html = html.replace('<html lang="zh-CN">', '<html lang="zh-Hant">')
@@ -76,22 +94,77 @@ def chinese_page(rel: str, zh_path: str, en_path: str, is_index: bool = False) -
     html = html.replace('"inLanguage": "zh-CN"', '"inLanguage": "zh-Hant"')
     html = re.sub(r'(<meta property="article:modified_time" content=")[^"]+(">)', rf"\g<1>{TODAY}\2", html)
     html = re.sub(r'("dateModified": ")[^"]+(")', rf"\g<1>{TODAY}\2", html)
-    html = re.sub(r'(<link rel="canonical" href="[^"]+">)', rf"\1\n{alternate_links(zh_path, en_path)}", html, count=1)
+    html = re.sub(r'(<link rel="canonical" href="[^"]+">)', rf"\1\n{alternate_links(zh_path, cn_path, en_path)}", html, count=1)
     if is_index:
         html = re.sub(
             r'(\s*</nav>\s*)(<a class="v25-contact")',
-            rf'\1      {switch_html(zh_path, en_path, "zh", compact=True)}\n\n      \2',
+            rf'\1      {switch_html(zh_path, cn_path, en_path, "zh", compact=True)}\n\n      \2',
             html,
             count=1,
         )
     else:
         html = re.sub(
             r'(\s*</div>\s*)(</nav>)',
-            rf'\1      {switch_html(zh_path, en_path, "zh")}\n    \2',
+            rf'\1      {switch_html(zh_path, cn_path, en_path, "zh")}\n    \2',
             html,
             count=1,
         )
     write(rel, html)
+
+
+def simplify_article_links(html: str) -> str:
+    html = re.sub(
+        r'((?:href|item|content)="https://www\.jingwei-law\.com/articles/hk-mainland-property-inheritance/)([a-z0-9-]+)\.html"',
+        r'\1\2_cn.html"',
+        html,
+    )
+    html = re.sub(
+        r'((?:href|item|content)="https://www\.jingwei-law\.com/articles/hk-mainland-property-inheritance/)"',
+        r'\1index_cn.html"',
+        html,
+    )
+    html = re.sub(
+        r'((?:href|item|content)="https://www\.jingwei-law\.com/articles/)"',
+        r'\1index_cn.html"',
+        html,
+    )
+    html = re.sub(
+        r'(href="/articles/hk-mainland-property-inheritance/)([a-z0-9-]+)\.html"',
+        r'\1\2_cn.html"',
+        html,
+    )
+    html = html.replace('href="/articles/hk-mainland-property-inheritance/"', 'href="/articles/hk-mainland-property-inheritance/index_cn.html"')
+    html = html.replace('href="/articles/"', 'href="/articles/index_cn.html"')
+    return html
+
+
+def simplified_page(src_rel: str, cn_rel: str, zh_path: str, cn_path: str, en_path: str, is_index: bool = False) -> None:
+    html = cc_simplified.convert(read(src_rel))
+    html = remove_i18n_bits(html)
+    html = html.replace('<html lang="zh-Hant">', '<html lang="zh-Hans">')
+    html = html.replace('content="zh_HK"', 'content="zh_CN"')
+    html = html.replace('"inLanguage": "zh-Hant"', '"inLanguage": "zh-Hans"')
+    html = re.sub(r'(<meta property="article:modified_time" content=")[^"]+(">)', rf"\g<1>{TODAY}\2", html)
+    html = re.sub(r'("dateModified": ")[^"]+(")', rf"\g<1>{TODAY}\2", html)
+    html = re.sub(r'(<meta property="og:url" content=")[^"]+(">)', rf"\g<1>{url(cn_path)}\2", html, count=1)
+    html = re.sub(r'(<link rel="canonical" href=")[^"]+(">)', rf"\g<1>{url(cn_path)}\2\n{alternate_links(zh_path, cn_path, en_path)}", html, count=1)
+    html = re.sub(r'("mainEntityOfPage": ")[^"]+(")', rf"\g<1>{url(cn_path)}\2", html)
+    html = simplify_article_links(html)
+    if is_index:
+        html = re.sub(
+            r'(\s*</nav>\s*)(<a class="v25-contact")',
+            rf'\1      {switch_html(zh_path, cn_path, en_path, "cn", compact=True)}\n\n      \2',
+            html,
+            count=1,
+        )
+    else:
+        html = re.sub(
+            r'(\s*</div>\s*)(</nav>)',
+            rf'\1      {switch_html(zh_path, cn_path, en_path, "cn")}\n    \2',
+            html,
+            count=1,
+        )
+    write(cn_rel, html)
 
 
 def head_common(
@@ -102,6 +175,7 @@ def head_common(
     robots: str,
     canonical_path: str,
     zh_path: str,
+    cn_path: str,
     en_path: str,
     og_type: str,
     body_extra: str = "",
@@ -127,7 +201,7 @@ def head_common(
   <meta name="twitter:description" content="{esc(description)}">
   <meta name="twitter:image" content="{IMAGE}">
   <link rel="canonical" href="{url(canonical_path)}">
-{alternate_links(zh_path, en_path)}
+{alternate_links(zh_path, cn_path, en_path)}
   <link rel="stylesheet" href="{body_extra or '../style.css'}">'''
 
 
@@ -135,7 +209,7 @@ def json_ld(obj: object) -> str:
     return json.dumps(obj, ensure_ascii=False, indent=2)
 
 
-def header_detail(zh_path: str, en_path: str, active: str = "en") -> str:
+def header_detail(zh_path: str, cn_path: str, en_path: str, active: str = "en") -> str:
     return f'''  <header class="site-header">
     <nav class="nav" aria-label="Article navigation">
       <a class="brand" href="/articles/index_en.html">
@@ -148,7 +222,7 @@ def header_detail(zh_path: str, en_path: str, active: str = "en") -> str:
         <a href="/ask/gpt/?topic=hk-mainland-property-inheritance&amp;source=article-en-nav">Organise Facts</a>
         <a href="/">Main Site</a>
       </div>
-      {switch_html(zh_path, en_path, active)}
+      {switch_html(zh_path, cn_path, en_path, active)}
     </nav>
   </header>'''
 
@@ -157,6 +231,7 @@ def render_index_en() -> str:
     title = "Hong Kong Families Inheriting Mainland Property | Liu Yi Lawyer Team Articles"
     desc = "A practical article hub for Hong Kong families who need to understand the first step: the property, the heirs, the Hong Kong documents, family disagreement, timing and costs."
     zh_path = "/articles/"
+    cn_path = cn_from_zh_path(zh_path)
     en_path = "/articles/index_en.html"
     item_urls = [
         ("/articles/hk-mainland-property-inheritance/index_en.html", "A Hong Kong family needs to inherit Mainland property: where should they start?"),
@@ -200,7 +275,7 @@ def render_index_en() -> str:
             },
         ],
     }
-    return f'''{head_common(lang="en", title=title, description=desc, robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1", canonical_path=en_path, zh_path=zh_path, en_path=en_path, og_type="website", body_extra="style.css?v=20260703-i18n")}
+    return f'''{head_common(lang="en", title=title, description=desc, robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1", canonical_path=en_path, zh_path=zh_path, cn_path=cn_path, en_path=en_path, og_type="website", body_extra="style.css?v=20260703-i18n")}
   <script type="application/ld+json">{json_ld(graph)}</script>
 </head>
 <body class="articles-index-v25 articles-index-en">
@@ -219,7 +294,7 @@ def render_index_en() -> str:
         <a href="/ask/gpt/?topic=hk-mainland-property-inheritance&amp;source=articles-index-en-nav">Organise Facts</a>
         <a href="/">Main Site</a>
       </nav>
-      {switch_html(zh_path, en_path, "en", compact=True)}
+      {switch_html(zh_path, cn_path, en_path, "en", compact=True)}
       <a class="v25-contact" href="/ask/gpt/?topic=hk-mainland-property-inheritance&amp;source=articles-index-en-contact">Ask</a>
     </header>
 
@@ -509,6 +584,7 @@ LEGACY = {
 
 
 def render_modern(slug: str, data: dict) -> str:
+    cn_path = cn_from_zh_path(data["zh"])
     article_ld = {
         "@context": "https://schema.org",
         "@type": "Article",
@@ -543,14 +619,14 @@ def render_modern(slug: str, data: dict) -> str:
     quick = "\n".join(f"<li>{esc(x)}</li>" for x in data["quick"])
     toc = "\n".join(f'<a href="#{anchor}">{esc(label)}</a>' for anchor, label in data["toc"])
     keys = "\n".join(f"<li>{esc(x)}</li>" for x in data["keys"])
-    return f'''{head_common(lang="en", title=data["title"], description=data["description"], robots=data["robots"], canonical_path=data["en"], zh_path=data["zh"], en_path=data["en"], og_type="article")}
+    return f'''{head_common(lang="en", title=data["title"], description=data["description"], robots=data["robots"], canonical_path=data["en"], zh_path=data["zh"], cn_path=cn_path, en_path=data["en"], og_type="article")}
   <meta property="article:published_time" content="{data["published"]}">
   <meta property="article:modified_time" content="{TODAY}">
   <script type="application/ld+json">{json_ld(article_ld)}</script>
   <script type="application/ld+json">{json_ld(faq_ld)}</script>
 </head>
 <body class="article-detail article-hk-inheritance article-en">
-{header_detail(data["zh"], data["en"])}
+{header_detail(data["zh"], cn_path, data["en"])}
   <main>
     <section class="article-hero" aria-label="Article introduction">
       <div class="article-hero-inner">
@@ -593,6 +669,7 @@ def render_modern(slug: str, data: dict) -> str:
 
 
 def render_legacy(slug: str, data: dict) -> str:
+    cn_path = cn_from_zh_path(data["zh"])
     article_ld = {
         "@context": "https://schema.org",
         "@type": "Article",
@@ -618,13 +695,13 @@ def render_legacy(slug: str, data: dict) -> str:
         else:
             section_html.append(f"<h2>{esc(h)}</h2><p>{esc(body)}</p>")
     related = "\n".join(f'<a href="{href}">{esc(label)}</a>' for label, href in data["related"])
-    return f'''{head_common(lang="en", title=data["title"], description=data["description"], robots=data["robots"], canonical_path=data["en"], zh_path=data["zh"], en_path=data["en"], og_type="article")}
+    return f'''{head_common(lang="en", title=data["title"], description=data["description"], robots=data["robots"], canonical_path=data["en"], zh_path=data["zh"], cn_path=cn_path, en_path=data["en"], og_type="article")}
   <meta property="article:published_time" content="{data["published"]}">
   <meta property="article:modified_time" content="{TODAY}">
   <script type="application/ld+json">{json_ld(article_ld)}</script>
 </head>
 <body class="article-detail-legacy article-hk-inheritance article-en">
-{header_detail(data["zh"], data["en"])}
+{header_detail(data["zh"], cn_path, data["en"])}
   <main class="article-shell">
     <article class="article-main">
       <p class="eyebrow">{esc(data["eyebrow"])}</p>
@@ -652,6 +729,11 @@ def patch_sitemap() -> None:
     path = ROOT / "sitemap.xml"
     text = path.read_text(encoding="utf-8")
     for loc in [
+        "https://www.jingwei-law.com/articles/index_cn.html",
+        "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/index_cn.html",
+        "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/documents_cn.html",
+        "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/dispute_cn.html",
+        "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/tax-cost_cn.html",
         "https://www.jingwei-law.com/articles/index_en.html",
         "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/index_en.html",
         "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/documents_en.html",
@@ -672,7 +754,8 @@ def patch_sitemap() -> None:
 
 
 def main() -> None:
-    chinese_page("articles/index.html", "/articles/", "/articles/index_en.html", is_index=True)
+    chinese_page("articles/index.html", "/articles/", cn_from_zh_path("/articles/"), "/articles/index_en.html", is_index=True)
+    simplified_page("articles/index.html", "articles/index_cn.html", "/articles/", cn_from_zh_path("/articles/"), "/articles/index_en.html", is_index=True)
     for rel, zh, en in [
         ("articles/hk-mainland-property-inheritance/index.html", "/articles/hk-mainland-property-inheritance/", "/articles/hk-mainland-property-inheritance/index_en.html"),
         ("articles/hk-mainland-property-inheritance/documents.html", "/articles/hk-mainland-property-inheritance/documents.html", "/articles/hk-mainland-property-inheritance/documents_en.html"),
@@ -683,7 +766,9 @@ def main() -> None:
         ("articles/hk-mainland-property-inheritance/missing-documents.html", "/articles/hk-mainland-property-inheritance/missing-documents.html", "/articles/hk-mainland-property-inheritance/missing-documents_en.html"),
         ("articles/hk-mainland-property-inheritance/ancestral-home-homestead.html", "/articles/hk-mainland-property-inheritance/ancestral-home-homestead.html", "/articles/hk-mainland-property-inheritance/ancestral-home-homestead_en.html"),
     ]:
-        chinese_page(rel, zh, en)
+        cn = cn_from_zh_path(zh)
+        chinese_page(rel, zh, cn, en)
+        simplified_page(rel, rel_to_cn(rel), zh, cn, en)
 
     write("articles/index_en.html", render_index_en())
     for slug, data in MODERN.items():
