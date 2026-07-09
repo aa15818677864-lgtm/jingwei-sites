@@ -59,7 +59,13 @@ function cleanupDiagnosticRows() {
   Logger.log('Removed diagnostic rows: ' + removed);
 }
 
-function doGet() {
+function doGet(e) {
+  if (e && e.parameter && e.parameter.action === 'dashboard') {
+    return ContentService
+      .createTextOutput(JSON.stringify(buildDashboardStats_()))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+
   return ContentService
     .createTextOutput(JSON.stringify({ ok: true }))
     .setMimeType(ContentService.MimeType.JSON);
@@ -120,6 +126,104 @@ function removeDiagnosticRows_(sheet) {
   }
 
   return removed;
+}
+
+function buildDashboardStats_() {
+  const sheet = getOrCreateSheet_();
+  const rows = readLeadRows_(sheet);
+  const now = new Date();
+  const todayKey = periodKey_(now, 'day');
+  const monthKey = periodKey_(now, 'month');
+
+  let today = 0;
+  let month = 0;
+  const dayCounts = {};
+  const monthCounts = {};
+
+  rows.forEach(function (row) {
+    const date = parseDate_(row.submitted_at);
+    if (!date) return;
+
+    const dayKey = periodKey_(date, 'day');
+    const itemMonthKey = periodKey_(date, 'month');
+    dayCounts[dayKey] = (dayCounts[dayKey] || 0) + 1;
+    monthCounts[itemMonthKey] = (monthCounts[itemMonthKey] || 0) + 1;
+
+    if (dayKey === todayKey) today += 1;
+    if (itemMonthKey === monthKey) month += 1;
+  });
+
+  return {
+    ok: true,
+    generated_at: now.toISOString(),
+    consultation: {
+      today: today,
+      month: month,
+      total: rows.length,
+      series: {
+        day: periodSeries_(14, 'day', dayCounts),
+        month: periodSeries_(12, 'month', monthCounts)
+      }
+    },
+    indexed: null
+  };
+}
+
+function readLeadRows_(sheet) {
+  const lastRow = sheet.getLastRow();
+  if (lastRow <= 1) return [];
+
+  const values = sheet.getRange(2, 1, lastRow - 1, FIELD_KEYS.length).getValues();
+  return values.map(function (row) {
+    const record = {};
+    FIELD_KEYS.forEach(function (key, index) {
+      record[key] = row[index] || '';
+    });
+    return record;
+  }).filter(function (record) {
+    const site = String(record.site || '').toLowerCase();
+    const source = String(record.source || '').toLowerCase();
+    return site !== 'diag' && source !== 'diagnostic';
+  });
+}
+
+function periodSeries_(count, range, counts) {
+  const now = new Date();
+  const series = [];
+
+  for (let index = count - 1; index >= 0; index -= 1) {
+    const date = new Date(now.getTime());
+    if (range === 'month') {
+      date.setDate(1);
+      date.setMonth(now.getMonth() - index);
+    } else {
+      date.setDate(now.getDate() - index);
+    }
+
+    const key = periodKey_(date, range);
+    series.push({
+      period: key,
+      count: counts[key] || 0
+    });
+  }
+
+  return series;
+}
+
+function periodKey_(date, range) {
+  const timeZone = Session.getScriptTimeZone() || 'Asia/Shanghai';
+  const pattern = range === 'month' ? 'yyyy-MM' : 'yyyy-MM-dd';
+  return Utilities.formatDate(date, timeZone, pattern);
+}
+
+function parseDate_(value) {
+  if (!value) return null;
+  if (Object.prototype.toString.call(value) === '[object Date]' && !isNaN(value.getTime())) {
+    return value;
+  }
+
+  const date = new Date(value);
+  return isNaN(date.getTime()) ? null : date;
 }
 
 function sendNotificationEmail_(row) {

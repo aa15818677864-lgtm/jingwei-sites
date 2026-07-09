@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <title>网站运营仪表盘 | 刘毅律师团队</title>
+  <link rel="stylesheet" href="style.css?v=20260709-dashboard">
+  <script src="/site-config.js" defer></script>
+  <script src="script.js?v=20260709-dashboard" defer></script>
+</head>
+<body>
+  <main class="dashboard-shell">
+    <header class="dashboard-header">
+      <div>
+        <p class="eyebrow">Jingwei Law Monitor</p>
+        <h1>网站运营仪表盘</h1>
+      </div>
+      <div class="range-switch" aria-label="统计范围">
+        <button class="is-active" type="button" data-range="day">日</button>
+        <button type="button" data-range="month">月</button>
+      </div>
+    </header>
+
+    <section class="metric-grid" aria-label="核心指标">
+      <article class="metric-card">
+        <span>今日咨询</span>
+        <strong id="consultationCount">--</strong>
+        <small id="consultationHint">读取中</small>
+      </article>
+      <article class="metric-card">
+        <span>已发布文章</span>
+        <strong id="publishedCount">--</strong>
+        <small id="publishedHint">读取中</small>
+      </article>
+      <article class="metric-card">
+        <span>已收录文章</span>
+        <strong id="indexedCount">--</strong>
+        <small id="indexedHint">读取中</small>
+      </article>
+      <article class="metric-card">
+        <span>数据状态</span>
+        <strong id="dataStatus">--</strong>
+        <small id="dataHint">正在检查</small>
+      </article>
+    </section>
+
+    <section class="panel-grid">
+      <article class="panel">
+        <div class="panel-head">
+          <div>
+            <h2 id="consultationTrendTitle">咨询趋势</h2>
+            <p id="consultationTrendHint">等待咨询统计接口</p>
+          </div>
+          <span id="consultationSource" class="source-pill">leads</span>
+        </div>
+        <div id="consultationChart" class="mini-chart" aria-label="咨询趋势图"></div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-head">
+          <div>
+            <h2 id="articleTrendTitle">文章发布</h2>
+            <p id="articleTrendHint">来自 sitemap.xml</p>
+          </div>
+          <span class="source-pill">sitemap</span>
+        </div>
+        <div id="articleChart" class="mini-chart" aria-label="文章发布趋势图"></div>
+      </article>
+    </section>
+
+    <section class="table-panel">
+      <div class="panel-head">
+        <div>
+          <h2>最新文章页面</h2>
+          <p>按 sitemap 最后更新时间排序</p>
+        </div>
+        <span id="lastUpdated" class="source-pill">--</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>页面</th>
+              <th>语言</th>
+              <th>最后更新</th>
+              <th>状态</th>
+            </tr>
+          </thead>
+          <tbody id="articleRows">
+            <tr><td colspan="4">读取中</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
