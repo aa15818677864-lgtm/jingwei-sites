@@ -68,6 +68,12 @@ def normalize_reading_meta(html: str, text: str) -> str:
         count=1,
         flags=re.S,
     )
+    html = re.sub(
+        r'<time datetime="[^"]+">((?:最後整理|最后整理|Last reviewed)[：:]\s*)[^<]+</time>',
+        rf'<time datetime="{TODAY}">\1{TODAY}</time>',
+        html,
+        count=1,
+    )
     return html
 
 
@@ -113,7 +119,9 @@ def switch_html(zh_path: str, cn_path: str, en_path: str, active: str, compact: 
 
 
 def chinese_page(rel: str, zh_path: str, cn_path: str, en_path: str, is_index: bool = False) -> None:
-    html = cc.convert(read(rel))
+    # Traditional Chinese pages are the editorial source. Re-converting them can
+    # introduce Mainland/Japanese glyph variants and make reviewed copy regress.
+    html = read(rel)
     html = remove_i18n_bits(html)
     html = normalize_reading_meta(html, f"最後更新：{TODAY}")
     html = html.replace('<html lang="zh-CN">', '<html lang="zh-Hant">')
@@ -175,9 +183,9 @@ def simplified_page(src_rel: str, cn_rel: str, zh_path: str, cn_path: str, en_pa
     html = re.sub(r'(<meta property="article:modified_time" content=")[^"]+(">)', rf"\g<1>{TODAY}\2", html)
     html = re.sub(r'("dateModified": ")[^"]+(")', rf"\g<1>{TODAY}\2", html)
     html = re.sub(r'(<meta property="og:url" content=")[^"]+(">)', rf"\g<1>{url(cn_path)}\2", html, count=1)
+    html = simplify_article_links(html)
     html = re.sub(r'(<link rel="canonical" href=")[^"]+(">)', rf"\g<1>{url(cn_path)}\2\n{alternate_links(zh_path, cn_path, en_path)}", html, count=1)
     html = re.sub(r'("mainEntityOfPage": ")[^"]+(")', rf"\g<1>{url(cn_path)}\2", html)
-    html = simplify_article_links(html)
     if is_index:
         html = re.sub(
             r'(\s*</nav>\s*)(<a class="v25-contact")',
@@ -800,6 +808,14 @@ def render_legacy(slug: str, data: dict) -> str:
 def patch_sitemap() -> None:
     path = ROOT / "sitemap.xml"
     text = path.read_text(encoding="utf-8")
+    article_dates: dict[str, str] = {}
+    for article_path in (ROOT / "articles").rglob("*.html"):
+        article_html = article_path.read_text(encoding="utf-8")
+        canonical = re.search(r'<link rel="canonical" href="([^"]+)">', article_html)
+        modified = re.search(r'"dateModified":\s*"(\d{4}-\d{2}-\d{2})"', article_html)
+        if canonical and modified:
+            article_dates[canonical.group(1)] = modified.group(1)
+
     for loc in [
         "https://www.jingwei-law.com/articles/index_cn.html",
         "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/index_cn.html",
@@ -813,15 +829,34 @@ def patch_sitemap() -> None:
         "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/tax-cost_en.html",
     ]:
         if loc not in text:
+            lastmod = article_dates.get(loc, TODAY)
             block = f'''  <url>
     <loc>{loc}</loc>
-    <lastmod>{TODAY}</lastmod>
+    <lastmod>{lastmod}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.55</priority>
   </url>
 '''
             text = text.replace("</urlset>", block + "</urlset>")
-    text = re.sub(r"(<loc>https://www\.jingwei-law\.com/articles(?:/|/hk-mainland-property-inheritance/(?:|documents\.html|dispute\.html|tax-cost\.html))</loc>\n\s*<lastmod>)[^<]+", rf"\g<1>{TODAY}", text)
+
+    def sync_article_date(match: re.Match[str]) -> str:
+        block = match.group(0)
+        loc_match = re.search(r"<loc>([^<]+)</loc>", block)
+        if not loc_match or loc_match.group(1) not in article_dates:
+            return block
+        return re.sub(
+            r"(<lastmod>)[^<]+(</lastmod>)",
+            rf"\g<1>{article_dates[loc_match.group(1)]}\2",
+            block,
+            count=1,
+        )
+
+    text = re.sub(
+        r"<url>\s*<loc>https://www\.jingwei-law\.com/articles(?:/|/[^<]+)</loc>.*?</url>",
+        sync_article_date,
+        text,
+        flags=re.S,
+    )
     path.write_text(text, encoding="utf-8", newline="\n")
 
 
@@ -842,13 +877,8 @@ def main() -> None:
         chinese_page(rel, zh, cn, en)
         simplified_page(rel, rel_to_cn(rel), zh, cn, en)
 
-    write("articles/index_en.html", render_index_en())
-    for slug, data in MODERN.items():
-        write(data["rel"], render_modern(slug, data))
-    for slug, data in LEGACY.items():
-        write(data["rel"], render_legacy(slug, data))
-
-    # Three manually reviewed English pages intentionally remain outside this generator.
+    # English pages are professionally translated and reviewed one by one. Keep
+    # them outside this generator so an older template cannot overwrite them.
 
     patch_sitemap()
 

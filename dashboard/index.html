@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex,nofollow">
   <title>文章与咨询仪表盘 | 刘毅律师团队</title>
-  <link rel="stylesheet" href="style.css?v=20260722-ops-v3">
+  <link rel="stylesheet" href="style.css?v=20260723-geo-v1">
   <script src="/site-config.js" defer></script>
-  <script src="script.js?v=20260722-ops-v3" defer></script>
+  <script src="script.js?v=20260723-geo-v1" defer></script>
 </head>
 <body>
   <main class="dashboard-shell">
     <header class="dashboard-header">
       <div>
-        <p class="eyebrow">Jingwei Content Operations</p>
+        <p class="eyebrow">Liu Yi Lawyer Team · Content Operations</p>
         <h1>文章与咨询</h1>
         <p class="header-note">只显示有来源的数据；未接通的指标保持空白。</p>
       </div>
@@ -40,9 +40,9 @@
         <small id="indexedHint">等待 Search Console</small>
       </article>
       <article class="metric-card">
-        <span>香港队列</span>
-        <strong id="hkQueueCount">--</strong>
-        <small id="hkQueueHint">50 篇补充计划</small>
+        <span>本轮可写选题</span>
+        <strong id="topicReadyCount">--</strong>
+        <small id="topicReadyHint">按四个客户角色动态筛选</small>
       </article>
     </section>
 
@@ -53,15 +53,98 @@
       <div><span>刷新</span><strong id="lastUpdated">--</strong></div>
     </section>
 
+    <section class="section-block" aria-labelledby="geo-title">
+      <div class="section-head">
+        <div>
+          <h2 id="geo-title">GEO 与 AI 搜索可见性</h2>
+          <p>区分搜索抓取、模型训练和实际引用；没有官方数据时保持空白。</p>
+        </div>
+        <span id="geoCoverageBadge" class="quiet-badge">检查中</span>
+      </div>
+      <div class="geo-summary-grid" aria-label="GEO 核心指标">
+        <div class="geo-metric">
+          <span>搜索抓取通道</span>
+          <strong id="geoCrawlerCount">--</strong>
+          <small id="geoCrawlerHint">正在读取 robots.txt 配置</small>
+        </div>
+        <div class="geo-metric">
+          <span>AI 引用</span>
+          <strong id="geoCitationCount">--</strong>
+          <small>接入平台或分析数据后显示</small>
+        </div>
+        <div class="geo-metric">
+          <span>AI 引流会话</span>
+          <strong id="geoReferralCount">--</strong>
+          <small>接入站点分析后显示</small>
+        </div>
+        <div class="geo-metric">
+          <span>基准问题库</span>
+          <strong id="geoBenchmarkCount">--</strong>
+          <small id="geoBenchmarkHint">尚未首轮测试</small>
+        </div>
+      </div>
+      <div id="geoPlatformRows" class="geo-platform-grid" aria-live="polite"></div>
+      <p id="geoSourceNote" class="geo-source-note">正在核对数据源。</p>
+    </section>
+
+    <section class="section-block" aria-labelledby="persona-title">
+      <div class="section-head">
+        <div>
+          <h2 id="persona-title">四个固定客户角色</h2>
+          <p>先站在客户当下的处境里模拟搜索，再判断是否值得写。</p>
+        </div>
+        <span class="quiet-badge">长期保持</span>
+      </div>
+      <div id="personaRows" class="persona-grid" aria-live="polite"></div>
+    </section>
+
     <section class="section-block" aria-labelledby="topic-title">
       <div class="section-head">
         <div>
-          <h2 id="topic-title">四专题内容分配</h2>
-          <p>每天最多整理 30 个候选；是否发布取决于资料、法律、语言与配图审核。</p>
+          <h2 id="topic-title">动态选题分配</h2>
+          <p id="topicMethod">按人物匹配、真实搜索、页面表现和咨询信号计算。</p>
         </div>
-        <span class="quiet-badge">30 个候选位</span>
+        <span id="candidateLimitBadge" class="quiet-badge">-- / 30</span>
       </div>
       <div id="topicRows" class="topic-rows" aria-live="polite"></div>
+    </section>
+
+    <section class="section-block" aria-labelledby="recommendation-title">
+      <div class="section-head">
+        <div>
+          <h2 id="recommendation-title">本轮推荐选题</h2>
+          <p>搜索问题必须自然、场景独立，并达到资料门槛。</p>
+        </div>
+        <span id="recommendationSummary" class="quiet-badge">--</span>
+      </div>
+      <div class="table-wrap">
+        <table class="decision-table">
+          <thead><tr><th>评分</th><th>客户角色</th><th>会怎么搜</th><th>真正担心</th><th>动作</th></tr></thead>
+          <tbody id="recommendationRows"><tr><td colspan="5">读取中</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="trend-grid" aria-label="选题反馈机制">
+      <article class="section-block">
+        <div class="section-head">
+          <div>
+            <h2>收录反馈规则</h2>
+            <p>短期观察，中期只补强一次，长期无信号才停止同类选题。</p>
+          </div>
+          <span id="feedbackSummary" class="quiet-badge">--</span>
+        </div>
+        <div id="feedbackRules" class="feedback-rules"></div>
+      </article>
+      <article class="section-block">
+        <div class="section-head">
+          <div>
+            <h2>系统本轮学到什么</h2>
+            <p>只记录可验证的搜索、收录和咨询信号。</p>
+          </div>
+        </div>
+        <ul id="learningLog" class="plain-list"></ul>
+      </article>
     </section>
 
     <section class="trend-grid" aria-label="趋势">
@@ -95,8 +178,8 @@
     <section class="section-block" aria-labelledby="queue-title">
       <div class="section-head">
         <div>
-          <h2 id="queue-title">下一批任务</h2>
-          <p>按顺序从研究、写作、三语、配图走到发布和收录。</p>
+          <h2 id="queue-title">现有写作队列</h2>
+          <p>这里显示已经进入生产流程的文章，不等同于每天强制发布量。</p>
         </div>
         <span id="queueSummary" class="quiet-badge">--</span>
       </div>

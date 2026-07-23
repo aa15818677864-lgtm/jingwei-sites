@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-22",
+  "updatedAt": "2026-07-23",
   "editorialRules": {
     "defaultLanguage": "zh-Hant",
     "languages": ["zh-Hant", "zh-Hans", "en"],
@@ -19,11 +19,10 @@
     ]
   },
   "dailyCandidateAllocation": {
+    "mode": "adaptive",
     "total": 30,
-    "hk-inheritance": 10,
-    "singapore": 6,
-    "macau": 5,
-    "united-states": 9
+    "minimumScore": 65,
+    "source": "dashboard/topic-engine.json"
   },
   "phases": [
     {
@@ -36,7 +35,7 @@
       "id": "four-topic-ongoing",
       "label": "四专题持续生产",
       "priority": 2,
-      "rule": "Use the 30 daily candidate slots; there is no automatic 30-page publication quota."
+      "rule": "Use adaptive persona and feedback scores across four topics; there is no fixed regional quota or automatic 30-page publication target."
     }
   ],
   "statusFlow": [
@@ -54,26 +53,26 @@
     "needs-fix"
   ],
   "hkInheritanceQueue": [
-    {"id":"HK-001","slug":"first-call-family-facts","title":"第一次諮詢內地遺產繼承，香港家屬先準備哪五件事","intent":"不知道從哪裏開始","depth":"entry","status":"drafted-zh-Hant"},
-    {"id":"HK-002","slug":"asset-clue-list","title":"只知道家人在內地留過資產，怎樣先做一張可查的資產線索表","intent":"資產範圍不清","depth":"entry","status":"drafted-zh-Hant"},
-    {"id":"HK-003","slug":"family-tree-before-inheritance","title":"繼承人很多又分散，為什麼先畫家庭關係圖會省很多時間","intent":"繼承人範圍混亂","depth":"entry","status":"drafted-zh-Hant"},
-    {"id":"HK-004","slug":"hong-kong-death-certificate-details","title":"香港死亡證明交到內地前，先核對姓名、日期和用途","intent":"死亡證明能否使用","depth":"entry","status":"drafted-zh-Hant"},
-    {"id":"HK-005","slug":"family-relationship-evidence","title":"沒有一張完整親屬關係證明，香港家屬可從哪些舊資料開始整理","intent":"親屬關係證明缺失","depth":"entry","status":"drafted-zh-Hant"},
-    {"id":"HK-006","slug":"inheritance-without-will","title":"沒有遺囑時，香港家屬處理內地遺產先確認哪些人","intent":"無遺囑繼承","depth":"entry","status":"drafted-zh-Hant"},
-    {"id":"HK-007","slug":"will-first-review","title":"手上有遺囑也別急着辦：先看版本、簽署和保管線索","intent":"遺囑是否可用","depth":"entry","status":"drafted-zh-Hant"},
-    {"id":"HK-008","slug":"executor-role-boundary","title":"遺囑執行人能否一個人辦完內地資產手續","intent":"執行人權限","depth":"entry","status":"drafted-zh-Hant"},
-    {"id":"HK-009","slug":"heirs-in-multiple-regions","title":"繼承人分散在香港、內地和海外，怎樣排好簽字和文件順序","intent":"多人跨地區協作","depth":"entry","status":"drafted-zh-Hant"},
-    {"id":"HK-010","slug":"unreachable-heir","title":"有一名繼承人失聯，其他家人能不能先處理內地遺產","intent":"繼承人失聯","depth":"entry","status":"drafted-zh-Hant"},
-    {"id":"HK-011","slug":"heir-refuses-to-sign","title":"家人不肯簽字時，先分清他是反對、拖延還是聯絡不上","intent":"繼承人不配合","depth":"entry","status":"drafted-zh-Hant"},
-    {"id":"HK-012","slug":"renounce-inheritance","title":"香港家屬想放棄內地遺產，作決定前先算清三筆賬","intent":"放棄繼承","depth":"entry","status":"drafted-zh-Hant"},
-    {"id":"HK-013","slug":"remote-authorisation-scope","title":"人在香港不回內地，授權書要寫到多具體才不容易補簽","intent":"遠程委託","depth":"entry","status":"drafted-zh-Hant"},
-    {"id":"HK-014","slug":"document-route-by-purpose","title":"同一份香港文件為什麼用於房產、銀行和訴訟時準備方式不同","intent":"文件用途差異","depth":"intermediate","status":"drafted-zh-Hant"},
-    {"id":"HK-015","slug":"name-mismatch-across-records","title":"香港證件與內地舊資料姓名不一致，先怎樣把同一人對上","intent":"姓名不一致","depth":"intermediate","status":"drafted-zh-Hant"},
-    {"id":"HK-016","slug":"old-address-and-id-records","title":"舊地址、舊證件號碼和繁簡字不同，整理繼承資料時怎樣處理","intent":"歷史資料不一致","depth":"intermediate","status":"drafted-zh-Hant"},
-    {"id":"HK-017","slug":"property-transfer-checklist","title":"香港家屬辦內地遺產房過戶，進窗口前先完成哪幾步","intent":"遺產房過戶","depth":"intermediate","status":"drafted-zh-Hant"},
-    {"id":"HK-018","slug":"mortgaged-property","title":"遺產房仍有按揭或欠款，繼承和還款應怎樣排順序","intent":"有按揭的遺產房","depth":"intermediate","status":"drafted-zh-Hant"},
-    {"id":"HK-019","slug":"co-owned-property-share","title":"房子原本多人共有，遺產究竟是哪一部分","intent":"共有房產份額","depth":"intermediate","status":"drafted-zh-Hant"},
-    {"id":"HK-020","slug":"property-certificate-missing","title":"找不到房產證，只剩地址和舊收據，還能怎樣查房屋線索","intent":"房產證遺失","depth":"intermediate","status":"drafted-zh-Hant"},
+    {"id":"HK-001","slug":"first-call-family-facts","title":"第一次諮詢內地遺產繼承，香港家屬先準備哪五件事","intent":"不知道從哪裏開始","depth":"entry","status":"published"},
+    {"id":"HK-002","slug":"asset-clue-list","title":"只知道家人在內地留過資產，怎樣先做一張可查的資產線索表","intent":"資產範圍不清","depth":"entry","status":"published"},
+    {"id":"HK-003","slug":"family-tree-before-inheritance","title":"繼承人很多又分散，為什麼先畫家庭關係圖會省很多時間","intent":"繼承人範圍混亂","depth":"entry","status":"published"},
+    {"id":"HK-004","slug":"hong-kong-death-certificate-details","title":"香港死亡證明交到內地前，先核對姓名、日期和用途","intent":"死亡證明能否使用","depth":"entry","status":"published"},
+    {"id":"HK-005","slug":"family-relationship-evidence","title":"沒有一張完整親屬關係證明，香港家屬可從哪些舊資料開始整理","intent":"親屬關係證明缺失","depth":"entry","status":"published"},
+    {"id":"HK-006","slug":"inheritance-without-will","title":"沒有遺囑時，香港家屬處理內地遺產先確認哪些人","intent":"無遺囑繼承","depth":"entry","status":"published"},
+    {"id":"HK-007","slug":"will-first-review","title":"手上有遺囑也別急着辦：先看版本、簽署和保管線索","intent":"遺囑是否可用","depth":"entry","status":"published"},
+    {"id":"HK-008","slug":"executor-role-boundary","title":"遺囑執行人能否一個人辦完內地資產手續","intent":"執行人權限","depth":"entry","status":"published"},
+    {"id":"HK-009","slug":"heirs-in-multiple-regions","title":"繼承人分散在香港、內地和海外，怎樣排好簽字和文件順序","intent":"多人跨地區協作","depth":"entry","status":"published"},
+    {"id":"HK-010","slug":"unreachable-heir","title":"有一名繼承人失聯，其他家人能不能先處理內地遺產","intent":"繼承人失聯","depth":"entry","status":"published"},
+    {"id":"HK-011","slug":"heir-refuses-to-sign","title":"家人不肯簽字時，先分清他是反對、拖延還是聯絡不上","intent":"繼承人不配合","depth":"entry","status":"published"},
+    {"id":"HK-012","slug":"renounce-inheritance","title":"香港家屬想放棄內地遺產，作決定前先算清三筆賬","intent":"放棄繼承","depth":"entry","status":"published"},
+    {"id":"HK-013","slug":"remote-authorisation-scope","title":"人在香港不回內地，授權書要寫到多具體才不容易補簽","intent":"遠程委託","depth":"entry","status":"published"},
+    {"id":"HK-014","slug":"document-route-by-purpose","title":"同一份香港文件為什麼用於房產、銀行和訴訟時準備方式不同","intent":"文件用途差異","depth":"intermediate","status":"published"},
+    {"id":"HK-015","slug":"name-mismatch-across-records","title":"香港證件與內地舊資料姓名不一致，先怎樣把同一人對上","intent":"姓名不一致","depth":"intermediate","status":"published"},
+    {"id":"HK-016","slug":"old-address-and-id-records","title":"舊地址、舊證件號碼和繁簡字不同，整理繼承資料時怎樣處理","intent":"歷史資料不一致","depth":"intermediate","status":"published"},
+    {"id":"HK-017","slug":"property-transfer-checklist","title":"香港家屬辦內地遺產房過戶，進窗口前先完成哪幾步","intent":"遺產房過戶","depth":"intermediate","status":"published"},
+    {"id":"HK-018","slug":"mortgaged-property","title":"遺產房仍有按揭或欠款，繼承和還款應怎樣排順序","intent":"有按揭的遺產房","depth":"intermediate","status":"published"},
+    {"id":"HK-019","slug":"co-owned-property-share","title":"房子原本多人共有，遺產究竟是哪一部分","intent":"共有房產份額","depth":"intermediate","status":"published"},
+    {"id":"HK-020","slug":"property-certificate-missing","title":"找不到房產證，只剩地址和舊收據，還能怎樣查房屋線索","intent":"房產證遺失","depth":"intermediate","status":"published"},
     {"id":"HK-021","slug":"rental-income-after-death","title":"家人離世後房子一直收租，租金應先由誰保管和記賬","intent":"遺產房租金","depth":"intermediate","status":"planned"},
     {"id":"HK-022","slug":"property-occupied-by-relative","title":"遺產房被一名親屬長期居住，其他繼承人先做什麼","intent":"遺產房被佔用","depth":"intermediate","status":"planned"},
     {"id":"HK-023","slug":"demolition-compensation","title":"舊房已拆遷，只剩補償款或安置房，繼承線索怎樣接回來","intent":"拆遷補償繼承","depth":"intermediate","status":"planned"},

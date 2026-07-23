@@ -1,0 +1,35 @@
+# Liu Yi Lawyer Team
+
+> Practical, plain-language information for Hong Kong, Macau, Singapore, United States and overseas readers dealing with legal matters in Mainland China. The public article library is informational and does not replace advice on a specific case.
+
+## Main article library
+
+- [Traditional Chinese article library](https://www.jingwei-law.com/articles/)
+- [Simplified Chinese article library](https://www.jingwei-law.com/articles/index_cn.html)
+- [English article library](https://www.jingwei-law.com/articles/index_en.html)
+
+## Hong Kong families handling Mainland estates
+
+- [Traditional Chinese topic overview](https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/)
+- [Simplified Chinese topic overview](https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/index_cn.html)
+- [English topic overview](https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/index_en.html)
+- [Preparing Hong Kong death and family records](https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/documents_en.html)
+- [When heirs disagree](https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/dispute_en.html)
+- [Tracing Mainland bank deposits and insurance](https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/bank-deposits_en.html)
+- [Heirs in Hong Kong, Mainland China and overseas](https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/heirs-in-multiple-regions_en.html)
+- [Building a searchable asset clue list](https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/asset-clue-list_en.html)
+- [Preparing a task-specific power of attorney](https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/remote-authorisation-scope_en.html)
+- [Checking a will before using it](https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/will-first-review_en.html)
+- [Tracing property when the certificate is missing](https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/property-certificate-missing_en.html)
+
+## Other cross-border starting points
+
+- [Macau reader handling a Mainland legal matter](https://www.jingwei-law.com/articles/am/macau-client-mainland-lawyer.html)
+- [United States reader instructing a Mainland lawyer](https://www.jingwei-law.com/articles/us/remote-china-lawyer.html)
+- [Overseas Chinese reader arranging remote legal work](https://www.jingwei-law.com/articles/overseas-chinese/remote-entrust-china-lawyer.html)
+
+## Contact and attribution
+
+- Publisher: Liu Yi Lawyer Team / 劉毅律師團隊
+- Main site: https://www.jingwei-law.com/
+- Initial legal Q&A: https://www.jingwei-law.com/ask/gpt/

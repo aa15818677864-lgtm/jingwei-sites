@@ -4,6 +4,7 @@
   const state = {
     range: "day",
     metrics: null,
+    geo: null,
     liveLeads: null,
     relay: null
   };
@@ -17,13 +18,30 @@
     publishedHint: byId("publishedHint"),
     indexedCount: byId("indexedCount"),
     indexedHint: byId("indexedHint"),
-    hkQueueCount: byId("hkQueueCount"),
-    hkQueueHint: byId("hkQueueHint"),
+    topicReadyCount: byId("topicReadyCount"),
+    topicReadyHint: byId("topicReadyHint"),
     articleSource: byId("articleSource"),
     leadSource: byId("leadSource"),
     indexSource: byId("indexSource"),
     lastUpdated: byId("lastUpdated"),
+    geoCoverageBadge: byId("geoCoverageBadge"),
+    geoCrawlerCount: byId("geoCrawlerCount"),
+    geoCrawlerHint: byId("geoCrawlerHint"),
+    geoCitationCount: byId("geoCitationCount"),
+    geoReferralCount: byId("geoReferralCount"),
+    geoBenchmarkCount: byId("geoBenchmarkCount"),
+    geoBenchmarkHint: byId("geoBenchmarkHint"),
+    geoPlatformRows: byId("geoPlatformRows"),
+    geoSourceNote: byId("geoSourceNote"),
+    personaRows: byId("personaRows"),
     topicRows: byId("topicRows"),
+    topicMethod: byId("topicMethod"),
+    candidateLimitBadge: byId("candidateLimitBadge"),
+    recommendationRows: byId("recommendationRows"),
+    recommendationSummary: byId("recommendationSummary"),
+    feedbackRules: byId("feedbackRules"),
+    feedbackSummary: byId("feedbackSummary"),
+    learningLog: byId("learningLog"),
     consultationChart: byId("consultationChart"),
     consultationTrendHint: byId("consultationTrendHint"),
     articleChart: byId("articleChart"),
@@ -52,10 +70,10 @@
   });
 
   const topicMeta = {
-    "hk-inheritance": { label: "香港继承", note: "50 篇补充优先", color: "#a30d23" },
-    singapore: { label: "新加坡", note: "中英双语主线", color: "#19756f" },
-    macau: { label: "澳门", note: "繁体中文主线", color: "#9b6a08" },
-    "united-states": { label: "美国", note: "中英文同步", color: "#1473e6" }
+    "hk-inheritance": { label: "香港继承", note: "家属、文件与内地资产", color: "#a30d23" },
+    singapore: { label: "新加坡", note: "双语文件与远程办理", color: "#19756f" },
+    macau: { label: "澳门", note: "家庭资产与企业纠纷", color: "#9b6a08" },
+    "united-states": { label: "美国", note: "跨时区委托与争议", color: "#1473e6" }
   };
 
   const depthLabels = {
@@ -114,7 +132,10 @@
   }
 
   async function loadData() {
-    state.metrics = await fetchJson(sameOrigin("/dashboard/metrics.json"));
+    [state.metrics, state.geo] = await Promise.all([
+      fetchJson(sameOrigin("/dashboard/metrics.json")),
+      fetchJson(sameOrigin("/dashboard/geo.json"))
+    ]);
 
     const configured = window.SITE_CONFIG?.dashboardMetricsEndpoint || "";
     const relayEndpoint = window.SITE_CONFIG?.googleSheetsEndpoint
@@ -135,6 +156,59 @@
 
   function consultationData() {
     return state.liveLeads?.consultation || state.metrics?.consultation || null;
+  }
+
+  function sumKnown(rows, key) {
+    const values = rows.map((row) => row?.[key]).filter(isFiniteNumber).map(Number);
+    return values.length ? values.reduce((sum, value) => sum + value, 0) : null;
+  }
+
+  function renderGeo() {
+    const geo = state.geo;
+    if (!geo) {
+      nodes.geoCoverageBadge.textContent = "数据未生成";
+      nodes.geoCrawlerHint.textContent = "等待 GEO 技术检查";
+      nodes.geoPlatformRows.innerHTML = '<div class="empty-state geo-empty">没有读取到 GEO 状态</div>';
+      nodes.geoSourceNote.textContent = "引用与引流数据未接通。";
+      return;
+    }
+
+    const platforms = Array.isArray(geo.platforms) ? geo.platforms : [];
+    const eligible = geo.status?.eligiblePlatforms;
+    const total = geo.status?.platformCount;
+    const citations = sumKnown(platforms, "citationCount");
+    const referrals = sumKnown(platforms, "referralSessions");
+    nodes.geoCoverageBadge.textContent = isFiniteNumber(eligible) && isFiniteNumber(total)
+      ? `${eligible}/${total} 搜索通道可用`
+      : "状态未知";
+    nodes.geoCrawlerCount.textContent = isFiniteNumber(eligible) && isFiniteNumber(total) ? `${eligible}/${total}` : "--";
+    nodes.geoCrawlerHint.textContent = "搜索访问与训练访问分别控制";
+    nodes.geoCitationCount.textContent = formatCount(citations);
+    nodes.geoReferralCount.textContent = formatCount(referrals);
+    nodes.geoBenchmarkCount.textContent = formatCount(geo.benchmark?.promptCount);
+    nodes.geoBenchmarkHint.textContent = geo.benchmark?.lastRun
+      ? `最近测试 ${formatTime(geo.benchmark.lastRun)}`
+      : "每周抽样、每月完整测试";
+
+    nodes.geoPlatformRows.innerHTML = platforms.length
+      ? platforms.map((platform) => {
+        const training = platform.trainingAllowed === false
+          ? "训练关闭"
+          : (platform.trainingAllowed === true ? "训练允许" : "另行控制");
+        return `
+          <div class="geo-platform-row">
+            <div><strong>${escapeHtml(platform.name)}</strong><span>${escapeHtml(platform.discoveryBot)}</span></div>
+            <span class="status ${platform.discoveryAllowed ? "" : "is-error"}">${platform.discoveryAllowed ? "搜索抓取已允许" : "搜索抓取受阻"}</span>
+            <span class="geo-training">${escapeHtml(training)}</span>
+            <small>${escapeHtml(platform.measurement || "待接数据源")}</small>
+          </div>`;
+      }).join("")
+      : '<div class="empty-state geo-empty">没有平台配置</div>';
+
+    const missingSources = Object.values(geo.dataSources || {}).filter((value) => value !== "connected").length;
+    nodes.geoSourceNote.textContent = missingSources
+      ? "抓取资格来自站点配置；AI 引用、引流和基准结果仍待接入官方或可核验数据源。"
+      : "GEO 数据源已接通。";
   }
 
   function periodKey(date, range) {
@@ -240,14 +314,11 @@
     nodes.indexedCount.textContent = formatCount(indexed);
     nodes.indexedHint.textContent = isFiniteNumber(indexed) ? "来自 Search Console" : "Search Console 未接通";
 
-    const hkRemaining = state.metrics?.queue?.hkLaunch?.remaining;
-    const hkStatuses = state.metrics?.queue?.hkLaunch?.byStatus || {};
-    const hkDrafted = Object.entries(hkStatuses)
-      .filter(([key]) => key.startsWith("drafted-") || key === "model-written-en" || key === "legal-reviewed" || key === "images-ready" || key === "build-ready")
-      .reduce((total, [, value]) => total + Number(value || 0), 0);
-    const hkPlanned = Number(hkStatuses.planned || 0);
-    nodes.hkQueueCount.textContent = formatCount(hkRemaining);
-    nodes.hkQueueHint.textContent = `${formatCount(hkDrafted)} 篇已起草，${formatCount(hkPlanned)} 篇待写`;
+    const topicSummary = state.metrics?.topicEngine?.summary || {};
+    nodes.topicReadyCount.textContent = formatCount(topicSummary.eligibleCandidates);
+    nodes.topicReadyHint.textContent = isFiniteNumber(topicSummary.eligibleCandidates)
+      ? `${formatCount(topicSummary.registeredCandidates)} 个登记问题中筛出`
+      : "选题引擎尚未生成";
 
     nodes.articleSource.textContent = state.metrics ? "本地页面 + sitemap" : "未读取";
     nodes.leadSource.textContent = consultation
@@ -263,11 +334,37 @@
     nodes.gscPosition.textContent = isFiniteNumber(performance.averagePosition) ? Number(performance.averagePosition).toFixed(1) : "--";
   }
 
+  function renderPersonas() {
+    const rows = state.metrics?.topicEngine?.personas || [];
+    nodes.personaRows.innerHTML = rows.length
+      ? rows.map((row) => `
+        <article class="persona-row">
+          <div class="persona-name">
+            <span>${escapeHtml(row.name)} · ${escapeHtml(row.age)} 岁</span>
+            <strong>${escapeHtml(row.label)}</strong>
+          </div>
+          <p>${escapeHtml(row.situation)}</p>
+          <div class="persona-search">
+            <span>会这样搜</span>
+            <strong>${escapeHtml(row.searchExample)}</strong>
+          </div>
+          <div class="persona-signal">
+            <strong>${formatCount(row.highestScore)}</strong>
+            <span>最高分 · ${formatCount(row.observedQueryMatches)} 次真实匹配</span>
+          </div>
+        </article>`).join("")
+      : '<div class="empty-state persona-empty">人物画像尚未生成</div>';
+  }
+
   function renderTopics() {
-    const allocation = state.metrics?.queue?.dailyCandidateAllocation || {};
+    const engine = state.metrics?.topicEngine || {};
+    const allocation = engine.adaptiveAllocation?.byTopic || {};
     const starter = state.metrics?.queue?.starterBacklog || {};
     const storyCounts = uniqueStoryCounts();
     const topicKeys = ["hk-inheritance", "singapore", "macau", "united-states"];
+
+    nodes.topicMethod.textContent = engine.adaptiveAllocation?.method || "等待人物、搜索和反馈数据。";
+    nodes.candidateLimitBadge.textContent = `${formatCount(engine.adaptiveAllocation?.selected)} / ${formatCount(engine.adaptiveAllocation?.limit)}`;
 
     nodes.topicRows.innerHTML = topicKeys.map((topic) => {
       const meta = topicMeta[topic];
@@ -283,9 +380,43 @@
           <div class="topic-name"><strong>${meta.label}</strong><small>${meta.note}</small></div>
           <div class="progress-track" aria-label="${meta.label}进度"><span style="width:${progress}%"></span></div>
           <div class="topic-value">${published} 已发</div>
-          <div class="topic-status">每日 ${slots} 个</div>
+          <div class="topic-status">本轮 ${slots} 个</div>
         </div>`;
     }).join("");
+  }
+
+  function renderRecommendations() {
+    const engine = state.metrics?.topicEngine || {};
+    const rows = engine.recommendations || [];
+    nodes.recommendationSummary.textContent = `${formatCount(engine.summary?.eligibleCandidates)} 个达到门槛`;
+    nodes.recommendationRows.innerHTML = rows.length
+      ? rows.map((row) => `
+        <tr>
+          <td><strong class="score-value">${formatCount(row.score)}</strong></td>
+          <td>${escapeHtml(row.personaLabel)}</td>
+          <td><span class="query-text">${escapeHtml(row.primaryQuery)}</span></td>
+          <td>${escapeHtml(row.deepIntent)}</td>
+          <td><span class="status is-pending">${escapeHtml(row.action)}</span></td>
+        </tr>`).join("")
+      : '<tr><td colspan="5">本轮没有达到门槛的选题，不为了数量强行扩写。</td></tr>';
+  }
+
+  function renderFeedback() {
+    const engine = state.metrics?.topicEngine || {};
+    const rules = engine.feedbackRules || [];
+    nodes.feedbackSummary.textContent = `${formatCount(engine.summary?.retiredPatterns)} 个已停模式`;
+    nodes.feedbackRules.innerHTML = rules.length
+      ? rules.map((row) => `
+        <div class="feedback-row">
+          <strong>${escapeHtml(row.window)}</strong>
+          <p>${escapeHtml(row.action)}</p>
+        </div>`).join("")
+      : '<div class="empty-state">反馈规则尚未生成</div>';
+
+    const learning = engine.learningLog || [];
+    nodes.learningLog.innerHTML = learning.length
+      ? learning.map((row) => `<li>${escapeHtml(row)}</li>`).join("")
+      : '<li>等待 Search Console 和咨询数据。</li>';
   }
 
   function renderTrends() {
@@ -389,7 +520,11 @@
 
   function render() {
     renderMetrics();
+    renderGeo();
+    renderPersonas();
     renderTopics();
+    renderRecommendations();
+    renderFeedback();
     renderTrends();
     renderQueue();
     renderLeadChain();

@@ -1,0 +1,91 @@
+{
+  "generatedAt": "2026-07-23T03:41:37+00:00",
+  "status": {
+    "eligiblePlatforms": 5,
+    "platformCount": 5,
+    "articleStories": 30,
+    "languagePages": 84,
+    "sitemap": "connected",
+    "indexNow": "key-ready"
+  },
+  "platforms": [
+    {
+      "id": "google",
+      "name": "Google AI / Gemini",
+      "discoveryBot": "Googlebot",
+      "discoveryAllowed": true,
+      "trainingBot": "Google-Extended",
+      "trainingAllowed": false,
+      "measurement": "Search Console",
+      "citationCount": null,
+      "referralSessions": null
+    },
+    {
+      "id": "chatgpt",
+      "name": "ChatGPT Search",
+      "discoveryBot": "OAI-SearchBot",
+      "discoveryAllowed": true,
+      "trainingBot": "GPTBot",
+      "trainingAllowed": false,
+      "measurement": "utm_source=chatgpt.com",
+      "citationCount": null,
+      "referralSessions": null
+    },
+    {
+      "id": "bing",
+      "name": "Bing / Copilot",
+      "discoveryBot": "Bingbot",
+      "discoveryAllowed": true,
+      "trainingBot": "separate Microsoft controls",
+      "trainingAllowed": null,
+      "measurement": "Bing Webmaster AI Performance",
+      "citationCount": null,
+      "referralSessions": null
+    },
+    {
+      "id": "perplexity",
+      "name": "Perplexity",
+      "discoveryBot": "PerplexityBot",
+      "discoveryAllowed": true,
+      "trainingBot": "not used by PerplexityBot",
+      "trainingAllowed": null,
+      "measurement": "referral + verified crawler logs",
+      "citationCount": null,
+      "referralSessions": null
+    },
+    {
+      "id": "claude",
+      "name": "Claude Search",
+      "discoveryBot": "Claude-SearchBot",
+      "discoveryAllowed": true,
+      "trainingBot": "ClaudeBot",
+      "trainingAllowed": false,
+      "measurement": "referral + crawler logs",
+      "citationCount": null,
+      "referralSessions": null
+    }
+  ],
+  "dataSources": {
+    "serverCrawlerLogs": "not-connected",
+    "aiReferralAnalytics": "not-connected",
+    "bingAiPerformance": "not-connected",
+    "promptBenchmark": "not-run"
+  },
+  "benchmark": {
+    "promptCount": 60,
+    "languages": [
+      "zh-Hant",
+      "zh-Hans",
+      "en"
+    ],
+    "cadence": "weekly sample / monthly full run",
+    "lastRun": null,
+    "mentionRate": null,
+    "citationRate": null
+  },
+  "notes": [
+    "Crawler access is read from robots.txt.",
+    "Citation and referral values remain blank until an official source is connected.",
+    "Search access and model-training access are configured separately."
+  ]
+}

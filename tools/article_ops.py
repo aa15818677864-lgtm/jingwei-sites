@@ -19,6 +19,7 @@ DRAFTS_ROOT = ROOT / "content-drafts"
 QUEUE_PATH = ROOT / "ARTICLE_OPERATIONS_QUEUE.json"
 METRICS_PATH = ROOT / "dashboard" / "metrics.json"
 SEARCH_CONSOLE_PATH = ROOT / "dashboard" / "search-console.json"
+TOPIC_ENGINE_PATH = ROOT / "dashboard" / "topic-engine.json"
 CONSULTATIONS_PATH = ROOT / "dashboard" / "consultations.json"
 RELAY_STATUS_PATH = ROOT / "dashboard" / "lead-relay.json"
 SITEMAP_PATH = ROOT / "sitemap.xml"
@@ -88,7 +89,7 @@ def topic_from_path(path: str) -> str:
 def is_article_content_path(path: str) -> bool:
     if not path.startswith("/articles/"):
         return False
-    if path in {"/articles/", "/articles/index_cn.html", "/articles/index_en.html"}:
+    if path == "/articles/" or re.search(r"(^|/)index(?:_cn|_en)?\.html$", path):
         return False
     return path.endswith(".html") or path.endswith("/")
 
@@ -114,7 +115,7 @@ def local_article_inventory() -> list[dict]:
     rows = []
     for file_path in sorted(ARTICLES_ROOT.rglob("*.html")):
         relative = file_path.relative_to(ROOT).as_posix()
-        if relative in {"articles/index.html", "articles/index_cn.html", "articles/index_en.html"}:
+        if re.search(r"(^|/)index(?:_cn|_en)?\.html$", relative):
             continue
 
         text = file_path.read_text(encoding="utf-8", errors="ignore")
@@ -235,7 +236,7 @@ def fetch_json(url: str) -> dict | None:
     if not url:
         return None
     try:
-        request = urllib.request.Request(url, headers={"User-Agent": "JingweiArticleOps/1.0"})
+        request = urllib.request.Request(url, headers={"User-Agent": "LiuYiArticleOps/1.0"})
         with urllib.request.urlopen(request, timeout=15) as response:
             payload = json.loads(response.read().decode("utf-8"))
         return payload if isinstance(payload, dict) else None
@@ -261,6 +262,13 @@ def build_metrics() -> dict:
     inventory = local_article_inventory()
     drafts = discover_drafts()
     queue = queue_metrics()
+    topic_engine = read_json(TOPIC_ENGINE_PATH, {})
+    adaptive_allocation = topic_engine.get("adaptiveAllocation", {}) if isinstance(topic_engine, dict) else {}
+    if adaptive_allocation:
+        queue["dailyCandidateAllocation"] = {
+            "total": adaptive_allocation.get("selected", 0),
+            **adaptive_allocation.get("byTopic", {}),
+        }
     gsc, performance = search_console_lookup()
     consultation, consultation_source, consultation_payload = consultation_metrics()
     relay_status = read_json(RELAY_STATUS_PATH, {})
@@ -305,6 +313,7 @@ def build_metrics() -> dict:
             "sitemap": "sitemap.xml",
             "searchConsole": "dashboard/search-console.json" if gsc_connected else "not-connected",
             "searchConsolePerformance": "dashboard/search-console.json" if performance else "not-connected",
+            "topicEngine": "dashboard/topic-engine.json" if topic_engine else "not-generated",
             "consultations": consultation_source,
             "leadRelay": "online" if relay_online else "unknown",
             "emailMode": consultation_payload.get("mail_mode") or relay_status.get("mail_mode", "not-reported"),
@@ -322,6 +331,7 @@ def build_metrics() -> dict:
         },
         "drafts": {"total": len(drafts), "ready": len(ready), "items": drafts},
         "queue": queue,
+        "topicEngine": topic_engine,
         "indexed": {
             "count": indexed_count if gsc_connected else None,
             "pending": max(0, len(indexable) - indexed_count) if gsc_connected else None,
