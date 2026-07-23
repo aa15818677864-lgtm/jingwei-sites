@@ -108,6 +108,21 @@ class ArticleIntegrityTests(unittest.TestCase):
         self.assertNotIn("静为", public_text)
         self.assertNotRegex(public_text, r"中华人民共和国|中華人民共和國|gov\.cn")
 
+    def test_dashboard_keeps_daily_operations_simple(self) -> None:
+        dashboard = (ROOT / "dashboard" / "index.html").read_text(encoding="utf-8")
+        script = (ROOT / "dashboard" / "script.js").read_text(encoding="utf-8")
+        for required in ("运营概览", "已发布文章", "已确认收录", "待发布", "最近变化", "下一步", "文章状态", "详细数据"):
+            self.assertIn(required, dashboard)
+        for removed in ("四个固定客户角色", "动态选题分配", "本轮推荐选题", "收录反馈规则", "系统本轮学到什么", "咨询链路", "发布门槛"):
+            self.assertNotIn(removed, dashboard)
+        for required_id in ("activityChart", "queueRows", "articleRows", "topicDetail", "geoDetail", "sourceDetail"):
+            self.assertIn(f'id="{required_id}"', dashboard)
+            self.assertIn(f'byId("{required_id}")', script)
+        self.assertIn('data-range="day"', dashboard)
+        self.assertIn('data-range="month"', dashboard)
+        self.assertIn('data-filter="unknown"', dashboard)
+        self.assertIn('data-filter="issues"', dashboard)
+
     def test_article_indexes_keep_restored_design_and_human_copy(self) -> None:
         traditional = (ARTICLES / "index.html").read_text(encoding="utf-8")
         simplified = (ARTICLES / "index_cn.html").read_text(encoding="utf-8")

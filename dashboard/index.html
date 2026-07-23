@@ -4,26 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex,nofollow">
-  <title>文章与咨询仪表盘 | 刘毅律师团队</title>
-  <link rel="stylesheet" href="style.css?v=20260723-geo-v1">
+  <title>运营概览 | 刘毅律师团队</title>
+  <link rel="stylesheet" href="style.css?v=20260723-simple-v1">
   <script src="/site-config.js" defer></script>
-  <script src="script.js?v=20260723-geo-v1" defer></script>
+  <script src="script.js?v=20260723-simple-v1" defer></script>
 </head>
 <body>
   <main class="dashboard-shell">
-    <header class="dashboard-header">
+    <header class="topbar">
       <div>
-        <p class="eyebrow">Liu Yi Lawyer Team · Content Operations</p>
-        <h1>文章与咨询</h1>
-        <p class="header-note">只显示有来源的数据；未接通的指标保持空白。</p>
+        <p class="eyebrow">刘毅律师团队 · Liu Yi Lawyer Team</p>
+        <h1>运营概览</h1>
+        <p id="freshness" class="header-note">正在读取网站数据</p>
       </div>
-      <div class="range-switch" aria-label="统计范围">
-        <button class="is-active" type="button" data-range="day" aria-pressed="true">日</button>
-        <button type="button" data-range="month" aria-pressed="false">月</button>
+      <div class="top-actions">
+        <a class="text-link" href="/articles/">查看文章</a>
+        <div class="segmented-control" aria-label="统计范围">
+          <button class="is-active" type="button" data-range="day" aria-pressed="true">日</button>
+          <button type="button" data-range="month" aria-pressed="false">月</button>
+        </div>
       </div>
     </header>
 
-    <section class="metric-grid" aria-label="核心指标">
+    <section class="metric-grid" aria-label="关键指标">
       <article class="metric-card">
         <span id="consultationLabel">今日咨询</span>
         <strong id="consultationCount">--</strong>
@@ -32,202 +35,101 @@
       <article class="metric-card">
         <span>已发布文章</span>
         <strong id="publishedCount">--</strong>
-        <small id="publishedHint">按三语去重</small>
+        <small id="publishedHint">按三种语言去重</small>
       </article>
       <article class="metric-card">
-        <span>已收录文章</span>
+        <span>已确认收录</span>
         <strong id="indexedCount">--</strong>
         <small id="indexedHint">等待 Search Console</small>
       </article>
       <article class="metric-card">
-        <span>本轮可写选题</span>
-        <strong id="topicReadyCount">--</strong>
-        <small id="topicReadyHint">按四个客户角色动态筛选</small>
+        <span>待发布</span>
+        <strong id="pendingCount">--</strong>
+        <small id="pendingHint">当前写作队列</small>
       </article>
     </section>
 
-    <section class="source-strip" aria-label="数据源状态">
-      <div><span>文章</span><strong id="articleSource">检查中</strong></div>
-      <div><span>咨询</span><strong id="leadSource">检查中</strong></div>
-      <div><span>收录</span><strong id="indexSource">检查中</strong></div>
-      <div><span>刷新</span><strong id="lastUpdated">--</strong></div>
-    </section>
+    <div class="status-line" aria-live="polite">
+      <span id="sourceSummary">正在核对数据来源</span>
+      <span id="lastUpdated">--</span>
+    </div>
 
-    <section class="section-block" aria-labelledby="geo-title">
-      <div class="section-head">
-        <div>
-          <h2 id="geo-title">GEO 与 AI 搜索可见性</h2>
-          <p>区分搜索抓取、模型训练和实际引用；没有官方数据时保持空白。</p>
-        </div>
-        <span id="geoCoverageBadge" class="quiet-badge">检查中</span>
-      </div>
-      <div class="geo-summary-grid" aria-label="GEO 核心指标">
-        <div class="geo-metric">
-          <span>搜索抓取通道</span>
-          <strong id="geoCrawlerCount">--</strong>
-          <small id="geoCrawlerHint">正在读取 robots.txt 配置</small>
-        </div>
-        <div class="geo-metric">
-          <span>AI 引用</span>
-          <strong id="geoCitationCount">--</strong>
-          <small>接入平台或分析数据后显示</small>
-        </div>
-        <div class="geo-metric">
-          <span>AI 引流会话</span>
-          <strong id="geoReferralCount">--</strong>
-          <small>接入站点分析后显示</small>
-        </div>
-        <div class="geo-metric">
-          <span>基准问题库</span>
-          <strong id="geoBenchmarkCount">--</strong>
-          <small id="geoBenchmarkHint">尚未首轮测试</small>
-        </div>
-      </div>
-      <div id="geoPlatformRows" class="geo-platform-grid" aria-live="polite"></div>
-      <p id="geoSourceNote" class="geo-source-note">正在核对数据源。</p>
-    </section>
-
-    <section class="section-block" aria-labelledby="persona-title">
-      <div class="section-head">
-        <div>
-          <h2 id="persona-title">四个固定客户角色</h2>
-          <p>先站在客户当下的处境里模拟搜索，再判断是否值得写。</p>
-        </div>
-        <span class="quiet-badge">长期保持</span>
-      </div>
-      <div id="personaRows" class="persona-grid" aria-live="polite"></div>
-    </section>
-
-    <section class="section-block" aria-labelledby="topic-title">
-      <div class="section-head">
-        <div>
-          <h2 id="topic-title">动态选题分配</h2>
-          <p id="topicMethod">按人物匹配、真实搜索、页面表现和咨询信号计算。</p>
-        </div>
-        <span id="candidateLimitBadge" class="quiet-badge">-- / 30</span>
-      </div>
-      <div id="topicRows" class="topic-rows" aria-live="polite"></div>
-    </section>
-
-    <section class="section-block" aria-labelledby="recommendation-title">
-      <div class="section-head">
-        <div>
-          <h2 id="recommendation-title">本轮推荐选题</h2>
-          <p>搜索问题必须自然、场景独立，并达到资料门槛。</p>
-        </div>
-        <span id="recommendationSummary" class="quiet-badge">--</span>
-      </div>
-      <div class="table-wrap">
-        <table class="decision-table">
-          <thead><tr><th>评分</th><th>客户角色</th><th>会怎么搜</th><th>真正担心</th><th>动作</th></tr></thead>
-          <tbody id="recommendationRows"><tr><td colspan="5">读取中</td></tr></tbody>
-        </table>
-      </div>
-    </section>
-
-    <section class="trend-grid" aria-label="选题反馈机制">
-      <article class="section-block">
-        <div class="section-head">
+    <section class="work-grid">
+      <section class="panel" aria-labelledby="activity-title">
+        <div class="panel-head">
           <div>
-            <h2>收录反馈规则</h2>
-            <p>短期观察，中期只补强一次，长期无信号才停止同类选题。</p>
+            <h2 id="activity-title">最近变化</h2>
+            <p id="trendHint">正在读取文章与咨询记录</p>
           </div>
-          <span id="feedbackSummary" class="quiet-badge">--</span>
-        </div>
-        <div id="feedbackRules" class="feedback-rules"></div>
-      </article>
-      <article class="section-block">
-        <div class="section-head">
-          <div>
-            <h2>系统本轮学到什么</h2>
-            <p>只记录可验证的搜索、收录和咨询信号。</p>
+          <div class="chart-legend" aria-label="图表图例">
+            <span><i class="article-key"></i>文章</span>
+            <span><i class="consultation-key"></i>咨询</span>
           </div>
         </div>
-        <ul id="learningLog" class="plain-list"></ul>
-      </article>
-    </section>
+        <div id="activityChart" class="activity-chart" aria-label="文章发布与咨询趋势"></div>
+      </section>
 
-    <section class="trend-grid" aria-label="趋势">
-      <article class="section-block">
-        <div class="section-head">
+      <section class="panel" aria-labelledby="queue-title">
+        <div class="panel-head">
           <div>
-            <h2>咨询趋势</h2>
-            <p id="consultationTrendHint">等待真实咨询统计</p>
+            <h2 id="queue-title">下一步</h2>
+            <p id="queueSummary">正在读取写作队列</p>
           </div>
         </div>
-        <div id="consultationChart" class="mini-chart" aria-label="咨询趋势图"></div>
-      </article>
-      <article class="section-block">
-        <div class="section-head">
-          <div>
-            <h2>文章更新</h2>
-            <p id="articleTrendHint">来自页面与 sitemap</p>
-          </div>
-        </div>
-        <div id="articleChart" class="mini-chart" aria-label="文章更新时间图"></div>
-      </article>
+        <div id="queueRows" class="queue-list" aria-live="polite"></div>
+        <p id="candidateNote" class="panel-note"></p>
+      </section>
     </section>
 
-    <section class="source-strip seo-strip" aria-label="Search Console 近三个月表现">
-      <div><span>点击</span><strong id="gscClicks">--</strong></div>
-      <div><span>展示</span><strong id="gscImpressions">--</strong></div>
-      <div><span>点击率</span><strong id="gscCtr">--</strong></div>
-      <div><span>平均排名</span><strong id="gscPosition">--</strong></div>
-    </section>
-
-    <section class="section-block" aria-labelledby="queue-title">
-      <div class="section-head">
+    <section class="panel article-panel" aria-labelledby="article-title">
+      <div class="panel-head article-head">
         <div>
-          <h2 id="queue-title">现有写作队列</h2>
-          <p>这里显示已经进入生产流程的文章，不等同于每天强制发布量。</p>
+          <h2 id="article-title">文章状态</h2>
+          <p id="articleSummary">正在读取文章明细</p>
         </div>
-        <span id="queueSummary" class="quiet-badge">--</span>
+        <div class="filter-control" aria-label="文章状态筛选">
+          <button class="is-active" type="button" data-filter="all" aria-pressed="true">全部</button>
+          <button type="button" data-filter="indexed" aria-pressed="false">已收录</button>
+          <button type="button" data-filter="unknown" aria-pressed="false">待确认</button>
+          <button type="button" data-filter="issues" aria-pressed="false">有问题</button>
+        </div>
       </div>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>顺序</th><th>选题</th><th>用户问题</th><th>深度</th><th>状态</th></tr></thead>
-          <tbody id="queueRows"><tr><td colspan="5">读取中</td></tr></tbody>
+          <thead>
+            <tr><th>文章</th><th>专题</th><th>最后更新</th><th>技术状态</th><th>收录</th></tr>
+          </thead>
+          <tbody id="articleRows"><tr><td colspan="5">读取中</td></tr></tbody>
         </table>
       </div>
     </section>
 
-    <section class="trend-grid">
-      <article class="section-block">
-        <div class="section-head">
-          <div>
-            <h2>咨询链路</h2>
-            <p>文章来源会跟随电话线索进入统计。</p>
-          </div>
-        </div>
-        <ol id="leadChain" class="flow-list"></ol>
-        <div id="leadBreakdown" class="breakdown-list"></div>
-      </article>
-      <article class="section-block">
-        <div class="section-head">
-          <div>
-            <h2>发布门槛</h2>
-            <p>不为了数量牺牲可读性和真实性。</p>
-          </div>
-        </div>
-        <ul id="policyList" class="plain-list"></ul>
-      </article>
-    </section>
-
-    <section class="section-block" aria-labelledby="article-table-title">
-      <div class="section-head">
-        <div>
-          <h2 id="article-table-title">文章页面检查</h2>
-          <p>索引权限、sitemap 与 Search Console 分开显示，不用 0 冒充未知。</p>
-        </div>
-        <span id="articleAuditSummary" class="quiet-badge">--</span>
+    <details class="details-panel">
+      <summary>详细数据</summary>
+      <div class="details-grid">
+        <section>
+          <h2>搜索表现</h2>
+          <dl>
+            <div><dt>点击</dt><dd id="gscClicks">--</dd></div>
+            <div><dt>展示</dt><dd id="gscImpressions">--</dd></div>
+            <div><dt>点击率</dt><dd id="gscCtr">--</dd></div>
+            <div><dt>平均排名</dt><dd id="gscPosition">--</dd></div>
+          </dl>
+        </section>
+        <section>
+          <h2>选题储备</h2>
+          <p id="topicDetail">--</p>
+        </section>
+        <section>
+          <h2>AI 搜索基础</h2>
+          <p id="geoDetail">--</p>
+        </section>
+        <section>
+          <h2>数据来源</h2>
+          <p id="sourceDetail">--</p>
+        </section>
       </div>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>页面</th><th>专题</th><th>语言</th><th>最后更新</th><th>SEO 状态</th><th>收录</th></tr></thead>
-          <tbody id="articleRows"><tr><td colspan="6">读取中</td></tr></tbody>
-        </table>
-      </div>
-    </section>
+    </details>
   </main>
 </body>
 </html>
