@@ -21,11 +21,18 @@ const protectedPages = [
 ];
 
 const seoPages = [
-  { label: "文章库", path: "/articles/", mustContain: "跨境中国法律事务文章库" },
-  { label: "香港继承文章", path: "/articles/hk-mainland-property-inheritance/", mustContain: "香港居民继承内地房产过户" },
-  { label: "香港继承文件文章", path: "/articles/hk-mainland-property-inheritance/documents.html", mustContain: "香港死亡证明" },
-  { label: "香港继承争议文章", path: "/articles/hk-mainland-property-inheritance/dispute.html", mustContain: "继承人不配合" },
-  { label: "香港继承税费文章", path: "/articles/hk-mainland-property-inheritance/tax-cost.html", mustContain: "税费、周期和费用" },
+  { label: "文章库", path: "/articles/", mustContain: 'rel="canonical" href="https://www.jingwei-law.com/articles/"' },
+  { label: "香港继承专题", path: "/articles/hk-mainland-property-inheritance/", mustContain: 'rel="canonical" href="https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/"' },
+  { label: "香港继承文件文章", path: "/articles/hk-mainland-property-inheritance/documents.html", mustContain: 'rel="canonical" href="https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/documents.html"' },
+  { label: "香港继承争议文章", path: "/articles/hk-mainland-property-inheritance/dispute.html", mustContain: 'rel="canonical" href="https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/dispute.html"' },
+  { label: "香港继承税费文章", path: "/articles/hk-mainland-property-inheritance/tax-cost.html", mustContain: 'rel="canonical" href="https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/tax-cost.html"' },
+  { label: "新文章繁体", path: "/articles/hk-mainland-property-inheritance/asset-clue-list.html", mustContain: 'hreflang="zh-Hans"' },
+  { label: "新文章简体", path: "/articles/hk-mainland-property-inheritance/asset-clue-list_cn.html", mustContain: 'lang="zh-Hans"' },
+  { label: "新文章英文", path: "/articles/hk-mainland-property-inheritance/asset-clue-list_en.html", mustContain: 'lang="en"' },
+  { label: "内容仪表盘", path: "/dashboard/", mustContain: "Liu Yi Lawyer Team · Content Operations" },
+  { label: "AI 搜索抓取配置", path: "/robots.txt", mustContain: "User-agent: OAI-SearchBot" },
+  { label: "IndexNow 密钥", path: "/57a8db48b2dd474284fe5961dda07ef0.txt", mustContain: "57a8db48b2dd474284fe5961dda07ef0" },
+  { label: "AI 内容入口", path: "/llms.txt", mustContain: "# Liu Yi Lawyer Team" },
   { label: "香港继承专题表单页", path: "/topics/hk-mainland-property-inheritance/", mustContain: "contactForm" },
   { label: "AI 问答页", path: "/ask/?topic=hk-mainland-property-inheritance&source=verify-live&intent=general", mustContain: "routeAd" },
   { label: "站点地图", path: "/sitemap.xml", mustContain: "/topics/hk-mainland-property-inheritance/" },
