@@ -51,20 +51,20 @@ LOCALES = {
         "subtitle": "跨境中國法律事務",
         "nav_articles": "文章",
         "nav_topic": "香港繼承",
-        "nav_ask": "初步問答",
+        "nav_ask": "說明情況",
         "nav_home": "主站",
         "eyebrow": "文章 / 香港繼承",
-        "key_title": "這篇先回答",
-        "answer_title": "先說結論",
+        "key_title": "你可能正在碰到這些情況",
+        "answer_title": "先把這件事說清楚",
         "updated": "最後更新",
         "directory": "同一專題繼續閱讀",
-        "toc": "文章目錄",
-        "next": "下一步",
-        "cta": "進入專題初步問答",
-        "cta_text": "把家人關係、內地資產、已有文件和目前卡點先說清楚，再判斷應先查資料、安排文件，還是處理家人之間的分歧。",
+        "toc": "這篇文章會說什麼",
+        "next": "需要進一步判斷時",
+        "cta": "說明你的情況",
+        "cta_text": "如果你願意，可以把家人關係、內地資產、手上文件和現在最擔心的事情告訴我們。律師會結合實際資料，再判斷應先查線索、準備文件，還是處理家人之間的分歧。",
         "disclaimer": "文章內容僅作初步信息參考，具體事項需由律師結合材料進一步判斷。",
         "figure_labels": ["情況", "次序", "清單"],
-        "figure_captions": ["先把人物、資產和目前卡點放在同一張圖。", "按實際任務安排先後，不套用單一流程。", "整理諮詢前值得先找齊的資料。"],
+        "figure_captions": ["先把零散的人物和資產線索放在一起看。", "每個家庭的先後次序都可能不同。", "手上有多少資料就先從多少資料開始。"],
         "prep": ["人物關係", "資產線索", "現有文件", "目前卡點"],
     },
     "zh-Hans": {
@@ -75,20 +75,20 @@ LOCALES = {
         "subtitle": "跨境中国法律事务",
         "nav_articles": "文章",
         "nav_topic": "香港继承",
-        "nav_ask": "初步问答",
+        "nav_ask": "说明情况",
         "nav_home": "主站",
         "eyebrow": "文章 / 香港继承",
-        "key_title": "这篇先回答",
-        "answer_title": "先说结论",
+        "key_title": "你可能正在遇到这些情况",
+        "answer_title": "先把这件事说清楚",
         "updated": "最后更新",
         "directory": "同一专题继续阅读",
-        "toc": "文章目录",
-        "next": "下一步",
-        "cta": "进入专题初步问答",
-        "cta_text": "把家人关系、内地资产、已有文件和目前卡点先说清楚，再判断应先查资料、安排文件，还是处理家人之间的分歧。",
+        "toc": "这篇文章会说什么",
+        "next": "需要进一步判断时",
+        "cta": "说明你的情况",
+        "cta_text": "如果你愿意，可以把家人关系、内地资产、手上文件和现在最担心的事情告诉我们。律师会结合实际资料，再判断应先查线索、准备文件，还是处理家人之间的分歧。",
         "disclaimer": "文章内容仅作初步信息参考，具体事项需由律师结合材料进一步判断。",
         "figure_labels": ["情况", "次序", "清单"],
-        "figure_captions": ["先把人物、资产和目前卡点放在同一张图。", "按实际任务安排先后，不套用单一流程。", "整理咨询前值得先找齐的资料。"],
+        "figure_captions": ["先把零散的人物和资产线索放在一起看。", "每个家庭的先后顺序都可能不同。", "手上有多少资料就先从多少资料开始。"],
         "prep": ["人物关系", "资产线索", "现有文件", "目前卡点"],
     },
     "en": {
@@ -99,20 +99,20 @@ LOCALES = {
         "subtitle": "Cross-border Mainland China legal matters",
         "nav_articles": "Articles",
         "nav_topic": "Hong Kong inheritance",
-        "nav_ask": "Initial Q&A",
+        "nav_ask": "Describe your situation",
         "nav_home": "Main site",
         "eyebrow": "Articles / Hong Kong inheritance",
-        "key_title": "What this article answers",
-        "answer_title": "The short answer",
+        "key_title": "This may be close to what your family is facing",
+        "answer_title": "Start with the situation itself",
         "updated": "Last updated",
         "directory": "Continue with this topic",
-        "toc": "Contents",
-        "next": "Next step",
-        "cta": "Start the initial Q&A",
-        "cta_text": "Set out the family relationships, known Mainland assets, available records and the immediate obstacle. That makes it easier to decide whether the next task is a search, document preparation or dispute work.",
+        "toc": "What this article covers",
+        "next": "When you need a closer look",
+        "cta": "Tell us what happened",
+        "cta_text": "You can tell us who is involved, what Mainland assets are known, which records are available and what is worrying the family now. A lawyer can then look at the actual material and decide whether the first task is tracing assets, preparing documents or addressing a disagreement.",
         "disclaimer": "This article provides general information only. A lawyer must review the actual records and circumstances before advising on a particular matter.",
         "figure_labels": ["Situation", "Sequence", "Checklist"],
-        "figure_captions": ["Put the people, assets and immediate obstacle in one view.", "Sequence the work around the actual task rather than a single template.", "Collect the records that will make an initial review more useful."],
+        "figure_captions": ["Bring the scattered family and asset clues into one view.", "The right order will depend on the family's actual circumstances.", "Start with the records the family already has."],
         "prep": ["Family", "Assets", "Records", "Obstacle"],
     },
 }
@@ -193,11 +193,10 @@ def parse_markdown(text: str) -> Article:
     return Article(title=title, intro=intro, sections=sections)
 
 
-def first_sentence(text: str, limit: int) -> str:
-    sentence = re.split(r"(?<=[。！？.!?])\s*", text.strip())[0]
-    if len(sentence) <= limit:
-        return sentence
-    return sentence[: limit - 1].rstrip("，,；;: ") + "…"
+def first_sentence(text: str) -> str:
+    match = re.match(r".*?[。！？.!?](?:[」』”’\"'])?", text.strip())
+    sentence = match.group(0) if match else text.strip()
+    return sentence
 
 
 def slug_id(value: str, index: int) -> str:
@@ -548,16 +547,54 @@ def build_pages(run_date: str) -> None:
                 write(image_dir / f"0{variant}-{name}{suffix}.svg", visual_svg(article, locale, variant))
 
 
+CARD_GROUPS = {
+    "first-call-family-facts": "start",
+    "asset-clue-list": "start",
+    "family-tree-before-inheritance": "family",
+    "hong-kong-death-certificate-details": "records",
+    "family-relationship-evidence": "records",
+    "inheritance-without-will": "family",
+    "will-first-review": "will",
+    "executor-role-boundary": "will",
+    "heirs-in-multiple-regions": "family",
+    "unreachable-heir": "family",
+    "heir-refuses-to-sign": "dispute",
+    "renounce-inheritance": "decision",
+    "remote-authorisation-scope": "authorisation",
+    "document-route-by-purpose": "records",
+    "name-mismatch-across-records": "records",
+    "old-address-and-id-records": "records",
+    "property-transfer-checklist": "property",
+    "mortgaged-property": "property",
+    "co-owned-property-share": "property",
+    "property-certificate-missing": "property",
+}
+
+CARD_LABELS = {
+    "zh-Hant": {"start": "起步", "family": "家人", "records": "文件", "will": "遺囑", "dispute": "分歧", "decision": "決定", "authorisation": "授權", "property": "房產"},
+    "zh-Hans": {"start": "起步", "family": "家人", "records": "文件", "will": "遗嘱", "dispute": "分歧", "decision": "决定", "authorisation": "授权", "property": "房产"},
+    "en": {"start": "Getting started", "family": "Family", "records": "Records", "will": "Wills", "dispute": "Disagreement", "decision": "Decision", "authorisation": "Authority", "property": "Property"},
+}
+
+
 def generated_cards(locale: str) -> str:
-    tag = {"zh-Hant": "新文章", "zh-Hans": "新文章", "en": "New"}[locale]
     rows = []
     for slug in SLUGS:
         article = article_for(slug, locale)
-        summary = first_sentence(article.intro[0], 70 if locale != "en" else 112)
-        rows.append(
-            f'        <a href="{page_path(slug, locale)}"><span>{tag}</span><strong>{html.escape(article.title)}</strong>'
-            f'<small>{html.escape(summary)}</small></a>'
-        )
+        summary = first_sentence(article.intro[0])
+        label = CARD_LABELS[locale][CARD_GROUPS[slug]]
+        if locale == "zh-Hant":
+            rows.append(
+                f'        <a href="{page_path(slug, locale)}"><span class="v24-tag">{label}</span>'
+                f'<strong>{html.escape(article.title)}</strong><p>{html.escape(summary)}</p></a>'
+            )
+        else:
+            tone = "v25-card-label-red" if CARD_GROUPS[slug] in {"records", "property", "dispute"} else "v25-card-label-teal"
+            rows.append(
+                f'          <a class="v25-article-card" href="{page_path(slug, locale)}">'
+                f'<span class="v25-card-label {tone}">{label}</span><h3>{html.escape(article.title)}</h3>'
+                f'<p>{html.escape(summary)}</p></a>'
+            )
     return "\n".join(rows)
 
 
@@ -573,33 +610,19 @@ def replace_marker(text: str, start: str, end: str, content: str, insertion_patt
 
 def patch_article_indexes() -> None:
     settings = {
-        "zh-Hant": (
-            ROOT / "articles" / "index.html",
-            r'(<a href="#hong-kong"><strong>香港繼承</strong><span>)\d+ 篇已發佈',
-            r'\g<1>28 篇已發佈',
-        ),
-        "zh-Hans": (
-            ROOT / "articles" / "index_cn.html",
-            r'(<a href="#hong-kong"><strong>香港继承</strong><span>)\d+ 篇已发布',
-            r'\g<1>28 篇已发布',
-        ),
-        "en": (
-            ROOT / "articles" / "index_en.html",
-            r'(<a href="#hong-kong"><strong>Hong Kong inheritance</strong><span>)\d+ articles',
-            r'\g<1>28 articles',
-        ),
+        "zh-Hant": ROOT / "articles" / "index.html",
+        "zh-Hans": ROOT / "articles" / "index_cn.html",
+        "en": ROOT / "articles" / "index_en.html",
     }
-    for locale, (path, count_pattern, count_replacement) in settings.items():
-        text, count = re.subn(count_pattern, count_replacement, read(path), count=1)
-        if count != 1:
-            raise ValueError(f"Could not update Hong Kong article count in {path}")
+    for locale, path in settings.items():
+        text = read(path)
         cards = generated_cards(locale)
         text = replace_marker(
             text,
             "        <!-- HK_LAUNCH_20_START -->",
             "        <!-- HK_LAUNCH_20_END -->",
             cards,
-            r'(?P<one>\s*</div>\s*</section>\s*<section id="macau")',
+            r'(?P<one>\s*</body>)',
         )
         write(path, text)
 

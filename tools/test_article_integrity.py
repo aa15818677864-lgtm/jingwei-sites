@@ -96,17 +96,68 @@ class ArticleIntegrityTests(unittest.TestCase):
 
     def test_public_brand_and_article_count(self) -> None:
         indexes = [ARTICLES / "index.html", ARTICLES / "index_cn.html", ARTICLES / "index_en.html"]
-        expected = ["28 篇已發佈", "28 篇已发布", "28 articles"]
-        for path, label in zip(indexes, expected):
+        for path in indexes:
             text = path.read_text(encoding="utf-8")
-            self.assertIn(label, text)
             self.assertNotIn("228", text)
+            for slug in NEW_SLUGS:
+                self.assertIn(f"/{slug}", text, f"{slug} missing from {path.name}")
         dashboard = (ROOT / "dashboard" / "index.html").read_text(encoding="utf-8")
         self.assertIn("Liu Yi Lawyer Team", dashboard)
         self.assertNotIn("Jingwei Content Operations", dashboard)
         public_text = dashboard + "\n" + "\n".join(path.read_text(encoding="utf-8") for path in html_files())
         self.assertNotIn("静为", public_text)
         self.assertNotRegex(public_text, r"中华人民共和国|中華人民共和國|gov\.cn")
+
+    def test_article_indexes_keep_restored_design_and_human_copy(self) -> None:
+        traditional = (ARTICLES / "index.html").read_text(encoding="utf-8")
+        simplified = (ARTICLES / "index_cn.html").read_text(encoding="utf-8")
+        english = (ARTICLES / "index_en.html").read_text(encoding="utf-8")
+        self.assertIn('class="articles-index-v24"', traditional)
+        self.assertIn('class="articles-index-v25"', simplified)
+        self.assertIn('class="articles-index-v25 articles-index-en"', english)
+        combined = "\n".join((traditional, simplified, english))
+        for rejected in (
+            "articles-hub-v26",
+            "先按自己的情況找文章",
+            "先找到你现在卡住的是哪一类继承问题",
+            "新文章",
+            "Suggested Order",
+            "What This Group Helps You Clarify",
+            "Organise Facts",
+        ):
+            self.assertNotIn(rejected, combined)
+
+    def test_launch_twenty_do_not_use_old_batch_template_labels(self) -> None:
+        topic = ARTICLES / "hk-mainland-property-inheritance"
+        rejected = (
+            "這篇先回答",
+            "这篇先回答",
+            "先說結論",
+            "先说结论",
+            "進入專題初步問答",
+            "进入专题初步问答",
+            "Initial Q&A",
+        )
+        for slug in NEW_SLUGS:
+            for suffix in ("", "_cn", "_en"):
+                path = topic / f"{slug}{suffix}.html"
+                text = path.read_text(encoding="utf-8")
+                for phrase in rejected:
+                    self.assertNotIn(phrase, text, f"{phrase} in {path.relative_to(ROOT)}")
+
+    def test_hong_kong_articles_do_not_show_internal_ai_labels(self) -> None:
+        topic = ARTICLES / "hk-mainland-property-inheritance"
+        rejected = (
+            "初步問答",
+            "初步问答",
+            "AI 初步",
+            "Organise Facts",
+            "Initial Q&A",
+        )
+        for path in topic.glob("*.html"):
+            text = path.read_text(encoding="utf-8")
+            for phrase in rejected:
+                self.assertNotIn(phrase, text, f"{phrase} in {path.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":
