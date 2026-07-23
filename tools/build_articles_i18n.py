@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import re
+from datetime import date
 from html import escape
 from pathlib import Path
 
@@ -9,9 +10,9 @@ from opencc import OpenCC
 
 
 ROOT = Path(__file__).resolve().parents[1]
-TODAY = "2026-07-03"
+TODAY = date.today().isoformat()
 BASE = "https://www.jingwei-law.com"
-IMAGE = f"{BASE}/articles/articles-index-v24-bg.webp"
+IMAGE = f"{BASE}/articles/article-library-desk-v26.jpg"
 cc = OpenCC("s2hk")
 cc_simplified = OpenCC("hk2s")
 
@@ -46,13 +47,28 @@ def remove_i18n_bits(html: str) -> str:
 
 
 def normalize_reading_meta(html: str, text: str) -> str:
-    return re.sub(
+    html = re.sub(
         r'<div class="reading-meta">.*?</div>',
         f'<div class="reading-meta">{text}</div>',
         html,
         count=1,
         flags=re.S,
     )
+    html = re.sub(
+        r'<p class="article-last-updated">.*?</p>',
+        f'<p class="article-last-updated"><time datetime="{TODAY}">{text}</time></p>',
+        html,
+        count=1,
+        flags=re.S,
+    )
+    html = re.sub(
+        r'(<div class="meta">\s*<span>)(?:發佈|发布|最後更新|最后更新|Published|Last updated)[^<]*(</span>)',
+        rf'\1{text}\2',
+        html,
+        count=1,
+        flags=re.S,
+    )
+    return html
 
 
 def cn_from_zh_path(zh_path: str) -> str:
@@ -214,7 +230,7 @@ def head_common(
   <meta name="twitter:image" content="{IMAGE}">
   <link rel="canonical" href="{url(canonical_path)}">
 {alternate_links(zh_path, cn_path, en_path)}
-  <link rel="stylesheet" href="{body_extra or '../style.css'}">'''
+  <link rel="stylesheet" href="{body_extra or '../style.css?v=20260722-articles-v27'}">'''
 
 
 def json_ld(obj: object) -> str:
@@ -287,7 +303,7 @@ def render_index_en() -> str:
             },
         ],
     }
-    return f'''{head_common(lang="en", title=title, description=desc, robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1", canonical_path=en_path, zh_path=zh_path, cn_path=cn_path, en_path=en_path, og_type="website", body_extra="style.css?v=20260703-i18n")}
+    return f'''{head_common(lang="en", title=title, description=desc, robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1", canonical_path=en_path, zh_path=zh_path, cn_path=cn_path, en_path=en_path, og_type="website", body_extra="style.css?v=20260722-articles-v27")}
   <script type="application/ld+json">{json_ld(graph)}</script>
 </head>
 <body class="articles-index-v25 articles-index-en">
@@ -414,7 +430,7 @@ MODERN = {
         "title": "A Hong Kong Family Needs to Inherit Mainland Property: Where to Start | Liu Yi Lawyer Team",
         "description": "For Hong Kong families handling Mainland property inheritance: first list the property, heirs, Hong Kong documents and any family disagreement, then decide the next step.",
         "published": "2026-05-21",
-        "reading": "Published: 2026-05-21 · Updated: 2026-07-03 · About 6 minutes",
+        "reading": f"Last updated: {TODAY}",
         "eyebrow": "Article / Hong Kong inheritance / Mainland property",
         "h1": "A Hong Kong family needs to inherit Mainland property: where should they start?",
         "lead": "If a family member left property in the Mainland, Hong Kong heirs usually get stuck on three things first: where the property is, who may inherit, and whether Hong Kong documents can be used. Once those facts are clear, it is easier to decide whether the next step is document preparation, family discussion or property handling.",
@@ -462,7 +478,7 @@ MODERN = {
         ],
         "quick_title": "Quick Check",
         "quick": ["Where is the property and who is the registered owner?", "Are all heirs known and willing to cooperate?", "Do Hong Kong documents need to be used in Mainland procedures?", "Is there a mortgage, seizure, missing certificate or dispute?"],
-        "toc": [("answer", "Practical answer"), ("facts", "Four facts"), ("documents", "Document use"), ("faq", "FAQ")],
+        "toc": [("answer", "Practical answer"), ("facts", "Four facts"), ("faq", "FAQ")],
         "cta_title": "Next Step",
         "cta_text": "Start by organising the property city, registered owner, heir relationships, Hong Kong documents and any disagreement. Then decide whether to prepare documents, authorisation or dispute evidence first.",
     },
@@ -470,11 +486,11 @@ MODERN = {
         "rel": "articles/hk-mainland-property-inheritance/bank-deposits_en.html",
         "zh": "/articles/hk-mainland-property-inheritance/bank-deposits.html",
         "en": "/articles/hk-mainland-property-inheritance/bank-deposits_en.html",
-        "robots": "noindex,nofollow",
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
         "title": "Mainland Bank Deposits, Wealth Products or Insurance Left by a Relative: What Hong Kong Families Should Check First",
         "description": "For Hong Kong families trying to locate or handle Mainland bank deposits, wealth products or insurance after a relative's death, start with account clues, heirs, product type and whether someone already controls the funds.",
         "published": "2026-07-02",
-        "reading": "Published: 2026-07-02 · Draft · About 6 minutes",
+        "reading": f"Last updated: {TODAY}",
         "eyebrow": "Article / Hong Kong inheritance / Bank funds and insurance",
         "h1": "Mainland bank deposits, wealth products or insurance: what Hong Kong families should check first",
         "lead": "Many families do not begin by wanting litigation. They simply need to know whether the deceased had accounts in the Mainland, whether a bank will check them, whether a small balance can be handled more simply, and what to do if cards, phones or policies are already in someone else's hands.",
@@ -493,7 +509,7 @@ MODERN = {
         "faq": [("We only know there may be Mainland deposits. What comes first?", "Do not ask every bank at random. Organise bank cards, passbooks, SMS alerts, wage records, old receipts, app screenshots, employer details and usual account locations first."), ("If the amount is under RMB 50,000, can it always be withdrawn directly?", "No. Simplified procedures may help some cases, but banks still review identity, heirs, balance, product type and whether any dispute exists."), ("If an insurance policy names a beneficiary, is it part of the estate?", "Usually the policy wording comes first. If a beneficiary is clearly named, payment is generally handled under the policy arrangement unless the beneficiary arrangement fails or another legal issue arises."), ("What if someone may already have withdrawn the money?", "Preserve bank cards, phones, SMS records, transfer clues and who held original documents. Then consider whether transaction details can be requested and whether negotiation or dispute action is needed.")],
         "quick_title": "Where Are You Stuck?",
         "quick": ["No one knows where the money is.", "The account or policy is known, but the institution will not handle it directly.", "Family members disagree or someone holds the card, phone or policy.", "Deposits, wealth products and insurance are mixed together."],
-        "toc": [("answer", "Practical starting point"), ("facts", "Four parts"), ("query", "Find the money"), ("dispute", "Possible withdrawal"), ("faq", "FAQ")],
+        "toc": [("answer", "Practical starting point"), ("facts", "Four parts"), ("faq", "FAQ")],
         "cta_title": "Next Step",
         "cta_text": "Organise the bank cards, SMS, policies, wage clues, family relationship and who holds the documents before deciding whether to inquire, authorise or prepare inheritance materials.",
     },
@@ -543,7 +559,7 @@ LEGACY = {
         "eyebrow": "Heir dispute · Mainland property transfer",
         "h1": "Hong Kong residents inheriting Mainland property: what if heirs disagree or refuse to cooperate?",
         "tags": ["Heir dispute", "Will", "Court route"],
-        "image": "/articles/hk-mainland-property-inheritance/heir-dispute-property-documents.webp",
+        "image": "/articles/article-library-desk-v26.jpg",
         "alt": "Heir disagreement, documents and Mainland property handling",
         "caption": "When heirs disagree, the focus usually shifts from direct registration to confirming inheritance rights and distribution.",
         "intro": "If all heirs cooperate, the route can be relatively clear. More often, one heir is in Hong Kong, another in the Mainland, someone objects to the proposed distribution, someone cannot be contacted, or a will is challenged. In those cases, the first question is not simply whether the property can be transferred, but what kind of dispute exists.",
@@ -593,6 +609,50 @@ LEGACY = {
         "cta_text": "Before asking for a fixed quote, organise the property city, heirs, Hong Kong documents and dispute status.",
     },
 }
+
+
+ARTICLE_VISUALS_EN = {
+    "index": [
+        ("Property, family and available records overview", "Put the property, family and available records in one view."),
+        ("Mainland property inheritance sequence", "Confirm the facts before choosing documents, authority and procedure."),
+        ("Consultation checklist for a Hong Kong family", "Bring the city, family map, property clues and current blockage."),
+    ],
+    "documents": [
+        ("Hong Kong inheritance documents classified by purpose", "Start by identifying what each Hong Kong document must prove."),
+        ("Sequence for preparing Hong Kong documents", "Purpose, receiving city and intended task determine the preparation order."),
+        ("Hong Kong inheritance document checklist", "Separate death, relationship, authority and property records."),
+    ],
+    "dispute": [
+        ("Heir disagreement overview", "Identify who objects and exactly what they object to."),
+        ("Negotiation and inheritance dispute routes", "Separate a workable family agreement from a rights-confirmation dispute."),
+        ("Heir dispute consultation checklist", "List the people, property, will and stated reasons for refusal."),
+    ],
+    "tax-cost": [
+        ("Factors affecting inheritance cost and timing", "Cost and timing depend on records, disputes and the property's status."),
+        ("Separate inheritance cost groups", "Estimate tax, documents, registration and dispute work separately."),
+        ("Inheritance timing and cost variable checklist", "List the variables instead of applying one fixed figure to every case."),
+    ],
+    "bank-deposits": [
+        ("Separate clues for bank, investment, insurance and securities assets", "Search bank, investment, insurance and securities clues separately."),
+        ("Sequence for tracing and claiming Mainland financial assets", "Trace the asset and family relationship before choosing a claim route."),
+        ("Financial asset clue checklist", "List cards, phones, policies, branches and the person holding each item."),
+    ],
+}
+
+
+def render_visual_grid_en(slug: str) -> str:
+    rows = ARTICLE_VISUALS_EN.get(slug, [])
+    figures = []
+    filenames = ("01-context.svg", "02-path.svg", "03-checklist.svg")
+    for filename, (alt, caption) in zip(filenames, rows):
+        source = f"/articles/hk-mainland-property-inheritance/images/{slug}/{filename}"
+        figures.append(
+            f'<figure><img src="{source}" alt="{esc(alt)}" width="1200" height="720" '
+            f'loading="lazy" decoding="async"><figcaption>{esc(caption)}</figcaption></figure>'
+        )
+    if not figures:
+        return ""
+    return '<section class="article-image-grid" aria-label="Article illustrations">' + "".join(figures) + "</section>"
 
 
 def render_modern(slug: str, data: dict) -> str:
@@ -656,6 +716,7 @@ def render_modern(slug: str, data: dict) -> str:
     </section>
     <div class="article-shell">
       <article class="article-main">
+        {render_visual_grid_en(slug)}
         <section id="answer" class="answer-card"><h2>{esc(data["answer_title"])}</h2><p>{esc(data["answer"])}</p></section>
         <section id="facts" class="reading-path" aria-label="Key facts">
           <h2>{esc(data["path_title"])}</h2><p class="path-intro">{esc(data["path_intro"])}</p><div class="path-grid">{path_items}</div>
@@ -696,8 +757,7 @@ def render_legacy(slug: str, data: dict) -> str:
         "mainEntityOfPage": url(data["en"]),
     }
     tags = "\n".join(f'<span class="tag">{esc(t)}</span>' for t in data["tags"])
-    image_html = "" if data.get("hide_image") else f'''
-      <figure class="article-visual"><img src="{data["image"]}" alt="{esc(data["alt"])}" loading="lazy" decoding="async"><figcaption>{esc(data["caption"])}</figcaption></figure>'''
+    image_html = render_visual_grid_en(slug)
     section_html = []
     for section in data["sections"]:
         h = section[0]
@@ -718,7 +778,7 @@ def render_legacy(slug: str, data: dict) -> str:
     <article class="article-main">
       <p class="eyebrow">{esc(data["eyebrow"])}</p>
       <h1>{esc(data["h1"])}</h1>
-      <div class="meta"><span>Published: {data["published"]}</span>{tags}</div>
+      <div class="meta"><span>Last updated: {TODAY}</span>{tags}</div>
 {image_html}
       <p>{esc(data["intro"])}</p>
       <div class="notice">{esc(data["notice"])}</div>
@@ -788,37 +848,7 @@ def main() -> None:
     for slug, data in LEGACY.items():
         write(data["rel"], render_legacy(slug, data))
 
-    # Draft English mirrors: use the same reader-first article template and keep noindex.
-    for slug in ["social-security-housing-fund", "missing-documents", "ancestral-home-homestead"]:
-        src = {
-            "social-security-housing-fund": ("Social Security, Housing Fund and Related Benefits for Hong Kong Heirs", "Hong Kong heirs handling Mainland social insurance balances, housing fund, funeral subsidies or pensions should first identify the city, employer, account clues and whether any amounts were already claimed."),
-            "missing-documents": ("What If the Deceased Passed Away Years Ago and Mainland Inheritance Documents Are Incomplete?", "For older Mainland inheritance matters, Hong Kong heirs should rebuild the chain of death records, heirs, asset clues and current possession before deciding the next step."),
-            "ancestral-home-homestead": ("Ancestral Homes, Homestead Houses and Historic Mainland Properties: What Hong Kong Heirs Should Check First", "Hong Kong heirs dealing with ancestral homes, homestead houses or historic Mainland properties should first identify land nature, title source, possession, relocation status and available records."),
-        }[slug]
-        base = MODERN["bank-deposits"].copy()
-        base.update({
-            "rel": f"articles/hk-mainland-property-inheritance/{slug}_en.html",
-            "zh": f"/articles/hk-mainland-property-inheritance/{slug}.html",
-            "en": f"/articles/hk-mainland-property-inheritance/{slug}_en.html",
-            "title": src[0] + " | Liu Yi Lawyer Team",
-            "description": src[1],
-            "h1": src[0],
-            "lead": src[1],
-            "eyebrow": "Article / Hong Kong inheritance / Draft",
-            "reading": "Published: 2026-07-02 · Draft · About 6 minutes",
-            "keys": ["Identify the asset or benefit type before choosing a procedure.", "Organise the family relationship, document gaps and who currently controls the records.", "If someone already occupies, manages or has claimed the asset, preserve facts before taking the next step."],
-            "answer_title": "Start With the Missing Facts",
-            "answer": "For this type of matter, the first task is usually not to ask for a fixed answer. It is to identify what facts are missing, which institution or asset is involved, who can cooperate, and whether anyone already controls the documents, account, house or benefit.",
-            "path_title": "Clarify Four Layers First",
-            "path_intro": "These four layers normally decide whether the next step is document preparation, inquiry, authorisation or dispute handling.",
-            "path": [("1. What asset or benefit is involved?", "Property, funds, benefits, old housing rights and compensation may follow different routes."), ("2. What documents still exist?", "Keep copies of identity records, old certificates, account clues, employer records and family papers."), ("3. Who are the heirs?", "List all relevant family members, including those who have passed away earlier or live overseas."), ("4. Who controls the asset now?", "Occupation, rent collection, account access or document possession may change the handling order.")],
-            "facts_title": "How to Brief the Lawyer",
-            "facts_text": "The deceased passed away in [year / place]. Known heirs are [names / relationship / location]. Existing records include [death record / property or account clues / employer or benefit records / old family papers]. The current problem is [missing documents / someone controls the asset / family disagreement / unclear institution].",
-            "facts": ["Do not only say that documents are missing; list what still exists.", "If heirs are spread across Hong Kong, the Mainland and overseas, state who can be contacted.", "If someone controls keys, documents, rent, accounts or benefits, state this early.", "If remote handling is needed from Hong Kong, state whether authorisation documents can be signed."],
-            "sections": [("Why the first step is fact reconstruction", "Older and more complex matters often fail because the fact chain is broken, not because there is no possible route.", "The practical first step is to rebuild the timeline, family relationship, asset clue and current control situation."), ("Documents and assets should be separated", "A missing death record, missing relationship proof and missing title or account clue are different problems.", "Treating them as one general document problem can lead to the wrong preparation path."), ("Control or possession changes the route", "If someone occupies a house, collects rent, holds original records or has already claimed money, the matter is no longer only about supplementing documents.", "Evidence preservation and dispute assessment may need to run together with document work."), ("Prepare a concise fact summary", "A short summary of who passed away, who the heirs are, what asset is involved and what is missing is often more useful than a long general question.", "This allows the next step to be matched to the real bottleneck.")],
-            "faq": [("Does missing documentation mean nothing can be done?", "Not necessarily. The real question is which layer is missing: death record, heir relationship, asset clue or current control."), ("What should Hong Kong heirs prepare first?", "Prepare a list of existing documents, family members, asset clues and anyone who currently holds records or controls the asset."), ("What if family members disagree?", "Then the matter may need evidence preservation, negotiation or dispute handling before a simple application can proceed."), ("Can this be handled remotely?", "Some steps may be prepared remotely, but authorisation and document-use requirements should be checked early.")],
-        })
-        write(base["rel"], render_modern(slug, base))
+    # Three manually reviewed English pages intentionally remain outside this generator.
 
     patch_sitemap()
 

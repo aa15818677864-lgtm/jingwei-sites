@@ -15,7 +15,8 @@ const FIELD_KEYS = [
   'message',
   'source',
   'user_agent',
-  'client_ip'
+  'client_ip',
+  'topic'
 ];
 
 const DISPLAY_HEADERS = [
@@ -32,7 +33,8 @@ const DISPLAY_HEADERS = [
   '\u7559\u8a00\u5185\u5bb9',
   '\u6765\u6e90',
   '\u6d4f\u89c8\u5668\u4fe1\u606f',
-  '\u5ba2\u6237IP'
+  '\u5ba2\u6237IP',
+  '\u4e13\u9898'
 ];
 
 function setupSheet() {
@@ -139,6 +141,8 @@ function buildDashboardStats_() {
   let month = 0;
   const dayCounts = {};
   const monthCounts = {};
+  const topicCounts = {};
+  const sourceCounts = {};
 
   rows.forEach(function (row) {
     const date = parseDate_(row.submitted_at);
@@ -151,6 +155,11 @@ function buildDashboardStats_() {
 
     if (dayKey === todayKey) today += 1;
     if (itemMonthKey === monthKey) month += 1;
+
+    const topic = String(row.topic || row.inquiry_type || 'unclassified').trim() || 'unclassified';
+    const source = String(row.source || 'unknown').trim() || 'unknown';
+    topicCounts[topic] = (topicCounts[topic] || 0) + 1;
+    sourceCounts[source] = (sourceCounts[source] || 0) + 1;
   });
 
   return {
@@ -160,13 +169,27 @@ function buildDashboardStats_() {
       today: today,
       month: month,
       total: rows.length,
+      by_topic: objectToCountRows_(topicCounts),
+      by_source: objectToCountRows_(sourceCounts),
       series: {
         day: periodSeries_(14, 'day', dayCounts),
         month: periodSeries_(12, 'month', monthCounts)
       }
     },
-    indexed: null
+    indexed: null,
+    delivery: {
+      sheet: true,
+      email_configured: Boolean(NOTIFY_EMAIL)
+    }
   };
+}
+
+function objectToCountRows_(counts) {
+  return Object.keys(counts).map(function (key) {
+    return { key: key, count: counts[key] };
+  }).sort(function (left, right) {
+    return right.count - left.count;
+  }).slice(0, 20);
 }
 
 function readLeadRows_(sheet) {
@@ -238,6 +261,7 @@ function sendNotificationEmail_(row) {
   const inquiryLabel = record.inquiry_type || record.page_title || '\u8868\u5355\u63d0\u4ea4';
   const subject = '\u65b0\u5ba2\u6237\u54a8\u8be2 - ' + (record.name || '\u672a\u586b\u5199') + ' - ' + inquiryLabel;
   const phoneDisplay = formatPhone_(record.area_code, record.phone);
+  const topicDisplay = record.topic || record.inquiry_type || '';
   const inquiryPlainLine = record.inquiry_type
     ? ['', '\u54a8\u8be2\u4e8b\u9879: ' + record.inquiry_type]
     : [];
@@ -260,6 +284,8 @@ function sendNotificationEmail_(row) {
     '\u8054\u7cfb\u7535\u8bdd: ' + phoneDisplay,
     '',
     contactFieldLabel + ': ' + (record.wechat || ''),
+    '',
+    '\u4e13\u9898: ' + topicDisplay,
     ...inquiryPlainLine,
     '',
     '\u5ba2\u6237\u7559\u8a00: ' + (record.message || ''),
@@ -279,6 +305,7 @@ function sendNotificationEmail_(row) {
     buildFieldHtml_('\u5ba2\u6237\u79f0\u547c', record.name || ''),
     buildFieldHtml_('\u8054\u7cfb\u7535\u8bdd', phoneDisplay),
     buildFieldHtml_(contactFieldLabel, record.wechat || ''),
+    buildFieldHtml_('\u4e13\u9898', topicDisplay),
     ...inquiryHtmlLine,
     buildFieldHtml_('\u5ba2\u6237\u7559\u8a00', record.message || ''),
     buildFieldHtml_('\u5ba2\u6237IP', record.client_ip || ''),
@@ -300,7 +327,11 @@ function sendNotificationEmail_(row) {
 function getSiteLabel_(site) {
   const siteLabelMap = {
     ml: '\u9759\u4e3a\u5f8b\u5e08\u4e8b\u52a1\u6240\u7f51\u7ad9 - \u9a6c\u6765\u897f\u4e9a\u7ad9',
-    xj: '\u9759\u4e3a\u5f8b\u5e08\u4e8b\u52a1\u6240\u7f51\u7ad9 - \u65b0\u52a0\u5761\u7ad9'
+    xj: '\u9759\u4e3a\u5f8b\u5e08\u4e8b\u52a1\u6240\u7f51\u7ad9 - \u65b0\u52a0\u5761\u7ad9',
+    am: '\u9759\u4e3a\u5f8b\u5e08\u4e8b\u52a1\u6240\u7f51\u7ad9 - \u6fb3\u95e8\u7ad9',
+    us: '\u9759\u4e3a\u5f8b\u5e08\u4e8b\u52a1\u6240\u7f51\u7ad9 - \u7f8e\u56fd\u7ad9',
+    ask: '\u5218\u6bc5\u5f8b\u5e08\u56e2\u961f - AI \u521d\u6b65\u95ee\u7b54',
+    articles: '\u5218\u6bc5\u5f8b\u5e08\u56e2\u961f - \u6587\u7ae0\u5e93'
   };
 
   return siteLabelMap[String(site || '').toLowerCase()] || '\u9759\u4e3a\u5f8b\u5e08\u4e8b\u52a1\u6240\u7f51\u7ad9';

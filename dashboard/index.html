@@ -4,92 +4,144 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex,nofollow">
-  <title>网站运营仪表盘 | 刘毅律师团队</title>
-  <link rel="stylesheet" href="style.css?v=20260709-dashboard">
+  <title>文章与咨询仪表盘 | 刘毅律师团队</title>
+  <link rel="stylesheet" href="style.css?v=20260722-ops-v3">
   <script src="/site-config.js" defer></script>
-  <script src="script.js?v=20260709-dashboard" defer></script>
+  <script src="script.js?v=20260722-ops-v3" defer></script>
 </head>
 <body>
   <main class="dashboard-shell">
     <header class="dashboard-header">
       <div>
-        <p class="eyebrow">Jingwei Law Monitor</p>
-        <h1>网站运营仪表盘</h1>
+        <p class="eyebrow">Jingwei Content Operations</p>
+        <h1>文章与咨询</h1>
+        <p class="header-note">只显示有来源的数据；未接通的指标保持空白。</p>
       </div>
       <div class="range-switch" aria-label="统计范围">
-        <button class="is-active" type="button" data-range="day">日</button>
-        <button type="button" data-range="month">月</button>
+        <button class="is-active" type="button" data-range="day" aria-pressed="true">日</button>
+        <button type="button" data-range="month" aria-pressed="false">月</button>
       </div>
     </header>
 
     <section class="metric-grid" aria-label="核心指标">
       <article class="metric-card">
-        <span>今日咨询</span>
+        <span id="consultationLabel">今日咨询</span>
         <strong id="consultationCount">--</strong>
-        <small id="consultationHint">读取中</small>
+        <small id="consultationHint">正在核对来源</small>
       </article>
       <article class="metric-card">
         <span>已发布文章</span>
         <strong id="publishedCount">--</strong>
-        <small id="publishedHint">读取中</small>
+        <small id="publishedHint">按三语去重</small>
       </article>
       <article class="metric-card">
         <span>已收录文章</span>
         <strong id="indexedCount">--</strong>
-        <small id="indexedHint">读取中</small>
+        <small id="indexedHint">等待 Search Console</small>
       </article>
       <article class="metric-card">
-        <span>数据状态</span>
-        <strong id="dataStatus">--</strong>
-        <small id="dataHint">正在检查</small>
+        <span>香港队列</span>
+        <strong id="hkQueueCount">--</strong>
+        <small id="hkQueueHint">50 篇补充计划</small>
       </article>
     </section>
 
-    <section class="panel-grid">
-      <article class="panel">
-        <div class="panel-head">
+    <section class="source-strip" aria-label="数据源状态">
+      <div><span>文章</span><strong id="articleSource">检查中</strong></div>
+      <div><span>咨询</span><strong id="leadSource">检查中</strong></div>
+      <div><span>收录</span><strong id="indexSource">检查中</strong></div>
+      <div><span>刷新</span><strong id="lastUpdated">--</strong></div>
+    </section>
+
+    <section class="section-block" aria-labelledby="topic-title">
+      <div class="section-head">
+        <div>
+          <h2 id="topic-title">四专题内容分配</h2>
+          <p>每天最多整理 30 个候选；是否发布取决于资料、法律、语言与配图审核。</p>
+        </div>
+        <span class="quiet-badge">30 个候选位</span>
+      </div>
+      <div id="topicRows" class="topic-rows" aria-live="polite"></div>
+    </section>
+
+    <section class="trend-grid" aria-label="趋势">
+      <article class="section-block">
+        <div class="section-head">
           <div>
-            <h2 id="consultationTrendTitle">咨询趋势</h2>
-            <p id="consultationTrendHint">等待咨询统计接口</p>
+            <h2>咨询趋势</h2>
+            <p id="consultationTrendHint">等待真实咨询统计</p>
           </div>
-          <span id="consultationSource" class="source-pill">leads</span>
         </div>
         <div id="consultationChart" class="mini-chart" aria-label="咨询趋势图"></div>
       </article>
-
-      <article class="panel">
-        <div class="panel-head">
+      <article class="section-block">
+        <div class="section-head">
           <div>
-            <h2 id="articleTrendTitle">文章发布</h2>
-            <p id="articleTrendHint">来自 sitemap.xml</p>
+            <h2>文章更新</h2>
+            <p id="articleTrendHint">来自页面与 sitemap</p>
           </div>
-          <span class="source-pill">sitemap</span>
         </div>
-        <div id="articleChart" class="mini-chart" aria-label="文章发布趋势图"></div>
+        <div id="articleChart" class="mini-chart" aria-label="文章更新时间图"></div>
       </article>
     </section>
 
-    <section class="table-panel">
-      <div class="panel-head">
+    <section class="source-strip seo-strip" aria-label="Search Console 近三个月表现">
+      <div><span>点击</span><strong id="gscClicks">--</strong></div>
+      <div><span>展示</span><strong id="gscImpressions">--</strong></div>
+      <div><span>点击率</span><strong id="gscCtr">--</strong></div>
+      <div><span>平均排名</span><strong id="gscPosition">--</strong></div>
+    </section>
+
+    <section class="section-block" aria-labelledby="queue-title">
+      <div class="section-head">
         <div>
-          <h2>最新文章页面</h2>
-          <p>按 sitemap 最后更新时间排序</p>
+          <h2 id="queue-title">下一批任务</h2>
+          <p>按顺序从研究、写作、三语、配图走到发布和收录。</p>
         </div>
-        <span id="lastUpdated" class="source-pill">--</span>
+        <span id="queueSummary" class="quiet-badge">--</span>
       </div>
       <div class="table-wrap">
         <table>
-          <thead>
-            <tr>
-              <th>页面</th>
-              <th>语言</th>
-              <th>最后更新</th>
-              <th>状态</th>
-            </tr>
-          </thead>
-          <tbody id="articleRows">
-            <tr><td colspan="4">读取中</td></tr>
-          </tbody>
+          <thead><tr><th>顺序</th><th>选题</th><th>用户问题</th><th>深度</th><th>状态</th></tr></thead>
+          <tbody id="queueRows"><tr><td colspan="5">读取中</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="trend-grid">
+      <article class="section-block">
+        <div class="section-head">
+          <div>
+            <h2>咨询链路</h2>
+            <p>文章来源会跟随电话线索进入统计。</p>
+          </div>
+        </div>
+        <ol id="leadChain" class="flow-list"></ol>
+        <div id="leadBreakdown" class="breakdown-list"></div>
+      </article>
+      <article class="section-block">
+        <div class="section-head">
+          <div>
+            <h2>发布门槛</h2>
+            <p>不为了数量牺牲可读性和真实性。</p>
+          </div>
+        </div>
+        <ul id="policyList" class="plain-list"></ul>
+      </article>
+    </section>
+
+    <section class="section-block" aria-labelledby="article-table-title">
+      <div class="section-head">
+        <div>
+          <h2 id="article-table-title">文章页面检查</h2>
+          <p>索引权限、sitemap 与 Search Console 分开显示，不用 0 冒充未知。</p>
+        </div>
+        <span id="articleAuditSummary" class="quiet-badge">--</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>页面</th><th>专题</th><th>语言</th><th>最后更新</th><th>SEO 状态</th><th>收录</th></tr></thead>
+          <tbody id="articleRows"><tr><td colspan="6">读取中</td></tr></tbody>
         </table>
       </div>
     </section>

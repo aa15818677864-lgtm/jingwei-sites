@@ -1,31 +1,49 @@
 (function () {
+  "use strict";
+
   const state = {
     range: "day",
-    articles: [],
     metrics: null,
-    relayOnline: false
+    liveLeads: null,
+    relay: null
   };
 
+  const byId = (id) => document.getElementById(id);
   const nodes = {
-    consultationCount: document.getElementById("consultationCount"),
-    consultationHint: document.getElementById("consultationHint"),
-    publishedCount: document.getElementById("publishedCount"),
-    publishedHint: document.getElementById("publishedHint"),
-    indexedCount: document.getElementById("indexedCount"),
-    indexedHint: document.getElementById("indexedHint"),
-    dataStatus: document.getElementById("dataStatus"),
-    dataHint: document.getElementById("dataHint"),
-    consultationChart: document.getElementById("consultationChart"),
-    articleChart: document.getElementById("articleChart"),
-    consultationTrendHint: document.getElementById("consultationTrendHint"),
-    articleTrendHint: document.getElementById("articleTrendHint"),
-    articleRows: document.getElementById("articleRows"),
-    lastUpdated: document.getElementById("lastUpdated")
+    consultationLabel: byId("consultationLabel"),
+    consultationCount: byId("consultationCount"),
+    consultationHint: byId("consultationHint"),
+    publishedCount: byId("publishedCount"),
+    publishedHint: byId("publishedHint"),
+    indexedCount: byId("indexedCount"),
+    indexedHint: byId("indexedHint"),
+    hkQueueCount: byId("hkQueueCount"),
+    hkQueueHint: byId("hkQueueHint"),
+    articleSource: byId("articleSource"),
+    leadSource: byId("leadSource"),
+    indexSource: byId("indexSource"),
+    lastUpdated: byId("lastUpdated"),
+    topicRows: byId("topicRows"),
+    consultationChart: byId("consultationChart"),
+    consultationTrendHint: byId("consultationTrendHint"),
+    articleChart: byId("articleChart"),
+    articleTrendHint: byId("articleTrendHint"),
+    gscClicks: byId("gscClicks"),
+    gscImpressions: byId("gscImpressions"),
+    gscCtr: byId("gscCtr"),
+    gscPosition: byId("gscPosition"),
+    queueRows: byId("queueRows"),
+    queueSummary: byId("queueSummary"),
+    leadChain: byId("leadChain"),
+    leadBreakdown: byId("leadBreakdown"),
+    policyList: byId("policyList"),
+    articleRows: byId("articleRows"),
+    articleAuditSummary: byId("articleAuditSummary")
   };
 
   const dayFormatter = new Intl.DateTimeFormat("zh-CN", { month: "2-digit", day: "2-digit" });
   const monthFormatter = new Intl.DateTimeFormat("zh-CN", { year: "2-digit", month: "2-digit" });
-  const fullFormatter = new Intl.DateTimeFormat("zh-CN", {
+  const timeFormatter = new Intl.DateTimeFormat("zh-CN", {
     year: "numeric",
     month: "2-digit",
     day: "2-digit",
@@ -33,34 +51,90 @@
     minute: "2-digit"
   });
 
+  const topicMeta = {
+    "hk-inheritance": { label: "香港继承", note: "50 篇补充优先", color: "#a30d23" },
+    singapore: { label: "新加坡", note: "中英双语主线", color: "#19756f" },
+    macau: { label: "澳门", note: "繁体中文主线", color: "#9b6a08" },
+    "united-states": { label: "美国", note: "中英文同步", color: "#1473e6" }
+  };
+
+  const depthLabels = {
+    entry: "入门",
+    intermediate: "进阶",
+    advanced: "深入"
+  };
+
+  const statusLabels = {
+    planned: "待写",
+    "drafted-zh-Hant": "繁中初稿",
+    "drafted-zh-Hans": "简中初稿",
+    "model-written-en": "英文已写",
+    "legal-reviewed": "法律复核完成",
+    "images-ready": "配图完成",
+    "build-ready": "待发布",
+    published: "已发布"
+  };
+
+  function escapeHtml(value) {
+    return String(value ?? "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  function isFiniteNumber(value) {
+    return value !== null && value !== undefined && value !== "" && Number.isFinite(Number(value));
+  }
+
+  function formatCount(value) {
+    return isFiniteNumber(value) ? Number(value).toLocaleString("zh-CN") : "--";
+  }
+
+  function formatTime(value) {
+    if (!value) return "--";
+    const date = new Date(value);
+    return Number.isNaN(date.getTime()) ? String(value) : timeFormatter.format(date);
+  }
+
   function sameOrigin(path) {
     return new URL(path, window.location.origin).href;
   }
 
-  function articleLanguage(pathname) {
-    if (/_en\.html$/.test(pathname)) return "EN";
-    if (/_cn\.html$/.test(pathname)) return "简";
-    return "繁";
+  async function fetchJson(url) {
+    if (!url) return null;
+    try {
+      const response = await fetch(url, { cache: "no-store" });
+      if (!response.ok) return null;
+      return await response.json();
+    } catch (error) {
+      return null;
+    }
   }
 
-  function isArticlePage(url) {
-    const parsed = new URL(url);
-    const path = parsed.pathname;
-    if (!path.startsWith("/articles/")) return false;
-    if (path === "/articles/") return false;
-    if (/\/index(?:_cn|_en)?\.html$/.test(path)) return false;
-    if (path.endsWith("/")) return false;
-    return path.endsWith(".html");
+  async function loadData() {
+    state.metrics = await fetchJson(sameOrigin("/dashboard/metrics.json"));
+
+    const configured = window.SITE_CONFIG?.dashboardMetricsEndpoint || "";
+    const relayEndpoint = window.SITE_CONFIG?.googleSheetsEndpoint
+      ? `${window.SITE_CONFIG.googleSheetsEndpoint}?action=dashboard`
+      : "";
+
+    if (configured) {
+      const live = await fetchJson(configured);
+      if (live?.consultation) state.liveLeads = live;
+    }
+
+    if (!state.liveLeads && relayEndpoint) {
+      const relay = await fetchJson(relayEndpoint);
+      if (relay?.consultation) state.liveLeads = relay;
+      if (relay?.service) state.relay = relay;
+    }
   }
 
-  function articleTitleFromUrl(url) {
-    const path = new URL(url).pathname;
-    const file = path.split("/").pop() || path;
-    return file
-      .replace(/_cn\.html$|_en\.html$|\.html$/g, "")
-      .split("-")
-      .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-      .join(" ");
+  function consultationData() {
+    return state.liveLeads?.consultation || state.metrics?.consultation || null;
   }
 
   function periodKey(date, range) {
@@ -73,31 +147,52 @@
   function buildPeriods(range) {
     const now = new Date();
     const count = range === "month" ? 12 : 14;
-    const periods = [];
+    const rows = [];
     for (let index = count - 1; index >= 0; index -= 1) {
       const date = new Date(now);
-      if (range === "month") {
-        date.setMonth(now.getMonth() - index, 1);
-      } else {
-        date.setDate(now.getDate() - index);
-      }
-      periods.push({
+      if (range === "month") date.setMonth(now.getMonth() - index, 1);
+      else date.setDate(now.getDate() - index);
+      rows.push({
         key: periodKey(date, range),
         label: range === "month" ? monthFormatter.format(date) : dayFormatter.format(date),
         value: 0
       });
     }
-    return periods;
+    return rows;
+  }
+
+  function metricSeries(source, range) {
+    const raw = source?.series?.[range];
+    if (!Array.isArray(raw)) return null;
+    const rows = buildPeriods(range);
+    const lookup = new Map(raw.map((item) => [String(item.period || item.date || item.month), Number(item.count || 0)]));
+    rows.forEach((row) => {
+      row.value = lookup.get(row.key) || 0;
+    });
+    return rows;
+  }
+
+  function articleSeries(range) {
+    const rows = buildPeriods(range);
+    const lookup = new Map(rows.map((row) => [row.key, row]));
+    const seen = new Set();
+    (state.metrics?.articles?.latest || []).forEach((article) => {
+      const date = new Date(article.lastmod || article.dateModified || "");
+      if (Number.isNaN(date.getTime())) return;
+      const uniqueKey = `${article.story}|${periodKey(date, range)}`;
+      if (seen.has(uniqueKey)) return;
+      seen.add(uniqueKey);
+      const row = lookup.get(periodKey(date, range));
+      if (row) row.value += 1;
+    });
+    return rows;
   }
 
   function renderBars(node, rows, emptyText) {
     node.innerHTML = "";
     if (!rows || !rows.length || rows.every((row) => !row.value)) {
-      const empty = document.createElement("div");
-      empty.className = "empty-state";
-      empty.textContent = emptyText;
       node.style.setProperty("--bars", 1);
-      node.appendChild(empty);
+      node.innerHTML = `<div class="empty-state">${escapeHtml(emptyText)}</div>`;
       return;
     }
 
@@ -115,134 +210,191 @@
     });
   }
 
-  async function loadSitemap() {
-    const response = await fetch(sameOrigin("/sitemap.xml"), { cache: "no-store" });
-    if (!response.ok) throw new Error("sitemap unavailable");
-    const xml = await response.text();
-    const doc = new DOMParser().parseFromString(xml, "application/xml");
-    return Array.from(doc.querySelectorAll("url")).map((entry) => {
-      const loc = entry.querySelector("loc")?.textContent?.trim() || "";
-      const lastmod = entry.querySelector("lastmod")?.textContent?.trim() || "";
-      return { loc, lastmod };
-    }).filter((entry) => entry.loc && isArticlePage(entry.loc));
-  }
-
-  async function loadMetrics() {
-    const configured = window.SITE_CONFIG?.dashboardMetricsEndpoint;
-    const sheetEndpoint = window.SITE_CONFIG?.googleSheetsEndpoint
-      ? `${window.SITE_CONFIG.googleSheetsEndpoint}?action=dashboard`
-      : "";
-    const candidates = [configured, sameOrigin("/dashboard/metrics.json"), sheetEndpoint]
-      .filter(Boolean);
-
-    for (const endpoint of candidates) {
-      try {
-        const response = await fetch(endpoint, { cache: "no-store" });
-        if (!response.ok) continue;
-        const data = await response.json();
-        if (data?.consultation || data?.indexed) return data;
-        if (data?.ok && data?.service) state.relayOnline = true;
-      } catch (error) {
-        // Try the next source. Some endpoints are intentionally private.
-      }
-    }
-    return null;
-  }
-
-  function seriesFromArticles(range) {
-    const rows = buildPeriods(range);
-    const lookup = new Map(rows.map((row) => [row.key, row]));
-    state.articles.forEach((article) => {
-      const date = new Date(article.lastmod || "");
-      if (Number.isNaN(date.getTime())) return;
-      const row = lookup.get(periodKey(date, range));
-      if (row) row.value += 1;
+  function uniqueStoryCounts() {
+    const stories = new Map();
+    (state.metrics?.articles?.latest || []).forEach((article) => {
+      const key = article.story || article.path;
+      if (!stories.has(key)) stories.set(key, article.topic);
     });
-    return rows;
-  }
-
-  function seriesFromMetric(name, range) {
-    const source = state.metrics?.[name]?.series?.[range];
-    if (!Array.isArray(source)) return null;
-    const rows = buildPeriods(range);
-    const lookup = new Map(source.map((row) => [String(row.period || row.date || row.month), Number(row.count || 0)]));
-    rows.forEach((row) => {
-      row.value = lookup.get(row.key) || 0;
-    });
-    return rows;
+    return Array.from(stories.values()).reduce((counts, topic) => {
+      counts[topic] = (counts[topic] || 0) + 1;
+      return counts;
+    }, {});
   }
 
   function renderMetrics() {
-    const rangeLabel = state.range === "month" ? "本月" : "今日";
-    const consultation = state.metrics?.consultation || null;
-    const indexed = state.metrics?.indexed || null;
+    const consultation = consultationData();
     const consultationValue = state.range === "month" ? consultation?.month : consultation?.today;
-
-    nodes.consultationCount.textContent = Number.isFinite(Number(consultationValue))
-      ? Number(consultationValue).toLocaleString("zh-CN")
-      : "--";
+    nodes.consultationLabel.textContent = state.range === "month" ? "本月咨询" : "今日咨询";
+    nodes.consultationCount.textContent = formatCount(consultationValue);
     nodes.consultationHint.textContent = consultation
-      ? `${rangeLabel}真实咨询`
-      : (state.relayOnline ? "提交服务在线，统计未开放" : "统计接口未接入");
+      ? "来自咨询数据表"
+      : (state.relay?.service || state.metrics?.source?.leadRelay === "online"
+        ? "表单在线，统计端点待接通"
+        : "咨询统计未接通");
 
-    nodes.publishedCount.textContent = state.articles.length.toLocaleString("zh-CN");
-    nodes.publishedHint.textContent = "来自 sitemap.xml";
+    nodes.publishedCount.textContent = formatCount(state.metrics?.articles?.uniqueTopics);
+    nodes.publishedHint.textContent = `${formatCount(state.metrics?.articles?.totalPages)} 个语言页面`;
 
-    nodes.indexedCount.textContent = Number.isFinite(Number(indexed?.count))
-      ? Number(indexed.count).toLocaleString("zh-CN")
-      : "--";
-    nodes.indexedHint.textContent = indexed ? "来自收录数据源" : "Search Console 未接入";
+    const indexed = state.metrics?.indexed?.count;
+    nodes.indexedCount.textContent = formatCount(indexed);
+    nodes.indexedHint.textContent = isFiniteNumber(indexed) ? "来自 Search Console" : "Search Console 未接通";
 
-    const connectedCount = [state.articles.length > 0, Boolean(consultation), Boolean(indexed)].filter(Boolean).length;
-    nodes.dataStatus.textContent = `${connectedCount}/3`;
-    nodes.dataHint.textContent = connectedCount === 3 ? "全部数据源已连接" : "部分数据源待接入";
+    const hkRemaining = state.metrics?.queue?.hkLaunch?.remaining;
+    const hkStatuses = state.metrics?.queue?.hkLaunch?.byStatus || {};
+    const hkDrafted = Object.entries(hkStatuses)
+      .filter(([key]) => key.startsWith("drafted-") || key === "model-written-en" || key === "legal-reviewed" || key === "images-ready" || key === "build-ready")
+      .reduce((total, [, value]) => total + Number(value || 0), 0);
+    const hkPlanned = Number(hkStatuses.planned || 0);
+    nodes.hkQueueCount.textContent = formatCount(hkRemaining);
+    nodes.hkQueueHint.textContent = `${formatCount(hkDrafted)} 篇已起草，${formatCount(hkPlanned)} 篇待写`;
 
-    nodes.lastUpdated.textContent = fullFormatter.format(new Date());
+    nodes.articleSource.textContent = state.metrics ? "本地页面 + sitemap" : "未读取";
+    nodes.leadSource.textContent = consultation
+      ? "真实咨询统计"
+      : (state.relay?.service || state.metrics?.source?.leadRelay === "online" ? "表单在线 / 统计待接" : "未接通");
+    nodes.indexSource.textContent = state.metrics?.source?.searchConsole === "not-connected" ? "未接通" : "Search Console";
+    nodes.lastUpdated.textContent = formatTime(state.metrics?.generatedAt);
+
+    const performance = state.metrics?.searchPerformance || {};
+    nodes.gscClicks.textContent = formatCount(performance.clicks);
+    nodes.gscImpressions.textContent = formatCount(performance.impressions);
+    nodes.gscCtr.textContent = isFiniteNumber(performance.ctr) ? `${(Number(performance.ctr) * 100).toFixed(1)}%` : "--";
+    nodes.gscPosition.textContent = isFiniteNumber(performance.averagePosition) ? Number(performance.averagePosition).toFixed(1) : "--";
   }
 
-  function renderCharts() {
-    const articleRows = seriesFromArticles(state.range);
-    renderBars(nodes.articleChart, articleRows, "近期没有文章更新");
-    nodes.articleTrendHint.textContent = state.range === "month"
-      ? "过去 12 个月 sitemap 更新"
-      : "过去 14 天 sitemap 更新";
+  function renderTopics() {
+    const allocation = state.metrics?.queue?.dailyCandidateAllocation || {};
+    const starter = state.metrics?.queue?.starterBacklog || {};
+    const storyCounts = uniqueStoryCounts();
+    const topicKeys = ["hk-inheritance", "singapore", "macau", "united-states"];
 
-    const consultationRows = seriesFromMetric("consultation", state.range);
-    renderBars(nodes.consultationChart, consultationRows, "咨询统计接口未接入");
+    nodes.topicRows.innerHTML = topicKeys.map((topic) => {
+      const meta = topicMeta[topic];
+      const slots = Number(allocation[topic] || 0);
+      const published = Number(storyCounts[topic] || 0);
+      const backlog = topic === "hk-inheritance"
+        ? Number(state.metrics?.queue?.hkLaunch?.remaining || 0)
+        : Number(starter[topic] || 0);
+      const denominator = Math.max(published + backlog, 1);
+      const progress = Math.min(100, Math.round((published / denominator) * 100));
+      return `
+        <div class="topic-row" style="--topic-color:${meta.color}">
+          <div class="topic-name"><strong>${meta.label}</strong><small>${meta.note}</small></div>
+          <div class="progress-track" aria-label="${meta.label}进度"><span style="width:${progress}%"></span></div>
+          <div class="topic-value">${published} 已发</div>
+          <div class="topic-status">每日 ${slots} 个</div>
+        </div>`;
+    }).join("");
+  }
+
+  function renderTrends() {
+    const consultation = consultationData();
+    const consultationRows = metricSeries(consultation, state.range);
+    renderBars(nodes.consultationChart, consultationRows, "咨询统计端点接通后显示");
     nodes.consultationTrendHint.textContent = consultationRows
-      ? (state.range === "month" ? "过去 12 个月咨询" : "过去 14 天咨询")
-      : "等待咨询统计接口";
+      ? (state.range === "month" ? "过去 12 个月真实咨询" : "过去 14 天真实咨询")
+      : "当前不推测咨询数量";
+
+    renderBars(nodes.articleChart, articleSeries(state.range), "本周期没有文章更新");
+    nodes.articleTrendHint.textContent = state.range === "month" ? "过去 12 个月文章更新" : "过去 14 天文章更新";
   }
 
-  function renderTable() {
-    const rows = state.articles
-      .slice()
-      .sort((a, b) => String(b.lastmod).localeCompare(String(a.lastmod)))
-      .slice(0, 10);
+  function renderQueue() {
+    const rows = state.metrics?.queue?.next || [];
+    nodes.queueSummary.textContent = `${formatCount(state.metrics?.queue?.hkLaunch?.remaining)} 篇待发布`;
+    nodes.queueRows.innerHTML = rows.length
+      ? rows.map((row) => `
+        <tr>
+          <td>${escapeHtml(row.id)}</td>
+          <td>${escapeHtml(row.title)}</td>
+          <td>${escapeHtml(row.intent)}</td>
+          <td>${escapeHtml(depthLabels[row.depth] || row.depth)}</td>
+          <td><span class="status is-pending">${escapeHtml(statusLabels[row.status] || row.status)}</span></td>
+        </tr>`).join("")
+      : '<tr><td colspan="5">当前队列为空</td></tr>';
+  }
 
-    nodes.articleRows.innerHTML = "";
-    if (!rows.length) {
-      nodes.articleRows.innerHTML = '<tr><td colspan="4">没有读到文章页面</td></tr>';
-      return;
-    }
+  function renderLeadChain() {
+    const steps = state.metrics?.leadChain?.steps || ["文章入口", "AI 初步问答", "电话表单", "表单中继", "咨询表格", "邮件通知"];
+    const labels = {
+      "Article CTA": "文章入口",
+      "AI initial Q&A": "AI 初步问答",
+      "Lead form": "电话表单",
+      "Form relay": "表单中继",
+      "Lead sheet": "咨询表格",
+      "Email notification": "邮件通知"
+    };
+    nodes.leadChain.innerHTML = steps.map((step) => `<li>${escapeHtml(labels[step] || step)}</li>`).join("");
 
-    rows.forEach((row) => {
-      const url = new URL(row.loc);
-      const tr = document.createElement("tr");
-      tr.innerHTML = `
-        <td>${articleTitleFromUrl(row.loc)}</td>
-        <td>${articleLanguage(url.pathname)}</td>
-        <td>${row.lastmod || "--"}</td>
-        <td><span class="status-dot">已发布</span></td>
-      `;
-      nodes.articleRows.appendChild(tr);
-    });
+    const consultation = consultationData();
+    const byTopic = Array.isArray(consultation?.by_topic) ? consultation.by_topic : [];
+    nodes.leadBreakdown.innerHTML = byTopic.length
+      ? byTopic.slice(0, 6).map((item) => `<div class="breakdown-row"><span>${escapeHtml(item.key)}</span><strong>${formatCount(item.count)}</strong></div>`).join("")
+      : '<div class="breakdown-row"><span>专题来源统计</span><strong>待端点接通</strong></div>';
+  }
+
+  function renderPolicy() {
+    const fallback = [
+      "每天 30 个是候选位，不是强制发布量。",
+      "只显示真实发布或最后更新时间，不回填历史假日期。",
+      "每篇都要有人类可读的判断路径和三张解释性图片。",
+      "英文由大模型按英文读者习惯重写，不逐句硬翻。",
+      "收录状态只取 Search Console，不抓取 Google 搜索结果。"
+    ];
+    const notes = state.metrics?.compliance?.notes;
+    const rows = Array.isArray(notes) && notes.length ? notes : fallback;
+    const translated = {
+      "30 means candidate slots, not a forced daily publication count.": fallback[0],
+      "Use truthful publication and modification dates only.": fallback[1],
+      "Do not create thin pages for minor query variations.": "不为细小关键词变体批量制作低价值页面。",
+      "Use Search Console data for index monitoring; do not scrape Google results.": fallback[4]
+    };
+    nodes.policyList.innerHTML = rows.map((row) => `<li>${escapeHtml(translated[row] || row)}</li>`).join("");
+  }
+
+  function languageLabel(language) {
+    if (language === "en") return "EN";
+    if (language === "zh-Hans") return "简";
+    return "繁";
+  }
+
+  function seoStatus(article) {
+    if (!article.indexable) return { label: "noindex", className: "is-error" };
+    if (!article.inSitemap) return { label: "未进 sitemap", className: "is-pending" };
+    return { label: "可抓取", className: "" };
+  }
+
+  function renderArticles() {
+    const rows = state.metrics?.articles?.latest || [];
+    const bad = rows.filter((row) => !row.indexable || !row.inSitemap).length;
+    nodes.articleAuditSummary.textContent = bad ? `${bad} needs fix` : "SEO base passed";
+    nodes.articleRows.innerHTML = rows.length
+      ? rows.slice(0, 30).map((article) => {
+        const seo = seoStatus(article);
+        const topic = topicMeta[article.topic]?.label || "其他";
+        const indexKnown = state.metrics?.source?.searchConsole !== "not-connected";
+        return `
+          <tr>
+            <td>${escapeHtml(article.title)}</td>
+            <td>${escapeHtml(topic)}</td>
+            <td>${languageLabel(article.language)}</td>
+            <td>${escapeHtml(article.lastmod || article.dateModified || "--")}</td>
+            <td><span class="status ${seo.className}">${seo.label}</span></td>
+            <td><span class="status ${indexKnown ? (article.indexed ? "" : "is-pending") : "is-unknown"}">${indexKnown ? (article.indexed ? "已收录" : "待确认") : "未知"}</span></td>
+          </tr>`;
+      }).join("")
+      : '<tr><td colspan="6">没有读取到文章页面</td></tr>';
   }
 
   function render() {
     renderMetrics();
-    renderCharts();
-    renderTable();
+    renderTopics();
+    renderTrends();
+    renderQueue();
+    renderLeadChain();
+    renderPolicy();
+    renderArticles();
   }
 
   function bindRangeSwitch() {
@@ -251,6 +403,7 @@
         state.range = button.dataset.range || "day";
         document.querySelectorAll("[data-range]").forEach((item) => {
           item.classList.toggle("is-active", item === button);
+          item.setAttribute("aria-pressed", item === button ? "true" : "false");
         });
         render();
       });
@@ -259,14 +412,7 @@
 
   async function init() {
     bindRangeSwitch();
-    try {
-      const [articles, metrics] = await Promise.all([loadSitemap(), loadMetrics()]);
-      state.articles = articles;
-      state.metrics = metrics;
-    } catch (error) {
-      nodes.dataStatus.textContent = "异常";
-      nodes.dataHint.textContent = "数据读取失败";
-    }
+    await loadData();
     render();
   }
 

@@ -1,0 +1,963 @@
+{
+  "generatedAt": "2026-07-23T01:19:50+00:00",
+  "source": {
+    "sitemap": "sitemap.xml",
+    "searchConsole": "not-connected",
+    "searchConsolePerformance": "dashboard/search-console.json",
+    "consultations": "not-connected",
+    "leadRelay": "online",
+    "emailMode": "fallback_only"
+  },
+  "consultation": null,
+  "articles": {
+    "totalPages": 27,
+    "uniqueTopics": 11,
+    "indexablePages": 27,
+    "sitemapPages": 27,
+    "unsitemappedPages": 0,
+    "byLanguage": {
+      "zh-Hant": 11,
+      "zh-Hans": 8,
+      "en": 8
+    },
+    "byTopic": {
+      "macau": 1,
+      "hk-inheritance": 24,
+      "other-cross-border": 1,
+      "united-states": 1
+    },
+    "latest": [
+      {
+        "path": "/articles/us/remote-china-lawyer.html",
+        "file": "articles/us/remote-china-lawyer.html",
+        "url": "https://www.jingwei-law.com/articles/us/remote-china-lawyer.html",
+        "story": "/articles/us/remote-china-lawyer",
+        "topic": "united-states",
+        "language": "zh-Hant",
+        "title": "人在美国如何委托中国律师处理中国内地法律事务 | 刘毅律师团队",
+        "datePublished": "2026-05-16",
+        "dateModified": "2026-07-22",
+        "indexable": true,
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "inSitemap": true,
+        "lastmod": "2026-07-22",
+        "indexed": false,
+        "indexVerdict": "unknown",
+        "coverageState": "",
+        "lastCrawlTime": ""
+      },
+      {
+        "path": "/articles/overseas-chinese/remote-entrust-china-lawyer.html",
+        "file": "articles/overseas-chinese/remote-entrust-china-lawyer.html",
+        "url": "https://www.jingwei-law.com/articles/overseas-chinese/remote-entrust-china-lawyer.html",
+        "story": "/articles/overseas-chinese/remote-entrust-china-lawyer",
+        "topic": "other-cross-border",
+        "language": "zh-Hant",
+        "title": "海外华人如何远程委托中国律师处理内地事务 | 刘毅律师团队",
+        "datePublished": "2026-05-16",
+        "dateModified": "2026-07-22",
+        "indexable": true,
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "inSitemap": true,
+        "lastmod": "2026-07-22",
+        "indexed": false,
+        "indexVerdict": "unknown",
+        "coverageState": "",
+        "lastCrawlTime": ""
+      },
+      {
+        "path": "/articles/hk-mainland-property-inheritance/tax-cost_en.html",
+        "file": "articles/hk-mainland-property-inheritance/tax-cost_en.html",
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/tax-cost_en.html",
+        "story": "/articles/hk-mainland-property-inheritance/tax-cost",
+        "topic": "hk-inheritance",
+        "language": "en",
+        "title": "Tax, Timing and Costs for Hong Kong Residents Inheriting Mainland Property",
+        "datePublished": "2026-05-22",
+        "dateModified": "2026-07-22",
+        "indexable": true,
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "inSitemap": true,
+        "lastmod": "2026-07-22",
+        "indexed": false,
+        "indexVerdict": "unknown",
+        "coverageState": "",
+        "lastCrawlTime": ""
+      },
+      {
+        "path": "/articles/hk-mainland-property-inheritance/tax-cost_cn.html",
+        "file": "articles/hk-mainland-property-inheritance/tax-cost_cn.html",
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/tax-cost_cn.html",
+        "story": "/articles/hk-mainland-property-inheritance/tax-cost",
+        "topic": "hk-inheritance",
+        "language": "zh-Hans",
+        "title": "香港居民继承内地房产税费周期费用怎么判断 | 刘毅律师团队",
+        "datePublished": "2026-05-22",
+        "dateModified": "2026-07-22",
+        "indexable": true,
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "inSitemap": true,
+        "lastmod": "2026-07-22",
+        "indexed": false,
+        "indexVerdict": "unknown",
+        "coverageState": "",
+        "lastCrawlTime": ""
+      },
+      {
+        "path": "/articles/hk-mainland-property-inheritance/tax-cost.html",
+        "file": "articles/hk-mainland-property-inheritance/tax-cost.html",
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/tax-cost.html",
+        "story": "/articles/hk-mainland-property-inheritance/tax-cost",
+        "topic": "hk-inheritance",
+        "language": "zh-Hant",
+        "title": "香港居民繼承內地房產税費週期費用怎麼判斷 | 劉毅律師團隊",
+        "datePublished": "2026-05-22",
+        "dateModified": "2026-07-22",
+        "indexable": true,
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "inSitemap": true,
+        "lastmod": "2026-07-22",
+        "indexed": false,
+        "indexVerdict": "unknown",
+        "coverageState": "",
+        "lastCrawlTime": ""
+      },
+      {
+        "path": "/articles/hk-mainland-property-inheritance/social-security-housing-fund_en.html",
+        "file": "articles/hk-mainland-property-inheritance/social-security-housing-fund_en.html",
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/social-security-housing-fund_en.html",
+        "story": "/articles/hk-mainland-property-inheritance/social-security-housing-fund",
+        "topic": "hk-inheritance",
+        "language": "en",
+        "title": "Social Security, Housing Fund and Related Benefits for Hong Kong Heirs | Liu Yi Lawyer Team",
+        "datePublished": "2026-07-02",
+        "dateModified": "2026-07-22",
+        "indexable": true,
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "inSitemap": true,
+        "lastmod": "2026-07-22",
+        "indexed": false,
+        "indexVerdict": "unknown",
+        "coverageState": "",
+        "lastCrawlTime": ""
+      },
+      {
+        "path": "/articles/hk-mainland-property-inheritance/social-security-housing-fund_cn.html",
+        "file": "articles/hk-mainland-property-inheritance/social-security-housing-fund_cn.html",
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/social-security-housing-fund_cn.html",
+        "story": "/articles/hk-mainland-property-inheritance/social-security-housing-fund",
+        "topic": "hk-inheritance",
+        "language": "zh-Hans",
+        "title": "香港继承人如何领取内地社保、公积金、抚恤金和相关款项 | 刘毅律师团队",
+        "datePublished": "2026-07-02",
+        "dateModified": "2026-07-22",
+        "indexable": true,
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "inSitemap": true,
+        "lastmod": "2026-07-22",
+        "indexed": false,
+        "indexVerdict": "unknown",
+        "coverageState": "",
+        "lastCrawlTime": ""
+      },
+      {
+        "path": "/articles/hk-mainland-property-inheritance/social-security-housing-fund.html",
+        "file": "articles/hk-mainland-property-inheritance/social-security-housing-fund.html",
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/social-security-housing-fund.html",
+        "story": "/articles/hk-mainland-property-inheritance/social-security-housing-fund",
+        "topic": "hk-inheritance",
+        "language": "zh-Hant",
+        "title": "香港繼承人如何領取內地社保、公積金、撫卹金和相關款項 | 劉毅律師團隊",
+        "datePublished": "2026-07-02",
+        "dateModified": "2026-07-22",
+        "indexable": true,
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "inSitemap": true,
+        "lastmod": "2026-07-22",
+        "indexed": false,
+        "indexVerdict": "unknown",
+        "coverageState": "",
+        "lastCrawlTime": ""
+      },
+      {
+        "path": "/articles/hk-mainland-property-inheritance/missing-documents_en.html",
+        "file": "articles/hk-mainland-property-inheritance/missing-documents_en.html",
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/missing-documents_en.html",
+        "story": "/articles/hk-mainland-property-inheritance/missing-documents",
+        "topic": "hk-inheritance",
+        "language": "en",
+        "title": "What If the Deceased Passed Away Years Ago and Mainland Inheritance Documents Are Incomplete? | Liu Yi Lawyer Team",
+        "datePublished": "2026-07-02",
+        "dateModified": "2026-07-22",
+        "indexable": true,
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "inSitemap": true,
+        "lastmod": "2026-07-22",
+        "indexed": false,
+        "indexVerdict": "unknown",
+        "coverageState": "",
+        "lastCrawlTime": ""
+      },
+      {
+        "path": "/articles/hk-mainland-property-inheritance/missing-documents_cn.html",
+        "file": "articles/hk-mainland-property-inheritance/missing-documents_cn.html",
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/missing-documents_cn.html",
+        "story": "/articles/hk-mainland-property-inheritance/missing-documents",
+        "topic": "hk-inheritance",
+        "language": "zh-Hans",
+        "title": "被继承人离世多年，香港继承人办理内地继承资料不全怎么办 | 刘毅律师团队",
+        "datePublished": "2026-07-02",
+        "dateModified": "2026-07-22",
+        "indexable": true,
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "inSitemap": true,
+        "lastmod": "2026-07-22",
+        "indexed": false,
+        "indexVerdict": "unknown",
+        "coverageState": "",
+        "lastCrawlTime": ""
+      },
+      {
+        "path": "/articles/hk-mainland-property-inheritance/missing-documents.html",
+        "file": "articles/hk-mainland-property-inheritance/missing-documents.html",
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/missing-documents.html",
+        "story": "/articles/hk-mainland-property-inheritance/missing-documents",
+        "topic": "hk-inheritance",
+        "language": "zh-Hant",
+        "title": "被繼承人離世多年，香港繼承人辦理內地繼承資料不全怎麼辦 | 劉毅律師團隊",
+        "datePublished": "2026-07-02",
+        "dateModified": "2026-07-22",
+        "indexable": true,
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "inSitemap": true,
+        "lastmod": "2026-07-22",
+        "indexed": false,
+        "indexVerdict": "unknown",
+        "coverageState": "",
+        "lastCrawlTime": ""
+      },
+      {
+        "path": "/articles/hk-mainland-property-inheritance/index_en.html",
+        "file": "articles/hk-mainland-property-inheritance/index_en.html",
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/index_en.html",
+        "story": "/articles/hk-mainland-property-inheritance",
+        "topic": "hk-inheritance",
+        "language": "en",
+        "title": "Family in Hong Kong, Mainland Property to Inherit: What Comes First | Liu Yi Lawyer Team",
+        "datePublished": "2026-05-21",
+        "dateModified": "2026-07-22",
+        "indexable": true,
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "inSitemap": true,
+        "lastmod": "2026-07-22",
+        "indexed": false,
+        "indexVerdict": "unknown",
+        "coverageState": "",
+        "lastCrawlTime": ""
+      },
+      {
+        "path": "/articles/hk-mainland-property-inheritance/index_cn.html",
+        "file": "articles/hk-mainland-property-inheritance/index_cn.html",
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/index_cn.html",
+        "story": "/articles/hk-mainland-property-inheritance",
+        "topic": "hk-inheritance",
+        "language": "zh-Hans",
+        "title": "家人在香港，内地房子继承要先做什么 | 刘毅律师团队",
+        "datePublished": "2026-05-21",
+        "dateModified": "2026-07-22",
+        "indexable": true,
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "inSitemap": true,
+        "lastmod": "2026-07-22",
+        "indexed": false,
+        "indexVerdict": "unknown",
+        "coverageState": "",
+        "lastCrawlTime": ""
+      },
+      {
+        "path": "/articles/hk-mainland-property-inheritance/documents_en.html",
+        "file": "articles/hk-mainland-property-inheritance/documents_en.html",
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/documents_en.html",
+        "story": "/articles/hk-mainland-property-inheritance/documents",
+        "topic": "hk-inheritance",
+        "language": "en",
+        "title": "Can Hong Kong Death Certificates or Family Documents Be Used for Mainland Inheritance?",
+        "datePublished": "2026-05-22",
+        "dateModified": "2026-07-22",
+        "indexable": true,
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "inSitemap": true,
+        "lastmod": "2026-07-22",
+        "indexed": false,
+        "indexVerdict": "unknown",
+        "coverageState": "",
+        "lastCrawlTime": ""
+      },
+      {
+        "path": "/articles/hk-mainland-property-inheritance/documents_cn.html",
+        "file": "articles/hk-mainland-property-inheritance/documents_cn.html",
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/documents_cn.html",
+        "story": "/articles/hk-mainland-property-inheritance/documents",
+        "topic": "hk-inheritance",
+        "language": "zh-Hans",
+        "title": "香港死亡证明、亲属关系证明能不能拿去办内地继承 | 刘毅律师团队",
+        "datePublished": "2026-05-22",
+        "dateModified": "2026-07-22",
+        "indexable": true,
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "inSitemap": true,
+        "lastmod": "2026-07-22",
+        "indexed": false,
+        "indexVerdict": "unknown",
+        "coverageState": "",
+        "lastCrawlTime": ""
+      },
+      {
+        "path": "/articles/hk-mainland-property-inheritance/documents.html",
+        "file": "articles/hk-mainland-property-inheritance/documents.html",
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/documents.html",
+        "story": "/articles/hk-mainland-property-inheritance/documents",
+        "topic": "hk-inheritance",
+        "language": "zh-Hant",
+        "title": "香港死亡證明、親屬關係證明能不能拿去辦內地繼承 | 劉毅律師團隊",
+        "datePublished": "2026-05-22",
+        "dateModified": "2026-07-22",
+        "indexable": true,
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "inSitemap": true,
+        "lastmod": "2026-07-22",
+        "indexed": false,
+        "indexVerdict": "unknown",
+        "coverageState": "",
+        "lastCrawlTime": ""
+      },
+      {
+        "path": "/articles/hk-mainland-property-inheritance/dispute_en.html",
+        "file": "articles/hk-mainland-property-inheritance/dispute_en.html",
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/dispute_en.html",
+        "story": "/articles/hk-mainland-property-inheritance/dispute",
+        "topic": "hk-inheritance",
+        "language": "en",
+        "title": "Hong Kong Heirs Inheriting Mainland Property: What If Someone Refuses to Cooperate?",
+        "datePublished": "2026-05-22",
+        "dateModified": "2026-07-22",
+        "indexable": true,
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "inSitemap": true,
+        "lastmod": "2026-07-22",
+        "indexed": false,
+        "indexVerdict": "unknown",
+        "coverageState": "",
+        "lastCrawlTime": ""
+      },
+      {
+        "path": "/articles/hk-mainland-property-inheritance/dispute_cn.html",
+        "file": "articles/hk-mainland-property-inheritance/dispute_cn.html",
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/dispute_cn.html",
+        "story": "/articles/hk-mainland-property-inheritance/dispute",
+        "topic": "hk-inheritance",
+        "language": "zh-Hans",
+        "title": "香港人继承内地房产继承人不配合怎么办 | 刘毅律师团队",
+        "datePublished": "2026-05-22",
+        "dateModified": "2026-07-22",
+        "indexable": true,
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "inSitemap": true,
+        "lastmod": "2026-07-22",
+        "indexed": false,
+        "indexVerdict": "unknown",
+        "coverageState": "",
+        "lastCrawlTime": ""
+      },
+      {
+        "path": "/articles/hk-mainland-property-inheritance/dispute.html",
+        "file": "articles/hk-mainland-property-inheritance/dispute.html",
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/dispute.html",
+        "story": "/articles/hk-mainland-property-inheritance/dispute",
+        "topic": "hk-inheritance",
+        "language": "zh-Hant",
+        "title": "香港人繼承內地房產繼承人不配合怎麼辦 | 劉毅律師團隊",
+        "datePublished": "2026-05-22",
+        "dateModified": "2026-07-22",
+        "indexable": true,
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "inSitemap": true,
+        "lastmod": "2026-07-22",
+        "indexed": false,
+        "indexVerdict": "unknown",
+        "coverageState": "",
+        "lastCrawlTime": ""
+      },
+      {
+        "path": "/articles/hk-mainland-property-inheritance/bank-deposits_en.html",
+        "file": "articles/hk-mainland-property-inheritance/bank-deposits_en.html",
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/bank-deposits_en.html",
+        "story": "/articles/hk-mainland-property-inheritance/bank-deposits",
+        "topic": "hk-inheritance",
+        "language": "en",
+        "title": "Mainland Bank Deposits, Wealth Products or Insurance Left by a Relative: What Hong Kong Families Should Check First",
+        "datePublished": "2026-07-02",
+        "dateModified": "2026-07-22",
+        "indexable": true,
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "inSitemap": true,
+        "lastmod": "2026-07-22",
+        "indexed": false,
+        "indexVerdict": "unknown",
+        "coverageState": "",
+        "lastCrawlTime": ""
+      },
+      {
+        "path": "/articles/hk-mainland-property-inheritance/bank-deposits_cn.html",
+        "file": "articles/hk-mainland-property-inheritance/bank-deposits_cn.html",
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/bank-deposits_cn.html",
+        "story": "/articles/hk-mainland-property-inheritance/bank-deposits",
+        "topic": "hk-inheritance",
+        "language": "zh-Hans",
+        "title": "亲人在内地留下银行存款、理财或保险，香港家属先怎么查 | 刘毅律师团队",
+        "datePublished": "2026-07-02",
+        "dateModified": "2026-07-22",
+        "indexable": true,
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "inSitemap": true,
+        "lastmod": "2026-07-22",
+        "indexed": false,
+        "indexVerdict": "unknown",
+        "coverageState": "",
+        "lastCrawlTime": ""
+      },
+      {
+        "path": "/articles/hk-mainland-property-inheritance/bank-deposits.html",
+        "file": "articles/hk-mainland-property-inheritance/bank-deposits.html",
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/bank-deposits.html",
+        "story": "/articles/hk-mainland-property-inheritance/bank-deposits",
+        "topic": "hk-inheritance",
+        "language": "zh-Hant",
+        "title": "親人在內地留下銀行存款、理財或保險，香港家屬先怎麼查 | 劉毅律師團隊",
+        "datePublished": "2026-07-02",
+        "dateModified": "2026-07-22",
+        "indexable": true,
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "inSitemap": true,
+        "lastmod": "2026-07-22",
+        "indexed": false,
+        "indexVerdict": "unknown",
+        "coverageState": "",
+        "lastCrawlTime": ""
+      },
+      {
+        "path": "/articles/hk-mainland-property-inheritance/ancestral-home-homestead_en.html",
+        "file": "articles/hk-mainland-property-inheritance/ancestral-home-homestead_en.html",
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/ancestral-home-homestead_en.html",
+        "story": "/articles/hk-mainland-property-inheritance/ancestral-home-homestead",
+        "topic": "hk-inheritance",
+        "language": "en",
+        "title": "Ancestral Homes, Homestead Houses and Historic Mainland Properties: What Hong Kong Heirs Should Check First | Liu Yi Lawyer Team",
+        "datePublished": "2026-07-02",
+        "dateModified": "2026-07-22",
+        "indexable": true,
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "inSitemap": true,
+        "lastmod": "2026-07-22",
+        "indexed": false,
+        "indexVerdict": "unknown",
+        "coverageState": "",
+        "lastCrawlTime": ""
+      },
+      {
+        "path": "/articles/hk-mainland-property-inheritance/ancestral-home-homestead_cn.html",
+        "file": "articles/hk-mainland-property-inheritance/ancestral-home-homestead_cn.html",
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/ancestral-home-homestead_cn.html",
+        "story": "/articles/hk-mainland-property-inheritance/ancestral-home-homestead",
+        "topic": "hk-inheritance",
+        "language": "zh-Hans",
+        "title": "香港继承人如何处理内地祖屋、宅基地和历史遗留房产 | 刘毅律师团队",
+        "datePublished": "2026-07-02",
+        "dateModified": "2026-07-22",
+        "indexable": true,
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "inSitemap": true,
+        "lastmod": "2026-07-22",
+        "indexed": false,
+        "indexVerdict": "unknown",
+        "coverageState": "",
+        "lastCrawlTime": ""
+      },
+      {
+        "path": "/articles/hk-mainland-property-inheritance/ancestral-home-homestead.html",
+        "file": "articles/hk-mainland-property-inheritance/ancestral-home-homestead.html",
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/ancestral-home-homestead.html",
+        "story": "/articles/hk-mainland-property-inheritance/ancestral-home-homestead",
+        "topic": "hk-inheritance",
+        "language": "zh-Hant",
+        "title": "香港繼承人如何處理內地祖屋、宅基地和歷史遺留房產 | 劉毅律師團隊",
+        "datePublished": "2026-07-02",
+        "dateModified": "2026-07-22",
+        "indexable": true,
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "inSitemap": true,
+        "lastmod": "2026-07-22",
+        "indexed": false,
+        "indexVerdict": "unknown",
+        "coverageState": "",
+        "lastCrawlTime": ""
+      },
+      {
+        "path": "/articles/hk-mainland-property-inheritance/",
+        "file": "articles/hk-mainland-property-inheritance/index.html",
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/",
+        "story": "/articles/hk-mainland-property-inheritance",
+        "topic": "hk-inheritance",
+        "language": "zh-Hant",
+        "title": "家人在香港，內地房子繼承要先做什麼 | 劉毅律師團隊",
+        "datePublished": "2026-05-21",
+        "dateModified": "2026-07-22",
+        "indexable": true,
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "inSitemap": true,
+        "lastmod": "2026-07-22",
+        "indexed": false,
+        "indexVerdict": "unknown",
+        "coverageState": "",
+        "lastCrawlTime": ""
+      },
+      {
+        "path": "/articles/am/macau-client-mainland-lawyer.html",
+        "file": "articles/am/macau-client-mainland-lawyer.html",
+        "url": "https://www.jingwei-law.com/articles/am/macau-client-mainland-lawyer.html",
+        "story": "/articles/am/macau-client-mainland-lawyer",
+        "topic": "macau",
+        "language": "zh-Hant",
+        "title": "澳門客戶如何委託內地律師處理中國內地法律事務 | 劉毅律師團隊",
+        "datePublished": "2026-05-16",
+        "dateModified": "2026-07-22",
+        "indexable": true,
+        "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        "inSitemap": true,
+        "lastmod": "2026-07-22",
+        "indexed": false,
+        "indexVerdict": "unknown",
+        "coverageState": "",
+        "lastCrawlTime": ""
+      }
+    ]
+  },
+  "drafts": {
+    "total": 20,
+    "ready": 0,
+    "items": [
+      {
+        "slug": "asset-clue-list",
+        "status": "drafted-zh-Hant",
+        "hasTraditional": true,
+        "hasSimplified": false,
+        "hasEnglish": false,
+        "imageCount": 3,
+        "path": "content-drafts/hk-mainland-property-inheritance-202607/03-drafts/asset-clue-list"
+      },
+      {
+        "slug": "co-owned-property-share",
+        "status": "drafted-zh-Hant",
+        "hasTraditional": true,
+        "hasSimplified": false,
+        "hasEnglish": false,
+        "imageCount": 3,
+        "path": "content-drafts/hk-mainland-property-inheritance-202607/03-drafts/co-owned-property-share"
+      },
+      {
+        "slug": "document-route-by-purpose",
+        "status": "drafted-zh-Hant",
+        "hasTraditional": true,
+        "hasSimplified": false,
+        "hasEnglish": false,
+        "imageCount": 3,
+        "path": "content-drafts/hk-mainland-property-inheritance-202607/03-drafts/document-route-by-purpose"
+      },
+      {
+        "slug": "executor-role-boundary",
+        "status": "drafted-zh-Hant",
+        "hasTraditional": true,
+        "hasSimplified": false,
+        "hasEnglish": false,
+        "imageCount": 3,
+        "path": "content-drafts/hk-mainland-property-inheritance-202607/03-drafts/executor-role-boundary"
+      },
+      {
+        "slug": "family-relationship-evidence",
+        "status": "drafted-zh-Hant",
+        "hasTraditional": true,
+        "hasSimplified": false,
+        "hasEnglish": false,
+        "imageCount": 3,
+        "path": "content-drafts/hk-mainland-property-inheritance-202607/03-drafts/family-relationship-evidence"
+      },
+      {
+        "slug": "family-tree-before-inheritance",
+        "status": "drafted-zh-Hant",
+        "hasTraditional": true,
+        "hasSimplified": false,
+        "hasEnglish": false,
+        "imageCount": 3,
+        "path": "content-drafts/hk-mainland-property-inheritance-202607/03-drafts/family-tree-before-inheritance"
+      },
+      {
+        "slug": "first-call-family-facts",
+        "status": "drafted-zh-Hant",
+        "hasTraditional": true,
+        "hasSimplified": false,
+        "hasEnglish": false,
+        "imageCount": 3,
+        "path": "content-drafts/hk-mainland-property-inheritance-202607/03-drafts/first-call-family-facts"
+      },
+      {
+        "slug": "heir-refuses-to-sign",
+        "status": "drafted-zh-Hant",
+        "hasTraditional": true,
+        "hasSimplified": false,
+        "hasEnglish": false,
+        "imageCount": 3,
+        "path": "content-drafts/hk-mainland-property-inheritance-202607/03-drafts/heir-refuses-to-sign"
+      },
+      {
+        "slug": "heirs-in-multiple-regions",
+        "status": "drafted-zh-Hant",
+        "hasTraditional": true,
+        "hasSimplified": true,
+        "hasEnglish": false,
+        "imageCount": 3,
+        "path": "content-drafts/hk-mainland-property-inheritance-202607/03-drafts/heirs-in-multiple-regions"
+      },
+      {
+        "slug": "hong-kong-death-certificate-details",
+        "status": "drafted-zh-Hant",
+        "hasTraditional": true,
+        "hasSimplified": false,
+        "hasEnglish": false,
+        "imageCount": 3,
+        "path": "content-drafts/hk-mainland-property-inheritance-202607/03-drafts/hong-kong-death-certificate-details"
+      },
+      {
+        "slug": "inheritance-without-will",
+        "status": "drafted-zh-Hant",
+        "hasTraditional": true,
+        "hasSimplified": false,
+        "hasEnglish": false,
+        "imageCount": 3,
+        "path": "content-drafts/hk-mainland-property-inheritance-202607/03-drafts/inheritance-without-will"
+      },
+      {
+        "slug": "mortgaged-property",
+        "status": "drafted-zh-Hant",
+        "hasTraditional": true,
+        "hasSimplified": false,
+        "hasEnglish": false,
+        "imageCount": 3,
+        "path": "content-drafts/hk-mainland-property-inheritance-202607/03-drafts/mortgaged-property"
+      },
+      {
+        "slug": "name-mismatch-across-records",
+        "status": "drafted-zh-Hant",
+        "hasTraditional": true,
+        "hasSimplified": false,
+        "hasEnglish": false,
+        "imageCount": 3,
+        "path": "content-drafts/hk-mainland-property-inheritance-202607/03-drafts/name-mismatch-across-records"
+      },
+      {
+        "slug": "old-address-and-id-records",
+        "status": "drafted-zh-Hant",
+        "hasTraditional": true,
+        "hasSimplified": false,
+        "hasEnglish": false,
+        "imageCount": 3,
+        "path": "content-drafts/hk-mainland-property-inheritance-202607/03-drafts/old-address-and-id-records"
+      },
+      {
+        "slug": "property-certificate-missing",
+        "status": "drafted-zh-Hant",
+        "hasTraditional": true,
+        "hasSimplified": false,
+        "hasEnglish": false,
+        "imageCount": 3,
+        "path": "content-drafts/hk-mainland-property-inheritance-202607/03-drafts/property-certificate-missing"
+      },
+      {
+        "slug": "property-transfer-checklist",
+        "status": "drafted-zh-Hant",
+        "hasTraditional": true,
+        "hasSimplified": false,
+        "hasEnglish": false,
+        "imageCount": 3,
+        "path": "content-drafts/hk-mainland-property-inheritance-202607/03-drafts/property-transfer-checklist"
+      },
+      {
+        "slug": "remote-authorisation-scope",
+        "status": "drafted-zh-Hant",
+        "hasTraditional": true,
+        "hasSimplified": false,
+        "hasEnglish": false,
+        "imageCount": 3,
+        "path": "content-drafts/hk-mainland-property-inheritance-202607/03-drafts/remote-authorisation-scope"
+      },
+      {
+        "slug": "renounce-inheritance",
+        "status": "drafted-zh-Hant",
+        "hasTraditional": true,
+        "hasSimplified": false,
+        "hasEnglish": false,
+        "imageCount": 3,
+        "path": "content-drafts/hk-mainland-property-inheritance-202607/03-drafts/renounce-inheritance"
+      },
+      {
+        "slug": "unreachable-heir",
+        "status": "drafted-zh-Hant",
+        "hasTraditional": true,
+        "hasSimplified": false,
+        "hasEnglish": false,
+        "imageCount": 3,
+        "path": "content-drafts/hk-mainland-property-inheritance-202607/03-drafts/unreachable-heir"
+      },
+      {
+        "slug": "will-first-review",
+        "status": "drafted-zh-Hant",
+        "hasTraditional": true,
+        "hasSimplified": false,
+        "hasEnglish": false,
+        "imageCount": 3,
+        "path": "content-drafts/hk-mainland-property-inheritance-202607/03-drafts/will-first-review"
+      }
+    ]
+  },
+  "queue": {
+    "updatedAt": "2026-07-22",
+    "dailyCandidateAllocation": {
+      "total": 30,
+      "hk-inheritance": 10,
+      "singapore": 6,
+      "macau": 5,
+      "united-states": 9
+    },
+    "hkLaunch": {
+      "total": 50,
+      "remaining": 50,
+      "byStatus": {
+        "drafted-zh-Hant": 20,
+        "planned": 30
+      }
+    },
+    "starterBacklog": {
+      "macau": 8,
+      "singapore": 8,
+      "united-states": 8
+    },
+    "next": [
+      {
+        "id": "HK-001",
+        "slug": "first-call-family-facts",
+        "title": "第一次諮詢內地遺產繼承，香港家屬先準備哪五件事",
+        "intent": "不知道從哪裏開始",
+        "depth": "entry",
+        "status": "drafted-zh-Hant"
+      },
+      {
+        "id": "HK-002",
+        "slug": "asset-clue-list",
+        "title": "只知道家人在內地留過資產，怎樣先做一張可查的資產線索表",
+        "intent": "資產範圍不清",
+        "depth": "entry",
+        "status": "drafted-zh-Hant"
+      },
+      {
+        "id": "HK-003",
+        "slug": "family-tree-before-inheritance",
+        "title": "繼承人很多又分散，為什麼先畫家庭關係圖會省很多時間",
+        "intent": "繼承人範圍混亂",
+        "depth": "entry",
+        "status": "drafted-zh-Hant"
+      },
+      {
+        "id": "HK-004",
+        "slug": "hong-kong-death-certificate-details",
+        "title": "香港死亡證明交到內地前，先核對姓名、日期和用途",
+        "intent": "死亡證明能否使用",
+        "depth": "entry",
+        "status": "drafted-zh-Hant"
+      },
+      {
+        "id": "HK-005",
+        "slug": "family-relationship-evidence",
+        "title": "沒有一張完整親屬關係證明，香港家屬可從哪些舊資料開始整理",
+        "intent": "親屬關係證明缺失",
+        "depth": "entry",
+        "status": "drafted-zh-Hant"
+      },
+      {
+        "id": "HK-006",
+        "slug": "inheritance-without-will",
+        "title": "沒有遺囑時，香港家屬處理內地遺產先確認哪些人",
+        "intent": "無遺囑繼承",
+        "depth": "entry",
+        "status": "drafted-zh-Hant"
+      },
+      {
+        "id": "HK-007",
+        "slug": "will-first-review",
+        "title": "手上有遺囑也別急着辦：先看版本、簽署和保管線索",
+        "intent": "遺囑是否可用",
+        "depth": "entry",
+        "status": "drafted-zh-Hant"
+      },
+      {
+        "id": "HK-008",
+        "slug": "executor-role-boundary",
+        "title": "遺囑執行人能否一個人辦完內地資產手續",
+        "intent": "執行人權限",
+        "depth": "entry",
+        "status": "drafted-zh-Hant"
+      },
+      {
+        "id": "HK-009",
+        "slug": "heirs-in-multiple-regions",
+        "title": "繼承人分散在香港、內地和海外，怎樣排好簽字和文件順序",
+        "intent": "多人跨地區協作",
+        "depth": "entry",
+        "status": "drafted-zh-Hant"
+      },
+      {
+        "id": "HK-010",
+        "slug": "unreachable-heir",
+        "title": "有一名繼承人失聯，其他家人能不能先處理內地遺產",
+        "intent": "繼承人失聯",
+        "depth": "entry",
+        "status": "drafted-zh-Hant"
+      },
+      {
+        "id": "HK-011",
+        "slug": "heir-refuses-to-sign",
+        "title": "家人不肯簽字時，先分清他是反對、拖延還是聯絡不上",
+        "intent": "繼承人不配合",
+        "depth": "entry",
+        "status": "drafted-zh-Hant"
+      },
+      {
+        "id": "HK-012",
+        "slug": "renounce-inheritance",
+        "title": "香港家屬想放棄內地遺產，作決定前先算清三筆賬",
+        "intent": "放棄繼承",
+        "depth": "entry",
+        "status": "drafted-zh-Hant"
+      }
+    ]
+  },
+  "indexed": {
+    "count": null,
+    "pending": null,
+    "source": "not connected"
+  },
+  "searchPerformance": {
+    "range": "last-3-months",
+    "clicks": 11,
+    "impressions": 345,
+    "ctr": 0.032,
+    "averagePosition": 10.1,
+    "topQueries": [
+      {
+        "query": "劉毅律師",
+        "clicks": 1,
+        "impressions": 27
+      },
+      {
+        "query": "chinese litigation lawyer",
+        "clicks": 0,
+        "impressions": 6
+      },
+      {
+        "query": "for the death certificate in hk, would it mention how many family member for the decents",
+        "clicks": 0,
+        "impressions": 5
+      },
+      {
+        "query": "香港人繼承內地房產有什麽手續",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "內地繼承無遺囑",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "放棄內地遺產繼承公証",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "遺產房子過戶",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "內地房產繼承",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "hong kong death certificate",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "topPages": [
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/",
+        "clicks": 2,
+        "impressions": 152
+      },
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/index_en.html",
+        "clicks": 0,
+        "impressions": 18
+      },
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/dispute.html",
+        "clicks": 1,
+        "impressions": 11
+      },
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/documents_en.html",
+        "clicks": 0,
+        "impressions": 10
+      },
+      {
+        "url": "https://www.jingwei-law.com/articles/am/macau-client-mainland-lawyer.html",
+        "clicks": 3,
+        "impressions": 29
+      }
+    ]
+  },
+  "leadChain": {
+    "steps": [
+      "Article CTA",
+      "AI initial Q&A",
+      "Lead form",
+      "Form relay",
+      "Lead sheet",
+      "Email notification"
+    ],
+    "topicField": "configured-in-source",
+    "aggregateEndpoint": "not-connected"
+  },
+  "compliance": {
+    "mode": "human-first",
+    "autoPublish": false,
+    "dailyCandidateLimit": 30,
+    "dailyPublishPolicy": "publish only after every quality gate passes",
+    "googlePolicyCheckedAt": "2026-07-22",
+    "notes": [
+      "30 means candidate slots, not a forced daily publication count.",
+      "Use truthful publication and modification dates only.",
+      "Do not create thin pages for minor query variations.",
+      "Use Search Console data for index monitoring; do not scrape Google results."
+    ]
+  }
+}

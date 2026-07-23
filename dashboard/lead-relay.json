@@ -1,0 +1,7 @@
+{
+  "ok": true,
+  "service": "jingwei-form-relay",
+  "mail_mode": "fallback_only",
+  "checkedAt": "2026-07-22T17:45:45+08:00",
+  "note": "The public relay health endpoint is online. It does not currently expose consultation aggregates."
+}

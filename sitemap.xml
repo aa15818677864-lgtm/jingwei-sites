@@ -74,31 +74,55 @@
   </url>
   <url>
     <loc>https://www.jingwei-law.com/articles/</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/documents.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.55</priority>
   </url>
   <url>
     <loc>https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/dispute.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.55</priority>
   </url>
   <url>
     <loc>https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/tax-cost.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/bank-deposits.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/social-security-housing-fund.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/missing-documents.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/ancestral-home-homestead.html</loc>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.55</priority>
   </url>
@@ -110,19 +134,19 @@
   </url>
   <url>
     <loc>https://www.jingwei-law.com/articles/am/macau-client-mainland-lawyer.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.jingwei-law.com/articles/overseas-chinese/remote-entrust-china-lawyer.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.jingwei-law.com/articles/us/remote-china-lawyer.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -134,61 +158,109 @@
   </url>
   <url>
     <loc>https://www.jingwei-law.com/articles/index_en.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.55</priority>
   </url>
   <url>
     <loc>https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/index_en.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.55</priority>
   </url>
   <url>
     <loc>https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/documents_en.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.55</priority>
   </url>
   <url>
     <loc>https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/dispute_en.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.55</priority>
   </url>
   <url>
     <loc>https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/tax-cost_en.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/bank-deposits_en.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/social-security-housing-fund_en.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/missing-documents_en.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/ancestral-home-homestead_en.html</loc>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.55</priority>
   </url>
   <url>
     <loc>https://www.jingwei-law.com/articles/index_cn.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.55</priority>
   </url>
   <url>
     <loc>https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/index_cn.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.55</priority>
   </url>
   <url>
     <loc>https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/documents_cn.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.55</priority>
   </url>
   <url>
     <loc>https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/dispute_cn.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.55</priority>
   </url>
   <url>
     <loc>https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/tax-cost_cn.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/bank-deposits_cn.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/social-security-housing-fund_cn.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/missing-documents_cn.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/ancestral-home-homestead_cn.html</loc>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.55</priority>
   </url>
