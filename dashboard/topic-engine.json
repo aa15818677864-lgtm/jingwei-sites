@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-07-23T02:49:12+00:00",
+  "generatedAt": "2026-07-23T04:01:44+00:00",
   "model": "persona-search-feedback-v1",
   "source": {
     "personas": "content-system/personas.json",
     "registry": "content-system/topic-registry.json",
     "searchConsole": "dashboard/search-console.json",
     "searchConsoleExportedAt": "2026-07-22",
-    "urlInspectionCount": 0,
+    "urlInspectionCount": 1,
     "consultations": "not-connected"
   },
   "summary": {
@@ -633,7 +633,7 @@
         "consultations": 0,
         "indexed": false,
         "inspectionKnown": false,
-        "publishedAgeDays": 63
+        "publishedAgeDays": null
       }
     },
     {
@@ -1458,7 +1458,7 @@
   "suppressedClusters": [],
   "learningLog": [
     "Search Console 当前有 9 条查询样本，其中 7 次命中已登记的问题模式。",
-    "目前没有 URL 检查明细，系统只观察展示数据，不把未知写成未收录。",
+    "已接入 1 条 URL 检查记录，可执行收录生命周期判断。",
     "本轮有 16 个选题达到研究门槛，分配由真实信号和评分产生。",
     "合格选题库存不足，需要从人物搜索阶段补充 14 个独立问题。"
   ]

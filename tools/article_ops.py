@@ -218,7 +218,7 @@ def queue_metrics() -> dict:
     }
 
 
-def search_console_lookup() -> tuple[dict, dict]:
+def search_console_lookup() -> tuple[dict, dict, dict]:
     data = read_json(SEARCH_CONSOLE_PATH, {})
     rows = data.get("urls") if isinstance(data, dict) else None
     lookup = {}
@@ -229,7 +229,29 @@ def search_console_lookup() -> tuple[dict, dict]:
             if row.get("url") or row.get("inspectionUrl")
         }
     performance = data.get("performance", {}) if isinstance(data, dict) else {}
-    return lookup, performance
+    sitemap_report = data.get("sitemap", {}) if isinstance(data, dict) else {}
+    return lookup, performance, sitemap_report
+
+
+def index_state(row: dict) -> tuple[bool, bool, str]:
+    verdict = str(row.get("verdict") or "").strip()
+    coverage = str(row.get("coverageState") or "").strip()
+    combined = f"{verdict} {coverage}".casefold()
+    if not combined.strip() or combined.strip() in {"unknown", "neutral"}:
+        return False, False, "unknown"
+    explicit_nonindex_markers = (
+        "not indexed",
+        "not on google",
+        "未编入索引",
+        "未建立索引",
+        "尚未收录",
+    )
+    if any(marker in combined for marker in explicit_nonindex_markers):
+        return False, True, coverage or verdict
+    indexed = verdict.upper() == "PASS" or (
+        "indexed" in combined and "not indexed" not in combined
+    ) or "已编入索引" in combined or "已建立索引" in combined
+    return indexed, not indexed, coverage or verdict
 
 
 def fetch_json(url: str) -> dict | None:
@@ -269,24 +291,31 @@ def build_metrics() -> dict:
             "total": adaptive_allocation.get("selected", 0),
             **adaptive_allocation.get("byTopic", {}),
         }
-    gsc, performance = search_console_lookup()
+    gsc, performance, sitemap_report = search_console_lookup()
     consultation, consultation_source, consultation_payload = consultation_metrics()
     relay_status = read_json(RELAY_STATUS_PATH, {})
 
     latest = []
     indexed_count = 0
+    explicit_nonindex_count = 0
+    inspected_count = 0
     for row in inventory:
         gsc_row = gsc.get(row["url"], {})
-        verdict = gsc_row.get("verdict") or gsc_row.get("coverageState") or "unknown"
-        indexed = str(verdict).upper() == "PASS" or "indexed" in str(verdict).lower()
-        if indexed:
-            indexed_count += 1
+        indexed, explicit_nonindex, verdict = index_state(gsc_row)
+        index_known = indexed or explicit_nonindex
+        if row["indexable"] and index_known:
+            inspected_count += 1
+            if indexed:
+                indexed_count += 1
+            elif explicit_nonindex:
+                explicit_nonindex_count += 1
         latest.append(
             {
                 **row,
                 "inSitemap": row["url"] in sitemap_by_url,
                 "lastmod": sitemap_by_url.get(row["url"], {}).get("lastmod") or row["dateModified"],
                 "indexed": indexed,
+                "indexKnown": index_known,
                 "indexVerdict": verdict,
                 "coverageState": gsc_row.get("coverageState", ""),
                 "lastCrawlTime": gsc_row.get("lastCrawlTime", ""),
@@ -306,6 +335,8 @@ def build_metrics() -> dict:
         or relay_status.get("service") == "jingwei-form-relay"
     )
     gsc_connected = bool(gsc)
+    unknown_index_count = max(0, len(indexable) - inspected_count)
+    complete_index_coverage = bool(indexable) and inspected_count == len(indexable)
 
     return {
         "generatedAt": now_iso(),
@@ -319,6 +350,10 @@ def build_metrics() -> dict:
             "emailMode": consultation_payload.get("mail_mode") or relay_status.get("mail_mode", "not-reported"),
         },
         "consultation": consultation,
+        "sitemap": {
+            "localUrlCount": len(sitemap_rows),
+            "searchConsole": sitemap_report or None,
+        },
         "articles": {
             "totalPages": len(inventory),
             "uniqueTopics": len(unique_stories),
@@ -327,14 +362,18 @@ def build_metrics() -> dict:
             "unsitemappedPages": len(inventory) - len(in_sitemap),
             "byLanguage": dict(by_language),
             "byTopic": dict(by_topic),
-            "latest": latest[:60],
+            "latest": latest,
         },
         "drafts": {"total": len(drafts), "ready": len(ready), "items": drafts},
         "queue": queue,
         "topicEngine": topic_engine,
         "indexed": {
-            "count": indexed_count if gsc_connected else None,
-            "pending": max(0, len(indexable) - indexed_count) if gsc_connected else None,
+            "count": indexed_count if complete_index_coverage else None,
+            "confirmedCount": indexed_count if gsc_connected else None,
+            "confirmedNotIndexedCount": explicit_nonindex_count if gsc_connected else None,
+            "inspectedCount": inspected_count if gsc_connected else None,
+            "unknownCount": unknown_index_count if gsc_connected else None,
+            "pending": explicit_nonindex_count if gsc_connected else None,
             "source": "Search Console URL Inspection" if gsc_connected else "not connected",
         },
         "searchPerformance": performance,

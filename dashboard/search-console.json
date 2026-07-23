@@ -1,6 +1,15 @@
 {
   "exportedAt": "2026-07-22",
-  "source": "Google Search Console performance report viewed in the signed-in in-app browser",
+  "observedAt": "2026-07-23T11:56:00+08:00",
+  "source": "Google Search Console viewed in the signed-in in-app browser",
+  "sitemap": {
+    "url": "https://www.jingwei-law.com/sitemap.xml",
+    "submittedAt": "2026-07-23",
+    "lastReadAt": "2026-07-23",
+    "status": "成功",
+    "discoveredPages": 104,
+    "discoveredVideos": 0
+  },
   "performance": {
     "range": "last-3-months",
     "clicks": 11,
@@ -26,5 +35,17 @@
       {"url":"https://www.jingwei-law.com/articles/am/macau-client-mainland-lawyer.html","clicks":3,"impressions":29}
     ]
   },
-  "urls": []
+  "urls": [
+    {
+      "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/asset-clue-list.html",
+      "verdict": "NEUTRAL",
+      "coverageState": "已发现 - 尚未编入索引",
+      "lastCrawlTime": "",
+      "inspectedAt": "2026-07-23T11:55:00+08:00",
+      "liveTestVerdict": "PASS",
+      "liveTestState": "网址可编入 Google 索引",
+      "breadcrumbEnhancement": "检测到了 1 项有效内容",
+      "indexingRequestedAt": "2026-07-23T11:56:00+08:00"
+    }
+  ]
 }

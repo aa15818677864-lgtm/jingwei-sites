@@ -310,9 +310,14 @@
     nodes.publishedCount.textContent = formatCount(state.metrics?.articles?.uniqueTopics);
     nodes.publishedHint.textContent = `${formatCount(state.metrics?.articles?.totalPages)} 个语言页面`;
 
-    const indexed = state.metrics?.indexed?.count;
+    const indexSummary = state.metrics?.indexed || {};
+    const indexed = indexSummary.count;
     nodes.indexedCount.textContent = formatCount(indexed);
-    nodes.indexedHint.textContent = isFiniteNumber(indexed) ? "来自 Search Console" : "Search Console 未接通";
+    nodes.indexedHint.textContent = isFiniteNumber(indexed)
+      ? "来自 Search Console"
+      : (isFiniteNumber(indexSummary.inspectedCount) && Number(indexSummary.inspectedCount) > 0
+        ? `已确认 ${formatCount(indexSummary.confirmedCount)} · 已检查 ${formatCount(indexSummary.inspectedCount)} · ${formatCount(indexSummary.unknownCount)} 未知`
+        : "Search Console 未接通");
 
     const topicSummary = state.metrics?.topicEngine?.summary || {};
     nodes.topicReadyCount.textContent = formatCount(topicSummary.eligibleCandidates);
@@ -320,11 +325,16 @@
       ? `${formatCount(topicSummary.registeredCandidates)} 个登记问题中筛出`
       : "选题引擎尚未生成";
 
-    nodes.articleSource.textContent = state.metrics ? "本地页面 + sitemap" : "未读取";
+    const sitemapReport = state.metrics?.sitemap?.searchConsole;
+    nodes.articleSource.textContent = sitemapReport?.status && isFiniteNumber(sitemapReport.discoveredPages)
+      ? `sitemap ${sitemapReport.status} · ${formatCount(sitemapReport.discoveredPages)} 个网址`
+      : (state.metrics ? "本地页面 + sitemap" : "未读取");
     nodes.leadSource.textContent = consultation
       ? "真实咨询统计"
       : (state.relay?.service || state.metrics?.source?.leadRelay === "online" ? "表单在线 / 统计待接" : "未接通");
-    nodes.indexSource.textContent = state.metrics?.source?.searchConsole === "not-connected" ? "未接通" : "Search Console";
+    nodes.indexSource.textContent = state.metrics?.source?.searchConsole === "not-connected"
+      ? "未接通"
+      : `Search Console · 已检查 ${formatCount(indexSummary.inspectedCount)} 页`;
     nodes.lastUpdated.textContent = formatTime(state.metrics?.generatedAt);
 
     const performance = state.metrics?.searchPerformance || {};
@@ -497,14 +507,18 @@
   }
 
   function renderArticles() {
-    const rows = state.metrics?.articles?.latest || [];
+    const rows = [...(state.metrics?.articles?.latest || [])].sort(
+      (left, right) => Number(right.indexKnown === true) - Number(left.indexKnown === true)
+    );
     const bad = rows.filter((row) => !row.indexable || !row.inSitemap).length;
     nodes.articleAuditSummary.textContent = bad ? `${bad} needs fix` : "SEO base passed";
     nodes.articleRows.innerHTML = rows.length
       ? rows.slice(0, 30).map((article) => {
         const seo = seoStatus(article);
         const topic = topicMeta[article.topic]?.label || "其他";
-        const indexKnown = state.metrics?.source?.searchConsole !== "not-connected";
+        const indexKnown = article.indexKnown === true;
+        const indexLabel = indexKnown ? (article.indexed ? "已收录" : "未收录") : "未知";
+        const indexClass = indexKnown ? (article.indexed ? "" : "is-pending") : "is-unknown";
         return `
           <tr>
             <td>${escapeHtml(article.title)}</td>
@@ -512,7 +526,7 @@
             <td>${languageLabel(article.language)}</td>
             <td>${escapeHtml(article.lastmod || article.dateModified || "--")}</td>
             <td><span class="status ${seo.className}">${seo.label}</span></td>
-            <td><span class="status ${indexKnown ? (article.indexed ? "" : "is-pending") : "is-unknown"}">${indexKnown ? (article.indexed ? "已收录" : "待确认") : "未知"}</span></td>
+            <td><span class="status ${indexClass}">${indexLabel}</span></td>
           </tr>`;
       }).join("")
       : '<tr><td colspan="6">没有读取到文章页面</td></tr>';
