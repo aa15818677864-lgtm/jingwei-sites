@@ -119,6 +119,8 @@ def local_article_inventory() -> list[dict]:
             continue
 
         text = file_path.read_text(encoding="utf-8", errors="ignore")
+        if "data-article-redirect" in text:
+            continue
         canonical_match = CANONICAL_RE.search(text)
         canonical = canonical_match.group(1).strip() if canonical_match else f"{BASE_URL}/{relative}"
         path = canonical.removeprefix(BASE_URL) if canonical.startswith(BASE_URL) else f"/{relative}"

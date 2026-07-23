@@ -17,6 +17,10 @@ def read(path: Path) -> str:
     return path.read_text(encoding="utf-8")
 
 
+def is_redirect_article(text: str) -> bool:
+    return "data-article-redirect" in text
+
+
 def write(path: Path, value: str) -> None:
     path.write_text(value, encoding="utf-8", newline="\n")
 
@@ -41,6 +45,8 @@ def fix_cn_hreflang() -> int:
     pattern = re.compile(r'\s*<link rel="alternate" hreflang="(?:zh-Hant|zh-Hans|en|x-default)" href="[^"]+">')
     for path in sorted(ARTICLES.rglob("*_cn.html")):
         text = read(path)
+        if is_redirect_article(text):
+            continue
         paths = locale_paths(path)
         replacement = "\n" + "\n".join(
             f'  <link rel="alternate" hreflang="{locale}" href="{SITE}{target}">'
@@ -64,6 +70,8 @@ def add_author_urls() -> int:
         if re.search(r"(^|/)index(?:_cn|_en)?\.html$", public_path(path)):
             continue
         text = read(path)
+        if is_redirect_article(text):
+            continue
 
         def patch_author(match: re.Match[str]) -> str:
             body = match.group(2)
@@ -96,6 +104,8 @@ def story_count() -> tuple[int, int]:
     for path in ARTICLES.rglob("*.html"):
         rel = public_path(path)
         if re.search(r"(^|/)index(?:_cn|_en)?\.html$", rel):
+            continue
+        if is_redirect_article(read(path)):
             continue
         pages.append(rel)
     stories = {re.sub(r"_(?:cn|en)\.html$", ".html", rel) for rel in pages}
@@ -203,6 +213,8 @@ def audit() -> list[str]:
             issues.append(f"DISCOVERY_BOT_BLOCKED {agent}")
     for path in sorted(ARTICLES.rglob("*_cn.html")):
         text = read(path)
+        if is_redirect_article(text):
+            continue
         expected = locale_paths(path)
         found = dict(re.findall(r'<link rel="alternate" hreflang="([^"]+)" href="' + re.escape(SITE) + r'([^"]+)">', text))
         for locale, target in expected.items():
@@ -213,6 +225,8 @@ def audit() -> list[str]:
         if re.search(r"(^|/)index(?:_cn|_en)?\.html$", rel):
             continue
         text = read(path)
+        if is_redirect_article(text):
+            continue
         article_match = re.search(r'"@type"\s*:\s*"Article".*?"author"\s*:\s*\{(.*?)\}', text, re.S)
         if not article_match or '"url"' not in article_match.group(1):
             issues.append(f"AUTHOR_URL_MISSING {rel}")

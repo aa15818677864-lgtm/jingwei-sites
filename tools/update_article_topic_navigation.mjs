@@ -7,21 +7,21 @@ const articlesRoot = path.join(root, "articles");
 
 const navigation = {
   "zh-Hant": [
-    ["/articles/", "香港專題", "hong-kong"],
+    ["/articles/", "香港房產繼承", "hong-kong"],
     ["/articles/macau/", "澳門專題", "macau"],
     ["/articles/singapore/", "新加坡專題", "singapore"],
     ["/articles/united-states/", "美國專題", "united-states"],
     ["/ask/gpt/?topic=articles&amp;source=article-nav", "諮詢 AI 法律助手", "assistant"],
   ],
   "zh-Hans": [
-    ["/articles/index_cn.html", "香港专题", "hong-kong"],
+    ["/articles/index_cn.html", "香港房产继承", "hong-kong"],
     ["/articles/macau/index_cn.html", "澳门专题", "macau"],
     ["/articles/singapore/index_cn.html", "新加坡专题", "singapore"],
     ["/articles/united-states/index_cn.html", "美国专题", "united-states"],
     ["/ask/gpt/?topic=articles&amp;source=article-nav", "咨询 AI 法律助手", "assistant"],
   ],
   en: [
-    ["/articles/index_en.html", "Hong Kong", "hong-kong"],
+    ["/articles/index_en.html", "HK Property Inheritance", "hong-kong"],
     ["/articles/macau/index_en.html", "Macau", "macau"],
     ["/articles/singapore/index_en.html", "Singapore", "singapore"],
     ["/articles/united-states/index_en.html", "United States", "united-states"],
@@ -67,8 +67,10 @@ for (const filePath of walk(articlesRoot)) {
     })
     .join("\n");
   const replacement = `<div class="nav-links">\n${links}\n      </div>`;
-  const next = html.replace(/<div class="nav-links">[\s\S]*?<\/div>/, replacement);
-  if (next === html) throw new Error(`Could not update navigation in ${relativePath}`);
+  const pattern = /<div class="nav-links">[\s\S]*?<\/div>/;
+  if (!pattern.test(html)) throw new Error(`Could not find navigation in ${relativePath}`);
+  const next = html.replace(pattern, replacement);
+  if (next === html) continue;
   fs.writeFileSync(filePath, next, "utf8");
   updated += 1;
 }

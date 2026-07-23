@@ -33,6 +33,14 @@ NEW_SLUGS = [
     "co-owned-property-share",
     "property-certificate-missing",
 ]
+CORE_PROPERTY_SLUGS = [
+    "ancestral-home-homestead",
+    "dispute",
+    "documents",
+    "missing-documents",
+    "tax-cost",
+]
+PROPERTY_SLUGS = sorted(set(NEW_SLUGS + CORE_PROPERTY_SLUGS))
 
 
 def html_files() -> list[Path]:
@@ -183,6 +191,101 @@ class ArticleIntegrityTests(unittest.TestCase):
             self.assertIn("/articles/macau/", text)
             self.assertIn("/articles/singapore/", text)
             self.assertIn("/articles/united-states/", text)
+
+    def test_hong_kong_property_topic_excludes_non_property_estate_articles(self) -> None:
+        topic = ARTICLES / "hk-mainland-property-inheritance"
+        indexes = [topic / "index.html", topic / "index_cn.html", topic / "index_en.html"]
+        for path in indexes:
+            text = path.read_text(encoding="utf-8")
+            self.assertNotIn("bank-deposits", text, str(path.relative_to(ROOT)))
+            self.assertNotIn("social-security-housing-fund", text, str(path.relative_to(ROOT)))
+
+        other_topic = ARTICLES / "hong-kong-other-estate"
+        for filename in ("index.html", "index_cn.html", "index_en.html"):
+            path = other_topic / filename
+            self.assertTrue(path.exists(), str(path.relative_to(ROOT)))
+            text = path.read_text(encoding="utf-8")
+            self.assertIn("bank-deposits", text)
+            self.assertIn("social-security-housing-fund", text)
+
+        for slug in ("bank-deposits", "social-security-housing-fund"):
+            for suffix in ("", "_cn", "_en"):
+                path = topic / f"{slug}{suffix}.html"
+                text = path.read_text(encoding="utf-8")
+                self.assertIn("data-article-redirect", text)
+                self.assertIn('content="noindex,follow"', text)
+                self.assertIn(f"/articles/hong-kong-other-estate/{slug}{suffix}.html", text)
+
+    def test_hong_kong_property_articles_stay_on_property_intent(self) -> None:
+        topic = ARTICLES / "hk-mainland-property-inheritance"
+        rejected = (
+            "銀行存款",
+            "银行存款",
+            "社保公積金",
+            "社保公积金",
+            "公司股權",
+            "公司股权",
+            "銀行線索",
+            "银行线索",
+            "bank account",
+            "bank clues",
+            "employment-related payments",
+            "company interests",
+            "property, banking",
+        )
+        for slug in PROPERTY_SLUGS:
+            for suffix in ("", "_cn", "_en"):
+                path = topic / f"{slug}{suffix}.html"
+                text = path.read_text(encoding="utf-8")
+                h1 = re.search(r"<h1>(.*?)</h1>", text, flags=re.S)
+                self.assertIsNotNone(h1, str(path.relative_to(ROOT)))
+                heading = re.sub(r"<[^>]+>", "", h1.group(1))
+                if suffix == "_en":
+                    self.assertRegex(heading.lower(), r"property|home|house")
+                else:
+                    self.assertRegex(heading, r"房|物業|物业")
+                for phrase in rejected:
+                    self.assertNotIn(phrase, text.lower(), f"{phrase} in {path.relative_to(ROOT)}")
+
+    def test_hong_kong_property_visuals_do_not_use_generic_estate_labels(self) -> None:
+        images = ARTICLES / "hk-mainland-property-inheritance" / "images"
+        rejected = (
+            "\u8cc7\u7522",
+            "\u8d44\u4ea7",
+            "\u9280\u884c",
+            "\u94f6\u884c",
+            "\u793e\u4fdd",
+            "\u516c\u7a4d\u91d1",
+            "\u516c\u79ef\u91d1",
+            "\u80a1\u6b0a",
+            "\u80a1\u6743",
+            "mainland estate",
+            "banking",
+            ">assets<",
+            " asset ",
+            " assets ",
+        )
+        for path in images.rglob("*.svg"):
+            text = path.read_text(encoding="utf-8").lower()
+            for phrase in rejected:
+                self.assertNotIn(phrase, text, f"{phrase} in {path.relative_to(ROOT)}")
+
+    def test_hong_kong_property_navigation_and_sitemap_are_precise(self) -> None:
+        labels = {
+            "index.html": "香港房產繼承",
+            "index_cn.html": "香港房产继承",
+            "index_en.html": "HK Property Inheritance",
+        }
+        for filename, label in labels.items():
+            text = (ARTICLES / filename).read_text(encoding="utf-8")
+            self.assertIn(label, text)
+
+        sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
+        self.assertNotIn("/articles/hk-mainland-property-inheritance/bank-deposits", sitemap)
+        self.assertNotIn("/articles/hk-mainland-property-inheritance/social-security-housing-fund", sitemap)
+        self.assertIn("/articles/hong-kong-other-estate/", sitemap)
+        self.assertIn("/articles/hong-kong-other-estate/bank-deposits", sitemap)
+        self.assertIn("/articles/hong-kong-other-estate/social-security-housing-fund", sitemap)
 
     def test_launch_twenty_do_not_use_old_batch_template_labels(self) -> None:
         topic = ARTICLES / "hk-mainland-property-inheritance"
