@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-label="遗产房被亲属居住时要分开整理五条时间线">
+  <style>.t{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft JhengHei",sans-serif;fill:#142033}.ey{font-size:23px;font-weight:700;fill:#08756f}.h{font-size:46px;font-weight:760}.label{font-size:24px;font-weight:760}.small{font-size:19px;fill:#607083}</style>
+  <rect width="1200" height="720" fill="#f4f7f8"/><text class="t ey" x="76" y="78">亲属居住 · 事实核对</text><text class="t h" x="76" y="142">把五条时间线分开记</text>
+  <path d="M142 354h916" stroke="#b8c4d1" stroke-width="12" stroke-linecap="round"/>
+  <g class="t" text-anchor="middle"><circle cx="160" cy="354" r="66" fill="#f7e8eb" stroke="#a30d23" stroke-width="7"/><path d="m130 356 30-28 30 28v35h-60z" fill="none" stroke="#a30d23" stroke-width="6"/><text class="label" x="160" y="464">房屋</text><text class="small" x="160" y="495">登记与共有</text>
+  <circle cx="380" cy="354" r="66" fill="#e5f2f0" stroke="#08756f" stroke-width="7"/><circle cx="380" cy="330" r="18" fill="none" stroke="#08756f" stroke-width="6"/><path d="M346 392c5-35 18-48 34-48s29 13 34 48" fill="none" stroke="#08756f" stroke-width="6"/><text class="label" x="380" y="464">居住</text><text class="small" x="380" y="495">何时与为何</text>
+  <circle cx="600" cy="354" r="66" fill="#e7eef7" stroke="#315f8f" stroke-width="7"/><path d="M565 350c22-38 48-38 70 0-22 42-48 42-70 0z" fill="none" stroke="#315f8f" stroke-width="6"/><text class="label" x="600" y="464">照顾</text><text class="small" x="600" y="495">做过什么</text>
+  <circle cx="820" cy="354" r="66" fill="#f4ead5" stroke="#9a6715" stroke-width="7"/><rect x="782" y="316" width="76" height="76" rx="8" fill="none" stroke="#9a6715" stroke-width="6"/><path d="M798 342h44M798 366h28" stroke="#9a6715" stroke-width="6" stroke-linecap="round"/><text class="label" x="820" y="464">付款</text><text class="small" x="820" y="495">物业与维修</text>
+  <circle cx="1040" cy="354" r="66" fill="#eee7f4" stroke="#76558f" stroke-width="7"/><path d="M1005 354h70M1040 319v70" stroke="#76558f" stroke-width="8" stroke-linecap="round"/><text class="label" x="1040" y="464">收益</text><text class="small" x="1040" y="495">收租与转租</text></g>
+  <text class="t small" x="600" y="602" text-anchor="middle">放到同一日期上比较，不把五件事混成一句话</text>
+</svg>
