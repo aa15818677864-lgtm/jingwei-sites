@@ -29,7 +29,7 @@ const seoPages = [
   { label: "新文章繁体", path: "/articles/hk-mainland-property-inheritance/asset-clue-list.html", mustContain: 'hreflang="zh-Hans"' },
   { label: "新文章简体", path: "/articles/hk-mainland-property-inheritance/asset-clue-list_cn.html", mustContain: 'lang="zh-Hans"' },
   { label: "新文章英文", path: "/articles/hk-mainland-property-inheritance/asset-clue-list_en.html", mustContain: 'lang="en"' },
-  { label: "内容仪表盘", path: "/dashboard/", mustContain: "Liu Yi Lawyer Team · Content Operations" },
+  { label: "内容仪表盘", path: "/dashboard/", mustContain: "<h1>运营概览</h1>" },
   { label: "AI 搜索抓取配置", path: "/robots.txt", mustContain: "User-agent: OAI-SearchBot" },
   { label: "IndexNow 密钥", path: "/57a8db48b2dd474284fe5961dda07ef0.txt", mustContain: "57a8db48b2dd474284fe5961dda07ef0" },
   { label: "AI 内容入口", path: "/llms.txt", mustContain: "# Liu Yi Lawyer Team" },
