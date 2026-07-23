@@ -385,11 +385,11 @@ def build_metrics() -> dict:
         "compliance": {
             "mode": "human-first",
             "autoPublish": False,
-            "dailyCandidateLimit": 30,
+            "dailyCandidateLimit": 50,
             "dailyPublishPolicy": "publish only after every quality gate passes",
-            "googlePolicyCheckedAt": "2026-07-22",
+            "googlePolicyCheckedAt": "2026-07-23",
             "notes": [
-                "30 means candidate slots, not a forced daily publication count.",
+                "50 is the processing and publication ceiling, not a quota that overrides quality.",
                 "Use truthful publication and modification dates only.",
                 "Do not create thin pages for minor query variations.",
                 "Use Search Console data for index monitoring; do not scrape Google results.",

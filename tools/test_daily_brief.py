@@ -54,7 +54,7 @@ class DailyBriefTests(unittest.TestCase):
             "indexed",
         )
 
-    def test_next_directions_are_capped_at_thirty(self) -> None:
+    def test_next_directions_are_capped_at_fifty(self) -> None:
         decisions = [
             {
                 "id": f"T-{index}",
@@ -67,10 +67,10 @@ class DailyBriefTests(unittest.TestCase):
                 "title": f"题目 {index}",
                 "reason": "通过",
             }
-            for index in range(40)
+            for index in range(70)
         ]
-        summary = daily_brief.next_directions({"decisions": decisions}, limit=30)
-        self.assertEqual(summary["available"], 30)
+        summary = daily_brief.next_directions({"decisions": decisions}, limit=50)
+        self.assertEqual(summary["available"], 50)
         self.assertEqual(summary["gap"], 0)
 
     def test_publication_log_merges_language_pages_for_one_story(self) -> None:

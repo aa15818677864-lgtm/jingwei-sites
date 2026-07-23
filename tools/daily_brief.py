@@ -223,7 +223,7 @@ def previous_indexed_stories(history: dict, run_date: date) -> set[str] | None:
     return set(latest.get("indexedStories", []))
 
 
-def next_directions(topic_engine: dict, limit: int = 30) -> dict:
+def next_directions(topic_engine: dict, limit: int = 50) -> dict:
     recommendations = list(topic_engine.get("recommendations", []))
     seen = {row.get("id") for row in recommendations}
     for row in topic_engine.get("decisions", []):
@@ -333,7 +333,7 @@ def render_markdown(report: dict) -> str:
     if replenishment.get("needed"):
         lines.append(f"- 合格库存不足，需要补充 {replenishment['needed']} 个独立问题。")
     else:
-        lines.append("- 合格库存达到安全线，本轮不为了凑满 30 个而补题。")
+        lines.append("- 合格库存达到安全线，本轮不为了凑满 50 个而补题。")
     for row in directions.get("learningLog", [])[:4]:
         lines.append(f"- {row}")
     lines.append("")
@@ -387,7 +387,7 @@ def build_report(target: date | None = None, now: datetime | None = None) -> dic
         "siteIndex": site_index,
         "newlyIndexedCount": len(newly_indexed) if newly_indexed is not None else None,
         "newlyIndexedStories": newly_indexed,
-        "nextDirections": next_directions(topic_engine, limit=30),
+        "nextDirections": next_directions(topic_engine, limit=50),
         "sourceFreshness": {
             "searchConsoleExportedAt": search_console.get("exportedAt"),
             "searchConsoleRange": performance.get("range"),

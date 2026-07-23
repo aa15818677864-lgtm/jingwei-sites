@@ -7,7 +7,7 @@
     "english": "Model-written legal English after the Chinese draft is approved; never literal or browser translation.",
     "imagesPerArticle": 3,
     "visibleDate": "Show one truthful last-updated date only.",
-    "publication": "No backdating and no fixed publish-time pattern. Publish only after source, legal, language, image and link checks pass.",
+    "publication": "No backdating or fabricated random timestamps. A half-hour processor may publish 0, 1 or 2 genuinely ready stories per run. Publish only after source, legal, language, image and link checks pass.",
     "citations": "Research may use authoritative sources internally. Client-facing copy should explain the practical point in plain language and should not display formal state-law links unless counsel approves them.",
     "qualityGate": [
       "answers one real user situation",
@@ -20,9 +20,16 @@
   },
   "dailyCandidateAllocation": {
     "mode": "adaptive",
-    "total": 30,
+    "total": 50,
     "minimumScore": 65,
     "source": "dashboard/topic-engine.json"
+  },
+  "publicationWindow": {
+    "checkIntervalMinutes": 30,
+    "maximumStoriesPerRun": 2,
+    "maximumStoriesPerDay": 50,
+    "countingRule": "One story counts once; Traditional Chinese, Simplified Chinese and English pages do not count as three stories.",
+    "timingRule": "Release only genuinely ready stories and record the actual deployment time. Variation comes from editorial readiness, never fabricated timestamps or attempts to evade platform detection."
   },
   "phases": [
     {
@@ -35,7 +42,7 @@
       "id": "four-topic-ongoing",
       "label": "四专题持续生产",
       "priority": 2,
-      "rule": "Use adaptive persona and feedback scores across four topics; there is no fixed regional quota or automatic 30-page publication target."
+      "rule": "Use adaptive persona and feedback scores across four topics; 50 is the daily processing and publication ceiling, not a quota that overrides quality."
     }
   ],
   "statusFlow": [
