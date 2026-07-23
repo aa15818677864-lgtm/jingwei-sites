@@ -142,6 +142,48 @@ class ArticleIntegrityTests(unittest.TestCase):
         ):
             self.assertNotIn(rejected, combined)
 
+    def test_article_topic_navigation_is_consistent(self) -> None:
+        topic_paths = (
+            "/articles/macau/",
+            "/articles/singapore/",
+            "/articles/united-states/",
+        )
+        for path in html_files():
+            text = path.read_text(encoding="utf-8")
+            if 'class="nav-links"' not in text:
+                continue
+            for topic_path in topic_paths:
+                self.assertIn(topic_path, text, f"{topic_path} missing from {path.relative_to(ROOT)}")
+            self.assertNotIn('href="/">主站</a>', text, str(path.relative_to(ROOT)))
+            self.assertNotIn('href="/">Main Site</a>', text, str(path.relative_to(ROOT)))
+            self.assertNotIn(">說明情況</a>", text, str(path.relative_to(ROOT)))
+            self.assertNotIn(">说明情况</a>", text, str(path.relative_to(ROOT)))
+
+    def test_region_topic_hubs_have_three_languages_and_hreflang(self) -> None:
+        for directory in ("macau", "singapore", "united-states"):
+            for filename in ("index.html", "index_cn.html", "index_en.html"):
+                path = ARTICLES / directory / filename
+                self.assertTrue(path.exists(), str(path.relative_to(ROOT)))
+                text = path.read_text(encoding="utf-8")
+                self.assertIn('class="articles-hub-v26"', text)
+                self.assertIn('hreflang="zh-Hant"', text)
+                self.assertIn('hreflang="zh-Hans"', text)
+                self.assertIn('hreflang="en"', text)
+                self.assertIn('hreflang="x-default"', text)
+                self.assertIn('class="hub-more"', text)
+
+    def test_hong_kong_index_uses_expandable_article_directory(self) -> None:
+        traditional = (ARTICLES / "index.html").read_text(encoding="utf-8")
+        simplified = (ARTICLES / "index_cn.html").read_text(encoding="utf-8")
+        english = (ARTICLES / "index_en.html").read_text(encoding="utf-8")
+        self.assertIn('class="v24-article-more"', traditional)
+        self.assertIn('class="v25-article-more"', simplified)
+        self.assertIn('class="v25-article-more"', english)
+        for text in (traditional, simplified, english):
+            self.assertIn("/articles/macau/", text)
+            self.assertIn("/articles/singapore/", text)
+            self.assertIn("/articles/united-states/", text)
+
     def test_launch_twenty_do_not_use_old_batch_template_labels(self) -> None:
         topic = ARTICLES / "hk-mainland-property-inheritance"
         rejected = (
