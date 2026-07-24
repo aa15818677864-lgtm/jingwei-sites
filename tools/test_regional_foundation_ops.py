@@ -19,6 +19,14 @@ class RegionalFoundationOpsTests(unittest.TestCase):
             "omitted-heir-after-macau-qualification-deed",
             {item["slug"] for item in TOPICS["MO"]},
         )
+        self.assertNotIn(
+            "known-mainland-bank-deposit",
+            {item["slug"] for item in TOPICS["MO"]},
+        )
+        self.assertIn(
+            "macau-heirship-document-mainland-bank-checklist",
+            {item["slug"] for item in TOPICS["MO"]},
+        )
         self.assertIn(
             "california-inventory-mainland-property-value",
             {item["slug"] for item in TOPICS["US"]},

@@ -63,7 +63,7 @@ TOPICS: dict[str, list[dict[str, str]]] = {
         topic("property", "mortgaged-mainland-property", "内地房产还有按揭，继承前先向谁确认欠款和状态"),
         topic("property", "occupied-or-sold-property", "内地房子被亲属占用或疑似出售，澳门家属先保留什么"),
         topic("property", "transfer-before-sale", "继承内地房产是先转名还是直接出售，怎样判断"),
-        topic("bank-and-benefits", "known-mainland-bank-deposit", "知道内地银行和账户线索，澳门家属先准备什么"),
+        topic("bank-and-benefits", "macau-heirship-document-mainland-bank-checklist", "澳门确认继承资格文件拿到后，内地银行还会核对什么"),
         topic("bank-and-benefits", "unknown-mainland-bank-accounts", "不知道内地存款在哪家银行，先做哪一张线索表"),
         topic("bank-and-benefits", "joint-bank-account-after-death", "内地联名账户有人去世，余额不能只看账户姓名"),
         topic("bank-and-benefits", "social-insurance-and-housing-fund", "内地社保、公积金和单位款项，澳门家属怎样分开查询"),
