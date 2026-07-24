@@ -235,6 +235,13 @@ def article_path(article: dict, lang: str) -> str:
     return f"/{article['directory']}/{article['slug']}{LANG_SUFFIX[lang]}.html"
 
 
+def published_date(article: dict, lang: str) -> str:
+    value = article.get("date_published", TODAY)
+    if isinstance(value, dict):
+        return value.get(lang, TODAY)
+    return value
+
+
 def json_ld(article: dict, lang: str, copy: dict) -> str:
     canonical = SITE + article_path(article, lang)
     image_base = f"{SITE}/{article['directory']}/images/{article['slug']}"
@@ -244,7 +251,7 @@ def json_ld(article: dict, lang: str, copy: dict) -> str:
         "headline": copy["title"],
         "description": copy["description"],
         "inLanguage": copy["lang"],
-        "datePublished": TODAY,
+        "datePublished": published_date(article, lang),
         "dateModified": TODAY,
         "mainEntityOfPage": canonical,
         "articleSection": f"{article['topic']} inheritance",
@@ -340,7 +347,7 @@ def render_article(article: dict, lang: str) -> str:
   <meta property="og:type" content="article"><meta property="og:site_name" content="{html.escape(copy['brand'])}">
   <meta property="og:title" content="{title} | {html.escape(copy['brand'])}"><meta property="og:description" content="{desc}">
   <meta property="og:url" content="{current}"><meta property="og:image" content="{SITE}/articles/article-library-desk-v26.jpg"><meta property="og:image:alt" content="{title}">
-  <meta property="article:published_time" content="{TODAY}"><meta property="article:modified_time" content="{TODAY}">
+  <meta property="article:published_time" content="{published_date(article, lang)}"><meta property="article:modified_time" content="{TODAY}">
   <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{title} | {html.escape(copy['brand'])}"><meta name="twitter:description" content="{desc}"><meta name="twitter:image" content="{SITE}/articles/article-library-desk-v26.jpg">
   <link rel="canonical" href="{canonical}">
 {alternates}  <link rel="stylesheet" href="/articles/style.css?v=27">
