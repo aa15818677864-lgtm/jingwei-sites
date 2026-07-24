@@ -788,4 +788,40 @@
     <changefreq>monthly</changefreq>
     <priority>0.55</priority>
   </url>
+  <url>
+    <loc>https://www.jingwei-law.com/articles/am/macau-death-record-for-mainland-inheritance.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.jingwei-law.com/articles/am/macau-death-record-for-mainland-inheritance_cn.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.jingwei-law.com/articles/am/macau-death-record-for-mainland-inheritance_en.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.jingwei-law.com/articles/singapore/probate-or-letters-of-administration.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.jingwei-law.com/articles/singapore/probate-or-letters-of-administration_cn.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.jingwei-law.com/articles/singapore/probate-or-letters-of-administration_en.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
 </urlset>

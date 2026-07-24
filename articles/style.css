@@ -6391,6 +6391,27 @@ body.articles-index-v24 {
 }
 
 @media (max-width: 760px) {
+  .articles-index-v24.topic-collection .v24-nav {
+    flex-wrap: nowrap;
+    gap: 24px;
+    overflow-x: auto;
+    padding-bottom: 2px;
+    white-space: nowrap;
+    scrollbar-width: none;
+  }
+
+  .articles-index-v24.topic-collection .v24-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .articles-index-v24.topic-collection .v24-nav a {
+    flex: 0 0 auto;
+  }
+
+  .articles-index-v24.topic-collection .v24-nav a[aria-current="page"] {
+    order: -1;
+  }
+
   .v24-table > a {
     margin-right: -10px;
     margin-left: -10px;
