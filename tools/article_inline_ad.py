@@ -16,6 +16,10 @@ GRID_RE = re.compile(
     r'<section class="article-image-grid"[^>]*>.*?</section>', re.DOTALL
 )
 AD_RE = re.compile(r'<a class="article-native-ad"')
+AD_TOPIC_RE = re.compile(
+    r'(<a class="article-native-ad" href="/ask/gpt/\?topic=)[^&"]+'
+    r'(&amp;source=article-inline-ad-[^"]+")'
+)
 LANG_RE = re.compile(r'<html[^>]+lang="([^"]+)"', re.IGNORECASE)
 TOPIC_RE = re.compile(r'/ask/gpt/\?topic=([^&"\s]+)')
 STYLE_HREF_RE = re.compile(r'/articles/style\.css(?:\?v=\d+)?')
@@ -62,18 +66,27 @@ def page_language(text: str) -> str:
 
 
 def page_topic(text: str, path: Path) -> str:
-    match = TOPIC_RE.search(text)
-    if match:
-        return html.unescape(match.group(1))
     relative = path.relative_to(ARTICLES_ROOT)
     first = relative.parts[0]
-    return {
+    directory_topic = {
         "am": "macau",
         "singapore": "singapore",
         "us": "united-states",
         "hong-kong-other-estate": "hong-kong-other-estate",
         "overseas-chinese": "overseas-chinese",
-    }.get(first, "hk-inheritance")
+        "hk-mainland-property-inheritance": "hk-inheritance",
+    }.get(first)
+    if directory_topic:
+        return directory_topic
+    match = TOPIC_RE.search(text)
+    if match:
+        return html.unescape(match.group(1))
+    return "articles"
+
+
+def retarget_native_ad(text: str, path: Path) -> str:
+    topic = page_topic(text, path)
+    return AD_TOPIC_RE.sub(rf"\g<1>{topic}\g<2>", text, count=1)
 
 
 def page_slug(path: Path) -> str:
@@ -124,6 +137,7 @@ def migrate_page(path: Path, *, write: bool) -> tuple[bool, str]:
     if not grids:
         if ads:
             updated = normalize_article_schema_image(text)
+            updated = retarget_native_ad(updated, path)
             updated = STYLE_HREF_RE.sub("/articles/style.css?v=28", updated)
             if write and updated != text:
                 path.write_text(updated, encoding="utf-8")
@@ -142,6 +156,7 @@ def migrate_page(path: Path, *, write: bool) -> tuple[bool, str]:
     updated = GRID_OVERRIDE_RE.sub("\n", updated)
     updated = STYLE_HREF_RE.sub("/articles/style.css?v=28", updated)
     updated = normalize_article_schema_image(updated)
+    updated = retarget_native_ad(updated, path)
     if write:
         path.write_text(updated, encoding="utf-8")
     return True, language
@@ -188,6 +203,12 @@ def audit() -> int:
             errors.append(f"native ad image missing: {path.relative_to(ROOT)}")
         if "/ask/gpt/?topic=" not in text or "source=article-inline-ad-" not in text:
             errors.append(f"native ad destination missing: {path.relative_to(ROOT)}")
+        expected_topic = page_topic(text, path)
+        if f'/ask/gpt/?topic={expected_topic}&amp;source=article-inline-ad-' not in text:
+            errors.append(
+                f"native ad topic mismatch: {path.relative_to(ROOT)} "
+                f"(expected {expected_topic})"
+            )
         if re.search(r'"image"\s*:\s*\[[^\]]*/images/', text):
             errors.append(f"legacy article schema images: {path.relative_to(ROOT)}")
     if not (ROOT / IMAGE_SRC.lstrip("/")).exists():
