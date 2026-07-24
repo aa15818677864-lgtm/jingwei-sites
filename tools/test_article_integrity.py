@@ -169,16 +169,26 @@ class ArticleIntegrityTests(unittest.TestCase):
 
     def test_region_topic_hubs_have_three_languages_and_hreflang(self) -> None:
         for directory in ("macau", "singapore", "united-states"):
-            for filename in ("index.html", "index_cn.html", "index_en.html"):
+            variants = (
+                ("index.html", 'class="articles-index-v24 topic-collection"', 'class="v24-article-more"'),
+                ("index_cn.html", 'class="articles-index-v25 topic-collection"', 'class="v25-article-more"'),
+                (
+                    "index_en.html",
+                    'class="articles-index-v25 articles-index-en topic-collection"',
+                    'class="v25-article-more"',
+                ),
+            )
+            for filename, body_class, more_class in variants:
                 path = ARTICLES / directory / filename
                 self.assertTrue(path.exists(), str(path.relative_to(ROOT)))
                 text = path.read_text(encoding="utf-8")
-                self.assertIn('class="articles-hub-v26"', text)
+                self.assertIn(body_class, text)
+                self.assertIn(more_class, text)
+                self.assertNotIn('class="articles-hub-v26"', text)
                 self.assertIn('hreflang="zh-Hant"', text)
                 self.assertIn('hreflang="zh-Hans"', text)
                 self.assertIn('hreflang="en"', text)
                 self.assertIn('hreflang="x-default"', text)
-                self.assertIn('class="hub-more"', text)
 
     def test_hong_kong_index_uses_expandable_article_directory(self) -> None:
         traditional = (ARTICLES / "index.html").read_text(encoding="utf-8")

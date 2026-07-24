@@ -1156,6 +1156,57 @@ h1 {
   }
 }
 
+/* Regional collection pages reuse the Hong Kong topic-list shells. */
+.topic-collection .topic-empty-v24,
+.topic-collection .topic-empty-v25 {
+  border: 1px dashed rgba(128, 94, 52, 0.38);
+  border-radius: 6px;
+  padding: 22px;
+  color: #645846;
+  background: rgba(255, 247, 234, 0.58);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.topic-collection .topic-upcoming-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  padding-top: 14px;
+}
+
+.topic-collection .topic-upcoming-grid span {
+  display: block;
+  border: 1px solid rgba(128, 94, 52, 0.24);
+  border-radius: 5px;
+  padding: 14px 16px;
+  color: #4f4639;
+  background: rgba(255, 250, 241, 0.72);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.articles-index-v25.topic-collection .topic-empty-v25,
+.articles-index-v25.topic-collection .topic-upcoming-grid span {
+  border-color: var(--v25-line);
+  color: var(--v25-muted);
+  background: var(--v25-paper);
+}
+
+.articles-index-v25.topic-collection .topic-empty-v25 {
+  margin-top: 18px;
+}
+
+.articles-index-v25.topic-collection .v25-article-more {
+  margin-top: 18px;
+}
+
+@media (max-width: 760px) {
+  .topic-collection .topic-upcoming-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 body.articles-index {
   --ink: #0e1a2b;
   --muted: #64748b;
