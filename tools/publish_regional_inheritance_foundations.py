@@ -258,10 +258,16 @@ def json_ld(article: dict, lang: str, copy: dict) -> str:
 def nav(copy: dict, article: dict, lang: str) -> str:
     if lang == "en":
         labels = ["Hong Kong inheritance", "Macau", "Singapore", "United States", "Ask the AI legal assistant"]
+        nav_aria = "Article navigation"
+        switch_aria = "Language switch"
     elif lang == "cn":
         labels = ["香港房产继承", "澳门专题", "新加坡专题", "美国专题", "咨询 AI 法律助手"]
+        nav_aria = "文章导航"
+        switch_aria = "语言切换"
     else:
         labels = ["香港房產繼承", "澳門專題", "新加坡專題", "美國專題", "諮詢 AI 法律助手"]
+        nav_aria = "文章導覽"
+        switch_aria = "語言切換"
     urls = ["/articles/", "/articles/macau/", "/articles/singapore/", "/articles/united-states/", "/ask/gpt/?topic=articles&amp;source=article-nav"]
     links = "".join(f'<a href="{u}">{html.escape(label)}</a>' for u, label in zip(urls, labels))
     language_labels = {"tc": ("繁", "zh-Hant"), "cn": ("简", "zh-Hans"), "en": ("EN", "en")}
@@ -269,7 +275,7 @@ def nav(copy: dict, article: dict, lang: str) -> str:
         f'<span aria-current="true">{label}</span>' if key == lang else f'<a href="{article_path(article, key)}" lang="{code}">{label}</a>'
         for key, (label, code) in language_labels.items()
     )
-    return f'''<header class="site-header"><nav class="nav" aria-label="Article navigation"><a class="brand" href="/articles/"><strong>{html.escape(copy['brand'])}</strong><span>{html.escape(copy['brand_sub'])}</span></a><div class="nav-links">{links}</div><div class="article-lang-switch" aria-label="Language switch">{lang_switch}</div></nav></header>'''
+    return f'''<header class="site-header"><nav class="nav" aria-label="{nav_aria}"><a class="brand" href="/articles/"><strong>{html.escape(copy['brand'])}</strong><span>{html.escape(copy['brand_sub'])}</span></a><div class="nav-links">{links}</div><div class="article-lang-switch" aria-label="{switch_aria}">{lang_switch}</div></nav></header>'''
 
 
 def render_article(article: dict, lang: str) -> str:
@@ -302,7 +308,24 @@ def render_article(article: dict, lang: str) -> str:
     desc = html.escape(copy["description"])
     footer = "文章內容僅作初步信息參考，具體事項需由律師結合材料進一步判斷。" if lang == "tc" else ("文章内容仅作初步信息参考，具体事项需由律师结合材料进一步判断。" if lang == "cn" else "This article provides general information only. Specific matters require review of the actual documents and facts.")
     contents_heading = "這篇文章會說甚麼" if lang == "tc" else ("这篇文章会说什么" if lang == "cn" else "In this article")
-    related_aria = "Related articles"
+    if lang == "tc":
+        hero_aria = "文章導讀"
+        key_aria = "重點"
+        visuals_aria = "文章配圖"
+        related_aria = "相關文章"
+        toc_aria = "文章目錄"
+    elif lang == "cn":
+        hero_aria = "文章导读"
+        key_aria = "重点"
+        visuals_aria = "文章配图"
+        related_aria = "相关文章"
+        toc_aria = "文章目录"
+    else:
+        hero_aria = "Article introduction"
+        key_aria = "Key points"
+        visuals_aria = "Article visuals"
+        related_aria = "Related articles"
+        toc_aria = "Article contents"
     cta_title = "需要進一步判斷時" if lang == "tc" else ("需要进一步判断时" if lang == "cn" else "When you need a closer review")
     cta_button = "說明你的情況 →" if lang == "tc" else ("说明你的情况 →" if lang == "cn" else "Describe your situation →")
     return f'''<!DOCTYPE html>
@@ -326,13 +349,13 @@ def render_article(article: dict, lang: str) -> str:
 <body class="article-detail generated-article article-regional-inheritance">
   {nav(copy, article, lang)}
   <main>
-    <section class="article-hero" aria-label="Article introduction"><div class="article-hero-inner"><div class="article-hero-copy"><p class="eyebrow">{html.escape(copy['eyebrow'])}</p><h1>{title}</h1><p class="article-lead">{html.escape(copy['lead'])}</p><p class="article-last-updated"><time datetime="{TODAY}">{'最後更新' if lang == 'tc' else ('最后更新' if lang == 'cn' else 'Last updated')}: {TODAY}</time></p></div><aside class="article-key-card" aria-label="Key points"><h2>{html.escape(copy['key_title'])}</h2><ul class="article-key-list">{key_items}</ul></aside></div></section>
+    <section class="article-hero" aria-label="{hero_aria}"><div class="article-hero-inner"><div class="article-hero-copy"><p class="eyebrow">{html.escape(copy['eyebrow'])}</p><h1>{title}</h1><p class="article-lead">{html.escape(copy['lead'])}</p><p class="article-last-updated"><time datetime="{TODAY}">{'最後更新' if lang == 'tc' else ('最后更新' if lang == 'cn' else 'Last updated')}: {TODAY}</time></p></div><aside class="article-key-card" aria-label="{key_aria}"><h2>{html.escape(copy['key_title'])}</h2><ul class="article-key-list">{key_items}</ul></aside></div></section>
     <div class="article-shell"><article class="article-main">
-      <section class="article-image-grid" aria-label="Article visuals">{figures}</section>
+      <section class="article-image-grid" aria-label="{visuals_aria}">{figures}</section>
       <section id="answer" class="answer-card"><h2>{html.escape(copy['answer_title'])}</h2>{answer}</section>
       {sections}
       <section class="topic-article-directory compact-directory" aria-label="{related_aria}"><h2>{html.escape(copy['related_title'])}</h2><div class="topic-directory-grid">{related}</div></section>
-    </article><aside class="toc" aria-label="Article contents"><h2>{contents_heading}</h2>{toc}<a class="toc-cta" href="{ask}">{cta_button}</a></aside></div>
+    </article><aside class="toc" aria-label="{toc_aria}"><h2>{contents_heading}</h2>{toc}<a class="toc-cta" href="{ask}">{cta_button}</a></aside></div>
     <section class="cta-panel"><h2>{cta_title}</h2><p>{html.escape(copy['cta'])}</p><a class="button" href="{ask}">{cta_button}</a></section>
   </main>
   <footer class="site-footer"><div class="footer-inner">{footer}</div></footer><script src="/articles/script.js" defer></script>
