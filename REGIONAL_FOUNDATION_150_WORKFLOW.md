@@ -7,7 +7,7 @@
 - 澳门、新加坡、美国各 50 个独立基础问题，共 150 个 story。
 - 繁体、简体、英文是同一个 story 的三个页面，不重复计数。
 - 50 是每个专题的完整基础知识框架，不是一次性批量上线指标。
-- 旧单语文章先标记 `upgrade-required`，补齐研究、三语、三图、SEO 和三轮审稿后才计入完成数。
+- 旧单语文章先标记 `upgrade-required`，补齐研究、三语、唯一站内广告、SEO 和三轮审稿后才计入完成数。
 
 ## 选题结构
 
@@ -41,7 +41,7 @@
 
 1. **法律与地区事实**：核对人物、资产、文件用途、签发机关、条件性结论和地区差异。
 2. **人类可读性**：分别用第一次处理继承、只想确认文件、家属不配合、年长手机读者、准备咨询的五种视角阅读，删除机器腔和重复模板。
-3. **三语、配图、SEO 与移动端**：逐项核对事实一致性、英文自然改写、三张解释图、canonical、hreflang、Article JSON-LD、sitemap、内链和窄屏排版。
+3. **三语、站内广告、SEO 与移动端**：逐项核对事实一致性、英文自然改写、唯一 `.article-native-ad`、正确的法律助手链接、canonical、hreflang、Article JSON-LD、sitemap、内链和窄屏排版；不得残留旧三图组件。
 
 ## 状态流转
 
@@ -66,5 +66,6 @@ python tools/regional_foundation_ops.py summary
 python -m unittest discover -s tools -p "test_*.py" -v
 python tools/article_ops.py audit
 python tools/geo_hardening.py audit
+python tools/article_inline_ad.py audit
 git diff --check
 ```

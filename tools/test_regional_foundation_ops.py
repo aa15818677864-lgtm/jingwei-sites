@@ -8,6 +8,22 @@ class RegionalFoundationOpsTests(unittest.TestCase):
     def test_topic_matrix_has_fifty_per_region(self):
         self.assertEqual({region: 50 for region in TOPICS}, {region: len(items) for region, items in TOPICS.items()})
 
+    def test_replaced_cross_region_duplicate_does_not_return(self):
+        co_owned_regions = [
+            region
+            for region, topics in TOPICS.items()
+            if any(item["slug"] == "co-owned-mainland-property" for item in topics)
+        ]
+        self.assertEqual(["SG"], co_owned_regions)
+        self.assertIn(
+            "omitted-heir-after-macau-qualification-deed",
+            {item["slug"] for item in TOPICS["MO"]},
+        )
+        self.assertIn(
+            "california-inventory-mainland-property-value",
+            {item["slug"] for item in TOPICS["US"]},
+        )
+
     def test_seed_plan_passes_audit(self):
         self.assertEqual([], audit(build_plan()))
 
