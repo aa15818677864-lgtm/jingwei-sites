@@ -117,7 +117,11 @@ class ArticleIntegrityTests(unittest.TestCase):
             checked += 1
             self.assertNotIn('class="article-image-grid"', text, str(path.relative_to(ROOT)))
             self.assertEqual(1, text.count('class="article-native-ad"'), str(path.relative_to(ROOT)))
-            self.assertIn('/articles/assets/ai-legal-assistant-native-ad.webp', text)
+            self.assertEqual(
+                1,
+                text.count('/articles/assets/ai-legal-assistant-native-ad.webp'),
+                str(path.relative_to(ROOT)),
+            )
             self.assertIn('source=article-inline-ad-', text)
             self.assertNotRegex(text, r'"image"\s*:\s*\[[^\]]*/images/')
         self.assertGreaterEqual(checked, 140)

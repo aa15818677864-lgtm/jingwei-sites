@@ -28,6 +28,7 @@ GRID_OVERRIDE_RE = re.compile(
     re.DOTALL,
 )
 ARTICLE_IMAGE_ARRAY_RE = re.compile(r'"image"\s*:\s*\[[^\]]*\]')
+ARTICLE_SCHEMA_RE = re.compile(r'"@type"\s*:\s*"Article"')
 
 
 COPY = {
@@ -188,7 +189,8 @@ def audit() -> int:
         text = path.read_text(encoding="utf-8")
         if 'data-article-redirect' in text or "topic-collection" in text:
             continue
-        if "article-native-ad" not in text and "article-image-grid" not in text:
+        is_article = bool(ARTICLE_SCHEMA_RE.search(text))
+        if not is_article and "article-native-ad" not in text and "article-image-grid" not in text:
             continue
         if "article-image-grid" in text:
             errors.append(f"legacy image grid: {path.relative_to(ROOT)}")
@@ -199,8 +201,10 @@ def audit() -> int:
         article_count += 1
         if len(AD_RE.findall(text)) != 1:
             errors.append(f"native ad count is not 1: {path.relative_to(ROOT)}")
-        if IMAGE_SRC not in text:
-            errors.append(f"native ad image missing: {path.relative_to(ROOT)}")
+        if text.count(IMAGE_SRC) != 1:
+            errors.append(
+                f"native ad image count is not 1: {path.relative_to(ROOT)}"
+            )
         if "/ask/gpt/?topic=" not in text or "source=article-inline-ad-" not in text:
             errors.append(f"native ad destination missing: {path.relative_to(ROOT)}")
         expected_topic = page_topic(text, path)
