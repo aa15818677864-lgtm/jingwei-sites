@@ -161,7 +161,7 @@ TOPICS: dict[str, list[dict[str, str]]] = {
         topic(
             "property",
             "california-inventory-mainland-property-value",
-            "加州 probate 清单要写内地房产，先分清估值日期和逝者份额",
+            "加州 probate 清单涉及内地房产，先分清估值日期和逝者份额",
         ),
         topic("property", "missing-mainland-title", "美国家属找不到内地房产证，可以先从哪些资料补线索"),
         topic("property", "transfer-or-direct-sale", "继承内地房产是先转名还是考虑出售，先确认什么"),
