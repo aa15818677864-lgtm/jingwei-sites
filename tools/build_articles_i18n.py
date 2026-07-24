@@ -8,6 +8,9 @@ from pathlib import Path
 
 from opencc import OpenCC
 
+from article_inline_ad import migrate as migrate_article_ads
+from article_inline_ad import render_inline_ad
+
 
 ROOT = Path(__file__).resolve().parents[1]
 TODAY = date.today().isoformat()
@@ -238,7 +241,7 @@ def head_common(
   <meta name="twitter:image" content="{IMAGE}">
   <link rel="canonical" href="{url(canonical_path)}">
 {alternate_links(zh_path, cn_path, en_path)}
-  <link rel="stylesheet" href="{body_extra or '../style.css?v=20260722-articles-v27'}">'''
+  <link rel="stylesheet" href="{body_extra or '../style.css?v=20260724-articles-v28'}">'''
 
 
 def json_ld(obj: object) -> str:
@@ -311,7 +314,7 @@ def render_index_en() -> str:
             },
         ],
     }
-    return f'''{head_common(lang="en", title=title, description=desc, robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1", canonical_path=en_path, zh_path=zh_path, cn_path=cn_path, en_path=en_path, og_type="website", body_extra="style.css?v=20260722-articles-v27")}
+    return f'''{head_common(lang="en", title=title, description=desc, robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1", canonical_path=en_path, zh_path=zh_path, cn_path=cn_path, en_path=en_path, og_type="website", body_extra="style.css?v=20260724-articles-v28")}
   <script type="application/ld+json">{json_ld(graph)}</script>
 </head>
 <body class="articles-index-v25 articles-index-en">
@@ -649,18 +652,7 @@ ARTICLE_VISUALS_EN = {
 
 
 def render_visual_grid_en(slug: str) -> str:
-    rows = ARTICLE_VISUALS_EN.get(slug, [])
-    figures = []
-    filenames = ("01-context.svg", "02-path.svg", "03-checklist.svg")
-    for filename, (alt, caption) in zip(filenames, rows):
-        source = f"/articles/hk-mainland-property-inheritance/images/{slug}/{filename}"
-        figures.append(
-            f'<figure><img src="{source}" alt="{esc(alt)}" width="1200" height="720" '
-            f'loading="lazy" decoding="async"><figcaption>{esc(caption)}</figcaption></figure>'
-        )
-    if not figures:
-        return ""
-    return '<section class="article-image-grid" aria-label="Article illustrations">' + "".join(figures) + "</section>"
+    return render_inline_ad("en", "hk-mainland-property-inheritance", slug)
 
 
 def render_modern(slug: str, data: dict) -> str:
@@ -881,6 +873,7 @@ def main() -> None:
     # them outside this generator so an older template cannot overwrite them.
 
     patch_sitemap()
+    migrate_article_ads(write=True)
 
 
 if __name__ == "__main__":

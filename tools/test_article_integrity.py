@@ -88,19 +88,39 @@ class ArticleIntegrityTests(unittest.TestCase):
                     missing.append(f"{path.relative_to(ROOT)} {attr}={value}")
         self.assertEqual([], missing, "Missing same-site references:\n" + "\n".join(missing[:30]))
 
-    def test_launch_twenty_have_three_complete_language_pages(self) -> None:
+    def test_launch_twenty_have_complete_language_pages_and_one_native_ad(self) -> None:
         topic = ARTICLES / "hk-mainland-property-inheritance"
         for slug in NEW_SLUGS:
             for suffix in ("", "_cn", "_en"):
                 path = topic / f"{slug}{suffix}.html"
                 self.assertTrue(path.exists(), str(path.relative_to(ROOT)))
                 text = path.read_text(encoding="utf-8")
-                self.assertEqual(3, len(re.findall(r"<figure\b", text)), str(path.relative_to(ROOT)))
+                self.assertEqual(0, len(re.findall(r"<figure\b", text)), str(path.relative_to(ROOT)))
+                self.assertEqual(1, text.count('class="article-native-ad"'), str(path.relative_to(ROOT)))
+                self.assertIn('/articles/assets/ai-legal-assistant-native-ad.webp', text)
+                self.assertIn('/ask/gpt/?topic=', text)
+                self.assertIn('source=article-inline-ad-', text)
                 self.assertEqual(1, text.count('class="article-last-updated"'), str(path.relative_to(ROOT)))
                 self.assertIn('hreflang="zh-Hant"', text)
                 self.assertIn('hreflang="zh-Hans"', text)
                 self.assertIn('hreflang="en"', text)
                 self.assertIn('hreflang="x-default"', text)
+
+    def test_every_article_has_exactly_one_internal_native_ad(self) -> None:
+        checked = 0
+        for path in html_files():
+            text = path.read_text(encoding="utf-8")
+            if 'data-article-redirect' in text:
+                continue
+            if 'property="og:type" content="article"' not in text:
+                continue
+            checked += 1
+            self.assertNotIn('class="article-image-grid"', text, str(path.relative_to(ROOT)))
+            self.assertEqual(1, text.count('class="article-native-ad"'), str(path.relative_to(ROOT)))
+            self.assertIn('/articles/assets/ai-legal-assistant-native-ad.webp', text)
+            self.assertIn('source=article-inline-ad-', text)
+            self.assertNotRegex(text, r'"image"\s*:\s*\[[^\]]*/images/')
+        self.assertGreaterEqual(checked, 140)
 
     def test_public_brand_and_article_count(self) -> None:
         indexes = [ARTICLES / "index.html", ARTICLES / "index_cn.html", ARTICLES / "index_en.html"]

@@ -4,6 +4,8 @@ import html
 import json
 from pathlib import Path
 
+from article_inline_ad import render_inline_ad
+
 
 ROOT = Path(__file__).resolve().parents[1]
 TODAY = "2026-07-24"
@@ -244,7 +246,6 @@ def published_date(article: dict, lang: str) -> str:
 
 def json_ld(article: dict, lang: str, copy: dict) -> str:
     canonical = SITE + article_path(article, lang)
-    image_base = f"{SITE}/{article['directory']}/images/{article['slug']}"
     data = {
         "@context": "https://schema.org",
         "@type": "Article",
@@ -257,7 +258,7 @@ def json_ld(article: dict, lang: str, copy: dict) -> str:
         "articleSection": f"{article['topic']} inheritance",
         "author": {"@type": "Organization", "name": copy["brand"], "url": f"{SITE}/"},
         "publisher": {"@type": "Organization", "@id": f"{SITE}/#organization", "name": copy["brand"], "url": f"{SITE}/"},
-        "image": [f"{image_base}/{i:02d}-{name}{LANG_SUFFIX[lang]}.svg" for i, name in [(1, "context"), (2, "path"), (3, "checklist")]],
+        "image": [f"{SITE}/articles/article-library-desk-v26.jpg"],
     }
     return json.dumps(data, ensure_ascii=False, separators=(",", ":"))
 
@@ -294,12 +295,7 @@ def render_article(article: dict, lang: str) -> str:
         f'  <link rel="alternate" hreflang="{code}" href="{SITE + article_path(article, key)}">\n'
         for key, code in [("tc", "zh-Hant"), ("cn", "zh-Hans"), ("en", "en")]
     ) + f'  <link rel="alternate" hreflang="x-default" href="{default_url}">\n'
-    image_base = f"/{article['directory']}/images/{article['slug']}"
-    image_names = ["context", "path", "checklist"]
-    figures = "".join(
-        f'<figure><img src="{image_base}/{i:02d}-{image_names[i-1]}{LANG_SUFFIX[lang]}.svg" alt="{html.escape(v[0])}" width="1200" height="720" loading="lazy" decoding="async"><figcaption>{html.escape(v[-1])}</figcaption></figure>'
-        for i, v in enumerate(copy["visuals"], 1)
-    )
+    native_ad = render_inline_ad(copy["lang"], article["topic"], article["slug"])
     answer = "".join(f"<p>{p}</p>" for p in copy["answer"])
     sections = ""
     toc = f'<a href="#answer">{html.escape(copy["answer_title"])}</a>'
@@ -350,7 +346,7 @@ def render_article(article: dict, lang: str) -> str:
   <meta property="article:published_time" content="{published_date(article, lang)}"><meta property="article:modified_time" content="{TODAY}">
   <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{title} | {html.escape(copy['brand'])}"><meta name="twitter:description" content="{desc}"><meta name="twitter:image" content="{SITE}/articles/article-library-desk-v26.jpg">
   <link rel="canonical" href="{canonical}">
-{alternates}  <link rel="stylesheet" href="/articles/style.css?v=27">
+{alternates}  <link rel="stylesheet" href="/articles/style.css?v=28">
   <script type="application/ld+json">{json_ld(article, lang, copy)}</script>
 </head>
 <body class="article-detail generated-article article-regional-inheritance">
@@ -358,7 +354,7 @@ def render_article(article: dict, lang: str) -> str:
   <main>
     <section class="article-hero" aria-label="{hero_aria}"><div class="article-hero-inner"><div class="article-hero-copy"><p class="eyebrow">{html.escape(copy['eyebrow'])}</p><h1>{title}</h1><p class="article-lead">{html.escape(copy['lead'])}</p><p class="article-last-updated"><time datetime="{TODAY}">{'最後更新' if lang == 'tc' else ('最后更新' if lang == 'cn' else 'Last updated')}: {TODAY}</time></p></div><aside class="article-key-card" aria-label="{key_aria}"><h2>{html.escape(copy['key_title'])}</h2><ul class="article-key-list">{key_items}</ul></aside></div></section>
     <div class="article-shell"><article class="article-main">
-      <section class="article-image-grid" aria-label="{visuals_aria}">{figures}</section>
+      {native_ad}
       <section id="answer" class="answer-card"><h2>{html.escape(copy['answer_title'])}</h2>{answer}</section>
       {sections}
       <section class="topic-article-directory compact-directory" aria-label="{related_aria}"><h2>{html.escape(copy['related_title'])}</h2><div class="topic-directory-grid">{related}</div></section>
@@ -415,13 +411,9 @@ def visual_svg(parts: tuple, number: int) -> str:
 def write_all() -> None:
     for article in ARTICLES:
         target_dir = ROOT / article["directory"]
-        image_dir = target_dir / "images" / article["slug"]
-        image_dir.mkdir(parents=True, exist_ok=True)
         for lang in ("tc", "cn", "en"):
             suffix = LANG_SUFFIX[lang]
             (target_dir / f"{article['slug']}{suffix}.html").write_text(render_article(article, lang), encoding="utf-8")
-            for idx, name in enumerate(("context", "path", "checklist"), 1):
-                (image_dir / f"{idx:02d}-{name}{suffix}.svg").write_text(visual_svg(article["copy"][lang]["visuals"][idx - 1], idx), encoding="utf-8")
 
 
 def update_secondary_hubs() -> None:

@@ -23,6 +23,7 @@ TOPIC_ENGINE_PATH = ROOT / "dashboard" / "topic-engine.json"
 CONSULTATIONS_PATH = ROOT / "dashboard" / "consultations.json"
 RELAY_STATUS_PATH = ROOT / "dashboard" / "lead-relay.json"
 SITEMAP_PATH = ROOT / "sitemap.xml"
+NATIVE_AD_IMAGE_SRC = "/articles/assets/ai-legal-assistant-native-ad.webp"
 
 I18N_SUFFIX_RE = re.compile(r"_(cn|en)\.html$")
 TITLE_RE = re.compile(r"<title>(.*?)</title>", re.I | re.S)
@@ -445,19 +446,20 @@ def audit() -> int:
             if not target.exists():
                 issues.append(f"BROKEN_ARTICLE_LINK {local_href} {row['file']}")
 
-        image_sources = re.findall(
-            r'src=["\'](/articles/[^"\']+/images/[^"\']+\.svg)["\']',
-            raw,
-            re.I,
-        )
-        if len(image_sources) != 3:
-            issues.append(f"ARTICLE_IMAGE_COUNT_{len(image_sources)} {row['file']}")
-        for source in image_sources:
-            if not (ROOT / source.lstrip("/")).exists():
-                issues.append(f"MISSING_ARTICLE_IMAGE {source} {row['file']}")
+        native_ad_count = raw.count('class="article-native-ad"')
+        if native_ad_count != 1:
+            issues.append(f"ARTICLE_NATIVE_AD_COUNT_{native_ad_count} {row['file']}")
+        if 'class="article-image-grid"' in raw:
+            issues.append(f"LEGACY_ARTICLE_IMAGE_GRID {row['file']}")
+        if NATIVE_AD_IMAGE_SRC not in raw:
+            issues.append(f"MISSING_ARTICLE_NATIVE_AD_IMAGE {row['file']}")
+        if "/ask/gpt/?topic=" not in raw or "source=article-inline-ad-" not in raw:
+            issues.append(f"MISSING_ARTICLE_NATIVE_AD_TARGET {row['file']}")
 
         if re.search(r"gov\.cn|《中华人民共和国|中华人民共和国[^\n<]{0,40}(?:法|条例|办法)", raw):
             issues.append(f"CLIENT_PAGE_FORMAL_STATE_REFERENCE {row['file']}")
+    if not (ROOT / NATIVE_AD_IMAGE_SRC.lstrip("/")).exists():
+        issues.append(f"MISSING_SHARED_ARTICLE_NATIVE_AD_IMAGE {NATIVE_AD_IMAGE_SRC}")
     for issue in issues:
         print(issue)
     print(f"audit issues: {len(issues)}")

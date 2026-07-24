@@ -283,7 +283,7 @@ def new_record(region: str, index: int, item: dict[str, str]) -> dict:
         "research": [],
         "reviews": [],
         "languages": {"zh-Hant": "pending", "zh-Hans": "pending", "en": "pending"},
-        "visuals": {"scenario": "pending", "path": "pending", "checklist": "pending"},
+        "visuals": {"nativeAd": "pending"},
         "seo": {"canonical": "pending", "hreflang": "pending", "articleJsonLd": "pending", "sitemap": "pending"},
     }
     if story_id in PUBLISHED_SEEDS:
@@ -294,7 +294,7 @@ def new_record(region: str, index: int, item: dict[str, str]) -> dict:
         ]
         record["reviews"] = seeded_reviews(region, item["slug"])
         record["languages"] = {"zh-Hant": "published", "zh-Hans": "published", "en": "published"}
-        record["visuals"] = {"scenario": "published", "path": "published", "checklist": "published"}
+        record["visuals"] = {"nativeAd": "published"}
         record["seo"] = {"canonical": "pass", "hreflang": "pass", "articleJsonLd": "pass", "sitemap": "pass"}
     elif story_id in UPGRADE_SEEDS:
         record["status"] = "upgrade-required"
