@@ -140,7 +140,7 @@ ARTICLES = [
                 "brand": "Liu Yi Lawyer Team",
                 "brand_sub": "Cross-border Mainland China legal matters",
                 "eyebrow": "Article / A Macau family and an estate without a will",
-                "title": "No Will: Where Should a Macau Family Start with Mainland Property?",
+                "title": "No Will and Mainland Property: Macau Family First Steps",
                 "description": "A practical starting order for a Macau family dealing with Mainland property where no will has been found.",
                 "lead": "A family statement that there is no will is only a starting point. Check for a will, draw the family map and identify the property record as three separate tasks before ordering documents.",
                 "key_title": "Build three short records",
@@ -393,7 +393,7 @@ HUB_UPDATES = {
     ),
     "articles/macau/index_en.html": (
         "/articles/am/macau-no-will-mainland-property_en.html",
-        '<article class="v25-pillar-card"><div class="v25-pillar-copy"><span class="v25-card-label">No will</span><h3>Where should a Macau family start with Mainland property?</h3><p>Confirm the will search, full family map and property record before choosing a route.</p></div><a class="v25-pill-action" href="/articles/am/macau-no-will-mainland-property_en.html">Read Article</a></article>',
+        '<article class="v25-pillar-card"><div class="v25-pillar-copy"><span class="v25-card-label">No will</span><h3>No will and Mainland property: Macau family first steps</h3><p>Confirm the will search, full family map and property record before choosing a route.</p></div><a class="v25-pill-action" href="/articles/am/macau-no-will-mainland-property_en.html">Read Article</a></article>',
     ),
     "articles/united-states/index.html": (
         "/articles/us/us-will-mainland-property.html",
