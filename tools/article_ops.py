@@ -23,7 +23,7 @@ TOPIC_ENGINE_PATH = ROOT / "dashboard" / "topic-engine.json"
 CONSULTATIONS_PATH = ROOT / "dashboard" / "consultations.json"
 RELAY_STATUS_PATH = ROOT / "dashboard" / "lead-relay.json"
 SITEMAP_PATH = ROOT / "sitemap.xml"
-NATIVE_AD_IMAGE_SRC = "/articles/assets/ai-legal-assistant-native-ad.webp"
+NATIVE_AD_IMAGE_SRC = "/articles/assets/ai-legal-assistant-native-ad-v2.webp"
 
 I18N_SUFFIX_RE = re.compile(r"_(cn|en)\.html$")
 TITLE_RE = re.compile(r"<title>(.*?)</title>", re.I | re.S)

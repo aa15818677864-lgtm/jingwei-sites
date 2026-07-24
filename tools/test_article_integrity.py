@@ -97,7 +97,7 @@ class ArticleIntegrityTests(unittest.TestCase):
                 text = path.read_text(encoding="utf-8")
                 self.assertEqual(0, len(re.findall(r"<figure\b", text)), str(path.relative_to(ROOT)))
                 self.assertEqual(1, text.count('class="article-native-ad"'), str(path.relative_to(ROOT)))
-                self.assertIn('/articles/assets/ai-legal-assistant-native-ad.webp', text)
+                self.assertIn('/articles/assets/ai-legal-assistant-native-ad-v2.webp', text)
                 self.assertIn('/ask/gpt/?topic=', text)
                 self.assertIn('source=article-inline-ad-', text)
                 self.assertEqual(1, text.count('class="article-last-updated"'), str(path.relative_to(ROOT)))
@@ -119,7 +119,7 @@ class ArticleIntegrityTests(unittest.TestCase):
             self.assertEqual(1, text.count('class="article-native-ad"'), str(path.relative_to(ROOT)))
             self.assertEqual(
                 1,
-                text.count('/articles/assets/ai-legal-assistant-native-ad.webp'),
+                text.count('/articles/assets/ai-legal-assistant-native-ad-v2.webp'),
                 str(path.relative_to(ROOT)),
             )
             self.assertIn('source=article-inline-ad-', text)

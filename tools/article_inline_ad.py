@@ -9,13 +9,16 @@ from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parents[1]
 ARTICLES_ROOT = ROOT / "articles"
-IMAGE_SRC = "/articles/assets/ai-legal-assistant-native-ad.webp"
+IMAGE_SRC = "/articles/assets/ai-legal-assistant-native-ad-v2.webp"
 ARTICLE_IMAGE_URL = "https://www.jingwei-law.com/articles/article-library-desk-v26.jpg"
 
 GRID_RE = re.compile(
     r'<section class="article-image-grid"[^>]*>.*?</section>', re.DOTALL
 )
 AD_RE = re.compile(r'<a class="article-native-ad"')
+AD_BLOCK_RE = re.compile(
+    r'<a class="article-native-ad"[^>]*>.*?</a>', re.DOTALL
+)
 AD_TOPIC_RE = re.compile(
     r'(<a class="article-native-ad" href="/ask/gpt/\?topic=)[^&"]+'
     r'(&amp;source=article-inline-ad-[^"]+")'
@@ -33,25 +36,25 @@ ARTICLE_SCHEMA_RE = re.compile(r'"@type"\s*:\s*"Article"')
 
 COPY = {
     "zh-Hant": {
-        "label": "站內推廣",
-        "headline": "不知道下一步？先讓法律助手幫你整理",
-        "description": "回答幾個簡短問題，先分清人物、文件和資產線索。內容只作初步整理。",
-        "action": "諮詢 AI 法律助手",
-        "aria": "站內推廣：諮詢 AI 法律助手",
+        "label": "劉毅律師團隊 · 站內服務",
+        "headline": "事情很多，不妨先把問題說清楚",
+        "description": "法律助手會按地區和事項，幫你整理人物、文件與資產線索，再提示下一步要補甚麼。",
+        "action": "開始整理案情",
+        "aria": "站內推廣：使用 AI 法律助手整理案情",
     },
     "zh-Hans": {
-        "label": "站内推广",
-        "headline": "不知道下一步？先让法律助手帮你整理",
-        "description": "回答几个简短问题，先分清人物、文件和资产线索。内容只作初步整理。",
-        "action": "咨询 AI 法律助手",
-        "aria": "站内推广：咨询 AI 法律助手",
+        "label": "刘毅律师团队 · 站内服务",
+        "headline": "事情很多，不妨先把问题说清楚",
+        "description": "法律助手会按地区和事项，帮你整理人物、文件与资产线索，再提示下一步要补什么。",
+        "action": "开始整理案情",
+        "aria": "站内推广：使用 AI 法律助手整理案情",
     },
     "en": {
-        "label": "Internal service",
-        "headline": "Not sure what comes next? Start with the legal assistant",
-        "description": "Answer a few short questions to organise the people, documents and asset clues. For initial guidance only.",
-        "action": "Ask the AI legal assistant",
-        "aria": "Internal promotion: ask the AI legal assistant",
+        "label": "Liu Yi Lawyer Team · Internal service",
+        "headline": "Too many loose ends? Start by organising the facts",
+        "description": "The legal assistant sorts the people, documents and asset clues by location, then highlights what to clarify next.",
+        "action": "Organise my case",
+        "aria": "Internal promotion: use the AI legal assistant to organise the facts",
     },
 }
 
@@ -137,9 +140,21 @@ def migrate_page(path: Path, *, write: bool) -> tuple[bool, str]:
     ads = AD_RE.findall(text)
     if not grids:
         if ads:
-            updated = normalize_article_schema_image(text)
+            if len(ads) != 1:
+                raise RuntimeError(
+                    f"Unexpected native ad count in {path.relative_to(ROOT)}: {len(ads)}"
+                )
+            replacement = render_inline_ad(
+                page_language(text), page_topic(text, path), page_slug(path)
+            )
+            updated, count = AD_BLOCK_RE.subn(replacement, text, count=1)
+            if count != 1:
+                raise RuntimeError(
+                    f"Could not refresh native ad: {path.relative_to(ROOT)}"
+                )
+            updated = normalize_article_schema_image(updated)
             updated = retarget_native_ad(updated, path)
-            updated = STYLE_HREF_RE.sub("/articles/style.css?v=28", updated)
+            updated = STYLE_HREF_RE.sub("/articles/style.css?v=29", updated)
             if write and updated != text:
                 path.write_text(updated, encoding="utf-8")
             return updated != text, page_language(text)
@@ -155,7 +170,7 @@ def migrate_page(path: Path, *, write: bool) -> tuple[bool, str]:
     if count != 1:
         raise RuntimeError(f"Could not replace image grid: {path.relative_to(ROOT)}")
     updated = GRID_OVERRIDE_RE.sub("\n", updated)
-    updated = STYLE_HREF_RE.sub("/articles/style.css?v=28", updated)
+    updated = STYLE_HREF_RE.sub("/articles/style.css?v=29", updated)
     updated = normalize_article_schema_image(updated)
     updated = retarget_native_ad(updated, path)
     if write:

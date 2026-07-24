@@ -346,7 +346,7 @@ def render_article(article: dict, lang: str) -> str:
   <meta property="article:published_time" content="{published_date(article, lang)}"><meta property="article:modified_time" content="{TODAY}">
   <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{title} | {html.escape(copy['brand'])}"><meta name="twitter:description" content="{desc}"><meta name="twitter:image" content="{SITE}/articles/article-library-desk-v26.jpg">
   <link rel="canonical" href="{canonical}">
-{alternates}  <link rel="stylesheet" href="/articles/style.css?v=28">
+{alternates}  <link rel="stylesheet" href="/articles/style.css?v=29">
   <script type="application/ld+json">{json_ld(article, lang, copy)}</script>
 </head>
 <body class="article-detail generated-article article-regional-inheritance">
