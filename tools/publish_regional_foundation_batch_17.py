@@ -140,7 +140,7 @@ ARTICLES = [
                 "brand": "Liu Yi Lawyer Team",
                 "brand_sub": "Cross-border Mainland China legal matters",
                 "eyebrow": "Article / Macau wills and Mainland property",
-                "title": "Several Wills and Mainland Property: Build the Timeline First",
+                "title": "Several Wills and Mainland Property: Build the Timeline",
                 "description": "A practical way for a Macau family to preserve and compare several wills before dealing with property in Mainland China.",
                 "lead": "A notarised copy, a sealed envelope and a handwritten paper can all turn up in the same drawer. Do not begin by choosing the document with the latest visible date.",
                 "key_title": "Begin with three tasks",
@@ -324,7 +324,7 @@ ARTICLES = [
                 "brand": "Liu Yi Lawyer Team",
                 "brand_sub": "Cross-border Mainland China legal matters",
                 "eyebrow": "Article / A Singapore family tracing Mainland deposits",
-                "title": "The Mainland Bank Is Unknown: Where a Singapore Family Can Start",
+                "title": "Unknown Mainland Bank: A Singapore Family's First Clues",
                 "description": "How a Singapore family can trace likely Mainland banks from records and transaction clues before asking each institution about an estate account.",
                 "lead": "A remittance screenshot or an old text message may be enough to begin. Identify likely institutions first; do not begin by guessing the balance or contacting every bank.",
                 "key_title": "Keep three distinctions clear",
@@ -393,7 +393,7 @@ HUB_UPDATES = {
     ),
     "articles/macau/index_en.html": (
         "/articles/am/multiple-wills-across-regions_en.html",
-        '<article class="v25-pillar-card"><div class="v25-pillar-copy"><span class="v25-card-label">Several wills</span><h3>Several wills and Mainland property: build the timeline first</h3><p>Preserve the originals, compare each provision and then check the property file.</p></div><a class="v25-pill-action" href="/articles/am/multiple-wills-across-regions_en.html">Read Article</a></article>',
+        '<article class="v25-pillar-card"><div class="v25-pillar-copy"><span class="v25-card-label">Several wills</span><h3>Several wills and Mainland property: build the timeline</h3><p>Preserve the originals, compare each provision and then check the property file.</p></div><a class="v25-pill-action" href="/articles/am/multiple-wills-across-regions_en.html">Read Article</a></article>',
     ),
     "articles/singapore/index.html": (
         "/articles/singapore/unknown-mainland-bank-accounts.html",
@@ -405,7 +405,7 @@ HUB_UPDATES = {
     ),
     "articles/singapore/index_en.html": (
         "/articles/singapore/unknown-mainland-bank-accounts_en.html",
-        '<article class="v25-pillar-card"><div class="v25-pillar-copy"><span class="v25-card-label">Bank clues</span><h3>The Mainland bank is unknown: where a Singapore family can start</h3><p>Follow document and transaction clues, then ask each likely institution about its enquiry route.</p></div><a class="v25-pill-action" href="/articles/singapore/unknown-mainland-bank-accounts_en.html">Read Article</a></article>',
+        '<article class="v25-pillar-card"><div class="v25-pillar-copy"><span class="v25-card-label">Bank clues</span><h3>Unknown Mainland bank: a Singapore family\'s first clues</h3><p>Follow document and transaction clues, then ask each likely institution about its enquiry route.</p></div><a class="v25-pill-action" href="/articles/singapore/unknown-mainland-bank-accounts_en.html">Read Article</a></article>',
     ),
 }
 
