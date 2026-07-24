@@ -1538,4 +1538,40 @@
     <changefreq>monthly</changefreq>
     <priority>0.55</priority>
   </url>
+  <url>
+    <loc>https://www.jingwei-law.com/articles/am/undisputed-or-disputed-route.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.jingwei-law.com/articles/am/undisputed-or-disputed-route_cn.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.jingwei-law.com/articles/am/undisputed-or-disputed-route_en.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.jingwei-law.com/articles/singapore/remitting-inherited-funds.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.jingwei-law.com/articles/singapore/remitting-inherited-funds_cn.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.jingwei-law.com/articles/singapore/remitting-inherited-funds_en.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
 </urlset>
