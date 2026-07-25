@@ -1736,4 +1736,22 @@
     <changefreq>monthly</changefreq>
     <priority>0.55</priority>
   </url>
+  <url>
+    <loc>https://www.jingwei-law.com/articles/am/equity-inheritance-dispute.html</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.jingwei-law.com/articles/am/equity-inheritance-dispute_cn.html</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.jingwei-law.com/articles/am/equity-inheritance-dispute_en.html</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
 </urlset>
