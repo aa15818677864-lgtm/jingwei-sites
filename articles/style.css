@@ -7120,6 +7120,10 @@ body.articles-index-v24 {
   }
 }
 
+.articles-index-v24 .v24-mobile-copy {
+  display: none;
+}
+
 /* Articles index v24 mobile composition, isolated from desktop and campaign pages. */
 @media (max-width: 760px) {
   body.articles-index-v24 {
@@ -7251,16 +7255,13 @@ body.articles-index-v24 {
   }
 
   .articles-index-v24 .v24-hero-card {
-    padding: 20px 18px 18px;
+    padding: 22px 18px 20px;
     border: 1px solid var(--v24-mobile-line);
     background: #fff;
   }
 
   .articles-index-v24 .v24-breadcrumb {
-    margin-bottom: 12px;
-    padding-left: 0;
-    color: #5c6b7a;
-    font-size: 10px;
+    display: none;
   }
 
   .articles-index-v24 .v24-breadcrumb::before {
@@ -7269,8 +7270,8 @@ body.articles-index-v24 {
 
   .articles-index-v24 .v24-hero h1 {
     max-width: none;
-    font-size: 30px;
-    line-height: 1.18;
+    font-size: 29px;
+    line-height: 1.2;
   }
 
   .articles-index-v24 .v24-hero h1 br {
@@ -7282,15 +7283,22 @@ body.articles-index-v24 {
   }
 
   .articles-index-v24 .v24-hero-lead {
-    margin-top: 14px;
+    margin-top: 10px;
     color: #5c6b7a;
     font-size: 14px;
-    line-height: 1.65;
+    line-height: 1.55;
+  }
+
+  .articles-index-v24 .v24-desktop-copy {
+    display: none;
+  }
+
+  .articles-index-v24 .v24-mobile-copy {
+    display: inline;
   }
 
   .articles-index-v24 .v24-actions {
-    gap: 12px;
-    margin-top: 18px;
+    margin-top: 16px;
   }
 
   .articles-index-v24 .v24-primary {
@@ -7302,20 +7310,11 @@ body.articles-index-v24 {
   }
 
   .articles-index-v24 .v24-secondary {
-    width: auto;
-    height: auto;
-    justify-content: flex-start;
-    border: 0;
-    padding: 0;
-    color: var(--v24-mobile-teal);
-    background: transparent;
-    font-size: 13px;
+    display: none;
   }
 
   .articles-index-v24 .v24-trust-row {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 8px;
-    margin-top: 16px;
+    display: none;
   }
 
   .articles-index-v24 .v24-trust-row span {
