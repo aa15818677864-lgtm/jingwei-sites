@@ -116,19 +116,19 @@
   </url>
   <url>
     <loc>https://www.jingwei-law.com/articles/united-states/</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.jingwei-law.com/articles/united-states/index_cn.html</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.jingwei-law.com/articles/united-states/index_en.html</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1769,6 +1769,24 @@
   <url>
     <loc>https://www.jingwei-law.com/articles/am/signing-in-macau_en.html</loc>
     <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.jingwei-law.com/articles/us/mainland-court-papers-first-24-hours.html</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.jingwei-law.com/articles/us/mainland-court-papers-first-24-hours_cn.html</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.jingwei-law.com/articles/us/mainland-court-papers-first-24-hours_en.html</loc>
+    <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.55</priority>
   </url>
