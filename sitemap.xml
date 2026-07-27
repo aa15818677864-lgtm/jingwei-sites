@@ -80,19 +80,19 @@
   </url>
   <url>
     <loc>https://www.jingwei-law.com/articles/macau/</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.jingwei-law.com/articles/macau/index_cn.html</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.jingwei-law.com/articles/macau/index_en.html</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1823,6 +1823,24 @@
   <url>
     <loc>https://www.jingwei-law.com/articles/am/mainland-counterparty-stops-responding_en.html</loc>
     <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.jingwei-law.com/articles/am/transfer-before-sale.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.jingwei-law.com/articles/am/transfer-before-sale_cn.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.jingwei-law.com/articles/am/transfer-before-sale_en.html</loc>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.55</priority>
   </url>
