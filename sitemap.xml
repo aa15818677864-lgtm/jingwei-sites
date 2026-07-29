@@ -2078,4 +2078,22 @@
     <changefreq>monthly</changefreq>
     <priority>0.55</priority>
   </url>
+  <url>
+    <loc>https://www.jingwei-law.com/articles/am/estate-debts-and-legacies.html</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.jingwei-law.com/articles/am/estate-debts-and-legacies_cn.html</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://www.jingwei-law.com/articles/am/estate-debts-and-legacies_en.html</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
 </urlset>
