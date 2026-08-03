@@ -226,6 +226,16 @@ class ArticleIntegrityTests(unittest.TestCase):
             self.assertIn("/articles/singapore/", text)
             self.assertIn("/articles/united-states/", text)
 
+    def test_hong_kong_property_hub_directory_stays_outside_fact_grid(self) -> None:
+        topic = ARTICLES / "hk-mainland-property-inheritance"
+        for filename in ("index.html", "index_cn.html", "index_en.html"):
+            path = topic / filename
+            text = path.read_text(encoding="utf-8")
+            facts_start = text.index('<section id="facts"')
+            facts_end = text.index("</section>", facts_start)
+            directory_start = text.index("<!-- TOPIC_DIRECTORY_START -->")
+            self.assertLess(facts_end, directory_start, str(path.relative_to(ROOT)))
+
     def test_hong_kong_property_topic_excludes_non_property_estate_articles(self) -> None:
         topic = ARTICLES / "hk-mainland-property-inheritance"
         indexes = [topic / "index.html", topic / "index_cn.html", topic / "index_en.html"]
