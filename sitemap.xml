@@ -718,7 +718,7 @@
   <!-- HK_LAUNCH_20_END -->
   <url>
     <loc>https://www.jingwei-law.com/articles/hong-kong-other-estate/</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -2172,4 +2172,12 @@
   <url><loc>https://www.jingwei-law.com/articles/hong-kong-other-estate/company-property-vs-shareholder-estate_cn.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.74</priority></url>
   <url><loc>https://www.jingwei-law.com/articles/hong-kong-other-estate/company-property-vs-shareholder-estate_en.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.74</priority></url>
   <!-- HK_CASE_BATCH_10_20260803_END -->
+<!-- HK_ROUND1_20260804_START -->
+  <url><loc>https://www.jingwei-law.com/articles/hong-kong-other-estate/first-family-meeting-agenda.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.74</priority></url>
+  <url><loc>https://www.jingwei-law.com/articles/hong-kong-other-estate/first-family-meeting-agenda_cn.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.74</priority></url>
+  <url><loc>https://www.jingwei-law.com/articles/hong-kong-other-estate/first-family-meeting-agenda_en.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.74</priority></url>
+  <url><loc>https://www.jingwei-law.com/articles/hong-kong-other-estate/reconstruct-estate-income-and-withdrawals.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.74</priority></url>
+  <url><loc>https://www.jingwei-law.com/articles/hong-kong-other-estate/reconstruct-estate-income-and-withdrawals_cn.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.74</priority></url>
+  <url><loc>https://www.jingwei-law.com/articles/hong-kong-other-estate/reconstruct-estate-income-and-withdrawals_en.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.74</priority></url>
+<!-- HK_ROUND1_20260804_END -->
 </urlset>

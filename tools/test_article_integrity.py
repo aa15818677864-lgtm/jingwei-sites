@@ -64,6 +64,10 @@ CASE_BATCH_20260803 = {
     "loan-receivable-after-death": "hong-kong-other-estate",
     "company-property-vs-shareholder-estate": "hong-kong-other-estate",
 }
+ROUND1_20260804 = {
+    "first-family-meeting-agenda": "hong-kong-other-estate",
+    "reconstruct-estate-income-and-withdrawals": "hong-kong-other-estate",
+}
 BATCH_PROPERTY_SLUGS = [
     slug for slug, folder in BATCH_20260803.items() if folder == "hk-mainland-property-inheritance"
 ]
@@ -184,6 +188,37 @@ class ArticleIntegrityTests(unittest.TestCase):
                 heading = re.sub(r"<[^>]+>", "", title.group(1)).strip()
                 self.assertNotIn(heading, titles)
                 titles.add(heading)
+
+    def test_20260804_round1_has_answer_first_case_structure_and_metadata(self) -> None:
+        sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
+        for slug, folder in ROUND1_20260804.items():
+            for suffix, language in (("", "zh-Hant"), ("_cn", "zh-Hans"), ("_en", "en")):
+                path = ARTICLES / folder / f"{slug}{suffix}.html"
+                self.assertTrue(path.exists(), str(path.relative_to(ROOT)))
+                text = path.read_text(encoding="utf-8")
+                public_path = f"/articles/{folder}/{slug}{suffix}.html"
+                self.assertIn(f'<html lang="{language}">', text)
+                self.assertLess(text.index('id="answer"'), text.index('id="case"'))
+                self.assertEqual(1, text.count('class="article-native-ad"'))
+                self.assertEqual(1, text.count('/articles/assets/ai-legal-assistant-native-ad-v2.webp'))
+                self.assertEqual(1, text.count('class="hk-section-card article-prose-section case-file-card"'))
+                self.assertGreaterEqual(text.count("article-prose-section"), 9)
+                self.assertGreaterEqual(text.count("<p>"), 17)
+                self.assertGreaterEqual(text.count('<a href="/articles/'), 7)
+                self.assertIn(f'<link rel="canonical" href="{SITE}{public_path}">', text)
+                self.assertIn('hreflang="zh-Hant"', text)
+                self.assertIn('hreflang="zh-Hans"', text)
+                self.assertIn('hreflang="en"', text)
+                self.assertIn('hreflang="x-default"', text)
+                self.assertIn('"@type": "Article"', text)
+                self.assertIn('"datePublished": "2026-08-04"', text)
+                self.assertIn('"dateModified": "2026-08-04"', text)
+                self.assertIn(public_path, sitemap)
+                self.assertNotRegex(text, r'<a[^>]+href="https?://')
+        for filename in ("index.html", "index_cn.html", "index_en.html"):
+            index = (ARTICLES / filename).read_text(encoding="utf-8")
+            for slug in ROUND1_20260804:
+                self.assertIn(f"/{slug}", index)
 
     def test_every_article_has_exactly_one_internal_native_ad(self) -> None:
         checked = 0
