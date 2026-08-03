@@ -40,7 +40,22 @@ CORE_PROPERTY_SLUGS = [
     "missing-documents",
     "tax-cost",
 ]
-PROPERTY_SLUGS = sorted(set(NEW_SLUGS + CORE_PROPERTY_SLUGS))
+BATCH_20260803 = {
+    "demolition-compensation": "hk-mainland-property-inheritance",
+    "joint-or-nominee-bank-account": "hong-kong-other-estate",
+    "securities-and-funds": "hong-kong-other-estate",
+    "insurance-beneficiary-or-estate": "hong-kong-other-estate",
+    "employer-and-unpaid-benefits": "hong-kong-other-estate",
+    "vehicle-inheritance": "hong-kong-other-estate",
+    "estate-debts-before-distribution": "hong-kong-other-estate",
+    "funeral-and-management-expenses": "hong-kong-other-estate",
+    "property-sold-before-settlement": "hk-mainland-property-inheritance",
+    "family-settlement-writing": "hong-kong-other-estate",
+}
+BATCH_PROPERTY_SLUGS = [
+    slug for slug, folder in BATCH_20260803.items() if folder == "hk-mainland-property-inheritance"
+]
+PROPERTY_SLUGS = sorted(set(NEW_SLUGS + CORE_PROPERTY_SLUGS + BATCH_PROPERTY_SLUGS))
 
 
 def html_files() -> list[Path]:
@@ -106,6 +121,26 @@ class ArticleIntegrityTests(unittest.TestCase):
                 self.assertIn('hreflang="en"', text)
                 self.assertIn('hreflang="x-default"', text)
 
+    def test_20260803_batch_has_complete_language_pages_and_metadata(self) -> None:
+        sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
+        for slug, folder in BATCH_20260803.items():
+            for suffix, language in (("", "zh-Hant"), ("_cn", "zh-Hans"), ("_en", "en")):
+                path = ARTICLES / folder / f"{slug}{suffix}.html"
+                self.assertTrue(path.exists(), str(path.relative_to(ROOT)))
+                text = path.read_text(encoding="utf-8")
+                public_path = f"/articles/{folder}/{slug}{suffix}.html"
+                self.assertIn(f'<html lang="{language}">', text)
+                self.assertEqual(0, len(re.findall(r"<figure\b", text)), str(path.relative_to(ROOT)))
+                self.assertEqual(1, text.count('class="article-native-ad"'), str(path.relative_to(ROOT)))
+                self.assertEqual(1, text.count('/articles/assets/ai-legal-assistant-native-ad-v2.webp'))
+                self.assertIn(f'<link rel="canonical" href="{SITE}{public_path}">', text)
+                self.assertIn('"@type": "Article"', text)
+                self.assertIn('"datePublished": "2026-08-03"', text)
+                self.assertIn('"dateModified": "2026-08-03"', text)
+                self.assertIn(public_path, sitemap)
+                self.assertGreaterEqual(text.count("article-prose-section"), 5)
+                self.assertGreaterEqual(text.count('<a href="/articles/'), 6)
+
     def test_every_article_has_exactly_one_internal_native_ad(self) -> None:
         checked = 0
         for path in html_files():
@@ -132,6 +167,8 @@ class ArticleIntegrityTests(unittest.TestCase):
             text = path.read_text(encoding="utf-8")
             self.assertNotIn("228", text)
             for slug in NEW_SLUGS:
+                self.assertIn(f"/{slug}", text, f"{slug} missing from {path.name}")
+            for slug in BATCH_20260803:
                 self.assertIn(f"/{slug}", text, f"{slug} missing from {path.name}")
         dashboard = (ROOT / "dashboard" / "index.html").read_text(encoding="utf-8")
         self.assertIn("Liu Yi Lawyer Team", dashboard)
