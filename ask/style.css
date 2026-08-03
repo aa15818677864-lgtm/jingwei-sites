@@ -1629,11 +1629,6 @@ h1 span {
     min-width: 62px;
     min-height: 30px;
     padding: 7px 10px;
-    font-size: 0;
-  }
-
-  .home-link::after {
-    content: "专题";
     font-size: 14px;
   }
 
