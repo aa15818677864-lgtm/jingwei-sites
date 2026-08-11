@@ -1963,3 +1963,13 @@ body.reveal-enabled .reveal-item.is-visible {
     opacity: 1;
   }
 }
+/* Mobile-only criminal landing shell; desktop markup remains untouched. */
+.mobile-landing {
+  display: none !important;
+}
+
+@media (max-width: 779px) {
+  .mobile-landing {
+    display: block !important;
+  }
+}
