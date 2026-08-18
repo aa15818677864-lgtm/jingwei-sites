@@ -74,8 +74,10 @@ def page_topic(text: str, path: Path) -> str:
     first = relative.parts[0]
     directory_topic = {
         "am": "macau",
+        "macau": "macau",
         "singapore": "singapore",
         "us": "united-states",
+        "united-states": "united-states",
         "hong-kong-other-estate": "hong-kong-other-estate",
         "overseas-chinese": "overseas-chinese",
         "hk-mainland-property-inheritance": "hk-inheritance",

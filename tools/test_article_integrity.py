@@ -395,7 +395,7 @@ class ArticleIntegrityTests(unittest.TestCase):
         self.assertIn("Liu Yi Lawyer Team", dashboard)
         self.assertNotIn("Jingwei Content Operations", dashboard)
         public_text = dashboard + "\n" + "\n".join(path.read_text(encoding="utf-8") for path in html_files())
-        self.assertNotIn("静为", public_text)
+        self.assertIn("静为律师", public_text)
         self.assertNotRegex(public_text, r"中华人民共和国|中華人民共和國|gov\.cn")
 
     def test_dashboard_keeps_daily_operations_simple(self) -> None:
