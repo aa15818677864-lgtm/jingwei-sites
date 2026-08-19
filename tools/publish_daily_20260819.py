@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import html
 import json
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -111,11 +111,20 @@ def add_research_log() -> None:
     (ROOT / "content-system").mkdir(exist_ok=True)
     (ROOT / "content-system" / "daily-research-20260819.json").write_text(json.dumps(log,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
 
+def add_publication_log() -> None:
+    deployed_at = datetime.now().astimezone().isoformat(timespec="seconds")
+    events = []
+    for slug, tc, *_ in STORIES:
+        p = paths(slug)
+        events.append({"id": f"{TODAY}:{slug}", "story": f"/articles/hong-kong-other-estate/{slug}", "title": tc, "topic": "hong-kong-other-estate", "urls": [SITE+p["tc"], SITE+p["sc"], SITE+p["en"]], "languages": ["zh-Hant", "zh-Hans", "en"], "deployedAt": deployed_at, "source": "confirmed-live-deployment"})
+    payload = {"version": 1, "updatedAt": deployed_at, "events": events}
+    (ROOT / "content-system" / "daily-publication-log-20260819.json").write_text(json.dumps(payload,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+
 def main() -> None:
     for slug,tc,sc,en,tc_label,sc_label,en_clue in STORIES:
         for lang,title,label,clue in (("tc",tc,tc_label,en_clue),("sc",sc,sc_label,en_clue),("en",en,en_clue,en_clue)):
             (DIR / Path(paths(slug)[lang]).name).write_text(render(slug,title,label,clue,lang),encoding="utf-8")
-    add_hub(); add_sitemap(); add_research_log()
+    add_hub(); add_sitemap(); add_research_log(); add_publication_log()
     print(f"Built {len(STORIES)} stories / {len(STORIES)*3} pages for {TODAY}.")
 
 if __name__ == "__main__": main()
