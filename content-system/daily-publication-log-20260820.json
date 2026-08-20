@@ -18,7 +18,7 @@
         "en"
       ],
       "deployedAt": "2026-08-20T09:06:39+08:00",
-      "source": "pending-live-verification"
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-20:estate-property-tax-bill",
@@ -36,7 +36,7 @@
         "en"
       ],
       "deployedAt": "2026-08-20T09:06:39+08:00",
-      "source": "pending-live-verification"
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-20:estate-hospital-reimbursement",
@@ -54,7 +54,7 @@
         "en"
       ],
       "deployedAt": "2026-08-20T09:06:39+08:00",
-      "source": "pending-live-verification"
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-20:estate-pension-payment-notice",
@@ -72,7 +72,7 @@
         "en"
       ],
       "deployedAt": "2026-08-20T09:06:39+08:00",
-      "source": "pending-live-verification"
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-20:estate-insurance-policy-clue",
@@ -90,7 +90,7 @@
         "en"
       ],
       "deployedAt": "2026-08-20T09:06:39+08:00",
-      "source": "pending-live-verification"
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-20:estate-securities-statement",
@@ -108,7 +108,7 @@
         "en"
       ],
       "deployedAt": "2026-08-20T09:06:39+08:00",
-      "source": "pending-live-verification"
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-20:estate-fund-account-clues",
@@ -126,7 +126,7 @@
         "en"
       ],
       "deployedAt": "2026-08-20T09:06:39+08:00",
-      "source": "pending-live-verification"
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-20:estate-credit-card-statement",
@@ -144,7 +144,7 @@
         "en"
       ],
       "deployedAt": "2026-08-20T09:06:39+08:00",
-      "source": "pending-live-verification"
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-20:estate-mortgage-payment-record",
@@ -162,7 +162,7 @@
         "en"
       ],
       "deployedAt": "2026-08-20T09:06:39+08:00",
-      "source": "pending-live-verification"
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-20:estate-guarantor-notice",
@@ -180,7 +180,7 @@
         "en"
       ],
       "deployedAt": "2026-08-20T09:06:39+08:00",
-      "source": "pending-live-verification"
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-20:estate-business-registration-change",
@@ -198,7 +198,7 @@
         "en"
       ],
       "deployedAt": "2026-08-20T09:06:39+08:00",
-      "source": "pending-live-verification"
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-20:estate-inventory-warehouse",
@@ -216,7 +216,7 @@
         "en"
       ],
       "deployedAt": "2026-08-20T09:06:39+08:00",
-      "source": "pending-live-verification"
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-20:estate-courier-receipt",
@@ -234,7 +234,7 @@
         "en"
       ],
       "deployedAt": "2026-08-20T09:06:39+08:00",
-      "source": "pending-live-verification"
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-20:estate-notary-appointment-message",
@@ -252,7 +252,7 @@
         "en"
       ],
       "deployedAt": "2026-08-20T09:06:39+08:00",
-      "source": "pending-live-verification"
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-20:estate-landlord-contact",
@@ -270,7 +270,7 @@
         "en"
       ],
       "deployedAt": "2026-08-20T09:06:39+08:00",
-      "source": "pending-live-verification"
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-20:estate-home-repair-contract",
@@ -288,7 +288,7 @@
         "en"
       ],
       "deployedAt": "2026-08-20T09:06:39+08:00",
-      "source": "pending-live-verification"
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-20:estate-property-auction-notice",
@@ -306,7 +306,7 @@
         "en"
       ],
       "deployedAt": "2026-08-20T09:06:39+08:00",
-      "source": "pending-live-verification"
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-20:estate-land-compensation-clue",
@@ -324,7 +324,7 @@
         "en"
       ],
       "deployedAt": "2026-08-20T09:06:39+08:00",
-      "source": "pending-live-verification"
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-20:estate-rural-property-clues",
@@ -342,7 +342,7 @@
         "en"
       ],
       "deployedAt": "2026-08-20T09:06:39+08:00",
-      "source": "pending-live-verification"
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-20:estate-vehicle-registration",
@@ -360,7 +360,7 @@
         "en"
       ],
       "deployedAt": "2026-08-20T09:06:39+08:00",
-      "source": "pending-live-verification"
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-20:estate-parking-fee-arrears",
@@ -378,7 +378,7 @@
         "en"
       ],
       "deployedAt": "2026-08-20T09:06:39+08:00",
-      "source": "pending-live-verification"
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-20:estate-school-fee-record",
@@ -396,7 +396,7 @@
         "en"
       ],
       "deployedAt": "2026-08-20T09:06:39+08:00",
-      "source": "pending-live-verification"
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-20:estate-mobile-number-contract",
@@ -414,7 +414,7 @@
         "en"
       ],
       "deployedAt": "2026-08-20T09:06:39+08:00",
-      "source": "pending-live-verification"
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-20:estate-electricity-deposit",
@@ -432,7 +432,7 @@
         "en"
       ],
       "deployedAt": "2026-08-20T09:06:39+08:00",
-      "source": "pending-live-verification"
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-20:estate-social-security-record",
@@ -450,7 +450,7 @@
         "en"
       ],
       "deployedAt": "2026-08-20T09:06:39+08:00",
-      "source": "pending-live-verification"
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-20:estate-employment-file",
@@ -468,7 +468,7 @@
         "en"
       ],
       "deployedAt": "2026-08-20T09:06:39+08:00",
-      "source": "pending-live-verification"
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-20:estate-membership-account",
@@ -486,7 +486,7 @@
         "en"
       ],
       "deployedAt": "2026-08-20T09:06:39+08:00",
-      "source": "pending-live-verification"
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-20:estate-digital-wallet-record",
@@ -504,7 +504,7 @@
         "en"
       ],
       "deployedAt": "2026-08-20T09:06:39+08:00",
-      "source": "pending-live-verification"
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-20:estate-storage-locker-contract",
@@ -522,7 +522,7 @@
         "en"
       ],
       "deployedAt": "2026-08-20T09:06:39+08:00",
-      "source": "pending-live-verification"
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-20:estate-document-translation-list",
@@ -540,7 +540,7 @@
         "en"
       ],
       "deployedAt": "2026-08-20T09:06:39+08:00",
-      "source": "pending-live-verification"
+      "source": "confirmed-live-deployment"
     }
   ]
 }
