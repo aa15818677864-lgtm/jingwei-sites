@@ -12,7 +12,6 @@ ROOT = Path(__file__).resolve().parents[1]
 ARTICLES = ROOT / "articles"
 SITE = "https://www.jingwei-law.com"
 NEW_SLUGS = [
-    "first-call-family-facts",
     "asset-clue-list",
     "family-tree-before-inheritance",
     "hong-kong-death-certificate-details",
@@ -65,7 +64,6 @@ CASE_BATCH_20260803 = {
     "company-property-vs-shareholder-estate": "hong-kong-other-estate",
 }
 ROUND1_20260804 = {
-    "first-family-meeting-agenda": "hong-kong-other-estate",
     "reconstruct-estate-income-and-withdrawals": "hong-kong-other-estate",
 }
 ROUND2_20260804 = {

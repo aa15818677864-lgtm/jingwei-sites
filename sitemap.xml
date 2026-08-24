@@ -320,24 +320,6 @@
   </url>
   <!-- HK_LAUNCH_20_START -->
   <url>
-    <loc>https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/first-call-family-facts.html</loc>
-    <lastmod>2026-07-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.55</priority>
-  </url>
-  <url>
-    <loc>https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/first-call-family-facts_cn.html</loc>
-    <lastmod>2026-07-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.55</priority>
-  </url>
-  <url>
-    <loc>https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/first-call-family-facts_en.html</loc>
-    <lastmod>2026-07-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.55</priority>
-  </url>
-  <url>
     <loc>https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/asset-clue-list.html</loc>
     <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
@@ -963,24 +945,6 @@
     <priority>0.55</priority>
   </url>
   <url>
-    <loc>https://www.jingwei-law.com/articles/singapore/singapore-family-first-fact-sheet.html</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.jingwei-law.com/articles/singapore/singapore-family-first-fact-sheet_cn.html</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.55</priority>
-  </url>
-  <url>
-    <loc>https://www.jingwei-law.com/articles/singapore/singapore-family-first-fact-sheet_en.html</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.55</priority>
-  </url>
-  <url>
     <loc>https://www.jingwei-law.com/articles/us/mainland-asset-omitted-from-probate.html</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
@@ -994,24 +958,6 @@
   </url>
   <url>
     <loc>https://www.jingwei-law.com/articles/us/mainland-asset-omitted-from-probate_en.html</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.55</priority>
-  </url>
-  <url>
-    <loc>https://www.jingwei-law.com/articles/am/family-coordinator-first-sheet.html</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.jingwei-law.com/articles/am/family-coordinator-first-sheet_cn.html</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.55</priority>
-  </url>
-  <url>
-    <loc>https://www.jingwei-law.com/articles/am/family-coordinator-first-sheet_en.html</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.55</priority>
@@ -1498,24 +1444,6 @@
   </url>
   <url>
     <loc>https://www.jingwei-law.com/articles/am/occupied-or-sold-property_en.html</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.55</priority>
-  </url>
-  <url>
-    <loc>https://www.jingwei-law.com/articles/singapore/digital-payment-clues.html</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.jingwei-law.com/articles/singapore/digital-payment-clues_cn.html</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.55</priority>
-  </url>
-  <url>
-    <loc>https://www.jingwei-law.com/articles/singapore/digital-payment-clues_en.html</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.55</priority>
@@ -2173,9 +2101,6 @@
   <url><loc>https://www.jingwei-law.com/articles/hong-kong-other-estate/company-property-vs-shareholder-estate_en.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.74</priority></url>
   <!-- HK_CASE_BATCH_10_20260803_END -->
 <!-- HK_ROUND1_20260804_START -->
-  <url><loc>https://www.jingwei-law.com/articles/hong-kong-other-estate/first-family-meeting-agenda.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.74</priority></url>
-  <url><loc>https://www.jingwei-law.com/articles/hong-kong-other-estate/first-family-meeting-agenda_cn.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.74</priority></url>
-  <url><loc>https://www.jingwei-law.com/articles/hong-kong-other-estate/first-family-meeting-agenda_en.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.74</priority></url>
   <url><loc>https://www.jingwei-law.com/articles/hong-kong-other-estate/reconstruct-estate-income-and-withdrawals.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.74</priority></url>
   <url><loc>https://www.jingwei-law.com/articles/hong-kong-other-estate/reconstruct-estate-income-and-withdrawals_cn.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.74</priority></url>
   <url><loc>https://www.jingwei-law.com/articles/hong-kong-other-estate/reconstruct-estate-income-and-withdrawals_en.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.74</priority></url>
