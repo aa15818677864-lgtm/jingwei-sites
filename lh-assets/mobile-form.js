@@ -87,16 +87,6 @@
   function buildPayload() {
     const payload = new URLSearchParams();
     const append = function (name, value) { payload.append(name, value == null ? "" : String(value)); };
-    const matters = Array.from(form.querySelectorAll('input[name="mainland_matter"]:checked')).map(function (field) {
-      return field.value;
-    });
-    const summary = getValue("summary");
-    const location = getValue("current_location");
-    const message = [
-      "涉及内地内容：" + (matters.length ? matters.join("、") : "未选择"),
-      "目前所在地：" + location,
-      "简要情况：" + (summary || "未填写")
-    ].join("\n");
 
     append("submitted_at", getValue("submitted_at") || new Date().toISOString());
     append("site", config.siteCode || "liuyi-divorce-lh");
@@ -108,7 +98,7 @@
     append("phone", getValue("contact_phone").replace(/\D+/g, ""));
     append("wechat", getValue("social_contact"));
     append("inquiry_type", getValue("case_type"));
-    append("message", message);
+    append("message", getValue("summary"));
     append("source", "github-pages");
     append("user_agent", navigator.userAgent);
     append("client_ip", getValue("client_ip"));
