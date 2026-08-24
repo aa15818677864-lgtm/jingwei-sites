@@ -36,8 +36,8 @@
       <img class="mv5-hero-bg" src="lh-assets/mobile-hero-navy.png" alt="">
       <img class="mv5-hero-person" src="lh-assets/liuyi-v4.webp" alt="刘毅律师">
       <div class="mv5-hero-copy">
-        <h1><span>人在香港，</span><span>内地有楼，</span><span>离婚怎么办？</span></h1>
-        <p>涉及内地房产、存款、股权的离婚，<br>找对方向比急着签字更重要。</p>
+        <h1><span>人在香港</span><span>内地有楼</span><span>离婚怎么办？</span></h1>
+        <p><span class="mv5-hero-lead-line">涉及内地房产、存款、股票的离婚</span><span>找对方向比急着签字更重要。</span></p>
         <a href="#mobile-consult">先了解处理方向 →</a>
       </div>
       <div class="mv5-identity"><span>刘毅律师 · 深圳主任律师</span><span>专注涉内地婚姻财产案件十余年</span><span>执业证号：14403201510403996</span></div>
@@ -52,6 +52,10 @@
       </div>
       <p class="mv5-core-close">无论你手上资料全不全，都可以先说明情况。我会帮你判断是否涉及内地管辖，以及下一步应该做什么。</p>
     </section>
+
+    <figure class="mv5-photo-band mv5-office-photo">
+      <img src="lh-assets/mobile-office.jpg" alt="深圳办公环境" loading="lazy">
+    </figure>
 
     <section class="mv5-scope">
       <p class="mv5-eyebrow">哪些情况可以找我</p>
@@ -102,6 +106,7 @@
       <p class="mv5-eyebrow">刘毅律师团队 · 深圳</p>
       <h2>主任律师先把方向理清</h2>
       <p class="mv5-team-intro">中港关联离婚涉及两地情况、内地资产与程序。由主任律师先判断重点，再根据案件需要安排后续，减少反复沟通和无效往返。</p>
+      <figure class="mv5-team-photo"><img src="lh-assets/mobile-team.jpg" alt="刘毅律师团队" loading="lazy"></figure>
       <div class="mv5-team-list">
         <div><strong>主任律师</strong><span>先判断内地关联与程序方向</span></div>
         <div><strong>执业十余年</strong><span>专注涉内地婚姻财产案件</span></div>
@@ -115,14 +120,11 @@
       <h2>提交你的情况，我先帮你判断方向</h2>
       <p class="mv5-form-copy">提交资料只作初步判断，不代表建立委托关系。我会在了解情况后回复你，看看下一步怎么走。</p>
       <form id="mobile-consult-form" novalidate>
-        <label>称呼：先生／女士／其他<select name="name" required><option value="">请选择</option><option>先生</option><option>女士</option><option>其他</option></select></label>
+        <label>姓名（必填）<input name="name" type="text" maxlength="30" placeholder="例如：陈小姐 / 李先生" required></label>
         <label>区号 + 联系电话：+852 / +86 / +853 / 其他<div class="mv5-phone-row"><select name="contact_region"><option value="+852">+852</option><option value="+86">+86</option><option value="+853">+853</option><option value="other">其他</option></select><input name="contact_phone" type="tel" inputmode="tel" required></div><small id="mobile-phone-error" hidden></small></label>
-        <label>目前所在地：香港／中国内地／澳门／其他<select name="current_location" required><option>香港</option><option>中国内地</option><option>澳门</option><option>其他</option></select></label>
-        <fieldset class="mv5-multi"><legend>涉及内地内容（可多选）：</legend><label><input type="checkbox" name="mainland_matter" value="内地房产"> 内地房产</label><label><input type="checkbox" name="mainland_matter" value="存款或股权"> 存款或股权</label><label><input type="checkbox" name="mainland_matter" value="一方在内地"> 一方在内地</label><label><input type="checkbox" name="mainland_matter" value="协议需在内地处理"> 协议需在内地处理</label><label><input type="checkbox" name="mainland_matter" value="其他"> 其他</label></fieldset>
-        <label>简要情况说明（选填）<textarea name="summary" maxlength="500"></textarea></label>
-        <label class="mv5-consent"><input name="consent" type="checkbox" value="yes" required> 我明白提交资料不代表建立委托关系</label>
+        <label>WhatsApp / 微信（选填）<input name="social_contact" type="text" maxlength="60" placeholder="例如：WhatsApp 号码 / 微信 ID"></label>
+        <label>目前最想先问清楚什么（选填）<textarea name="summary" maxlength="500" placeholder="例如：内地房产怎么分、对方不配合，或担心资产被转移。"></textarea></label>
         <input type="text" name="website" class="trap-field" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <input type="hidden" name="social_contact" value="">
         <input type="hidden" name="source_page" value="liuyi-hk-mainland-divorce-property-mobile">
         <input type="hidden" name="case_type" value="内地与香港离婚及财产分割">
         <input type="hidden" name="stage" value="初步了解">
@@ -133,6 +135,13 @@
         <p class="mv5-form-status" id="mobile-form-status" role="status" aria-live="polite"></p>
       </form>
     </section>
+
+    <footer class="mv5-footer">
+      <strong>刘毅律师｜广东静为律师事务所</strong>
+      <p>办公地址：深圳福田区大中华国际金融中心A座七楼</p>
+      <p>深圳执业律师｜执业证号：14403201510403996</p>
+      <small>© 2026 刘毅律师</small>
+    </footer>
   </main>
 
   <header class="site-header">
