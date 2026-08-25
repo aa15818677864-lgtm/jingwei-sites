@@ -7558,3 +7558,99 @@ body.articles-index-v24 {
     margin-bottom: 30px;
   }
 }
+
+/* Macau applicable-law feature: editorial artwork stays readable and lightweight. */
+.macau-law-visual-article .article-hero-inner {
+  grid-template-columns: minmax(0, 900px) minmax(250px, 330px);
+}
+
+.macau-law-visual-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0 0 38px;
+}
+
+.macau-law-visual-grid figure {
+  min-width: 0;
+  margin: 0;
+}
+
+.macau-law-visual-grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1122 / 1402;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+  object-fit: cover;
+}
+
+.macau-law-visual-grid figcaption {
+  margin-top: 9px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.article-source-note {
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 14px;
+}
+
+@media (max-width: 760px) {
+  .macau-law-visual-article .article-hero-inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .macau-law-visual-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-bottom: 30px;
+  }
+}
+
+/* Approved Jingwei Law wordmark across the article library and article pages. */
+.article-detail .site-header .brand,
+.articles-index-v24 .v24-brand,
+.articles-index-v25 .v25-brand {
+  position: relative;
+  display: block;
+  flex: 0 0 auto;
+  width: clamp(224px, 20vw, 278px);
+  min-height: 0;
+  height: 50px;
+  padding: 0;
+  background: url("/articles/assets/jingwei-law-firm-logo.png") left center / contain no-repeat;
+}
+
+.article-detail .site-header .brand::before {
+  content: none !important;
+  display: none !important;
+}
+
+.article-detail .site-header .brand > *,
+.articles-index-v24 .v24-brand > *,
+.articles-index-v25 .v25-brand > * {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+@media (max-width: 760px) {
+  .article-detail .site-header .brand,
+  .articles-index-v24 .v24-brand,
+  .articles-index-v25 .v25-brand {
+    width: min(224px, 64vw);
+    height: 43px;
+  }
+}
