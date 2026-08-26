@@ -65,7 +65,7 @@ def fix_cn_hreflang() -> int:
 
 def add_author_urls() -> int:
     changed_files = 0
-    author_pattern = re.compile(r'("author"\s*:\s*\{)(.*?)(\n\s*\})', re.S)
+    author_pattern = re.compile(r'("author"\s*:\s*\{)([^{}]*)(\})', re.S)
     for path in sorted(ARTICLES.rglob("*.html")):
         if re.search(r"(^|/)index(?:_cn|_en)?\.html$", public_path(path)):
             continue
@@ -77,10 +77,11 @@ def add_author_urls() -> int:
             body = match.group(2)
             if '"url"' in body:
                 return match.group(0)
+            trailing = "\n    " if "\n" in body else " "
             body = body.rstrip()
             if body and not body.endswith(","):
                 body += ","
-            return match.group(1) + body + f'\n    "url": "{SITE}/"' + match.group(3)
+            return match.group(1) + body + trailing + f'"url": "{SITE}/"' + match.group(3)
 
         updated, replacements = author_pattern.subn(patch_author, text, count=1)
         if replacements and updated != text:

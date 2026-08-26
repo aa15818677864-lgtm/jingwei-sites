@@ -17,7 +17,6 @@
   --shadow: 0 22px 55px rgba(16, 42, 70, 0.08);
   --max: 1180px;
 }
-
 * {
   box-sizing: border-box;
 }
@@ -128,6 +127,14 @@ summary:focus-visible {
   color: #fff;
   font-weight: 800;
   box-shadow: 0 14px 28px rgba(155, 29, 49, 0.16);
+}
+
+html[lang="zh-Hant"] .brand::before {
+  content: "劉";
+}
+
+html[lang^="en"] .brand::before {
+  content: "L";
 }
 
 .brand strong {
@@ -7610,47 +7617,5 @@ body.articles-index-v24 {
     grid-template-columns: 1fr;
     gap: 18px;
     margin-bottom: 30px;
-  }
-}
-
-/* Approved Jingwei Law wordmark across the article library and article pages. */
-.article-detail .site-header .brand,
-.articles-index-v24 .v24-brand,
-.articles-index-v25 .v25-brand {
-  position: relative;
-  display: block;
-  flex: 0 0 auto;
-  width: clamp(224px, 20vw, 278px);
-  min-height: 0;
-  height: 50px;
-  padding: 0;
-  background: url("/articles/assets/jingwei-law-firm-logo.png") left center / contain no-repeat;
-}
-
-.article-detail .site-header .brand::before {
-  content: none !important;
-  display: none !important;
-}
-
-.article-detail .site-header .brand > *,
-.articles-index-v24 .v24-brand > *,
-.articles-index-v25 .v25-brand > * {
-  position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-  margin: -1px !important;
-  padding: 0 !important;
-  overflow: hidden !important;
-  clip: rect(0 0 0 0) !important;
-  white-space: nowrap !important;
-  border: 0 !important;
-}
-
-@media (max-width: 760px) {
-  .article-detail .site-header .brand,
-  .articles-index-v24 .v24-brand,
-  .articles-index-v25 .v25-brand {
-    width: min(224px, 64vw);
-    height: 43px;
   }
 }
