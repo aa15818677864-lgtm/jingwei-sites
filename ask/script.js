@@ -2366,7 +2366,7 @@
     }
 
     if (!leadConsentInput || !leadConsentInput.checked) {
-      return { ok: false, message: "请先确认同意律师团队联系你", focus: leadConsentInput };
+      return { ok: false, message: "请先勾选同意联系", focus: leadConsentInput };
     }
 
     return { ok: true };

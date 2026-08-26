@@ -92,6 +92,22 @@ p {
   padding: 20px 20px;
 }
 
+.brand-pane {
+  height: min(654px, calc(100svh - 96px));
+  min-height: 620px;
+  gap: 8px;
+  padding: 16px;
+}
+
+.brand-pane .brand-mark {
+  width: 34px;
+  height: 34px;
+}
+
+.brand-pane .brand strong {
+  font-size: 15px;
+}
+
 .brand {
   display: inline-flex;
   align-items: center;
@@ -154,15 +170,15 @@ h1 span {
 
 .lawyer-profile {
   display: grid;
-  grid-template-columns: 92px minmax(0, 1fr);
+  grid-template-columns: 68px minmax(0, 1fr);
   align-items: center;
-  gap: 13px;
-  margin-top: 18px;
+  gap: 10px;
+  margin-top: 4px;
 }
 
 .lawyer-profile img {
-  width: 92px;
-  height: 92px;
+  width: 68px;
+  height: 68px;
   border: 1px solid var(--line-blue);
   border-radius: 8px;
   object-fit: cover;
@@ -173,36 +189,36 @@ h1 span {
 
 .lawyer-name {
   display: grid;
-  gap: 5px;
+  gap: 3px;
 }
 
 .lawyer-name p {
   color: var(--brand);
-  font-size: 14px;
+  font-size: 11px;
   font-weight: 900;
   line-height: 1.2;
 }
 
 .lawyer-name h1 {
-  font-size: 25px;
+  font-size: 21px;
   line-height: 1.05;
 }
 
 .lawyer-name span {
   color: var(--muted);
-  font-size: 14px;
-  line-height: 1.35;
+  font-size: 11px;
+  line-height: 1.3;
 }
 
 .lawyer-intro {
-  border-left: 3px solid var(--brand);
-  padding-left: 12px;
+  border-left: 2px solid var(--brand);
+  padding-left: 8px;
 }
 
 .lawyer-intro p {
   color: var(--ink);
-  font-size: 14px;
-  line-height: 1.6;
+  font-size: 11px;
+  line-height: 1.4;
 }
 
 .lawyer-focus {
@@ -288,13 +304,13 @@ h1 span {
 }
 
 .brand-pane:has(.lead-capture) {
-  gap: 10px;
+  gap: 8px;
 }
 
 .brand-pane:has(.lead-capture) .side-note {
-  padding: 8px 10px;
-  font-size: 12px;
-  line-height: 1.45;
+  padding: 6px 8px;
+  font-size: 10px;
+  line-height: 1.35;
 }
 
 .lead-capture[hidden] {
@@ -304,8 +320,8 @@ h1 span {
 .lead-capture-form,
 .lead-capture-success {
   display: grid;
-  gap: 6px;
-  padding: 10px;
+  gap: 3px;
+  padding: 8px;
 }
 
 .lead-capture-form[hidden],
@@ -320,24 +336,24 @@ h1 span {
 }
 
 .lead-title {
-  font-size: 16px;
-  line-height: 1.25;
+  font-size: 14px;
+  line-height: 1.2;
 }
 
 .lead-copy {
   color: var(--muted);
-  font-size: 11px;
-  line-height: 1.45;
+  font-size: 10px;
+  line-height: 1.35;
 }
 
 .lead-form {
   display: grid;
-  gap: 7px;
+  gap: 5px;
 }
 
 .lead-field {
   display: grid;
-  gap: 4px;
+  gap: 2px;
 }
 
 .lead-field[hidden] {
@@ -346,7 +362,7 @@ h1 span {
 
 .lead-field span {
   color: var(--ink);
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 900;
 }
 
@@ -354,13 +370,13 @@ h1 span {
 .lead-field select,
 .lead-field textarea {
   width: 100%;
-  min-height: 32px;
+  min-height: 28px;
   border: 1px solid var(--line-blue);
   border-radius: 6px;
   background: #fff;
   color: var(--ink);
-  padding: 0 9px;
-  font-size: 12px;
+  padding: 0 7px;
+  font-size: 11px;
 }
 
 .lead-field input:focus,
@@ -372,17 +388,17 @@ h1 span {
 }
 
 .lead-field textarea {
-  min-height: 42px;
+  min-height: 36px;
   resize: vertical;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding-top: 6px;
+  padding-bottom: 6px;
   font-family: inherit;
   line-height: 1.4;
 }
 
 .lead-phone-row {
   display: grid;
-  grid-template-columns: 98px minmax(0, 1fr);
+  grid-template-columns: 92px minmax(0, 1fr);
   gap: 6px;
 }
 
@@ -401,22 +417,76 @@ h1 span {
   white-space: nowrap !important;
 }
 
+.lead-consent-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
 .lead-consent {
   display: grid;
-  grid-template-columns: 15px minmax(0, 1fr);
-  gap: 7px;
-  align-items: start;
+  grid-template-columns: 13px minmax(0, 1fr);
+  gap: 5px;
+  align-items: center;
+  min-width: 0;
   color: var(--muted);
   font-size: 10px;
-  line-height: 1.4;
+  line-height: 1.25;
   cursor: pointer;
 }
 
 .lead-consent input {
-  width: 14px;
-  height: 14px;
+  width: 13px;
+  height: 13px;
   margin: 0;
   accent-color: var(--green-deep);
+}
+
+.lead-privacy {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.lead-privacy summary {
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.25;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.lead-privacy summary::-webkit-details-marker {
+  display: none;
+}
+
+.lead-privacy-copy {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 7px);
+  z-index: 12;
+  width: 220px;
+  max-height: 220px;
+  overflow-y: auto;
+  display: grid;
+  gap: 7px;
+  border: 1px solid var(--line-blue);
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 14px 34px rgba(13, 41, 71, 0.16);
+  color: var(--muted);
+  padding: 10px;
+  font-size: 10px;
+  line-height: 1.45;
+}
+
+.lead-privacy-copy a {
+  color: var(--navy);
+  text-decoration: underline;
+  overflow-wrap: anywhere;
 }
 
 .lead-field-compact {
@@ -435,8 +505,12 @@ h1 span {
 }
 
 .lead-status {
-  min-height: 14px;
+  min-height: 0;
   color: var(--muted);
+}
+
+.lead-status:empty {
+  display: none;
 }
 
 .lead-status.is-error {
@@ -448,13 +522,13 @@ h1 span {
 }
 
 .lead-submit {
-  min-height: 34px;
+  min-height: 30px;
   border: 0;
   border-radius: 6px;
   background: var(--green);
   color: #fff;
   padding: 0 12px;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 900;
   cursor: pointer;
   transition: background 0.2s ease, opacity 0.2s ease;

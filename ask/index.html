@@ -6,7 +6,7 @@
   <title>AI法律助手 | 刘毅律师团队</title>
   <meta name="description" content="刘毅律师团队 AI 法律助手。直接输入法律问题，先由 AI 帮你做基础分析、事实整理和下一步提示。">
   <link rel="canonical" href="https://www.jingwei-law.com/ask/">
-  <link rel="stylesheet" href="style.css?v=20260826-lawyer-booking-v1">
+  <link rel="stylesheet" href="style.css?v=20260826-lawyer-booking-v2">
 </head>
 <body>
   <main class="page-shell">
@@ -28,7 +28,7 @@
       </div>
 
       <div class="lawyer-intro">
-        <p>先由 AI 帮你梳理法律问题、关键事实、风险点和下一步材料，再决定是否需要律师进一步看。</p>
+        <p>AI 先梳理事实与风险，再由律师判断方案。</p>
       </div>
 
       <aside class="chat-ad" id="routeAd" aria-label="相关咨询入口" hidden>
@@ -41,9 +41,8 @@
 
       <aside class="lead-capture" id="leadCaptureCard" aria-label="预约真人律师">
         <div class="lead-capture-form" id="leadCaptureFormWrap">
-          <p class="lead-eyebrow">真人律师预约</p>
-          <h2 class="lead-title">预约律师联系</h2>
-          <p class="lead-copy">留下联系方式，团队会结合本次对话与你联系。</p>
+          <h2 class="lead-title">预约真人律师</h2>
+          <p class="lead-copy">留下电话，团队结合本次对话联系你。</p>
           <form class="lead-form" id="leadCaptureForm" novalidate>
             <input id="leadStartedAt" name="started_at" type="hidden">
             <label class="lead-honeypot" aria-hidden="true">
@@ -93,10 +92,20 @@
               <textarea id="leadMatter" name="lead_matter" rows="2" maxlength="300" placeholder="一句话说明即可（选填）"></textarea>
             </label>
 
-            <label class="lead-consent" for="leadConsent">
-              <input id="leadConsent" name="lead_consent" type="checkbox" value="yes">
-              <span>同意律师团队就本次咨询联系我</span>
-            </label>
+            <div class="lead-consent-row">
+              <label class="lead-consent" for="leadConsent">
+                <input id="leadConsent" name="lead_consent" type="checkbox" value="yes">
+                <span>同意按隐私说明处理并联系我</span>
+              </label>
+              <details class="lead-privacy">
+                <summary>隐私说明</summary>
+                <div class="lead-privacy-copy">
+                  <p>刘毅律师团队仅收集你主动填写的称呼、联系方式、咨询说明及相关对话，用于预约、联系和咨询跟进。</p>
+                  <p>信息通过团队使用的云服务保存和通知，原则上保存 12 个月；继续委托或法律另有要求的除外。</p>
+                  <p>如需查阅、更正、删除或撤回同意，请联系 <a href="mailto:aa15989267747@163.com">aa15989267747@163.com</a>。</p>
+                </div>
+              </details>
+            </div>
 
             <button class="lead-submit" id="leadSubmitButton" type="submit">提交预约</button>
             <p class="lead-status" id="leadStatus" role="status" aria-live="polite"></p>
@@ -174,6 +183,6 @@
   </main>
 
   <script src="/site-config.js"></script>
-  <script src="script.js?v=20260826-lawyer-booking-v1"></script>
+  <script src="script.js?v=20260826-lawyer-booking-v2"></script>
 </body>
 </html>
