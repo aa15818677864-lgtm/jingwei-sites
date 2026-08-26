@@ -1,0 +1,546 @@
+{
+  "version": 1,
+  "updatedAt": "2026-08-26T09:05:29+08:00",
+  "events": [
+    {
+      "id": "2026-08-26:mainland-estate-utility-arrears",
+      "story": "/articles/hong-kong-other-estate/mainland-estate-utility-arrears",
+      "title": "內地遺產的水電欠費通知到了，香港家屬先查哪個地址",
+      "topic": "hong-kong-other-estate",
+      "urls": [
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-estate-utility-arrears.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-estate-utility-arrears_cn.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-estate-utility-arrears_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": "2026-08-26T09:05:29+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-26:mainland-property-tax-slip",
+      "story": "/articles/hong-kong-other-estate/mainland-property-tax-slip",
+      "title": "找到內地房產稅費單據，香港家屬先核對房屋還是繳款人",
+      "topic": "hong-kong-other-estate",
+      "urls": [
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-property-tax-slip.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-property-tax-slip_cn.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-property-tax-slip_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": "2026-08-26T09:05:29+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-26:mainland-home-lease-renewal",
+      "story": "/articles/hong-kong-other-estate/mainland-home-lease-renewal",
+      "title": "內地房屋租約快續期，香港家屬先把出租與繼承分開",
+      "topic": "hong-kong-other-estate",
+      "urls": [
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-home-lease-renewal.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-home-lease-renewal_cn.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-home-lease-renewal_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": "2026-08-26T09:05:29+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-26:mainland-building-permit-record",
+      "story": "/articles/hong-kong-other-estate/mainland-building-permit-record",
+      "title": "內地房屋資料裡有報建文件，香港家屬先保留哪些頁面",
+      "topic": "hong-kong-other-estate",
+      "urls": [
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-building-permit-record.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-building-permit-record_cn.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-building-permit-record_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": "2026-08-26T09:05:29+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-26:mainland-deposit-certificate-clue",
+      "story": "/articles/hong-kong-other-estate/mainland-deposit-certificate-clue",
+      "title": "內地存款證明只剩影本，香港家屬第一步怎樣記錄線索",
+      "topic": "hong-kong-other-estate",
+      "urls": [
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-deposit-certificate-clue.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-deposit-certificate-clue_cn.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-deposit-certificate-clue_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": "2026-08-26T09:05:29+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-26:mainland-securities-account-notice",
+      "story": "/articles/hong-kong-other-estate/mainland-securities-account-notice",
+      "title": "內地證券帳戶寄來通知，香港家屬先確認帳戶還是權限",
+      "topic": "hong-kong-other-estate",
+      "urls": [
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-securities-account-notice.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-securities-account-notice_cn.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-securities-account-notice_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": "2026-08-26T09:05:29+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-26:mainland-fund-redemption-message",
+      "story": "/articles/hong-kong-other-estate/mainland-fund-redemption-message",
+      "title": "內地基金贖回訊息出現在手機裡，家屬先保存甚麼",
+      "topic": "hong-kong-other-estate",
+      "urls": [
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-fund-redemption-message.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-fund-redemption-message_cn.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-fund-redemption-message_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": "2026-08-26T09:05:29+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-26:mainland-pension-balance-clue",
+      "story": "/articles/hong-kong-other-estate/mainland-pension-balance-clue",
+      "title": "內地退休金餘額線索不完整，香港家屬先問哪個單位",
+      "topic": "hong-kong-other-estate",
+      "urls": [
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-pension-balance-clue.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-pension-balance-clue_cn.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-pension-balance-clue_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": "2026-08-26T09:05:29+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-26:mainland-social-insurance-record",
+      "story": "/articles/hong-kong-other-estate/mainland-social-insurance-record",
+      "title": "內地社保繳費記錄在遺產文件中，先分清誰可查詢",
+      "topic": "hong-kong-other-estate",
+      "urls": [
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-social-insurance-record.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-social-insurance-record_cn.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-social-insurance-record_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": "2026-08-26T09:05:29+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-26:mainland-housing-fund-statement",
+      "story": "/articles/hong-kong-other-estate/mainland-housing-fund-statement",
+      "title": "內地公積金對賬單寄到香港，家屬先核對哪個身份資料",
+      "topic": "hong-kong-other-estate",
+      "urls": [
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-housing-fund-statement.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-housing-fund-statement_cn.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-housing-fund-statement_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": "2026-08-26T09:05:29+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-26:mainland-vehicle-registration-clue",
+      "story": "/articles/hong-kong-other-estate/mainland-vehicle-registration-clue",
+      "title": "內地車輛登記資料找到後，遺產清單先寫哪些欄目",
+      "topic": "hong-kong-other-estate",
+      "urls": [
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-vehicle-registration-clue.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-vehicle-registration-clue_cn.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-vehicle-registration-clue_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": "2026-08-26T09:05:29+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-26:mainland-traffic-fine-notice",
+      "story": "/articles/hong-kong-other-estate/mainland-traffic-fine-notice",
+      "title": "內地交通罰款通知仍在寄來，香港家屬先保留還是先處理",
+      "topic": "hong-kong-other-estate",
+      "urls": [
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-traffic-fine-notice.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-traffic-fine-notice_cn.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-traffic-fine-notice_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": "2026-08-26T09:05:29+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-26:mainland-mortgage-rate-adjustment",
+      "story": "/articles/hong-kong-other-estate/mainland-mortgage-rate-adjustment",
+      "title": "內地按揭利率調整通知到了，香港家屬先核對貸款還是房屋",
+      "topic": "hong-kong-other-estate",
+      "urls": [
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-mortgage-rate-adjustment.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-mortgage-rate-adjustment_cn.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-mortgage-rate-adjustment_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": "2026-08-26T09:05:29+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-26:mainland-mortgage-insurance-file",
+      "story": "/articles/hong-kong-other-estate/mainland-mortgage-insurance-file",
+      "title": "內地按揭保險文件留在家中，香港家屬先把保障與債務分開",
+      "topic": "hong-kong-other-estate",
+      "urls": [
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-mortgage-insurance-file.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-mortgage-insurance-file_cn.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-mortgage-insurance-file_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": "2026-08-26T09:05:29+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-26:mainland-auction-notice",
+      "story": "/articles/hong-kong-other-estate/mainland-auction-notice",
+      "title": "內地拍賣通知出現在遺產信件裡，第一天先核對甚麼",
+      "topic": "hong-kong-other-estate",
+      "urls": [
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-auction-notice.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-auction-notice_cn.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-auction-notice_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": "2026-08-26T09:05:29+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-26:mainland-land-use-certificate",
+      "story": "/articles/hong-kong-other-estate/mainland-land-use-certificate",
+      "title": "內地土地使用權證資料不齊，香港家屬怎樣先標記缺口",
+      "topic": "hong-kong-other-estate",
+      "urls": [
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-land-use-certificate.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-land-use-certificate_cn.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-land-use-certificate_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": "2026-08-26T09:05:29+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-26:mainland-property-management-vote",
+      "story": "/articles/hong-kong-other-estate/mainland-property-management-vote",
+      "title": "內地小區物業投票資料寄到家屬手上，先不要把收件當授權",
+      "topic": "hong-kong-other-estate",
+      "urls": [
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-property-management-vote.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-property-management-vote_cn.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-property-management-vote_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": "2026-08-26T09:05:29+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-26:mainland-home-repair-contract",
+      "story": "/articles/hong-kong-other-estate/mainland-home-repair-contract",
+      "title": "內地房屋維修合同還未完結，香港家屬先核對哪幾筆款項",
+      "topic": "hong-kong-other-estate",
+      "urls": [
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-home-repair-contract.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-home-repair-contract_cn.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-home-repair-contract_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": "2026-08-26T09:05:29+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-26:mainland-renovation-deposit",
+      "story": "/articles/hong-kong-other-estate/mainland-renovation-deposit",
+      "title": "內地裝修保證金未退，香港家屬先把房屋、合同和帳戶對上",
+      "topic": "hong-kong-other-estate",
+      "urls": [
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-renovation-deposit.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-renovation-deposit_cn.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-renovation-deposit_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": "2026-08-26T09:05:29+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-26:mainland-tenant-rent-arrears",
+      "story": "/articles/hong-kong-other-estate/mainland-tenant-rent-arrears",
+      "title": "內地租客仍欠租，香港家屬先整理租約還是先催款",
+      "topic": "hong-kong-other-estate",
+      "urls": [
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-tenant-rent-arrears.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-tenant-rent-arrears_cn.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-tenant-rent-arrears_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": "2026-08-26T09:05:29+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-26:mainland-shop-inventory-list",
+      "story": "/articles/hong-kong-other-estate/mainland-shop-inventory-list",
+      "title": "內地店舖存貨清單與遺產文件混在一起，先怎樣分欄",
+      "topic": "hong-kong-other-estate",
+      "urls": [
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-shop-inventory-list.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-shop-inventory-list_cn.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-shop-inventory-list_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": "2026-08-26T09:05:29+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-26:mainland-supplier-invoice-clue",
+      "story": "/articles/hong-kong-other-estate/mainland-supplier-invoice-clue",
+      "title": "內地供應商發票留在遺產內，先判斷付款責任還是資產線索",
+      "topic": "hong-kong-other-estate",
+      "urls": [
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-supplier-invoice-clue.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-supplier-invoice-clue_cn.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-supplier-invoice-clue_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": "2026-08-26T09:05:29+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-26:mainland-ecommerce-store-account",
+      "story": "/articles/hong-kong-other-estate/mainland-ecommerce-store-account",
+      "title": "內地網店帳戶仍有訂單，香港家屬先把帳戶保管和經營決定分開",
+      "topic": "hong-kong-other-estate",
+      "urls": [
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-ecommerce-store-account.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-ecommerce-store-account_cn.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-ecommerce-store-account_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": "2026-08-26T09:05:29+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-26:mainland-platform-commission-statement",
+      "story": "/articles/hong-kong-other-estate/mainland-platform-commission-statement",
+      "title": "內地平台佣金結算單出現，香港家屬先核對誰是收款主體",
+      "topic": "hong-kong-other-estate",
+      "urls": [
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-platform-commission-statement.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-platform-commission-statement_cn.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-platform-commission-statement_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": "2026-08-26T09:05:29+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-26:mainland-company-annual-report",
+      "story": "/articles/hong-kong-other-estate/mainland-company-annual-report",
+      "title": "內地公司年報提示要更新，遺產家屬先確認公司與股東資料",
+      "topic": "hong-kong-other-estate",
+      "urls": [
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-company-annual-report.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-company-annual-report_cn.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-company-annual-report_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": "2026-08-26T09:05:29+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-26:mainland-equity-register-clue",
+      "story": "/articles/hong-kong-other-estate/mainland-equity-register-clue",
+      "title": "內地股東名冊線索和遺產名單對不上，香港家屬先核對哪兩份資料",
+      "topic": "hong-kong-other-estate",
+      "urls": [
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-equity-register-clue.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-equity-register-clue_cn.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-equity-register-clue_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": "2026-08-26T09:05:29+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-26:mainland-shareholder-loan-record",
+      "story": "/articles/hong-kong-other-estate/mainland-shareholder-loan-record",
+      "title": "內地公司帳上有股東借款記錄，香港家屬先分清債權與繼承",
+      "topic": "hong-kong-other-estate",
+      "urls": [
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-shareholder-loan-record.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-shareholder-loan-record_cn.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-shareholder-loan-record_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": "2026-08-26T09:05:29+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-26:mainland-tax-payment-voucher",
+      "story": "/articles/hong-kong-other-estate/mainland-tax-payment-voucher",
+      "title": "內地完稅憑證找到後，香港家屬先把稅務事實和處置決定分開",
+      "topic": "hong-kong-other-estate",
+      "urls": [
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-tax-payment-voucher.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-tax-payment-voucher_cn.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-tax-payment-voucher_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": "2026-08-26T09:05:29+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-26:mainland-cross-border-remittance-record",
+      "story": "/articles/hong-kong-other-estate/mainland-cross-border-remittance-record",
+      "title": "內地遺產有跨境匯款記錄，香港家屬先把來源和去向整理完整",
+      "topic": "hong-kong-other-estate",
+      "urls": [
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-cross-border-remittance-record.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-cross-border-remittance-record_cn.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-cross-border-remittance-record_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": "2026-08-26T09:05:29+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-26:mainland-estate-document-scan",
+      "story": "/articles/hong-kong-other-estate/mainland-estate-document-scan",
+      "title": "只找到內地遺產文件掃描檔，香港家屬先怎樣保留原始脈絡",
+      "topic": "hong-kong-other-estate",
+      "urls": [
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-estate-document-scan.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-estate-document-scan_cn.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-estate-document-scan_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": "2026-08-26T09:05:29+08:00",
+      "source": "confirmed-live-deployment"
+    }
+  ]
+}

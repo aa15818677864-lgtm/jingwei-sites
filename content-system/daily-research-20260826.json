@@ -1,0 +1,31 @@
+{
+  "date": "2026-08-26",
+  "storyCount": 30,
+  "sources": [
+    {
+      "type": "Mainland legal framework",
+      "url": "https://legalinfo.moj.gov.cn/pub/sfbzhfx/zt/2025nzt0120/2025mfdxcy0515/index.html",
+      "usedFor": "inheritance starts on death; estate, heirs and estate management must be separated"
+    },
+    {
+      "type": "Hong Kong document-use guidance",
+      "url": "https://www.doj.gov.hk/en/our_legal_system/other_useful_info.html",
+      "usedFor": "Hong Kong China-appointed attesting officers and Mainland-use document context"
+    },
+    {
+      "type": "Hong Kong identity-record guidance",
+      "url": "https://www.immd.gov.hk/eng/services/hkid/apply_cert.html",
+      "usedFor": "estate-related registered-particulars records and applicant context"
+    }
+  ],
+  "review": {
+    "fiveReaders": [
+      "first-time bereaved relative",
+      "busy working family member",
+      "older mobile reader",
+      "overseas heir",
+      "risk-conscious decision maker"
+    ],
+    "finding": "Kept each page to a single clue, separated custody from authority, and avoided outcome promises."
+  }
+}
