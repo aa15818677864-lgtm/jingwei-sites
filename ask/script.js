@@ -48,6 +48,10 @@
   const leadPhoneInput = document.getElementById("leadPhone");
   const leadPhoneHint = document.getElementById("leadPhoneHint");
   const leadAltContactInput = document.getElementById("leadAltContact");
+  const leadMatterInput = document.getElementById("leadMatter");
+  const leadConsentInput = document.getElementById("leadConsent");
+  const leadWebsiteInput = document.getElementById("leadWebsite");
+  const leadStartedAtInput = document.getElementById("leadStartedAt");
   const leadStatus = document.getElementById("leadStatus");
   const leadSubmitButton = document.getElementById("leadSubmitButton");
   const caseEmpty = document.getElementById("caseEmpty");
@@ -274,6 +278,10 @@
 
   function extractEndpointCandidates() {
     return apiEndpointCandidates().map((endpoint) => endpoint.replace(/\/(?:chat-simple|chat)(?:\?.*)?$/i, "/extract-file"));
+  }
+
+  function leadEndpointCandidates() {
+    return apiEndpointCandidates().map((endpoint) => endpoint.replace(/\/(?:chat-simple|chat)(?:\?.*)?$/i, "/lead-submit"));
   }
 
   async function fetchChatJson(endpoint, payload, timeoutMs) {
@@ -1995,6 +2003,18 @@
     return String(value || "").replace(/[^\d]/g, "");
   }
 
+  function normalizedLeadPhoneNumber() {
+    let digits = cleanLeadPhoneNumber(leadPhoneInput && leadPhoneInput.value);
+    const dialCode = leadDialCode();
+    const codeDigits = dialCode.replace(/[^\d]/g, "");
+    if (digits.startsWith("00" + codeDigits)) digits = digits.slice(codeDigits.length + 2);
+    else if (codeDigits && digits.startsWith(codeDigits) && digits.length > codeDigits.length) {
+      const withoutCode = digits.slice(codeDigits.length);
+      if (leadRegionRule().validate(withoutCode, dialCode)) digits = withoutCode;
+    }
+    return digits;
+  }
+
   function normalizeDialCode(value) {
     const compact = String(value || "").trim().replace(/[^\d+]/g, "");
     if (!compact) return "";
@@ -2070,14 +2090,20 @@
     const isOther = region === "other";
     if (leadCustomCodeWrap) leadCustomCodeWrap.hidden = !isOther;
     if (leadPhoneHint) leadPhoneHint.textContent = rule.hint;
+    if (leadPhoneInput) {
+      leadPhoneInput.placeholder = region === "hongkong" || region === "macau"
+        ? "8 位号码"
+        : region === "mainland"
+          ? "11 位手机号"
+          : "联系电话";
+    }
     if (!isOther && leadCustomCodeInput) leadCustomCodeInput.value = "";
   }
 
   function leadCaptureShouldShow() {
     if (!leadCaptureCard || !leadCaptureForm) return false;
     if (leadCaptureSubmitted || hasLeadContact()) return false;
-    if (userTurnCount() < LEAD_CAPTURE_MIN_USER_TURNS) return false;
-    return assistantAskedForContact(latestAssistantMessageText());
+    return true;
   }
 
   function renderLeadCapture() {
@@ -2124,6 +2150,12 @@
     const facts = leadFactsForSubmission();
     if (facts.length) parts.push(`关键信息：${facts.join("；")}`);
 
+    const appointmentMatter = String(leadMatterInput && leadMatterInput.value ? leadMatterInput.value : "")
+      .replace(/\s+/g, " ")
+      .trim()
+      .slice(0, 300);
+    if (appointmentMatter) parts.push(`预约说明：${appointmentMatter}`);
+
     const recentUserTurns = state.messages
       .filter((message) => message && message.role === "user" && String(message.displayContent || message.content || "").trim())
       .slice(-4)
@@ -2137,7 +2169,7 @@
   function buildLeadSheetPayload() {
     const data = new URLSearchParams();
     const dialCode = leadDialCode();
-    const phone = cleanLeadPhoneNumber(leadPhoneInput && leadPhoneInput.value);
+    const phone = normalizedLeadPhoneNumber();
     const altContact = String(leadAltContactInput && leadAltContactInput.value ? leadAltContactInput.value : "").trim();
     const normalizedLeadName = String(leadNameInput && leadNameInput.value ? leadNameInput.value : "").trim() || "Ask visitor";
     const subject = leadSubjectText();
@@ -2165,12 +2197,13 @@
     data.append("khly", digest);
     data.append("source", source);
     data.append("topic", topic);
+    data.append("consent", leadConsentInput && leadConsentInput.checked ? "yes" : "no");
     return data;
   }
 
   function buildLeadSyncPayload() {
     const dialCode = leadDialCode();
-    const phone = cleanLeadPhoneNumber(leadPhoneInput && leadPhoneInput.value);
+    const phone = normalizedLeadPhoneNumber();
     const alt = String(leadAltContactInput && leadAltContactInput.value ? leadAltContactInput.value : "").trim();
     const name = String(leadNameInput && leadNameInput.value ? leadNameInput.value : "").trim();
     const contactPieces = [];
@@ -2187,6 +2220,39 @@
       messages: state.messages.concat([{ role: "user", content: contactMessage }]).slice(-MAX_CHAT_HISTORY_MESSAGES),
       source: sourceParam || "ask-lead-form",
       pageUrl: window.location.href
+    };
+  }
+
+  function buildLawyerBookingPayload() {
+    const dialCode = leadDialCode();
+    const phone = normalizedLeadPhoneNumber();
+    const name = String(leadNameInput && leadNameInput.value ? leadNameInput.value : "").trim().slice(0, 40);
+    const altContact = String(leadAltContactInput && leadAltContactInput.value ? leadAltContactInput.value : "").trim().slice(0, 120);
+    const matter = String(leadMatterInput && leadMatterInput.value ? leadMatterInput.value : "").trim().slice(0, 300);
+    return {
+      name,
+      region: String(leadRegionSelect && leadRegionSelect.value ? leadRegionSelect.value : "hongkong"),
+      dialCode,
+      phone,
+      altContact,
+      matter,
+      consent: Boolean(leadConsentInput && leadConsentInput.checked),
+      companyWebsite: String(leadWebsiteInput && leadWebsiteInput.value ? leadWebsiteInput.value : "").slice(0, 200),
+      startedAt: Number(leadStartedAtInput && leadStartedAtInput.value ? leadStartedAtInput.value : 0),
+      visitorId: state.visitorId,
+      sessionId: state.sessionId,
+      topic: activeTopic || "ask-general",
+      originalTopic: activeTopic || "ask-general",
+      source: sourceParam || "ask-lawyer-appointment",
+      intent: intentParam || "lawyer-appointment",
+      pageUrl: window.location.href,
+      summary: leadConversationDigest(),
+      messages: state.messages.slice(-40).map(function (message) {
+        return {
+          role: message.role,
+          content: String(message.displayContent || message.content || "").slice(0, 1200)
+        };
+      })
     };
   }
 
@@ -2253,10 +2319,39 @@
     throw lastError || new Error("lead sync failed");
   }
 
+  async function submitLawyerBooking() {
+    if (isLeadCaptureTestContext()) {
+      return { ok: true, lead: { hasContact: true, status: "conversion_ready" } };
+    }
+
+    const candidates = leadEndpointCandidates();
+    let lastError = null;
+    for (let index = 0; index < candidates.length; index += 1) {
+      try {
+        return await fetchChatJson(candidates[index], buildLawyerBookingPayload(), index === 0 ? 12000 : 10000);
+      } catch (error) {
+        lastError = error;
+      }
+    }
+
+    // Keep appointments working while an older API deployment is still serving traffic.
+    // The existing contact path persists the lead and sends the same notification email.
+    try {
+      const fallbackResult = await syncLeadCaptureToBackend(15000);
+      if (fallbackResult && fallbackResult.lead && fallbackResult.lead.hasContact) {
+        return { ok: true, lead: fallbackResult.lead };
+      }
+    } catch (error) {
+      lastError = error;
+    }
+
+    throw lastError || new Error("booking submit failed");
+  }
+
   function validateLeadCaptureForm() {
     const region = String(leadRegionSelect && leadRegionSelect.value ? leadRegionSelect.value : "hongkong");
     const rule = leadRegionRules[region] || leadRegionRules.hongkong;
-    const phone = cleanLeadPhoneNumber(leadPhoneInput && leadPhoneInput.value);
+    const phone = normalizedLeadPhoneNumber();
     const customCode = normalizeDialCode(leadCustomCodeInput && leadCustomCodeInput.value);
 
     if (!phone) {
@@ -2268,6 +2363,10 @@
         return { ok: false, message: "其他地区请先填写国际区号", focus: leadCustomCodeInput || leadPhoneInput };
       }
       return { ok: false, message: rule.alert, focus: leadPhoneInput };
+    }
+
+    if (!leadConsentInput || !leadConsentInput.checked) {
+      return { ok: false, message: "请先确认同意律师团队联系你", focus: leadConsentInput };
     }
 
     return { ok: true };
@@ -2292,22 +2391,8 @@
     setLeadStatus("", false);
 
     try {
-      let backendResult = null;
-      let submitted = false;
-
-      if (isLeadCaptureTestContext()) {
-        submitted = true;
-      } else {
-        try {
-          await submitLeadSheet();
-          submitted = true;
-        } catch {
-          backendResult = await syncLeadCaptureToBackend(8000);
-          submitted = true;
-        }
-      }
-
-      if (!submitted) throw new Error("lead submit failed");
+      const backendResult = await submitLawyerBooking();
+      if (!backendResult || backendResult.ok !== true) throw new Error("lead submit failed");
 
       state.lead = backendResult && backendResult.lead
         ? backendResult.lead
@@ -2318,21 +2403,16 @@
 
       leadCaptureSubmitted = true;
       if (leadCaptureForm) leadCaptureForm.reset();
+      if (leadStartedAtInput) leadStartedAtInput.value = String(Date.now());
       updateLeadRegionUi();
       saveChatSession();
       renderLeadCapture();
-      setLeadStatus("已提交，后续可继续补充情况。", false);
+      setLeadStatus("预约已提交。", false);
 
       if (!isLeadCaptureTestContext()) {
-        syncLeadCaptureToBackend(8000)
-          .then(function (result) {
-            if (!result || !result.lead) return;
-            state.lead = result.lead;
-            saveChatSession();
-            renderLeadCapture();
-          })
+        submitLeadSheet()
           .catch(function () {
-            // Ignore background sync failures so the front-end submit stays fast.
+            // The booking API is authoritative; sheet mirroring is best effort.
           });
       }
     } catch {
@@ -2340,7 +2420,7 @@
     } finally {
       if (leadSubmitButton) {
         leadSubmitButton.disabled = false;
-        leadSubmitButton.textContent = originalText || "提交联系方式";
+        leadSubmitButton.textContent = originalText || "提交预约";
       }
     }
   }
@@ -3587,6 +3667,10 @@ function renderInitialChat() {
 
   if (leadCaptureForm) {
     leadCaptureForm.addEventListener("submit", handleLeadCaptureSubmit);
+  }
+
+  if (leadStartedAtInput && !leadStartedAtInput.value) {
+    leadStartedAtInput.value = String(Date.now());
   }
 
   updateLeadRegionUi();

@@ -6,7 +6,7 @@
   <title>AI法律助手 | 刘毅律师团队</title>
   <meta name="description" content="刘毅律师团队 AI 法律助手。直接输入法律问题，先由 AI 帮你做基础分析、事实整理和下一步提示。">
   <link rel="canonical" href="https://www.jingwei-law.com/ask/">
-  <link rel="stylesheet" href="style.css?v=20260611-lead-capture-v1">
+  <link rel="stylesheet" href="style.css?v=20260826-lawyer-booking-v1">
 </head>
 <body>
   <main class="page-shell">
@@ -39,57 +39,74 @@
         <p class="ad-note">先聊清楚，再决定是否继续。</p>
       </aside>
 
-      <aside class="lead-capture" id="leadCaptureCard" aria-label="留联系方式" hidden>
+      <aside class="lead-capture" id="leadCaptureCard" aria-label="预约真人律师">
         <div class="lead-capture-form" id="leadCaptureFormWrap">
-          <p class="lead-eyebrow">方便后续跟进</p>
-          <h2 class="lead-title">到需要团队联系时，再留联系方式就行</h2>
-          <p class="lead-copy">会连同当前对话重点一起提交，后续更容易接上。</p>
+          <p class="lead-eyebrow">真人律师预约</p>
+          <h2 class="lead-title">预约律师联系</h2>
+          <p class="lead-copy">留下联系方式，团队会结合本次对话与你联系。</p>
           <form class="lead-form" id="leadCaptureForm" novalidate>
+            <input id="leadStartedAt" name="started_at" type="hidden">
+            <label class="lead-honeypot" aria-hidden="true">
+              <span>公司网站</span>
+              <input id="leadWebsite" name="company_website" type="text" tabindex="-1" autocomplete="off">
+            </label>
             <label class="lead-field" for="leadName">
               <span>称呼</span>
-              <input id="leadName" name="lead_name" type="text" autocomplete="name" placeholder="选填">
+              <input id="leadName" name="lead_name" type="text" maxlength="40" autocomplete="name" placeholder="怎么称呼你（选填）">
             </label>
 
-            <label class="lead-field" for="leadRegion">
-              <span>地区 / 区号</span>
-              <select id="leadRegion" name="lead_region">
-                <option value="hongkong">香港 +852</option>
-                <option value="mainland">中国内地 +86</option>
-                <option value="macau">澳门 +853</option>
-                <option value="us_ca">美国 / 加拿大 +1</option>
-                <option value="uk">英国 +44</option>
-                <option value="australia">澳大利亚 +61</option>
-                <option value="singapore">新加坡 +65</option>
-                <option value="malaysia">马来西亚 +60</option>
-                <option value="other">其他地区</option>
-              </select>
-            </label>
+            <div class="lead-phone-row">
+              <label class="lead-field lead-region-field" for="leadRegion">
+                <span>地区</span>
+                <select id="leadRegion" name="lead_region">
+                  <option value="hongkong">香港 +852</option>
+                  <option value="macau">澳门 +853</option>
+                  <option value="mainland">内地 +86</option>
+                  <option value="us_ca">美国/加拿大 +1</option>
+                  <option value="uk">英国 +44</option>
+                  <option value="australia">澳大利亚 +61</option>
+                  <option value="singapore">新加坡 +65</option>
+                  <option value="malaysia">马来西亚 +60</option>
+                  <option value="other">其他</option>
+                </select>
+              </label>
+
+              <label class="lead-field lead-number-field" for="leadPhone">
+                <span>联系电话</span>
+                <input id="leadPhone" name="lead_phone" type="tel" maxlength="24" inputmode="tel" autocomplete="tel" placeholder="8 位号码">
+              </label>
+            </div>
 
             <label class="lead-field lead-field-compact" id="leadCustomCodeWrap" for="leadCustomCode" hidden>
               <span>自填区号</span>
-              <input id="leadCustomCode" name="lead_custom_code" type="text" inputmode="tel" autocomplete="off" placeholder="例如 +44">
-            </label>
-
-            <label class="lead-field" for="leadPhone">
-              <span>联系电话</span>
-              <input id="leadPhone" name="lead_phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="请输入电话号码">
+              <input id="leadCustomCode" name="lead_custom_code" type="text" maxlength="6" inputmode="tel" autocomplete="off" placeholder="例如 +44">
             </label>
             <p class="lead-hint" id="leadPhoneHint">香港电话请输入 8 位数字</p>
 
             <label class="lead-field" for="leadAltContact">
               <span>微信 / WhatsApp / 邮箱</span>
-              <input id="leadAltContact" name="lead_alt_contact" type="text" autocomplete="off" placeholder="选填">
+              <input id="leadAltContact" name="lead_alt_contact" type="text" maxlength="120" autocomplete="off" placeholder="选填一种即可">
             </label>
 
-            <button class="lead-submit" id="leadSubmitButton" type="submit">提交联系方式</button>
+            <label class="lead-field" for="leadMatter">
+              <span>想咨询的事</span>
+              <textarea id="leadMatter" name="lead_matter" rows="2" maxlength="300" placeholder="一句话说明即可（选填）"></textarea>
+            </label>
+
+            <label class="lead-consent" for="leadConsent">
+              <input id="leadConsent" name="lead_consent" type="checkbox" value="yes">
+              <span>同意律师团队就本次咨询联系我</span>
+            </label>
+
+            <button class="lead-submit" id="leadSubmitButton" type="submit">提交预约</button>
             <p class="lead-status" id="leadStatus" role="status" aria-live="polite"></p>
           </form>
         </div>
 
         <div class="lead-capture-success" id="leadCaptureSuccess" hidden>
-          <p class="lead-eyebrow">已收到联系方式</p>
-          <h2 class="lead-title">后续可继续在对话里补充情况</h2>
-          <p class="lead-copy">团队后续联系时，会按这次咨询继续往下接。</p>
+          <p class="lead-eyebrow">预约已提交</p>
+          <h2 class="lead-title">律师团队会与你联系</h2>
+          <p class="lead-copy">你可以继续在对话中补充案情或材料。</p>
         </div>
       </aside>
 
@@ -157,6 +174,6 @@
   </main>
 
   <script src="/site-config.js"></script>
-  <script src="script.js?v=20260702-deepseek-minimal-v1"></script>
+  <script src="script.js?v=20260826-lawyer-booking-v1"></script>
 </body>
 </html>
