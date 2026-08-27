@@ -1,0 +1,31 @@
+{
+  "date": "2026-08-27",
+  "storyCount": 30,
+  "sources": [
+    {
+      "type": "Mainland legal framework",
+      "url": "https://www.gov.cn/xinwen/2020-06/01/content_5516649.htm",
+      "usedFor": "Estate handling must distinguish the known asset clue, authority, heirs and the receiving procedure."
+    },
+    {
+      "type": "Hong Kong document-use guidance",
+      "url": "https://www.doj.gov.hk/en/our_legal_system/other_useful_info.html",
+      "usedFor": "Hong Kong documents for Mainland use need purpose-specific confirmation."
+    },
+    {
+      "type": "Hong Kong identity-record guidance",
+      "url": "https://www.immd.gov.hk/eng/services/hkid/apply_cert.html",
+      "usedFor": "Identity-record requests have applicant and record context that must be confirmed."
+    }
+  ],
+  "review": {
+    "fiveReaders": [
+      "first-time bereaved relative",
+      "busy working family member",
+      "older mobile reader",
+      "overseas heir",
+      "risk-conscious decision maker"
+    ],
+    "finding": "Each page stays with one document or administration clue, separates custody from authority, includes a usable list and does not promise an outcome."
+  }
+}
