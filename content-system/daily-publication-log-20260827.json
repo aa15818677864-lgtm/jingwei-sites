@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-27T17:28:47+08:00",
+  "updatedAt": "2026-08-27T17:32:51+08:00",
   "events": [
     {
       "id": "2026-08-27:mainland-estate-identity-card-expiry",
@@ -17,8 +17,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": "2026-08-27T17:28:47+08:00",
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-27T17:32:51+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-27:mainland-death-certificate-name-variation",
@@ -35,8 +35,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": "2026-08-27T17:28:47+08:00",
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-27T17:32:51+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-27:mainland-birth-record-language-difference",
@@ -53,8 +53,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": "2026-08-27T17:28:47+08:00",
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-27T17:32:51+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-27:mainland-marriage-record-clue",
@@ -71,8 +71,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": "2026-08-27T17:28:47+08:00",
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-27T17:32:51+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-27:mainland-will-envelope-custody",
@@ -89,8 +89,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": "2026-08-27T17:28:47+08:00",
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-27T17:32:51+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-27:mainland-handwritten-note-clue",
@@ -107,8 +107,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": "2026-08-27T17:28:47+08:00",
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-27T17:32:51+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-27:mainland-power-of-attorney-after-death",
@@ -125,8 +125,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": "2026-08-27T17:28:47+08:00",
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-27T17:32:51+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-27:mainland-notary-appointment-record",
@@ -143,8 +143,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": "2026-08-27T17:28:47+08:00",
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-27T17:32:51+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-27:mainland-estate-property-key-handover",
@@ -161,8 +161,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": "2026-08-27T17:28:47+08:00",
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-27T17:32:51+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-27:mainland-land-tax-account-number",
@@ -179,8 +179,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": "2026-08-27T17:28:47+08:00",
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-27T17:32:51+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-27:mainland-housing-management-archive",
@@ -197,8 +197,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": "2026-08-27T17:28:47+08:00",
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-27T17:32:51+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-27:mainland-utility-meter-number",
@@ -215,8 +215,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": "2026-08-27T17:28:47+08:00",
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-27T17:32:51+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-27:mainland-home-insurance-policy",
@@ -233,8 +233,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": "2026-08-27T17:28:47+08:00",
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-27T17:32:51+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-27:mainland-mortgage-repayment-notice",
@@ -251,8 +251,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": "2026-08-27T17:28:47+08:00",
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-27T17:32:51+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-27:mainland-renovation-invoice-clue",
@@ -269,8 +269,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": "2026-08-27T17:28:47+08:00",
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-27T17:32:51+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-27:mainland-tenant-deposit-record",
@@ -287,8 +287,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": "2026-08-27T17:28:47+08:00",
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-27T17:32:51+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-27:mainland-property-repair-warranty",
@@ -305,8 +305,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": "2026-08-27T17:28:47+08:00",
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-27T17:32:51+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-27:mainland-vehicle-inspection-record",
@@ -323,8 +323,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": "2026-08-27T17:28:47+08:00",
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-27T17:32:51+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-27:mainland-vehicle-parking-fee",
@@ -341,8 +341,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": "2026-08-27T17:28:47+08:00",
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-27T17:32:51+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-27:mainland-company-licence-renewal",
@@ -359,8 +359,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": "2026-08-27T17:28:47+08:00",
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-27T17:32:51+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-27:mainland-business-tax-login",
@@ -377,8 +377,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": "2026-08-27T17:28:47+08:00",
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-27T17:32:51+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-27:mainland-company-inventory-insurance",
@@ -395,8 +395,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": "2026-08-27T17:28:47+08:00",
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-27T17:32:51+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-27:mainland-supplier-contract-clue",
@@ -413,8 +413,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": "2026-08-27T17:28:47+08:00",
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-27T17:32:51+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-27:mainland-warehouse-rental-record",
@@ -431,8 +431,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": "2026-08-27T17:28:47+08:00",
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-27T17:32:51+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-27:mainland-court-mediation-notice",
@@ -449,8 +449,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": "2026-08-27T17:28:47+08:00",
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-27T17:32:51+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-27:mainland-arbitration-notice",
@@ -467,8 +467,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": "2026-08-27T17:28:47+08:00",
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-27T17:32:51+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-27:mainland-enforcement-freeze-notice",
@@ -485,8 +485,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": "2026-08-27T17:28:47+08:00",
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-27T17:32:51+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-27:mainland-pension-transfer-record",
@@ -503,8 +503,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": "2026-08-27T17:28:47+08:00",
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-27T17:32:51+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-27:mainland-medical-insurance-payment",
@@ -521,8 +521,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": "2026-08-27T17:28:47+08:00",
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-27T17:32:51+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-27:mainland-ecommerce-settlement-record",
@@ -539,8 +539,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": "2026-08-27T17:28:47+08:00",
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-27T17:32:51+08:00",
+      "source": "confirmed-live-deployment"
     }
   ]
 }
