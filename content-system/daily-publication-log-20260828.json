@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-28T09:00:00+08:00",
+  "updatedAt": "2026-08-28T09:13:05+08:00",
   "events": [
     {
       "id": "2026-08-28:macau-death-certificate-original-status",
@@ -17,8 +17,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": null,
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-28T09:13:05+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-28:macau-marriage-certificate-duplicate",
@@ -35,8 +35,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": null,
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-28T09:13:05+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-28:macau-birth-record-amendment",
@@ -53,8 +53,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": null,
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-28T09:13:05+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-28:macau-heirship-deed-signatory",
@@ -71,8 +71,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": null,
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-28T09:13:05+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-28:macau-will-certificate-reference",
@@ -89,8 +89,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": null,
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-28T09:13:05+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-28:macau-identity-card-number-change",
@@ -107,8 +107,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": null,
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-28T09:13:05+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-28:macau-portuguese-name-transliteration",
@@ -125,8 +125,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": null,
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-28T09:13:05+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-28:macau-address-history-clue",
@@ -143,8 +143,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": null,
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-28T09:13:05+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-28:macau-notarial-appointment-cancellation",
@@ -161,8 +161,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": null,
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-28T09:13:05+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-28:macau-estate-manager-contact-record",
@@ -179,8 +179,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": null,
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-28T09:13:05+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-28:macau-family-tree-date-conflict",
@@ -197,8 +197,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": null,
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-28T09:13:05+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-28:macau-adopted-child-record",
@@ -215,8 +215,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": null,
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-28T09:13:05+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-28:macau-predeceased-heir-proof",
@@ -233,8 +233,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": null,
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-28T09:13:05+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-28:macau-widow-marital-property-record",
@@ -251,8 +251,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": null,
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-28T09:13:05+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-28:macau-bank-estate-inquiry-letter",
@@ -269,8 +269,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": null,
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-28T09:13:05+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-28:macau-mainland-account-statement-clue",
@@ -287,8 +287,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": null,
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-28T09:13:05+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-28:macau-property-management-fee-notice",
@@ -305,8 +305,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": null,
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-28T09:13:05+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-28:macau-mainland-tax-payment-receipt",
@@ -323,8 +323,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": null,
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-28T09:13:05+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-28:macau-vehicle-registration-clue",
@@ -341,8 +341,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": null,
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-28T09:13:05+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-28:macau-company-share-certificate",
@@ -359,8 +359,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": null,
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-28T09:13:05+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-28:macau-rental-contract-clue",
@@ -377,8 +377,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": null,
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-28T09:13:05+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-28:macau-insurance-policy-beneficiary-record",
@@ -395,8 +395,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": null,
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-28T09:13:05+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-28:macau-housing-contract-address",
@@ -413,8 +413,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": null,
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-28T09:13:05+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-28:macau-power-of-attorney-scope",
@@ -431,8 +431,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": null,
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-28T09:13:05+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-28:macau-signed-statement-date",
@@ -449,8 +449,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": null,
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-28T09:13:05+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-28:macau-document-original-custody",
@@ -467,8 +467,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": null,
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-28T09:13:05+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-28:macau-digital-copy-provenance",
@@ -485,8 +485,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": null,
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-28T09:13:05+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-28:macau-translation-page-order",
@@ -503,8 +503,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": null,
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-28T09:13:05+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-28:macau-family-contact-authority",
@@ -521,8 +521,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": null,
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-28T09:13:05+08:00",
+      "source": "confirmed-live-deployment"
     },
     {
       "id": "2026-08-28:macau-mainland-receiving-office-questions",
@@ -539,8 +539,8 @@
         "zh-Hans",
         "en"
       ],
-      "deployedAt": null,
-      "source": "pending-live-deployment"
+      "deployedAt": "2026-08-28T09:13:05+08:00",
+      "source": "confirmed-live-deployment"
     }
   ]
 }
