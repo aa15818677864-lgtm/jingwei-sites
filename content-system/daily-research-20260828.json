@@ -1,0 +1,26 @@
+{
+  "date": "2026-08-28",
+  "storyCount": 30,
+  "sources": [
+    {
+      "type": "Mainland legal framework",
+      "url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+      "usedFor": "Separate estate facts, heirs and the actual Mainland China handling path."
+    },
+    {
+      "type": "Macau heirship guidance",
+      "url": "https://www.gov.mo/zh-hant/services/ps-1053/ps-1053g/",
+      "usedFor": "Document planning distinguishes death, family, will and identity materials."
+    }
+  ],
+  "review": {
+    "fiveReaders": [
+      "first-time bereaved relative",
+      "busy family member",
+      "older mobile reader",
+      "overseas heir",
+      "risk-conscious decision maker"
+    ],
+    "finding": "Each page stays with one record or clue, distinguishes custody from authority, includes a practical checklist and makes no outcome promise."
+  }
+}

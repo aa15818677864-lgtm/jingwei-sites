@@ -1,0 +1,546 @@
+{
+  "version": 1,
+  "updatedAt": "2026-08-28T09:00:00+08:00",
+  "events": [
+    {
+      "id": "2026-08-28:macau-death-certificate-original-status",
+      "story": "/articles/am/macau-death-certificate-original-status",
+      "title": "澳門死亡證明有正本和副本，交內地前先標記哪個版本",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-death-certificate-original-status.html",
+        "https://www.jingwei-law.com/articles/am/macau-death-certificate-original-status_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-death-certificate-original-status_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": null,
+      "source": "pending-live-deployment"
+    },
+    {
+      "id": "2026-08-28:macau-marriage-certificate-duplicate",
+      "story": "/articles/am/macau-marriage-certificate-duplicate",
+      "title": "澳門婚姻證明補發後，內地遺產文件怎樣接上日期",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-marriage-certificate-duplicate.html",
+        "https://www.jingwei-law.com/articles/am/macau-marriage-certificate-duplicate_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-marriage-certificate-duplicate_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": null,
+      "source": "pending-live-deployment"
+    },
+    {
+      "id": "2026-08-28:macau-birth-record-amendment",
+      "story": "/articles/am/macau-birth-record-amendment",
+      "title": "澳門出生紀錄曾更正，內地繼承先保留哪條姓名線索",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-birth-record-amendment.html",
+        "https://www.jingwei-law.com/articles/am/macau-birth-record-amendment_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-birth-record-amendment_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": null,
+      "source": "pending-live-deployment"
+    },
+    {
+      "id": "2026-08-28:macau-heirship-deed-signatory",
+      "story": "/articles/am/macau-heirship-deed-signatory",
+      "title": "誰簽過澳門確認繼承資格公證書，內地處理前先核對甚麼",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-heirship-deed-signatory.html",
+        "https://www.jingwei-law.com/articles/am/macau-heirship-deed-signatory_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-heirship-deed-signatory_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": null,
+      "source": "pending-live-deployment"
+    },
+    {
+      "id": "2026-08-28:macau-will-certificate-reference",
+      "story": "/articles/am/macau-will-certificate-reference",
+      "title": "澳門遺囑證明提到內地資產，家屬先整理哪個版本",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-will-certificate-reference.html",
+        "https://www.jingwei-law.com/articles/am/macau-will-certificate-reference_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-will-certificate-reference_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": null,
+      "source": "pending-live-deployment"
+    },
+    {
+      "id": "2026-08-28:macau-identity-card-number-change",
+      "story": "/articles/am/macau-identity-card-number-change",
+      "title": "澳門身分證號曾更新，內地遺產線索怎樣做對照",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-identity-card-number-change.html",
+        "https://www.jingwei-law.com/articles/am/macau-identity-card-number-change_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-identity-card-number-change_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": null,
+      "source": "pending-live-deployment"
+    },
+    {
+      "id": "2026-08-28:macau-portuguese-name-transliteration",
+      "story": "/articles/am/macau-portuguese-name-transliteration",
+      "title": "葡文姓名譯寫不同，澳門家屬交內地前先核對哪幾欄",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-portuguese-name-transliteration.html",
+        "https://www.jingwei-law.com/articles/am/macau-portuguese-name-transliteration_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-portuguese-name-transliteration_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": null,
+      "source": "pending-live-deployment"
+    },
+    {
+      "id": "2026-08-28:macau-address-history-clue",
+      "story": "/articles/am/macau-address-history-clue",
+      "title": "澳門舊地址連到內地房屋，家屬先把哪段期間寫清",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-address-history-clue.html",
+        "https://www.jingwei-law.com/articles/am/macau-address-history-clue_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-address-history-clue_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": null,
+      "source": "pending-live-deployment"
+    },
+    {
+      "id": "2026-08-28:macau-notarial-appointment-cancellation",
+      "story": "/articles/am/macau-notarial-appointment-cancellation",
+      "title": "公證預約取消後，澳門家屬怎樣保留內地遺產的辦理線索",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-notarial-appointment-cancellation.html",
+        "https://www.jingwei-law.com/articles/am/macau-notarial-appointment-cancellation_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-notarial-appointment-cancellation_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": null,
+      "source": "pending-live-deployment"
+    },
+    {
+      "id": "2026-08-28:macau-estate-manager-contact-record",
+      "story": "/articles/am/macau-estate-manager-contact-record",
+      "title": "待分割財產管理人的聯絡紀錄，內地程序前怎樣分開保管和代表",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-estate-manager-contact-record.html",
+        "https://www.jingwei-law.com/articles/am/macau-estate-manager-contact-record_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-estate-manager-contact-record_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": null,
+      "source": "pending-live-deployment"
+    },
+    {
+      "id": "2026-08-28:macau-family-tree-date-conflict",
+      "story": "/articles/am/macau-family-tree-date-conflict",
+      "title": "家族關係圖的日期對不上，澳門家屬先找哪一份原始紀錄",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-family-tree-date-conflict.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-tree-date-conflict_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-tree-date-conflict_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": null,
+      "source": "pending-live-deployment"
+    },
+    {
+      "id": "2026-08-28:macau-adopted-child-record",
+      "story": "/articles/am/macau-adopted-child-record",
+      "title": "澳門收養資料不完整，處理內地遺產先把甚麼標為待核對",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-adopted-child-record.html",
+        "https://www.jingwei-law.com/articles/am/macau-adopted-child-record_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-adopted-child-record_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": null,
+      "source": "pending-live-deployment"
+    },
+    {
+      "id": "2026-08-28:macau-predeceased-heir-proof",
+      "story": "/articles/am/macau-predeceased-heir-proof",
+      "title": "繼承人先離世的澳門文件，內地遺產前先接哪兩層關係",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-predeceased-heir-proof.html",
+        "https://www.jingwei-law.com/articles/am/macau-predeceased-heir-proof_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-predeceased-heir-proof_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": null,
+      "source": "pending-live-deployment"
+    },
+    {
+      "id": "2026-08-28:macau-widow-marital-property-record",
+      "story": "/articles/am/macau-widow-marital-property-record",
+      "title": "生存配偶的澳門婚姻財產資料，內地遺產先分清哪個問題",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-widow-marital-property-record.html",
+        "https://www.jingwei-law.com/articles/am/macau-widow-marital-property-record_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-widow-marital-property-record_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": null,
+      "source": "pending-live-deployment"
+    },
+    {
+      "id": "2026-08-28:macau-bank-estate-inquiry-letter",
+      "story": "/articles/am/macau-bank-estate-inquiry-letter",
+      "title": "澳門家屬寫信查內地銀行遺產，先列哪五項事實",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-bank-estate-inquiry-letter.html",
+        "https://www.jingwei-law.com/articles/am/macau-bank-estate-inquiry-letter_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-bank-estate-inquiry-letter_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": null,
+      "source": "pending-live-deployment"
+    },
+    {
+      "id": "2026-08-28:macau-mainland-account-statement-clue",
+      "story": "/articles/am/macau-mainland-account-statement-clue",
+      "title": "內地帳單寄到澳門，家屬先判斷它是資產線索還是付款指示",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-mainland-account-statement-clue.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-account-statement-clue_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-account-statement-clue_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": null,
+      "source": "pending-live-deployment"
+    },
+    {
+      "id": "2026-08-28:macau-property-management-fee-notice",
+      "story": "/articles/am/macau-property-management-fee-notice",
+      "title": "物業管理費通知留在澳門，內地房屋遺產先核對誰的名字",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-property-management-fee-notice.html",
+        "https://www.jingwei-law.com/articles/am/macau-property-management-fee-notice_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-property-management-fee-notice_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": null,
+      "source": "pending-live-deployment"
+    },
+    {
+      "id": "2026-08-28:macau-mainland-tax-payment-receipt",
+      "story": "/articles/am/macau-mainland-tax-payment-receipt",
+      "title": "內地稅費收據在澳門文件夾裡，家屬先對照哪個地址",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-mainland-tax-payment-receipt.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-tax-payment-receipt_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-tax-payment-receipt_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": null,
+      "source": "pending-live-deployment"
+    },
+    {
+      "id": "2026-08-28:macau-vehicle-registration-clue",
+      "story": "/articles/am/macau-vehicle-registration-clue",
+      "title": "澳門家屬找到內地車輛登記線索，先做保管還是先查詢",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-vehicle-registration-clue.html",
+        "https://www.jingwei-law.com/articles/am/macau-vehicle-registration-clue_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-vehicle-registration-clue_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": null,
+      "source": "pending-live-deployment"
+    },
+    {
+      "id": "2026-08-28:macau-company-share-certificate",
+      "story": "/articles/am/macau-company-share-certificate",
+      "title": "公司出資證明留在澳門，內地遺產先分開哪兩個主體",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-company-share-certificate.html",
+        "https://www.jingwei-law.com/articles/am/macau-company-share-certificate_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-company-share-certificate_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": null,
+      "source": "pending-live-deployment"
+    },
+    {
+      "id": "2026-08-28:macau-rental-contract-clue",
+      "story": "/articles/am/macau-rental-contract-clue",
+      "title": "澳門家屬找到內地租約，先把租金和遺產哪一段分開",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-rental-contract-clue.html",
+        "https://www.jingwei-law.com/articles/am/macau-rental-contract-clue_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-rental-contract-clue_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": null,
+      "source": "pending-live-deployment"
+    },
+    {
+      "id": "2026-08-28:macau-insurance-policy-beneficiary-record",
+      "story": "/articles/am/macau-insurance-policy-beneficiary-record",
+      "title": "保單資料由澳門家屬保管，內地遺產前先核對受益人還是保單人",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-insurance-policy-beneficiary-record.html",
+        "https://www.jingwei-law.com/articles/am/macau-insurance-policy-beneficiary-record_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-insurance-policy-beneficiary-record_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": null,
+      "source": "pending-live-deployment"
+    },
+    {
+      "id": "2026-08-28:macau-housing-contract-address",
+      "story": "/articles/am/macau-housing-contract-address",
+      "title": "購房合同地址寫法不同，澳門家屬先建立哪張內地房屋對照表",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-housing-contract-address.html",
+        "https://www.jingwei-law.com/articles/am/macau-housing-contract-address_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-housing-contract-address_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": null,
+      "source": "pending-live-deployment"
+    },
+    {
+      "id": "2026-08-28:macau-power-of-attorney-scope",
+      "story": "/articles/am/macau-power-of-attorney-scope",
+      "title": "澳門授權書寫了內地事務，家屬先核對它的日期和範圍",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-power-of-attorney-scope.html",
+        "https://www.jingwei-law.com/articles/am/macau-power-of-attorney-scope_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-power-of-attorney-scope_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": null,
+      "source": "pending-live-deployment"
+    },
+    {
+      "id": "2026-08-28:macau-signed-statement-date",
+      "story": "/articles/am/macau-signed-statement-date",
+      "title": "家屬曾簽過聲明書，處理內地遺產前先留存哪個簽署背景",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-signed-statement-date.html",
+        "https://www.jingwei-law.com/articles/am/macau-signed-statement-date_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-signed-statement-date_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": null,
+      "source": "pending-live-deployment"
+    },
+    {
+      "id": "2026-08-28:macau-document-original-custody",
+      "story": "/articles/am/macau-document-original-custody",
+      "title": "內地遺產原件由誰保管，澳門家屬先做哪份交接紀錄",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-document-original-custody.html",
+        "https://www.jingwei-law.com/articles/am/macau-document-original-custody_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-document-original-custody_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": null,
+      "source": "pending-live-deployment"
+    },
+    {
+      "id": "2026-08-28:macau-digital-copy-provenance",
+      "story": "/articles/am/macau-digital-copy-provenance",
+      "title": "手機裡只有文件照片，澳門家屬怎樣先記錄內地遺產線索來源",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-digital-copy-provenance.html",
+        "https://www.jingwei-law.com/articles/am/macau-digital-copy-provenance_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-digital-copy-provenance_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": null,
+      "source": "pending-live-deployment"
+    },
+    {
+      "id": "2026-08-28:macau-translation-page-order",
+      "story": "/articles/am/macau-translation-page-order",
+      "title": "翻譯本頁序不一致，澳門家屬交內地前先怎樣核頁",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-translation-page-order.html",
+        "https://www.jingwei-law.com/articles/am/macau-translation-page-order_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-translation-page-order_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": null,
+      "source": "pending-live-deployment"
+    },
+    {
+      "id": "2026-08-28:macau-family-contact-authority",
+      "story": "/articles/am/macau-family-contact-authority",
+      "title": "誰負責聯絡不等於誰可決定，澳門家屬處理內地遺產怎樣分工",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-family-contact-authority.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-contact-authority_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-contact-authority_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": null,
+      "source": "pending-live-deployment"
+    },
+    {
+      "id": "2026-08-28:macau-mainland-receiving-office-questions",
+      "story": "/articles/am/macau-mainland-receiving-office-questions",
+      "title": "內地接收單位回覆前，澳門家屬先把哪幾個問題寫成清單",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-mainland-receiving-office-questions.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-receiving-office-questions_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-receiving-office-questions_en.html"
+      ],
+      "languages": [
+        "zh-Hant",
+        "zh-Hans",
+        "en"
+      ],
+      "deployedAt": null,
+      "source": "pending-live-deployment"
+    }
+  ]
+}
