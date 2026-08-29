@@ -1,0 +1,26 @@
+{
+  "date": "2026-08-29",
+  "storyCount": 30,
+  "sources": [
+    {
+      "type": "Mainland inheritance framework",
+      "url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+      "usedFor": "Distinguishing the Mainland inheritance question from Hong Kong estate administration."
+    },
+    {
+      "type": "Hong Kong estate administration guidance",
+      "url": "https://www.gov.hk/en/residents/immigration/bdmreg/death/serviceforbereaved.htm",
+      "usedFor": "Keeping probate/administration records separate from the Mainland receiving path."
+    }
+  ],
+  "review": {
+    "fiveReaders": [
+      "first-time bereaved relative",
+      "busy family member",
+      "older mobile reader",
+      "overseas heir",
+      "risk-conscious decision maker"
+    ],
+    "finding": "Each page identifies one document or coordination question, preserves a practical checklist, avoids results promises and directs readers to the relevant Mainland China handling question."
+  }
+}
