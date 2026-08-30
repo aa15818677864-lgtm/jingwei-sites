@@ -1,0 +1,26 @@
+{
+  "date": "2026-08-30",
+  "storyCount": 30,
+  "sources": [
+    {
+      "type": "Mainland inheritance framework",
+      "url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+      "usedFor": "estate management, preservation and the distinction between the estate, heirs and debts"
+    },
+    {
+      "type": "Hong Kong estate-administration guidance",
+      "url": "https://www.had.gov.hk/en/public_services/estates/intermeddling.htm",
+      "usedFor": "keeping Hong Kong estate administration and the Mainland receiving path distinct"
+    }
+  ],
+  "review": {
+    "fiveReaders": [
+      "first-time bereaved relative",
+      "busy working family member",
+      "older mobile reader",
+      "overseas heir",
+      "risk-conscious decision maker"
+    ],
+    "finding": "Kept each page to a single clue, separated custody from authority, and avoided outcome promises."
+  }
+}

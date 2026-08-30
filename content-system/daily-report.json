@@ -1,0 +1,908 @@
+{
+  "generatedAt": "2026-08-30T09:02:47+08:00",
+  "generatedDate": "2026-08-30",
+  "reportDate": "2026-08-29",
+  "timezone": "Asia/Shanghai",
+  "yesterday": {
+    "date": "2026-08-29",
+    "newArticleCount": 30,
+    "newLanguagePageCount": 90,
+    "updatedArticleCount": 0,
+    "indexed": 0,
+    "notIndexed": 0,
+    "indexUnknown": 30,
+    "articles": [
+      {
+        "story": "/articles/hong-kong-other-estate/accounting-for-rent-and-withdrawals",
+        "title": "有人收過租或提過款，香港家屬怎樣先把內地遺產帳目分開 | 静为律师",
+        "topic": "other-cross-border",
+        "urls": [
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/accounting-for-rent-and-withdrawals.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/accounting-for-rent-and-withdrawals_cn.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/accounting-for-rent-and-withdrawals_en.html"
+        ],
+        "languages": [
+          "en",
+          "zh-Hans",
+          "zh-Hant"
+        ],
+        "indexStatus": "unknown",
+        "sources": [
+          "page-metadata",
+          "publication-log"
+        ]
+      },
+      {
+        "story": "/articles/hong-kong-other-estate/asset-preservation-risk",
+        "title": "擔心內地遺產被處置，香港家屬先核對哪些保全風險 | 静为律师",
+        "topic": "other-cross-border",
+        "urls": [
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/asset-preservation-risk.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/asset-preservation-risk_cn.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/asset-preservation-risk_en.html"
+        ],
+        "languages": [
+          "en",
+          "zh-Hans",
+          "zh-Hant"
+        ],
+        "indexStatus": "unknown",
+        "sources": [
+          "page-metadata",
+          "publication-log"
+        ]
+      },
+      {
+        "story": "/articles/hong-kong-other-estate/bank-account-clues",
+        "title": "不知道內地銀行帳戶號碼，香港家屬先整理哪些查詢線索 | 静为律师",
+        "topic": "other-cross-border",
+        "urls": [
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/bank-account-clues.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/bank-account-clues_cn.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/bank-account-clues_en.html"
+        ],
+        "languages": [
+          "en",
+          "zh-Hans",
+          "zh-Hant"
+        ],
+        "indexStatus": "unknown",
+        "sources": [
+          "page-metadata",
+          "publication-log"
+        ]
+      },
+      {
+        "story": "/articles/hong-kong-other-estate/case-file-before-lawyer-review",
+        "title": "交律師前，香港家屬怎樣整理一份內地遺產案情包 | 静为律师",
+        "topic": "other-cross-border",
+        "urls": [
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/case-file-before-lawyer-review.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/case-file-before-lawyer-review_cn.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/case-file-before-lawyer-review_en.html"
+        ],
+        "languages": [
+          "en",
+          "zh-Hans",
+          "zh-Hant"
+        ],
+        "indexStatus": "unknown",
+        "sources": [
+          "page-metadata",
+          "publication-log"
+        ]
+      },
+      {
+        "story": "/articles/hong-kong-other-estate/company-equity-inheritance",
+        "title": "被繼承人名下有內地公司股權，香港家屬先查甚麼 | 静为律师",
+        "topic": "other-cross-border",
+        "urls": [
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/company-equity-inheritance.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/company-equity-inheritance_cn.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/company-equity-inheritance_en.html"
+        ],
+        "languages": [
+          "en",
+          "zh-Hans",
+          "zh-Hant"
+        ],
+        "indexStatus": "unknown",
+        "sources": [
+          "page-metadata",
+          "publication-log"
+        ]
+      },
+      {
+        "story": "/articles/hong-kong-other-estate/company-shareholder-record-check",
+        "title": "內地公司股東資料不全，香港家屬先把哪些名稱和日期對上 | 静为律师",
+        "topic": "other-cross-border",
+        "urls": [
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/company-shareholder-record-check.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/company-shareholder-record-check_cn.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/company-shareholder-record-check_en.html"
+        ],
+        "languages": [
+          "en",
+          "zh-Hans",
+          "zh-Hant"
+        ],
+        "indexStatus": "unknown",
+        "sources": [
+          "page-metadata",
+          "publication-log"
+        ]
+      },
+      {
+        "story": "/articles/hong-kong-other-estate/cost-estimate-by-case",
+        "title": "同是內地遺產處理，香港家屬為何要先分開估時間和費用 | 静为律师",
+        "topic": "other-cross-border",
+        "urls": [
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/cost-estimate-by-case.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/cost-estimate-by-case_cn.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/cost-estimate-by-case_en.html"
+        ],
+        "languages": [
+          "en",
+          "zh-Hans",
+          "zh-Hant"
+        ],
+        "indexStatus": "unknown",
+        "sources": [
+          "page-metadata",
+          "publication-log"
+        ]
+      },
+      {
+        "story": "/articles/hong-kong-other-estate/cross-border-document-translation-check",
+        "title": "香港文件翻成中文交內地前，家屬先核對哪些姓名和日期 | 静为律师",
+        "topic": "other-cross-border",
+        "urls": [
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/cross-border-document-translation-check.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/cross-border-document-translation-check_cn.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/cross-border-document-translation-check_en.html"
+        ],
+        "languages": [
+          "en",
+          "zh-Hans",
+          "zh-Hant"
+        ],
+        "indexStatus": "unknown",
+        "sources": [
+          "page-metadata",
+          "publication-log"
+        ]
+      },
+      {
+        "story": "/articles/hong-kong-other-estate/cross-border-estate-email-record",
+        "title": "內地遺產往來靠電郵，香港家屬先怎樣保存可核對紀錄 | 静为律师",
+        "topic": "other-cross-border",
+        "urls": [
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/cross-border-estate-email-record.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/cross-border-estate-email-record_cn.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/cross-border-estate-email-record_en.html"
+        ],
+        "languages": [
+          "en",
+          "zh-Hans",
+          "zh-Hant"
+        ],
+        "indexStatus": "unknown",
+        "sources": [
+          "page-metadata",
+          "publication-log"
+        ]
+      },
+      {
+        "story": "/articles/hong-kong-other-estate/death-certificate-version-comparison",
+        "title": "香港死亡證明有不同版本，交內地前家屬先怎樣比較 | 静为律师",
+        "topic": "other-cross-border",
+        "urls": [
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/death-certificate-version-comparison.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/death-certificate-version-comparison_cn.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/death-certificate-version-comparison_en.html"
+        ],
+        "languages": [
+          "en",
+          "zh-Hans",
+          "zh-Hant"
+        ],
+        "indexStatus": "unknown",
+        "sources": [
+          "page-metadata",
+          "publication-log"
+        ]
+      },
+      {
+        "story": "/articles/hong-kong-other-estate/deceased-mobile-phone-asset-clue",
+        "title": "已故親人的手機留下內地資產線索，香港家屬先怎樣保留 | 静为律师",
+        "topic": "other-cross-border",
+        "urls": [
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/deceased-mobile-phone-asset-clue.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/deceased-mobile-phone-asset-clue_cn.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/deceased-mobile-phone-asset-clue_en.html"
+        ],
+        "languages": [
+          "en",
+          "zh-Hans",
+          "zh-Hant"
+        ],
+        "indexStatus": "unknown",
+        "sources": [
+          "page-metadata",
+          "publication-log"
+        ]
+      },
+      {
+        "story": "/articles/hong-kong-other-estate/estate-asset-and-debt-separation",
+        "title": "整理內地遺產時，香港家屬怎樣先把資產和債務分開 | 静为律师",
+        "topic": "other-cross-border",
+        "urls": [
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/estate-asset-and-debt-separation.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/estate-asset-and-debt-separation_cn.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/estate-asset-and-debt-separation_en.html"
+        ],
+        "languages": [
+          "en",
+          "zh-Hans",
+          "zh-Hant"
+        ],
+        "indexStatus": "unknown",
+        "sources": [
+          "page-metadata",
+          "publication-log"
+        ]
+      },
+      {
+        "story": "/articles/hong-kong-other-estate/estate-document-version-log",
+        "title": "同一份遺產文件有多個版本，香港家屬先怎樣做版本表 | 静为律师",
+        "topic": "other-cross-border",
+        "urls": [
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/estate-document-version-log.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/estate-document-version-log_cn.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/estate-document-version-log_en.html"
+        ],
+        "languages": [
+          "en",
+          "zh-Hans",
+          "zh-Hant"
+        ],
+        "indexStatus": "unknown",
+        "sources": [
+          "page-metadata",
+          "publication-log"
+        ]
+      },
+      {
+        "story": "/articles/hong-kong-other-estate/executor-and-heir-contact-log",
+        "title": "遺囑執行人和繼承人分散各地，香港家屬怎樣保留聯絡紀錄 | 静为律师",
+        "topic": "other-cross-border",
+        "urls": [
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/executor-and-heir-contact-log.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/executor-and-heir-contact-log_cn.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/executor-and-heir-contact-log_en.html"
+        ],
+        "languages": [
+          "en",
+          "zh-Hans",
+          "zh-Hant"
+        ],
+        "indexStatus": "unknown",
+        "sources": [
+          "page-metadata",
+          "publication-log"
+        ]
+      },
+      {
+        "story": "/articles/hong-kong-other-estate/family-negotiation-agenda",
+        "title": "多人商量內地遺產總談不清，香港家屬先怎樣列議程 | 静为律师",
+        "topic": "other-cross-border",
+        "urls": [
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/family-negotiation-agenda.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/family-negotiation-agenda_cn.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/family-negotiation-agenda_en.html"
+        ],
+        "languages": [
+          "en",
+          "zh-Hans",
+          "zh-Hant"
+        ],
+        "indexStatus": "unknown",
+        "sources": [
+          "page-metadata",
+          "publication-log"
+        ]
+      },
+      {
+        "story": "/articles/hong-kong-other-estate/family-tree-name-variation",
+        "title": "親屬姓名有繁簡和舊譯寫，香港家屬怎樣先畫內地遺產關係圖 | 静为律师",
+        "topic": "other-cross-border",
+        "urls": [
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/family-tree-name-variation.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/family-tree-name-variation_cn.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/family-tree-name-variation_en.html"
+        ],
+        "languages": [
+          "en",
+          "zh-Hans",
+          "zh-Hant"
+        ],
+        "indexStatus": "unknown",
+        "sources": [
+          "page-metadata",
+          "publication-log"
+        ]
+      },
+      {
+        "story": "/articles/hong-kong-other-estate/heir-availability-timetable",
+        "title": "多人要簽內地遺產文件，香港家屬先怎樣做可用時間表 | 静为律师",
+        "topic": "other-cross-border",
+        "urls": [
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/heir-availability-timetable.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/heir-availability-timetable_cn.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/heir-availability-timetable_en.html"
+        ],
+        "languages": [
+          "en",
+          "zh-Hans",
+          "zh-Hant"
+        ],
+        "indexStatus": "unknown",
+        "sources": [
+          "page-metadata",
+          "publication-log"
+        ]
+      },
+      {
+        "story": "/articles/hong-kong-other-estate/heir-identity-documents-before-mainland-filing",
+        "title": "香港家屬提交內地材料前，先怎樣核對每人的身分文件 | 静为律师",
+        "topic": "other-cross-border",
+        "urls": [
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/heir-identity-documents-before-mainland-filing.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/heir-identity-documents-before-mainland-filing_cn.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/heir-identity-documents-before-mainland-filing_en.html"
+        ],
+        "languages": [
+          "en",
+          "zh-Hans",
+          "zh-Hant"
+        ],
+        "indexStatus": "unknown",
+        "sources": [
+          "page-metadata",
+          "publication-log"
+        ]
+      },
+      {
+        "story": "/articles/hong-kong-other-estate/hk-and-mainland-estates-parallel",
+        "title": "香港和內地都有遺產，家屬怎樣把兩邊資料並行整理 | 静为律师",
+        "topic": "other-cross-border",
+        "urls": [
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/hk-and-mainland-estates-parallel.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/hk-and-mainland-estates-parallel_cn.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/hk-and-mainland-estates-parallel_en.html"
+        ],
+        "languages": [
+          "en",
+          "zh-Hans",
+          "zh-Hant"
+        ],
+        "indexStatus": "unknown",
+        "sources": [
+          "page-metadata",
+          "publication-log"
+        ]
+      },
+      {
+        "story": "/articles/hong-kong-other-estate/inherited-funds-source-record",
+        "title": "內地遺產款需要匯出前，香港家屬先怎樣整理資金來源紀錄 | 静为律师",
+        "topic": "other-cross-border",
+        "urls": [
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/inherited-funds-source-record.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/inherited-funds-source-record_cn.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/inherited-funds-source-record_en.html"
+        ],
+        "languages": [
+          "en",
+          "zh-Hans",
+          "zh-Hant"
+        ],
+        "indexStatus": "unknown",
+        "sources": [
+          "page-metadata",
+          "publication-log"
+        ]
+      },
+      {
+        "story": "/articles/hong-kong-other-estate/mainland-bank-inquiry-first-letter",
+        "title": "向內地機構查遺產線索前，香港家屬第一封信先寫甚麼 | 静为律师",
+        "topic": "other-cross-border",
+        "urls": [
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-bank-inquiry-first-letter.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-bank-inquiry-first-letter_cn.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-bank-inquiry-first-letter_en.html"
+        ],
+        "languages": [
+          "en",
+          "zh-Hans",
+          "zh-Hant"
+        ],
+        "indexStatus": "unknown",
+        "sources": [
+          "page-metadata",
+          "publication-log"
+        ]
+      },
+      {
+        "story": "/articles/hong-kong-other-estate/mainland-property-management-fee-record",
+        "title": "內地遺產房仍有管理費，香港家屬先怎樣保留付款線索 | 静为律师",
+        "topic": "other-cross-border",
+        "urls": [
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-property-management-fee-record.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-property-management-fee-record_cn.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-property-management-fee-record_en.html"
+        ],
+        "languages": [
+          "en",
+          "zh-Hans",
+          "zh-Hant"
+        ],
+        "indexStatus": "unknown",
+        "sources": [
+          "page-metadata",
+          "publication-log"
+        ]
+      },
+      {
+        "story": "/articles/hong-kong-other-estate/mainland-property-record-whereabouts",
+        "title": "只知道內地房屋地址，香港家屬怎樣先記錄登記線索 | 静为律师",
+        "topic": "other-cross-border",
+        "urls": [
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-property-record-whereabouts.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-property-record-whereabouts_cn.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-property-record-whereabouts_en.html"
+        ],
+        "languages": [
+          "en",
+          "zh-Hans",
+          "zh-Hant"
+        ],
+        "indexStatus": "unknown",
+        "sources": [
+          "page-metadata",
+          "publication-log"
+        ]
+      },
+      {
+        "story": "/articles/hong-kong-other-estate/mainland-property-tax-receipt-clue",
+        "title": "找到內地房屋稅費收據，香港家屬先看哪些地址和姓名 | 静为律师",
+        "topic": "other-cross-border",
+        "urls": [
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-property-tax-receipt-clue.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-property-tax-receipt-clue_cn.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-property-tax-receipt-clue_en.html"
+        ],
+        "languages": [
+          "en",
+          "zh-Hans",
+          "zh-Hant"
+        ],
+        "indexStatus": "unknown",
+        "sources": [
+          "page-metadata",
+          "publication-log"
+        ]
+      },
+      {
+        "story": "/articles/hong-kong-other-estate/original-document-custody-log",
+        "title": "內地遺產原件由誰保管，香港家屬先做哪份交接紀錄 | 静为律师",
+        "topic": "other-cross-border",
+        "urls": [
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/original-document-custody-log.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/original-document-custody-log_cn.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/original-document-custody-log_en.html"
+        ],
+        "languages": [
+          "en",
+          "zh-Hans",
+          "zh-Hant"
+        ],
+        "indexStatus": "unknown",
+        "sources": [
+          "page-metadata",
+          "publication-log"
+        ]
+      },
+      {
+        "story": "/articles/hong-kong-other-estate/pre-filing-question-list",
+        "title": "交內地接收單位前，香港家屬先把哪些問題寫成清單 | 静为律师",
+        "topic": "other-cross-border",
+        "urls": [
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/pre-filing-question-list.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/pre-filing-question-list_cn.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/pre-filing-question-list_en.html"
+        ],
+        "languages": [
+          "en",
+          "zh-Hans",
+          "zh-Hant"
+        ],
+        "indexStatus": "unknown",
+        "sources": [
+          "page-metadata",
+          "publication-log"
+        ]
+      },
+      {
+        "story": "/articles/hong-kong-other-estate/remote-signing-sequence",
+        "title": "繼承人不在同一城市，香港家屬怎樣先排內地文件簽署次序 | 静为律师",
+        "topic": "other-cross-border",
+        "urls": [
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/remote-signing-sequence.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/remote-signing-sequence_cn.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/remote-signing-sequence_en.html"
+        ],
+        "languages": [
+          "en",
+          "zh-Hans",
+          "zh-Hant"
+        ],
+        "indexStatus": "unknown",
+        "sources": [
+          "page-metadata",
+          "publication-log"
+        ]
+      },
+      {
+        "story": "/articles/hong-kong-other-estate/timeline-milestones",
+        "title": "香港家屬處理內地遺產，用哪四個節點追蹤進度 | 静为律师",
+        "topic": "other-cross-border",
+        "urls": [
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/timeline-milestones.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/timeline-milestones_cn.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/timeline-milestones_en.html"
+        ],
+        "languages": [
+          "en",
+          "zh-Hans",
+          "zh-Hant"
+        ],
+        "indexStatus": "unknown",
+        "sources": [
+          "page-metadata",
+          "publication-log"
+        ]
+      },
+      {
+        "story": "/articles/hong-kong-other-estate/when-court-route-is-needed",
+        "title": "甚麼情況下，香港家屬要開始評估內地法院處理路徑 | 静为律师",
+        "topic": "other-cross-border",
+        "urls": [
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/when-court-route-is-needed.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/when-court-route-is-needed_cn.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/when-court-route-is-needed_en.html"
+        ],
+        "languages": [
+          "en",
+          "zh-Hans",
+          "zh-Hant"
+        ],
+        "indexStatus": "unknown",
+        "sources": [
+          "page-metadata",
+          "publication-log"
+        ]
+      },
+      {
+        "story": "/articles/hong-kong-other-estate/will-copy-and-original-check",
+        "title": "手上只有遺囑副本，香港家屬交內地前先核對哪些原件線索 | 静为律师",
+        "topic": "other-cross-border",
+        "urls": [
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/will-copy-and-original-check.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/will-copy-and-original-check_cn.html",
+          "https://www.jingwei-law.com/articles/hong-kong-other-estate/will-copy-and-original-check_en.html"
+        ],
+        "languages": [
+          "en",
+          "zh-Hans",
+          "zh-Hant"
+        ],
+        "indexStatus": "unknown",
+        "sources": [
+          "page-metadata",
+          "publication-log"
+        ]
+      }
+    ],
+    "updatedArticles": []
+  },
+  "siteIndex": {
+    "inspectionConnected": true,
+    "totalArticles": 277,
+    "indexed": 0,
+    "notIndexed": 0,
+    "unknown": 277,
+    "indexedStories": []
+  },
+  "newlyIndexedCount": null,
+  "newlyIndexedStories": null,
+  "nextDirections": {
+    "target": 50,
+    "available": 16,
+    "gap": 34,
+    "byTopic": {
+      "hk-inheritance": 3,
+      "macau": 4,
+      "singapore": 5,
+      "united-states": 4
+    },
+    "byCluster": [
+      {
+        "clusterId": "macau-business-dispute",
+        "label": "macau-business-dispute",
+        "count": 2
+      },
+      {
+        "clusterId": "sg-estate-assets",
+        "label": "sg-estate-assets",
+        "count": 2
+      },
+      {
+        "clusterId": "sg-documents-identity",
+        "label": "sg-documents-identity",
+        "count": 2
+      },
+      {
+        "clusterId": "us-estate-dispute",
+        "label": "us-estate-dispute",
+        "count": 2
+      },
+      {
+        "clusterId": "hk-entry-process",
+        "label": "hk-entry-process",
+        "count": 1
+      },
+      {
+        "clusterId": "us-litigation-response",
+        "label": "us-litigation-response",
+        "count": 1
+      },
+      {
+        "clusterId": "hk-assets-transfer",
+        "label": "hk-assets-transfer",
+        "count": 1
+      },
+      {
+        "clusterId": "hk-family-dispute",
+        "label": "hk-family-dispute",
+        "count": 1
+      },
+      {
+        "clusterId": "macau-remote-mandate",
+        "label": "macau-remote-mandate",
+        "count": 1
+      },
+      {
+        "clusterId": "macau-family-assets",
+        "label": "macau-family-assets",
+        "count": 1
+      },
+      {
+        "clusterId": "sg-remote-mandate",
+        "label": "sg-remote-mandate",
+        "count": 1
+      },
+      {
+        "clusterId": "us-documents-mandate",
+        "label": "us-documents-mandate",
+        "count": 1
+      }
+    ],
+    "items": [
+      {
+        "id": "TE-HK-003",
+        "score": 66,
+        "persona": "香港家属协调人",
+        "topic": "hk-inheritance",
+        "topicLabel": "香港继承",
+        "clusterId": "hk-entry-process",
+        "query": "内地继承没有遗嘱怎么办",
+        "title": "没有遗嘱，香港家属处理内地遗产先确认哪些人",
+        "reason": "人物需求清楚，问题独立，资料来源达到门槛"
+      },
+      {
+        "id": "TE-MO-002",
+        "score": 65,
+        "persona": "澳门家庭生意负责人",
+        "topic": "macau",
+        "topicLabel": "澳门",
+        "clusterId": "macau-business-dispute",
+        "query": "澳门公司追内地欠款要准备什么",
+        "title": "澳门公司追内地欠款，先把合同和付款线索排成一条时间线",
+        "reason": "人物需求清楚，问题独立，资料来源达到门槛"
+      },
+      {
+        "id": "TE-SG-001",
+        "score": 65,
+        "persona": "新加坡双语专业人士",
+        "topic": "singapore",
+        "topicLabel": "新加坡",
+        "clusterId": "sg-estate-assets",
+        "query": "Singapore resident inherit property in China process",
+        "title": "A Singapore Family's First Steps When a Parent Left Property in China",
+        "reason": "人物需求清楚，问题独立，资料来源达到门槛"
+      },
+      {
+        "id": "TE-US-004",
+        "score": 71,
+        "persona": "美国华人家庭决策人",
+        "topic": "united-states",
+        "topicLabel": "美国",
+        "clusterId": "us-litigation-response",
+        "query": "Chinese litigation lawyer for US client",
+        "title": "A US Client Receives China Court Papers: What to Check in the First 24 Hours",
+        "reason": "人物需求清楚，问题独立，资料来源达到门槛"
+      },
+      {
+        "id": "TE-HK-005",
+        "score": 66,
+        "persona": "香港家属协调人",
+        "topic": "hk-inheritance",
+        "topicLabel": "香港继承",
+        "clusterId": "hk-assets-transfer",
+        "query": "遗产房子过户要什么资料",
+        "title": "遗产房子过户前，先确认房屋、继承人和文件",
+        "reason": "人物需求清楚，问题独立，资料来源达到门槛"
+      },
+      {
+        "id": "TE-HK-006",
+        "score": 66,
+        "persona": "香港家属协调人",
+        "topic": "hk-inheritance",
+        "topicLabel": "香港继承",
+        "clusterId": "hk-family-dispute",
+        "query": "放弃内地遗产继承要怎么做",
+        "title": "想放弃内地遗产前，香港家属先算清哪三件事",
+        "reason": "人物需求清楚，问题独立，资料来源达到门槛"
+      },
+      {
+        "id": "TE-MO-003",
+        "score": 65,
+        "persona": "澳门家庭生意负责人",
+        "topic": "macau",
+        "topicLabel": "澳门",
+        "clusterId": "macau-remote-mandate",
+        "query": "澳门签的授权书内地可以用吗",
+        "title": "澳门签的授权文件交到内地前，先问清接收方和用途",
+        "reason": "人物需求清楚，问题独立，资料来源达到门槛"
+      },
+      {
+        "id": "TE-MO-004",
+        "score": 65,
+        "persona": "澳门家庭生意负责人",
+        "topic": "macau",
+        "topicLabel": "澳门",
+        "clusterId": "macau-family-assets",
+        "query": "澳门居民怎么查家人在珠海的房产",
+        "title": "澳门家属只知道珠海有房，怎样先做资产线索表",
+        "reason": "人物需求清楚，问题独立，资料来源达到门槛"
+      },
+      {
+        "id": "TE-MO-005",
+        "score": 65,
+        "persona": "澳门家庭生意负责人",
+        "topic": "macau",
+        "topicLabel": "澳门",
+        "clusterId": "macau-business-dispute",
+        "query": "内地欠款人失联澳门公司怎么办",
+        "title": "内地合作方失联后，澳门公司先固定哪几类记录",
+        "reason": "人物需求清楚，问题独立，资料来源达到门槛"
+      },
+      {
+        "id": "TE-SG-002",
+        "score": 65,
+        "persona": "新加坡双语专业人士",
+        "topic": "singapore",
+        "topicLabel": "新加坡",
+        "clusterId": "sg-documents-identity",
+        "query": "English Chinese name mismatch China inheritance",
+        "title": "English and Chinese Names Do Not Match: What to Organise Before a China Matter",
+        "reason": "人物需求清楚，问题独立，资料来源达到门槛"
+      },
+      {
+        "id": "TE-SG-003",
+        "score": 65,
+        "persona": "新加坡双语专业人士",
+        "topic": "singapore",
+        "topicLabel": "新加坡",
+        "clusterId": "sg-remote-mandate",
+        "query": "appoint China lawyer from Singapore power of attorney",
+        "title": "What a Power of Attorney from Singapore Should Clarify Before It Goes to China",
+        "reason": "人物需求清楚，问题独立，资料来源达到门槛"
+      },
+      {
+        "id": "TE-SG-004",
+        "score": 65,
+        "persona": "新加坡双语专业人士",
+        "topic": "singapore",
+        "topicLabel": "新加坡",
+        "clusterId": "sg-estate-assets",
+        "query": "how to find assets left by parent in China",
+        "title": "How to Build an Asset Clue List When a Parent's China Records Are Incomplete",
+        "reason": "人物需求清楚，问题独立，资料来源达到门槛"
+      },
+      {
+        "id": "TE-SG-005",
+        "score": 65,
+        "persona": "新加坡双语专业人士",
+        "topic": "singapore",
+        "topicLabel": "新加坡",
+        "clusterId": "sg-documents-identity",
+        "query": "heirs in different countries China estate documents",
+        "title": "Heirs in Different Countries: Organise the Signing Sequence Before Preparing Documents",
+        "reason": "人物需求清楚，问题独立，资料来源达到门槛"
+      },
+      {
+        "id": "TE-US-002",
+        "score": 65,
+        "persona": "美国华人家庭决策人",
+        "topic": "united-states",
+        "topicLabel": "美国",
+        "clusterId": "us-estate-dispute",
+        "query": "can I handle China inheritance from the US",
+        "title": "Can a Family Handle a China Inheritance While Living in the United States?",
+        "reason": "人物需求清楚，问题独立，资料来源达到门槛"
+      },
+      {
+        "id": "TE-US-003",
+        "score": 65,
+        "persona": "美国华人家庭决策人",
+        "topic": "united-states",
+        "topicLabel": "美国",
+        "clusterId": "us-documents-mandate",
+        "query": "US power of attorney for property in China",
+        "title": "US Power of Attorney for a China Property Matter: Define the Decisions First",
+        "reason": "人物需求清楚，问题独立，资料来源达到门槛"
+      },
+      {
+        "id": "TE-US-005",
+        "score": 65,
+        "persona": "美国华人家庭决策人",
+        "topic": "united-states",
+        "topicLabel": "美国",
+        "clusterId": "us-estate-dispute",
+        "query": "China inheritance property occupied by relative",
+        "title": "Property Occupied by a Relative: What an Overseas Heir Should Document First",
+        "reason": "人物需求清楚，问题独立，资料来源达到门槛"
+      }
+    ],
+    "replenishment": {
+      "needed": 34,
+      "minimumEligibleBacklog": 50,
+      "minimumPerPersona": 3,
+      "maxProposalsPerPersonaPerRun": 2,
+      "personas": [],
+      "rule": "仅在合格库存不足时补题；每个新题必须来自人物搜索阶段、通过相似度检查并有两类资料。"
+    },
+    "editorialTasks": [],
+    "suppressedClusters": [],
+    "learningLog": [
+      "Search Console 当前有 9 条查询样本，其中 7 次命中已登记的问题模式。",
+      "已接入 1 条 URL 检查记录，可执行收录生命周期判断。",
+      "本轮有 16 个选题达到研究门槛，分配由真实信号和评分产生。",
+      "合格选题库存不足，需要从人物搜索阶段补充 34 个独立问题。"
+    ]
+  },
+  "sourceFreshness": {
+    "searchConsoleExportedAt": "2026-07-22",
+    "searchConsoleRange": "last-3-months",
+    "urlInspectionCount": 1,
+    "topicEngineGeneratedAt": "2026-07-23T09:06:51+00:00",
+    "publicationLogEvents": 30
+  },
+  "caveats": [
+    "Search Console performance data may lag; URL Inspection is the source for a page's known index state.",
+    "Unknown index state is never counted as not indexed or indexed.",
+    "Publication count is de-duplicated by article story, not by language page."
+  ],
+  "markdown": "# 文章日报 | 2026-08-30\n\n统计对象：2026-08-29（昨天）\n\n## 昨日发布\n\n- 新发布文章：30 篇，90 个语言页面。\n- 更新既有文章：0 篇。\n- 有人收過租或提過款，香港家屬怎樣先把內地遺產帳目分開 | 静为律师：unknown。\n- 擔心內地遺產被處置，香港家屬先核對哪些保全風險 | 静为律师：unknown。\n- 不知道內地銀行帳戶號碼，香港家屬先整理哪些查詢線索 | 静为律师：unknown。\n- 交律師前，香港家屬怎樣整理一份內地遺產案情包 | 静为律师：unknown。\n- 被繼承人名下有內地公司股權，香港家屬先查甚麼 | 静为律师：unknown。\n- 內地公司股東資料不全，香港家屬先把哪些名稱和日期對上 | 静为律师：unknown。\n- 同是內地遺產處理，香港家屬為何要先分開估時間和費用 | 静为律师：unknown。\n- 香港文件翻成中文交內地前，家屬先核對哪些姓名和日期 | 静为律师：unknown。\n- 內地遺產往來靠電郵，香港家屬先怎樣保存可核對紀錄 | 静为律师：unknown。\n- 香港死亡證明有不同版本，交內地前家屬先怎樣比較 | 静为律师：unknown。\n- 已故親人的手機留下內地資產線索，香港家屬先怎樣保留 | 静为律师：unknown。\n- 整理內地遺產時，香港家屬怎樣先把資產和債務分開 | 静为律师：unknown。\n- 同一份遺產文件有多個版本，香港家屬先怎樣做版本表 | 静为律师：unknown。\n- 遺囑執行人和繼承人分散各地，香港家屬怎樣保留聯絡紀錄 | 静为律师：unknown。\n- 多人商量內地遺產總談不清，香港家屬先怎樣列議程 | 静为律师：unknown。\n- 親屬姓名有繁簡和舊譯寫，香港家屬怎樣先畫內地遺產關係圖 | 静为律师：unknown。\n- 多人要簽內地遺產文件，香港家屬先怎樣做可用時間表 | 静为律师：unknown。\n- 香港家屬提交內地材料前，先怎樣核對每人的身分文件 | 静为律师：unknown。\n- 香港和內地都有遺產，家屬怎樣把兩邊資料並行整理 | 静为律师：unknown。\n- 內地遺產款需要匯出前，香港家屬先怎樣整理資金來源紀錄 | 静为律师：unknown。\n- 向內地機構查遺產線索前，香港家屬第一封信先寫甚麼 | 静为律师：unknown。\n- 內地遺產房仍有管理費，香港家屬先怎樣保留付款線索 | 静为律师：unknown。\n- 只知道內地房屋地址，香港家屬怎樣先記錄登記線索 | 静为律师：unknown。\n- 找到內地房屋稅費收據，香港家屬先看哪些地址和姓名 | 静为律师：unknown。\n- 內地遺產原件由誰保管，香港家屬先做哪份交接紀錄 | 静为律师：unknown。\n- 交內地接收單位前，香港家屬先把哪些問題寫成清單 | 静为律师：unknown。\n- 繼承人不在同一城市，香港家屬怎樣先排內地文件簽署次序 | 静为律师：unknown。\n- 香港家屬處理內地遺產，用哪四個節點追蹤進度 | 静为律师：unknown。\n- 甚麼情況下，香港家屬要開始評估內地法院處理路徑 | 静为律师：unknown。\n- 手上只有遺囑副本，香港家屬交內地前先核對哪些原件線索 | 静为律师：unknown。\n\n## 收录状态\n\n- 昨日文章已确认收录：0 篇。\n- 昨日文章明确未收录：0 篇；未知：30 篇。\n- 全站已确认收录：0 / 277 篇。\n- 自上次日报新增收录：尚无可比较基线。\n- Search Console 数据日期：2026-07-22。\n\n## 下一批选题\n\n- 可确认候选：16 / 50；仍缺 34 个合格问题。\n- 当前方向：香港继承 3 个、澳门 4 个、新加坡 5 个、美国 4 个。\n- 重点问题簇：macau-business-dispute 2 个、sg-estate-assets 2 个、sg-documents-identity 2 个、us-estate-dispute 2 个、hk-entry-process 1 个、us-litigation-response 1 个。\n\n## 升级决定\n\n- 当前没有需要立即补强或停止的已发布文章。\n- 合格库存不足，需要补充 34 个独立问题。\n- Search Console 当前有 9 条查询样本，其中 7 次命中已登记的问题模式。\n- 已接入 1 条 URL 检查记录，可执行收录生命周期判断。\n- 本轮有 16 个选题达到研究门槛，分配由真实信号和评分产生。\n- 合格选题库存不足，需要从人物搜索阶段补充 34 个独立问题。\n"
+}
