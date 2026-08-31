@@ -1080,7 +1080,547 @@
       ],
       "deployedAt": "2026-08-30T09:10:06+08:00",
       "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-31:/articles/am/macau-family-mainland-bank-clue-ledger",
+      "story": "/articles/am/macau-family-mainland-bank-clue-ledger",
+      "title": "內地銀行帳戶線索不完整，澳門家屬先做哪一張核對表",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-bank-clue-ledger.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-bank-clue-ledger_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-bank-clue-ledger_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-08-31T09:15:22+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-31:/articles/am/macau-family-mainland-benefit-file",
+      "story": "/articles/am/macau-family-mainland-benefit-file",
+      "title": "內地福利或補助通知送到澳門，家屬先怎樣整理",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-benefit-file.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-benefit-file_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-benefit-file_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-08-31T09:15:22+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-31:/articles/am/macau-family-mainland-business-account-reconciliation",
+      "story": "/articles/am/macau-family-mainland-business-account-reconciliation",
+      "title": "內地公司帳目出現逝者名字，澳門家屬先怎樣避免混同財產",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-business-account-reconciliation.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-business-account-reconciliation_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-business-account-reconciliation_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-08-31T09:15:22+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-31:/articles/am/macau-family-mainland-company-seal-risk",
+      "story": "/articles/am/macau-family-mainland-company-seal-risk",
+      "title": "發現內地公司印章或U盾，澳門家屬先不要做甚麼",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-company-seal-risk.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-company-seal-risk_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-company-seal-risk_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-08-31T09:15:22+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-31:/articles/am/macau-family-mainland-compensation-payment-file",
+      "story": "/articles/am/macau-family-mainland-compensation-payment-file",
+      "title": "內地補償款通知只寫了部分資料，澳門家屬先補哪幾格",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-compensation-payment-file.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-compensation-payment-file_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-compensation-payment-file_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-08-31T09:15:22+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-31:/articles/am/macau-family-mainland-contract-claim-timeline",
+      "story": "/articles/am/macau-family-mainland-contract-claim-timeline",
+      "title": "內地合同未到期，澳門家屬先怎樣把權利與責任排成時間線",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-contract-claim-timeline.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-contract-claim-timeline_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-contract-claim-timeline_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-08-31T09:15:22+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-31:/articles/am/macau-family-mainland-coowned-property-file",
+      "story": "/articles/am/macau-family-mainland-coowned-property-file",
+      "title": "內地房產由多人共有，澳門家屬先分清哪些部分是遺產",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-coowned-property-file.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-coowned-property-file_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-coowned-property-file_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-08-31T09:15:22+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-31:/articles/am/macau-family-mainland-court-notice-routing",
+      "story": "/articles/am/macau-family-mainland-court-notice-routing",
+      "title": "內地法院通知寄到澳門，家屬先確認甚麼再回覆",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-court-notice-routing.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-court-notice-routing_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-court-notice-routing_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-08-31T09:15:22+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-31:/articles/am/macau-family-mainland-debt-demand-letter",
+      "story": "/articles/am/macau-family-mainland-debt-demand-letter",
+      "title": "收到內地催款函，澳門家屬先核對哪一段債務關係",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-debt-demand-letter.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-debt-demand-letter_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-debt-demand-letter_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-08-31T09:15:22+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-31:/articles/am/macau-family-mainland-digital-wallet-clue-log",
+      "story": "/articles/am/macau-family-mainland-digital-wallet-clue-log",
+      "title": "內地電子錢包留下交易提示，澳門家屬先怎樣做線索紀錄",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-digital-wallet-clue-log.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-digital-wallet-clue-log_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-digital-wallet-clue-log_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-08-31T09:15:22+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-31:/articles/am/macau-family-mainland-document-handover",
+      "story": "/articles/am/macau-family-mainland-document-handover",
+      "title": "內地原件交給誰保管，澳門家屬先做一份怎樣的交接表",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-document-handover.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-document-handover_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-document-handover_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-08-31T09:15:22+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-31:/articles/am/macau-family-mainland-email-handover",
+      "story": "/articles/am/macau-family-mainland-email-handover",
+      "title": "內地事項留在電郵裏，澳門家屬先做怎樣的交接清單",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-email-handover.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-email-handover_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-email-handover_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-08-31T09:15:22+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-31:/articles/am/macau-family-mainland-employment-claim-file",
+      "story": "/articles/am/macau-family-mainland-employment-claim-file",
+      "title": "親人在內地的工資或補償未結，澳門家屬先保留哪些資料",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-employment-claim-file.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-employment-claim-file_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-employment-claim-file_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-08-31T09:15:22+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-31:/articles/am/macau-family-mainland-enforcement-clue",
+      "story": "/articles/am/macau-family-mainland-enforcement-clue",
+      "title": "聽說內地有執行案件，澳門家屬先怎樣核對而不猜測結果",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-enforcement-clue.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-enforcement-clue_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-enforcement-clue_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-08-31T09:15:22+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-31:/articles/am/macau-family-mainland-fund-account-notice",
+      "story": "/articles/am/macau-family-mainland-fund-account-notice",
+      "title": "收到內地基金或證券通知，澳門家屬先核對甚麼",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-fund-account-notice.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-fund-account-notice_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-fund-account-notice_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-08-31T09:15:22+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-31:/articles/am/macau-family-mainland-insurance-policy-clues",
+      "story": "/articles/am/macau-family-mainland-insurance-policy-clues",
+      "title": "內地保單只留下一張繳費單，澳門家屬先怎樣核對",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-insurance-policy-clues.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-insurance-policy-clues_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-insurance-policy-clues_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-08-31T09:15:22+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-31:/articles/am/macau-family-mainland-invoice-contract-archive",
+      "story": "/articles/am/macau-family-mainland-invoice-contract-archive",
+      "title": "只找到內地發票和合同，澳門家屬先怎樣判斷是個人還是公司事項",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-invoice-contract-archive.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-invoice-contract-archive_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-invoice-contract-archive_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-08-31T09:15:22+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-31:/articles/am/macau-family-mainland-lease-deposit-file",
+      "story": "/articles/am/macau-family-mainland-lease-deposit-file",
+      "title": "內地租約有按金未退，澳門家屬先把哪幾項排在一起",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-lease-deposit-file.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-lease-deposit-file_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-lease-deposit-file_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-08-31T09:15:22+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-31:/articles/am/macau-family-mainland-mortgage-payment-file",
+      "story": "/articles/am/macau-family-mainland-mortgage-payment-file",
+      "title": "內地按揭仍在扣款，澳門家屬先查欠款還是先交材料",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-mortgage-payment-file.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-mortgage-payment-file_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-mortgage-payment-file_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-08-31T09:15:22+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-31:/articles/am/macau-family-mainland-phone-account-safety",
+      "story": "/articles/am/macau-family-mainland-phone-account-safety",
+      "title": "親人的內地手機仍在收驗證碼，澳門家屬先怎樣保護資料",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-phone-account-safety.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-phone-account-safety_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-phone-account-safety_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-08-31T09:15:22+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-31:/articles/am/macau-family-mainland-property-fee-file",
+      "story": "/articles/am/macau-family-mainland-property-fee-file",
+      "title": "內地房屋費用一直扣款，澳門家屬先怎樣分清帳單",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-property-fee-file.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-property-fee-file_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-property-fee-file_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-08-31T09:15:22+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-31:/articles/am/macau-family-mainland-remittance-record",
+      "story": "/articles/am/macau-family-mainland-remittance-record",
+      "title": "內地遺產款曾匯到澳門，家屬先怎樣留好資金線",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-remittance-record.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-remittance-record_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-remittance-record_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-08-31T09:15:22+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-31:/articles/am/macau-family-mainland-rent-ledger",
+      "story": "/articles/am/macau-family-mainland-rent-ledger",
+      "title": "內地房屋仍在收租，澳門家屬先怎樣保留租金線索",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-rent-ledger.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-rent-ledger_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-rent-ledger_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-08-31T09:15:22+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-31:/articles/am/macau-family-mainland-royalty-statement",
+      "story": "/articles/am/macau-family-mainland-royalty-statement",
+      "title": "內地版稅或授權結算單寄到澳門，家屬先分清哪些權益",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-royalty-statement.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-royalty-statement_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-royalty-statement_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-08-31T09:15:22+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-31:/articles/am/macau-family-mainland-shareholder-register",
+      "story": "/articles/am/macau-family-mainland-shareholder-register",
+      "title": "內地公司股東名冊資料不齊，澳門家屬先整理哪些線索",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-shareholder-register.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-shareholder-register_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-shareholder-register_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-08-31T09:15:22+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-31:/articles/am/macau-family-mainland-social-platform-evidence",
+      "story": "/articles/am/macau-family-mainland-social-platform-evidence",
+      "title": "社交平台提到內地資產，澳門家屬先怎樣保存而不越界",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-social-platform-evidence.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-social-platform-evidence_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-social-platform-evidence_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-08-31T09:15:22+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-31:/articles/am/macau-family-mainland-storage-evidence",
+      "story": "/articles/am/macau-family-mainland-storage-evidence",
+      "title": "內地倉庫或保管憑證在手，澳門家屬先怎樣保留證據",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-storage-evidence.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-storage-evidence_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-storage-evidence_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-08-31T09:15:22+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-31:/articles/am/macau-family-mainland-tax-receipt-file",
+      "story": "/articles/am/macau-family-mainland-tax-receipt-file",
+      "title": "只找到內地稅費憑證，澳門家屬先看它能說明甚麼",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-tax-receipt-file.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-tax-receipt-file_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-tax-receipt-file_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-08-31T09:15:22+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-31:/articles/am/macau-family-mainland-vehicle-notice",
+      "story": "/articles/am/macau-family-mainland-vehicle-notice",
+      "title": "收到內地車輛違章或年檢通知，澳門家屬先查車還是先處理通知",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-vehicle-notice.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-vehicle-notice_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-vehicle-notice_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-08-31T09:15:22+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-08-31:/articles/am/macau-family-mainland-vehicle-record-file",
+      "story": "/articles/am/macau-family-mainland-vehicle-record-file",
+      "title": "只找到內地車輛線索，澳門家屬先分開查哪幾類資料",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-vehicle-record-file.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-vehicle-record-file_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-family-mainland-vehicle-record-file_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-08-31T09:15:22+08:00",
+      "source": "confirmed-live-deployment"
     }
   ],
-  "updatedAt": "2026-08-30T09:10:06+08:00"
+  "updatedAt": "2026-08-31T09:15:22+08:00"
 }
