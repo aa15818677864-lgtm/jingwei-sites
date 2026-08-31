@@ -8,7 +8,15 @@
       "publishedArticles": 30,
       "inspectionConnected": true,
       "indexedStories": []
+    },
+    {
+      "runDate": "2026-08-31",
+      "reportDate": "2026-08-30",
+      "generatedAt": "2026-08-31T09:03:37+08:00",
+      "publishedArticles": 30,
+      "inspectionConnected": true,
+      "indexedStories": []
     }
   ],
-  "updatedAt": "2026-08-30T09:02:47+08:00"
+  "updatedAt": "2026-08-31T09:03:37+08:00"
 }
