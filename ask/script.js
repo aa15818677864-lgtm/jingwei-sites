@@ -18,7 +18,7 @@
   const activeTopic = String(urlParams.get("topic") || DEFAULT_TOPIC).trim();
   const sourceParam = urlParams.get("source") || "";
   const intentParam = urlParams.get("intent") || "";
-  const isGptAskRoute = /\/ask\/gpt\/?$/i.test(window.location.pathname);
+  const isGptAskRoute = /\/ask(?:\/gpt)?\/?$/i.test(window.location.pathname);
   const isMinimalAskFramework = isGptAskRoute || /\/ask\/?$/i.test(window.location.pathname);
   const assistantVariant = isGptAskRoute ? "ask-gpt-openai" : "ask-deepseek-minimal";
   const modelProvider = isGptAskRoute ? "openai" : "deepseek";
