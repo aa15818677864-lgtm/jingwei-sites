@@ -1,0 +1,17 @@
+{
+  "date": "2026-09-01",
+  "batch": "Singapore Mainland estate records",
+  "sources": [
+    {
+      "type": "Singapore official probate guidance",
+      "url": "https://www.judiciary.gov.sg/family/probate-and-administration",
+      "checked": "2026-09-01"
+    },
+    {
+      "type": "Mainland China registration-service guidance",
+      "url": "https://bnrp.weihai.gov.cn/art/2024/9/2/art_79186_5570145.html",
+      "checked": "2026-09-01"
+    }
+  ],
+  "note": "Each article is a general information page; requirements depend on the asset, city and receiving side."
+}
