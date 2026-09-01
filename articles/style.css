@@ -7535,15 +7535,6 @@ body.articles-index-v24 {
   background: #fff;
 }
 
-.social-series-gallery--single {
-  grid-template-columns: minmax(0, 1fr);
-}
-
-.social-series-gallery--single img {
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
-}
-
 .social-series-copy {
   border-top: 1px solid var(--line);
   padding-top: 30px;
