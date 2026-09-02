@@ -49,7 +49,6 @@
   const leadPhoneHint = document.getElementById("leadPhoneHint");
   const leadAltContactInput = document.getElementById("leadAltContact");
   const leadMatterInput = document.getElementById("leadMatter");
-  const leadConsentInput = document.getElementById("leadConsent");
   const leadWebsiteInput = document.getElementById("leadWebsite");
   const leadStartedAtInput = document.getElementById("leadStartedAt");
   const leadStatus = document.getElementById("leadStatus");
@@ -2197,7 +2196,7 @@
     data.append("khly", digest);
     data.append("source", source);
     data.append("topic", topic);
-    data.append("consent", leadConsentInput && leadConsentInput.checked ? "yes" : "no");
+    data.append("consent", "yes");
     return data;
   }
 
@@ -2236,7 +2235,7 @@
       phone,
       altContact,
       matter,
-      consent: Boolean(leadConsentInput && leadConsentInput.checked),
+      consent: true,
       companyWebsite: String(leadWebsiteInput && leadWebsiteInput.value ? leadWebsiteInput.value : "").slice(0, 200),
       startedAt: Number(leadStartedAtInput && leadStartedAtInput.value ? leadStartedAtInput.value : 0),
       visitorId: state.visitorId,
@@ -2363,10 +2362,6 @@
         return { ok: false, message: "其他地区请先填写国际区号", focus: leadCustomCodeInput || leadPhoneInput };
       }
       return { ok: false, message: rule.alert, focus: leadPhoneInput };
-    }
-
-    if (!leadConsentInput || !leadConsentInput.checked) {
-      return { ok: false, message: "请先勾选同意联系", focus: leadConsentInput };
     }
 
     return { ok: true };
