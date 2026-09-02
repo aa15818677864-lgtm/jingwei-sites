@@ -2160,7 +2160,547 @@
       ],
       "deployedAt": "2026-09-01T09:17:00+08:00",
       "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-02:/articles/singapore/singapore-mainland-handover-note",
+      "story": "/articles/singapore/singapore-mainland-handover-note",
+      "title": "新加坡家屬找到內地房屋交接單後，先怎樣整理中國內地遺產線索",
+      "topic": "singapore",
+      "urls": [
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-handover-note.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-handover-note_cn.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-handover-note_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-02T09:17:00+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-02:/articles/singapore/singapore-mainland-utility-bill",
+      "story": "/articles/singapore/singapore-mainland-utility-bill",
+      "title": "新加坡家屬找到內地水電燃氣賬單後，先怎樣整理中國內地遺產線索",
+      "topic": "singapore",
+      "urls": [
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-utility-bill.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-utility-bill_cn.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-utility-bill_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-02T09:17:00+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-02:/articles/singapore/singapore-mainland-property-management-letter",
+      "story": "/articles/singapore/singapore-mainland-property-management-letter",
+      "title": "新加坡家屬找到內地物業管理通知後，先怎樣整理中國內地遺產線索",
+      "topic": "singapore",
+      "urls": [
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-property-management-letter.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-property-management-letter_cn.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-property-management-letter_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-02T09:17:00+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-02:/articles/singapore/singapore-mainland-renovation-contract",
+      "story": "/articles/singapore/singapore-mainland-renovation-contract",
+      "title": "新加坡家屬找到內地裝修合同後，先怎樣整理中國內地遺產線索",
+      "topic": "singapore",
+      "urls": [
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-renovation-contract.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-renovation-contract_cn.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-renovation-contract_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-02T09:17:00+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-02:/articles/singapore/singapore-mainland-land-use-certificate",
+      "story": "/articles/singapore/singapore-mainland-land-use-certificate",
+      "title": "新加坡家屬找到內地土地使用材料後，先怎樣整理中國內地遺產線索",
+      "topic": "singapore",
+      "urls": [
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-land-use-certificate.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-land-use-certificate_cn.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-land-use-certificate_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-02T09:17:00+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-02:/articles/singapore/singapore-mainland-vehicle-insurance",
+      "story": "/articles/singapore/singapore-mainland-vehicle-insurance",
+      "title": "新加坡家屬找到內地車輛保險單後，先怎樣整理中國內地遺產線索",
+      "topic": "singapore",
+      "urls": [
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-vehicle-insurance.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-vehicle-insurance_cn.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-vehicle-insurance_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-02T09:17:00+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-02:/articles/singapore/singapore-mainland-vehicle-repair-invoice",
+      "story": "/articles/singapore/singapore-mainland-vehicle-repair-invoice",
+      "title": "新加坡家屬找到內地車輛維修發票後，先怎樣整理中國內地遺產線索",
+      "topic": "singapore",
+      "urls": [
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-vehicle-repair-invoice.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-vehicle-repair-invoice_cn.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-vehicle-repair-invoice_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-02T09:17:00+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-02:/articles/singapore/singapore-mainland-company-annual-report",
+      "story": "/articles/singapore/singapore-mainland-company-annual-report",
+      "title": "新加坡家屬找到內地公司年報線索後，先怎樣整理中國內地遺產線索",
+      "topic": "singapore",
+      "urls": [
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-company-annual-report.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-company-annual-report_cn.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-company-annual-report_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-02T09:17:00+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-02:/articles/singapore/singapore-mainland-shareholder-meeting-note",
+      "story": "/articles/singapore/singapore-mainland-shareholder-meeting-note",
+      "title": "新加坡家屬找到內地股東會記錄後，先怎樣整理中國內地遺產線索",
+      "topic": "singapore",
+      "urls": [
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-shareholder-meeting-note.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-shareholder-meeting-note_cn.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-shareholder-meeting-note_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-02T09:17:00+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-02:/articles/singapore/singapore-mainland-business-licence-copy",
+      "story": "/articles/singapore/singapore-mainland-business-licence-copy",
+      "title": "新加坡家屬找到內地營業執照副本後，先怎樣整理中國內地遺產線索",
+      "topic": "singapore",
+      "urls": [
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-business-licence-copy.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-business-licence-copy_cn.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-business-licence-copy_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-02T09:17:00+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-02:/articles/singapore/singapore-mainland-supplier-contract",
+      "story": "/articles/singapore/singapore-mainland-supplier-contract",
+      "title": "新加坡家屬找到內地供貨合同後，先怎樣整理中國內地遺產線索",
+      "topic": "singapore",
+      "urls": [
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-supplier-contract.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-supplier-contract_cn.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-supplier-contract_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-02T09:17:00+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-02:/articles/singapore/singapore-mainland-receivable-statement",
+      "story": "/articles/singapore/singapore-mainland-receivable-statement",
+      "title": "新加坡家屬找到內地應收款對賬單後，先怎樣整理中國內地遺產線索",
+      "topic": "singapore",
+      "urls": [
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-receivable-statement.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-receivable-statement_cn.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-receivable-statement_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-02T09:17:00+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-02:/articles/singapore/singapore-mainland-salary-record",
+      "story": "/articles/singapore/singapore-mainland-salary-record",
+      "title": "新加坡家屬找到內地工資記錄後，先怎樣整理中國內地遺產線索",
+      "topic": "singapore",
+      "urls": [
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-salary-record.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-salary-record_cn.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-salary-record_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-02T09:17:00+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-02:/articles/singapore/singapore-mainland-social-insurance-notice",
+      "story": "/articles/singapore/singapore-mainland-social-insurance-notice",
+      "title": "新加坡家屬找到內地社保繳費通知後，先怎樣整理中國內地遺產線索",
+      "topic": "singapore",
+      "urls": [
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-social-insurance-notice.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-social-insurance-notice_cn.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-social-insurance-notice_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-02T09:17:00+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-02:/articles/singapore/singapore-mainland-housing-fund-record",
+      "story": "/articles/singapore/singapore-mainland-housing-fund-record",
+      "title": "新加坡家屬找到內地住房公積金記錄後，先怎樣整理中國內地遺產線索",
+      "topic": "singapore",
+      "urls": [
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-housing-fund-record.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-housing-fund-record_cn.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-housing-fund-record_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-02T09:17:00+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-02:/articles/singapore/singapore-mainland-securities-statement",
+      "story": "/articles/singapore/singapore-mainland-securities-statement",
+      "title": "新加坡家屬找到內地證券對賬單後，先怎樣整理中國內地遺產線索",
+      "topic": "singapore",
+      "urls": [
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-securities-statement.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-securities-statement_cn.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-securities-statement_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-02T09:17:00+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-02:/articles/singapore/singapore-mainland-trust-notice",
+      "story": "/articles/singapore/singapore-mainland-trust-notice",
+      "title": "新加坡家屬找到內地信託通知後，先怎樣整理中國內地遺產線索",
+      "topic": "singapore",
+      "urls": [
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-trust-notice.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-trust-notice_cn.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-trust-notice_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-02T09:17:00+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-02:/articles/singapore/singapore-mainland-insurance-claim-letter",
+      "story": "/articles/singapore/singapore-mainland-insurance-claim-letter",
+      "title": "新加坡家屬找到內地保險理賠函後，先怎樣整理中國內地遺產線索",
+      "topic": "singapore",
+      "urls": [
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-insurance-claim-letter.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-insurance-claim-letter_cn.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-insurance-claim-letter_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-02T09:17:00+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-02:/articles/singapore/singapore-mainland-mobile-payment-receipt",
+      "story": "/articles/singapore/singapore-mainland-mobile-payment-receipt",
+      "title": "新加坡家屬找到內地移動支付收據後，先怎樣整理中國內地遺產線索",
+      "topic": "singapore",
+      "urls": [
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-mobile-payment-receipt.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-mobile-payment-receipt_cn.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-mobile-payment-receipt_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-02T09:17:00+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-02:/articles/singapore/singapore-mainland-ecommerce-order",
+      "story": "/articles/singapore/singapore-mainland-ecommerce-order",
+      "title": "新加坡家屬找到內地電商訂單記錄後，先怎樣整理中國內地遺產線索",
+      "topic": "singapore",
+      "urls": [
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-ecommerce-order.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-ecommerce-order_cn.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-ecommerce-order_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-02T09:17:00+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-02:/articles/singapore/singapore-mainland-storage-contract",
+      "story": "/articles/singapore/singapore-mainland-storage-contract",
+      "title": "新加坡家屬找到內地倉儲合同後，先怎樣整理中國內地遺產線索",
+      "topic": "singapore",
+      "urls": [
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-storage-contract.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-storage-contract_cn.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-storage-contract_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-02T09:17:00+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-02:/articles/singapore/singapore-mainland-freight-waybill",
+      "story": "/articles/singapore/singapore-mainland-freight-waybill",
+      "title": "新加坡家屬找到內地貨運單據後，先怎樣整理中國內地遺產線索",
+      "topic": "singapore",
+      "urls": [
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-freight-waybill.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-freight-waybill_cn.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-freight-waybill_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-02T09:17:00+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-02:/articles/singapore/singapore-mainland-artwork-receipt",
+      "story": "/articles/singapore/singapore-mainland-artwork-receipt",
+      "title": "新加坡家屬找到內地藝術品收據後，先怎樣整理中國內地遺產線索",
+      "topic": "singapore",
+      "urls": [
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-artwork-receipt.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-artwork-receipt_cn.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-artwork-receipt_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-02T09:17:00+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-02:/articles/singapore/singapore-mainland-membership-card",
+      "story": "/articles/singapore/singapore-mainland-membership-card",
+      "title": "新加坡家屬找到內地會籍資料後，先怎樣整理中國內地遺產線索",
+      "topic": "singapore",
+      "urls": [
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-membership-card.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-membership-card_cn.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-membership-card_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-02T09:17:00+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-02:/articles/singapore/singapore-mainland-loan-guarantee",
+      "story": "/articles/singapore/singapore-mainland-loan-guarantee",
+      "title": "新加坡家屬找到內地借款擔保文件後，先怎樣整理中國內地遺產線索",
+      "topic": "singapore",
+      "urls": [
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-loan-guarantee.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-loan-guarantee_cn.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-loan-guarantee_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-02T09:17:00+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-02:/articles/singapore/singapore-mainland-court-mediation-paper",
+      "story": "/articles/singapore/singapore-mainland-court-mediation-paper",
+      "title": "新加坡家屬找到內地調解文書後，先怎樣整理中國內地遺產線索",
+      "topic": "singapore",
+      "urls": [
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-court-mediation-paper.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-court-mediation-paper_cn.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-court-mediation-paper_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-02T09:17:00+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-02:/articles/singapore/singapore-mainland-tax-payment-slip",
+      "story": "/articles/singapore/singapore-mainland-tax-payment-slip",
+      "title": "新加坡家屬找到內地稅款繳款書後，先怎樣整理中國內地遺產線索",
+      "topic": "singapore",
+      "urls": [
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-tax-payment-slip.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-tax-payment-slip_cn.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-tax-payment-slip_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-02T09:17:00+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-02:/articles/singapore/singapore-mainland-customs-declaration",
+      "story": "/articles/singapore/singapore-mainland-customs-declaration",
+      "title": "新加坡家屬找到內地海關申報材料後，先怎樣整理中國內地遺產線索",
+      "topic": "singapore",
+      "urls": [
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-customs-declaration.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-customs-declaration_cn.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-customs-declaration_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-02T09:17:00+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-02:/articles/singapore/singapore-mainland-intellectual-property-certificate",
+      "story": "/articles/singapore/singapore-mainland-intellectual-property-certificate",
+      "title": "新加坡家屬找到內地知識產權證書後，先怎樣整理中國內地遺產線索",
+      "topic": "singapore",
+      "urls": [
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-intellectual-property-certificate.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-intellectual-property-certificate_cn.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-intellectual-property-certificate_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-02T09:17:00+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-02:/articles/singapore/singapore-mainland-digital-asset-backup",
+      "story": "/articles/singapore/singapore-mainland-digital-asset-backup",
+      "title": "新加坡家屬找到內地數字資產備份線索後，先怎樣整理中國內地遺產線索",
+      "topic": "singapore",
+      "urls": [
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-digital-asset-backup.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-digital-asset-backup_cn.html",
+        "https://www.jingwei-law.com/articles/singapore/singapore-mainland-digital-asset-backup_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-02T09:17:00+08:00",
+      "source": "confirmed-live-deployment"
     }
   ],
-  "updatedAt": "2026-09-01T09:13:24+08:00"
+  "updatedAt": "2026-09-02T09:15:05+08:00"
 }
