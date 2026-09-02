@@ -1,0 +1,17 @@
+{
+  "date": "2026-09-02",
+  "batch": "Singapore family / Mainland China estate clue records",
+  "sources": [
+    {
+      "type": "Singapore Judiciary probate and administration guidance",
+      "url": "https://www.judiciary.gov.sg/family/probate-and-administration",
+      "checked": "2026-09-02"
+    },
+    {
+      "type": "Mainland China real-property registration-service guidance",
+      "url": "https://www.gov.cn/zhengce/content/2016-01/14/content_10622.htm",
+      "checked": "2026-09-02"
+    }
+  ],
+  "note": "General information only. The appropriate Mainland China receiving side and required materials vary by asset, city and purpose."
+}

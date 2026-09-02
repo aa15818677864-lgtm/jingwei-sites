@@ -24,7 +24,15 @@
       "publishedArticles": 30,
       "inspectionConnected": true,
       "indexedStories": []
+    },
+    {
+      "runDate": "2026-09-02",
+      "reportDate": "2026-09-01",
+      "generatedAt": "2026-09-02T09:07:11+08:00",
+      "publishedArticles": 30,
+      "inspectionConnected": true,
+      "indexedStories": []
     }
   ],
-  "updatedAt": "2026-09-01T09:13:25+08:00"
+  "updatedAt": "2026-09-02T09:07:11+08:00"
 }

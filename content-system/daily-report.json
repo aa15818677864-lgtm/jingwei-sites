@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-09-01T09:13:25+08:00",
-  "generatedDate": "2026-09-01",
+  "generatedAt": "2026-09-02T09:07:11+08:00",
+  "generatedDate": "2026-09-02",
   "reportDate": "2026-09-01",
   "timezone": "Asia/Shanghai",
   "yesterday": {
     "date": "2026-09-01",
     "newArticleCount": 30,
     "newLanguagePageCount": 90,
-    "updatedArticleCount": 0,
+    "updatedArticleCount": 5,
     "indexed": 0,
     "notIndexed": 0,
     "indexUnknown": 30,
@@ -613,14 +613,40 @@
         ]
       }
     ],
-    "updatedArticles": []
+    "updatedArticles": [
+      {
+        "story": "/articles/hk-mainland-property-inheritance/hong-kong-inherited-mainland-property-sale-remittance",
+        "title": "港人賣繼承房產，點匯返香港？ | 劉毅律師團隊",
+        "topic": "hk-inheritance"
+      },
+      {
+        "story": "/articles/hk-mainland-property-inheritance/hong-kong-mainland-mortgaged-property-inheritance",
+        "title": "港人繼承有按揭內地房，點處理？ | 劉毅律師團隊",
+        "topic": "hk-inheritance"
+      },
+      {
+        "story": "/articles/hk-mainland-property-inheritance/hong-kong-mainland-property-family-relationship-evidence",
+        "title": "港人繼承內地房產，親屬關係點樣補？ | 劉毅律師團隊",
+        "topic": "hk-inheritance"
+      },
+      {
+        "story": "/articles/hk-mainland-property-inheritance/hong-kong-mainland-property-inheritance-august-review",
+        "title": "8月繼承諮詢復盤：3類房產最易卡 | 劉毅律師團隊",
+        "topic": "hk-inheritance"
+      },
+      {
+        "story": "/articles/hk-mainland-property-inheritance/hong-kong-mainland-property-inheritance-eight-mistakes",
+        "title": "港人繼承內地房產，8個最常見誤區 | 劉毅律師團隊",
+        "topic": "hk-inheritance"
+      }
+    ]
   },
   "siteIndex": {
     "inspectionConnected": true,
-    "totalArticles": 367,
+    "totalArticles": 402,
     "indexed": 0,
     "notIndexed": 0,
-    "unknown": 367,
+    "unknown": 402,
     "indexedStories": []
   },
   "newlyIndexedCount": 0,
@@ -904,5 +930,5 @@
     "Unknown index state is never counted as not indexed or indexed.",
     "Publication count is de-duplicated by article story, not by language page."
   ],
-  "markdown": "# 文章日报 | 2026-09-01\n\n统计对象：2026-09-01（昨天）\n\n## 昨日发布\n\n- 新发布文章：30 篇，90 个语言页面。\n- 更新既有文章：0 篇。\n- 只找到內地住宅鑰匙，新加坡家屬先記下哪些資料 | 静为律师：unknown。\n- 內地銀行短訊留在手機裡，新加坡家屬怎樣先保留線索 | 静为律师：unknown。\n- 內地福利或補助通知寄來，新加坡家屬先確認哪個用途 | 静为律师：unknown。\n- 雲端檔案出現內地資產線索，新加坡家屬先做哪個目錄 | 静为律师：unknown。\n- 內地公司印章由家屬保管，為何不能當作處理權限 | 静为律师：unknown。\n- 內地公司股權線索不完整，新加坡家屬先把哪三項對上 | 静为律师：unknown。\n- 內地合同提到未付款項，新加坡家屬先做哪條時間線 | 静为律师：unknown。\n- 內地共有房產資料不齊，新加坡家屬先分開哪兩個問題 | 静为律师：unknown。\n- 收到內地法院通知，新加坡家屬第一天先保存甚麼 | 静为律师：unknown。\n- 內地電子錢包有餘額線索，新加坡家屬先做哪一份紀錄 | 静为律师：unknown。\n- 內地原件要交接給誰，新加坡家屬先做一份怎樣的紀錄 | 静为律师：unknown。\n- 內地執行案件留下線索，新加坡家屬先核對哪個身份 | 静为律师：unknown。\n- 內地遺產文件散在不同地方，新加坡家屬先做哪張索引 | 静为律师：unknown。\n- 內地基金帳戶通知在手，新加坡家屬先把哪些記錄留完整 | 静为律师：unknown。\n- 內地保單資料不完整，新加坡家屬先不要猜受益人 | 静为律师：unknown。\n- 家中只找到內地發票和對賬單，新加坡家屬先怎樣標註 | 静为律师：unknown。\n- 內地租屋押金未退，新加坡家屬先核對哪份材料 | 静为律师：unknown。\n- 找到內地按揭結單，新加坡家屬先看餘額還是登記 | 静为律师：unknown。\n- 英文姓名和內地舊記錄不同，新加坡家屬先做哪張對照表 | 静为律师：unknown。\n- 內地車位與住宅分開登記，新加坡家屬怎樣先不漏項 | 静为律师：unknown。\n- 只見內地付款紀錄，新加坡家屬先怎樣分清資產和債務 | 静为律师：unknown。\n- 內地電話帳戶仍可登入，新加坡家屬先怎樣避免越界 | 静为律师：unknown。\n- 內地房產稅費通知寄到新加坡，先核對人還是房屋 | 静为律师：unknown。\n- 內地匯款紀錄牽涉遺產，新加坡家屬先把哪條資金線連起來 | 静为律师：unknown。\n- 內地租約仍在，新加坡家屬先分開整理哪幾組資料 | 静为律师：unknown。\n- 內地版稅或分紅單據出現，新加坡家屬先找合同還是帳戶 | 静为律师：unknown。\n- 社交平台提到內地資產，新加坡家屬怎樣先保存而不擴散 | 静为律师：unknown。\n- 內地倉庫或保管憑證在手，新加坡家屬先保留甚麼 | 静为律师：unknown。\n- 內地稅費憑證只剩副本，新加坡家屬先看它能說明甚麼 | 静为律师：unknown。\n- 內地車輛資料留在遺物中，新加坡家屬先分清保管和處置 | 静为律师：unknown。\n\n## 收录状态\n\n- 昨日文章已确认收录：0 篇。\n- 昨日文章明确未收录：0 篇；未知：30 篇。\n- 全站已确认收录：0 / 367 篇。\n- 自上次日报新增收录：0。\n- Search Console 数据日期：2026-07-22。\n\n## 下一批选题\n\n- 可确认候选：16 / 50；仍缺 34 个合格问题。\n- 当前方向：香港继承 3 个、澳门 4 个、新加坡 5 个、美国 4 个。\n- 重点问题簇：macau-business-dispute 2 个、sg-estate-assets 2 个、sg-documents-identity 2 个、us-estate-dispute 2 个、hk-entry-process 1 个、us-litigation-response 1 个。\n\n## 升级决定\n\n- 当前没有需要立即补强或停止的已发布文章。\n- 合格库存不足，需要补充 34 个独立问题。\n- Search Console 当前有 9 条查询样本，其中 7 次命中已登记的问题模式。\n- 已接入 1 条 URL 检查记录，可执行收录生命周期判断。\n- 本轮有 16 个选题达到研究门槛，分配由真实信号和评分产生。\n- 合格选题库存不足，需要从人物搜索阶段补充 34 个独立问题。\n"
+  "markdown": "# 文章日报 | 2026-09-02\n\n统计对象：2026-09-01（昨天）\n\n## 昨日发布\n\n- 新发布文章：30 篇，90 个语言页面。\n- 更新既有文章：5 篇。\n- 只找到內地住宅鑰匙，新加坡家屬先記下哪些資料 | 静为律师：unknown。\n- 內地銀行短訊留在手機裡，新加坡家屬怎樣先保留線索 | 静为律师：unknown。\n- 內地福利或補助通知寄來，新加坡家屬先確認哪個用途 | 静为律师：unknown。\n- 雲端檔案出現內地資產線索，新加坡家屬先做哪個目錄 | 静为律师：unknown。\n- 內地公司印章由家屬保管，為何不能當作處理權限 | 静为律师：unknown。\n- 內地公司股權線索不完整，新加坡家屬先把哪三項對上 | 静为律师：unknown。\n- 內地合同提到未付款項，新加坡家屬先做哪條時間線 | 静为律师：unknown。\n- 內地共有房產資料不齊，新加坡家屬先分開哪兩個問題 | 静为律师：unknown。\n- 收到內地法院通知，新加坡家屬第一天先保存甚麼 | 静为律师：unknown。\n- 內地電子錢包有餘額線索，新加坡家屬先做哪一份紀錄 | 静为律师：unknown。\n- 內地原件要交接給誰，新加坡家屬先做一份怎樣的紀錄 | 静为律师：unknown。\n- 內地執行案件留下線索，新加坡家屬先核對哪個身份 | 静为律师：unknown。\n- 內地遺產文件散在不同地方，新加坡家屬先做哪張索引 | 静为律师：unknown。\n- 內地基金帳戶通知在手，新加坡家屬先把哪些記錄留完整 | 静为律师：unknown。\n- 內地保單資料不完整，新加坡家屬先不要猜受益人 | 静为律师：unknown。\n- 家中只找到內地發票和對賬單，新加坡家屬先怎樣標註 | 静为律师：unknown。\n- 內地租屋押金未退，新加坡家屬先核對哪份材料 | 静为律师：unknown。\n- 找到內地按揭結單，新加坡家屬先看餘額還是登記 | 静为律师：unknown。\n- 英文姓名和內地舊記錄不同，新加坡家屬先做哪張對照表 | 静为律师：unknown。\n- 內地車位與住宅分開登記，新加坡家屬怎樣先不漏項 | 静为律师：unknown。\n- 只見內地付款紀錄，新加坡家屬先怎樣分清資產和債務 | 静为律师：unknown。\n- 內地電話帳戶仍可登入，新加坡家屬先怎樣避免越界 | 静为律师：unknown。\n- 內地房產稅費通知寄到新加坡，先核對人還是房屋 | 静为律师：unknown。\n- 內地匯款紀錄牽涉遺產，新加坡家屬先把哪條資金線連起來 | 静为律师：unknown。\n- 內地租約仍在，新加坡家屬先分開整理哪幾組資料 | 静为律师：unknown。\n- 內地版稅或分紅單據出現，新加坡家屬先找合同還是帳戶 | 静为律师：unknown。\n- 社交平台提到內地資產，新加坡家屬怎樣先保存而不擴散 | 静为律师：unknown。\n- 內地倉庫或保管憑證在手，新加坡家屬先保留甚麼 | 静为律师：unknown。\n- 內地稅費憑證只剩副本，新加坡家屬先看它能說明甚麼 | 静为律师：unknown。\n- 內地車輛資料留在遺物中，新加坡家屬先分清保管和處置 | 静为律师：unknown。\n\n## 收录状态\n\n- 昨日文章已确认收录：0 篇。\n- 昨日文章明确未收录：0 篇；未知：30 篇。\n- 全站已确认收录：0 / 402 篇。\n- 自上次日报新增收录：0。\n- Search Console 数据日期：2026-07-22。\n\n## 下一批选题\n\n- 可确认候选：16 / 50；仍缺 34 个合格问题。\n- 当前方向：香港继承 3 个、澳门 4 个、新加坡 5 个、美国 4 个。\n- 重点问题簇：macau-business-dispute 2 个、sg-estate-assets 2 个、sg-documents-identity 2 个、us-estate-dispute 2 个、hk-entry-process 1 个、us-litigation-response 1 个。\n\n## 升级决定\n\n- 当前没有需要立即补强或停止的已发布文章。\n- 合格库存不足，需要补充 34 个独立问题。\n- Search Console 当前有 9 条查询样本，其中 7 次命中已登记的问题模式。\n- 已接入 1 条 URL 检查记录，可执行收录生命周期判断。\n- 本轮有 16 个选题达到研究门槛，分配由真实信号和评分产生。\n- 合格选题库存不足，需要从人物搜索阶段补充 34 个独立问题。\n"
 }
