@@ -2700,7 +2700,547 @@
       ],
       "deployedAt": "2026-09-02T09:17:00+08:00",
       "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-03:/articles/am/macau-mainland-company-equity-inheritance",
+      "story": "/articles/am/macau-mainland-company-equity-inheritance",
+      "title": "澳門家屬處理內地公司股權繼承，先核對哪三層權利",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-mainland-company-equity-inheritance.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-company-equity-inheritance_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-company-equity-inheritance_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-03T09:16:54+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-03:/articles/am/macau-mainland-shareholder-loan-dispute",
+      "story": "/articles/am/macau-mainland-shareholder-loan-dispute",
+      "title": "內地公司股東借款涉遺產，澳門家屬先分清債權還是出資",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-mainland-shareholder-loan-dispute.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-shareholder-loan-dispute_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-shareholder-loan-dispute_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-03T09:16:54+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-03:/articles/am/macau-mainland-commercial-property-inheritance",
+      "story": "/articles/am/macau-mainland-commercial-property-inheritance",
+      "title": "澳門繼承人遇到內地商舖遺產，先查登記、租約還是抵押",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-mainland-commercial-property-inheritance.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-commercial-property-inheritance_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-commercial-property-inheritance_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-03T09:16:54+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-03:/articles/am/macau-mainland-coowned-home-dispute",
+      "story": "/articles/am/macau-mainland-coowned-home-dispute",
+      "title": "內地共有住宅涉繼承爭議，澳門家屬先把份額和居住權分開",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-mainland-coowned-home-dispute.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-coowned-home-dispute_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-coowned-home-dispute_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-03T09:16:54+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-03:/articles/am/macau-mainland-property-preservation",
+      "story": "/articles/am/macau-mainland-property-preservation",
+      "title": "內地房產可能被處分，澳門家屬何時評估財產保全",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-mainland-property-preservation.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-property-preservation_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-property-preservation_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-03T09:16:54+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-03:/articles/am/macau-mainland-construction-contract-claim",
+      "story": "/articles/am/macau-mainland-construction-contract-claim",
+      "title": "內地建設工程款涉遺產，澳門家屬先整理哪份結算鏈",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-mainland-construction-contract-claim.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-construction-contract-claim_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-construction-contract-claim_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-03T09:16:54+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-03:/articles/am/macau-mainland-sale-contract-default",
+      "story": "/articles/am/macau-mainland-sale-contract-default",
+      "title": "內地大額買賣合同未履行，澳門一方先判斷解除還是索賠",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-mainland-sale-contract-default.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-sale-contract-default_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-sale-contract-default_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-03T09:16:54+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-03:/articles/am/macau-mainland-guarantee-liability",
+      "story": "/articles/am/macau-mainland-guarantee-liability",
+      "title": "內地公司擔保牽涉家族資產，澳門家屬先核對誰承擔責任",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-mainland-guarantee-liability.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-guarantee-liability_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-guarantee-liability_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-03T09:16:54+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-03:/articles/am/macau-mainland-equity-transfer-dispute",
+      "story": "/articles/am/macau-mainland-equity-transfer-dispute",
+      "title": "內地股權轉讓款未結清，澳門投資人先看合同還是工商登記",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-mainland-equity-transfer-dispute.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-equity-transfer-dispute_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-equity-transfer-dispute_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-03T09:16:54+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-03:/articles/am/macau-mainland-execution-against-property",
+      "story": "/articles/am/macau-mainland-execution-against-property",
+      "title": "內地判決要執行房產，澳門當事人先確認可執行的資產線索",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-mainland-execution-against-property.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-execution-against-property_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-execution-against-property_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-03T09:16:54+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-03:/articles/am/macau-mainland-partnership-liquidation",
+      "story": "/articles/am/macau-mainland-partnership-liquidation",
+      "title": "內地合夥企業清算涉大額資產，澳門合夥人先核對哪些帳目",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-mainland-partnership-liquidation.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-partnership-liquidation_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-partnership-liquidation_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-03T09:16:54+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-03:/articles/am/macau-mainland-family-company-control",
+      "story": "/articles/am/macau-mainland-family-company-control",
+      "title": "家族成員控制內地公司印章和帳戶，澳門股東先處理甚麼",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-mainland-family-company-control.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-family-company-control_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-family-company-control_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-03T09:16:54+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-03:/articles/am/macau-mainland-estate-creditor-claim",
+      "story": "/articles/am/macau-mainland-estate-creditor-claim",
+      "title": "內地遺產有大額債務，澳門繼承人先釐清哪些債權",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-mainland-estate-creditor-claim.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-estate-creditor-claim_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-estate-creditor-claim_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-03T09:16:54+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-03:/articles/am/macau-mainland-land-use-right-inheritance",
+      "story": "/articles/am/macau-mainland-land-use-right-inheritance",
+      "title": "內地土地使用權涉繼承，澳門家屬先看期限還是登記狀態",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-mainland-land-use-right-inheritance.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-land-use-right-inheritance_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-land-use-right-inheritance_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-03T09:16:54+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-03:/articles/am/macau-mainland-investment-account-estate",
+      "story": "/articles/am/macau-mainland-investment-account-estate",
+      "title": "內地投資帳戶納入遺產，澳門家屬先分清持有人和受益安排",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-mainland-investment-account-estate.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-investment-account-estate_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-investment-account-estate_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-03T09:16:54+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-03:/articles/am/macau-mainland-intellectual-property-inheritance",
+      "story": "/articles/am/macau-mainland-intellectual-property-inheritance",
+      "title": "內地商標和著作權納入遺產，澳門家屬先做哪個權利清單",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-mainland-intellectual-property-inheritance.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-intellectual-property-inheritance_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-intellectual-property-inheritance_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-03T09:16:54+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-03:/articles/am/macau-mainland-franchise-contract-dispute",
+      "story": "/articles/am/macau-mainland-franchise-contract-dispute",
+      "title": "內地特許經營合同涉爭議，澳門投資人先保留哪類履行資料",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-mainland-franchise-contract-dispute.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-franchise-contract-dispute_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-franchise-contract-dispute_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-03T09:16:54+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-03:/articles/am/macau-mainland-leasehold-commercial-dispute",
+      "story": "/articles/am/macau-mainland-leasehold-commercial-dispute",
+      "title": "內地商業租賃提前解約，澳門業主先核對租金、裝修還是擔保",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-mainland-leasehold-commercial-dispute.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-leasehold-commercial-dispute_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-leasehold-commercial-dispute_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-03T09:16:54+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-03:/articles/am/macau-mainland-private-lending-dispute",
+      "story": "/articles/am/macau-mainland-private-lending-dispute",
+      "title": "內地大額民間借貸涉爭議，澳門出借人先把哪條資金線補完整",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-mainland-private-lending-dispute.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-private-lending-dispute_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-private-lending-dispute_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-03T09:16:54+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-03:/articles/am/macau-mainland-asset-division-divorce",
+      "story": "/articles/am/macau-mainland-asset-division-divorce",
+      "title": "離婚牽涉內地高值資產，澳門一方先建立哪份財產清單",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-mainland-asset-division-divorce.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-asset-division-divorce_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-asset-division-divorce_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-03T09:16:54+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-03:/articles/am/macau-mainland-will-authenticity-dispute",
+      "story": "/articles/am/macau-mainland-will-authenticity-dispute",
+      "title": "內地遺囑真偽受爭議，澳門家屬先保留哪些版本和簽署線索",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-mainland-will-authenticity-dispute.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-will-authenticity-dispute_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-will-authenticity-dispute_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-03T09:16:54+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-03:/articles/am/macau-mainland-property-auction-risk",
+      "story": "/articles/am/macau-mainland-property-auction-risk",
+      "title": "內地高值房產面臨拍賣，澳門權利人先核對何種程序風險",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-mainland-property-auction-risk.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-property-auction-risk_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-property-auction-risk_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-03T09:16:54+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-03:/articles/am/macau-mainland-shareholder-deadlock",
+      "story": "/articles/am/macau-mainland-shareholder-deadlock",
+      "title": "內地公司股東僵局影響大額資產，澳門股東先分清哪兩條路徑",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-mainland-shareholder-deadlock.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-shareholder-deadlock_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-shareholder-deadlock_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-03T09:16:54+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-03:/articles/am/macau-mainland-trust-property-claim",
+      "story": "/articles/am/macau-mainland-trust-property-claim",
+      "title": "信託文件提到內地資產，澳門家屬先查是否真正納入信託",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-mainland-trust-property-claim.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-trust-property-claim_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-trust-property-claim_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-03T09:16:54+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-03:/articles/am/macau-mainland-receivables-assignment",
+      "story": "/articles/am/macau-mainland-receivables-assignment",
+      "title": "內地大額應收款被轉讓，澳門權利人先核對通知和對價",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-mainland-receivables-assignment.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-receivables-assignment_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-receivables-assignment_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-03T09:16:54+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-03:/articles/am/macau-mainland-joint-venture-exit",
+      "story": "/articles/am/macau-mainland-joint-venture-exit",
+      "title": "內地合資企業退出涉估值，澳門投資人先整理哪三類資料",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-mainland-joint-venture-exit.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-joint-venture-exit_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-joint-venture-exit_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-03T09:16:54+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-03:/articles/am/macau-mainland-estate-business-succession",
+      "story": "/articles/am/macau-mainland-estate-business-succession",
+      "title": "內地家族企業進入繼承程序，澳門家屬先分開經營和繼承問題",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-mainland-estate-business-succession.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-estate-business-succession_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-estate-business-succession_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-03T09:16:54+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-03:/articles/am/macau-mainland-property-nominee-dispute",
+      "story": "/articles/am/macau-mainland-property-nominee-dispute",
+      "title": "內地房產代持起爭議，澳門出資人先整理付款和約定證據",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-mainland-property-nominee-dispute.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-property-nominee-dispute_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-property-nominee-dispute_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-03T09:16:54+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-03:/articles/am/macau-mainland-contractual-penalty-dispute",
+      "story": "/articles/am/macau-mainland-contractual-penalty-dispute",
+      "title": "內地重大合同違約金受爭議，澳門企業先核對約定和實際損失",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-mainland-contractual-penalty-dispute.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-contractual-penalty-dispute_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-contractual-penalty-dispute_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-03T09:16:54+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-03:/articles/am/macau-mainland-estate-overseas-heirs",
+      "story": "/articles/am/macau-mainland-estate-overseas-heirs",
+      "title": "海外繼承人處理內地高值遺產，澳門家屬先搭哪份身份與授權表",
+      "topic": "macau",
+      "urls": [
+        "https://www.jingwei-law.com/articles/am/macau-mainland-estate-overseas-heirs.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-estate-overseas-heirs_cn.html",
+        "https://www.jingwei-law.com/articles/am/macau-mainland-estate-overseas-heirs_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-03T09:16:54+08:00",
+      "source": "confirmed-live-deployment"
     }
   ],
-  "updatedAt": "2026-09-02T09:15:05+08:00"
+  "updatedAt": "2026-09-03T09:16:54+08:00"
 }
