@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import html
 import json
+import sys
 from datetime import date
 from pathlib import Path
 
@@ -110,4 +111,17 @@ def main():
     add_cards(); update_sitemap(); report()
     print(f"generated {len(ARTICLES)} stories / {len(ARTICLES)*3} pages")
 
-if __name__ == "__main__": main()
+def record_verified_publication():
+    from daily_brief import record_publication
+    from datetime import datetime, timedelta, timezone
+    deployed_at = datetime.now(timezone(timedelta(hours=8))).isoformat(timespec="seconds")
+    for slug, tc, _cn, _en in ARTICLES:
+        record_publication(
+            f"/articles/us/{slug}", tc,
+            [SITE + path(slug, code) for code in ("tc", "cn", "en")],
+            ["zh-Hant", "zh-Hans", "en"], TOPIC, deployed_at,
+        )
+    print(f"recorded {len(ARTICLES)} verified stories at {deployed_at}")
+
+if __name__ == "__main__":
+    record_verified_publication() if "--record" in sys.argv else main()
