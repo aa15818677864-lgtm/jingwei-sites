@@ -1,0 +1,26 @@
+{
+  "date": "2026-09-05",
+  "storyCount": 30,
+  "sources": [
+    {
+      "type": "Mainland civil and commercial framework",
+      "reference": "PRC Civil Code, Company Law, Civil Procedure Law and related property/contract registration paths",
+      "usedFor": "separating registered rights, contracts, payment, authority, preservation and dispute routes"
+    },
+    {
+      "type": "Cross-border document-use context",
+      "reference": "Hong Kong Department of Justice document-use guidance and Mainland receiving-party requirements",
+      "usedFor": "checking overseas identity, authority, translation and verification questions without treating one document as conclusive"
+    }
+  ],
+  "review": {
+    "fiveReaders": [
+      "U.S.-based family member",
+      "U.S. investor",
+      "company decision-maker",
+      "older mobile reader",
+      "risk-conscious claimant"
+    ],
+    "finding": "Every subject is tied to a Mainland China asset, transaction or dispute ordinarily capable of exceeding RMB 200,000; the pages avoid outcome promises and retain a practical next-step checklist."
+  }
+}

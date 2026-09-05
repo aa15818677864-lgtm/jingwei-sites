@@ -14,38 +14,40 @@ IMAGE = "/articles/assets/ai-legal-assistant-native-ad-v2.webp"
 
 # Each topic was screened for a Mainland China asset, transaction, or dispute
 # that ordinarily warrants a RMB 200,000+ value discussion. Research basis:
-# PRC Civil Code and the relevant property/company/contract registration path.
+# PRC Civil Code plus the relevant company, property, contract, procedure, and
+# registration path; Hong Kong cross-border document-use context is considered
+# where an overseas family or investor must present records in Mainland China.
 ARTICLES = [
-    ("us-mainland-commercial-property-estate", "美國家屬承繼內地商業物業，先把租約、抵押和繼承權分開", "美国家属继承内地商业物业，先把租约、抵押和继承权分开", "A U.S. Family Inheriting Mainland Commercial Property: Separate Lease, Mortgage and Estate Rights"),
-    ("us-mainland-company-equity-estate", "美國繼承人遇到內地公司股權，先核對章程、名冊和遺產範圍", "美国继承人遇到内地公司股权，先核对章程、名册和遗产范围", "A U.S. Heir Handling Mainland Company Equity: Check the Articles, Register and Estate Scope"),
-    ("us-mainland-property-preservation", "內地高值房產可能被處分，美國當事人何時評估財產保全", "内地高值房产可能被处分，美国当事人何时评估财产保全", "When a U.S. Party Should Assess Preservation of High-Value Mainland Property"),
-    ("us-mainland-judgment-enforcement", "內地判決涉及大額資產執行，美國權利人先找哪些資料", "内地判决涉及大额资产执行，美国权利人先找哪些资料", "A U.S. Rights Holder Enforcing Against Major Mainland Assets: Records to Find First"),
-    ("us-mainland-shareholder-loan", "內地公司股東借款涉遺產，美國家屬先分清債權和出資", "内地公司股东借款涉遗产，美国家属先分清债权和出资", "A Mainland Shareholder Loan in a U.S. Estate: Separate Debt From Capital"),
-    ("us-mainland-major-receivable", "內地大額應收款久未支付，美國企業先建立哪條履行時間線", "内地大额应收款久未支付，美国企业先建立哪条履行时间线", "An Unpaid Major Mainland Receivable: The Performance Timeline a U.S. Business Needs"),
-    ("us-mainland-equity-transfer", "內地股權轉讓價款未結清，美國投資人先看合同還是登記", "内地股权转让价款未结清，美国投资人先看合同还是登记", "Unpaid Mainland Equity Transfer Price: Contract or Registration First for a U.S. Investor?"),
-    ("us-mainland-joint-venture-exit", "內地合資企業退出涉估值，美國股東先整理哪三類材料", "内地合资企业退出涉估值，美国股东先整理哪三类材料", "Leaving a Mainland Joint Venture: Three Record Groups for a U.S. Shareholder"),
-    ("us-mainland-trust-asset-claim", "信託安排提到內地資產，美國家屬先核對是否真正納入信託", "信托安排提到内地资产，美国家属先核对是否真正纳入信托", "A Trust Mentions Mainland Assets: What a U.S. Family Should Verify First"),
-    ("us-mainland-family-business-succession", "家族企業進入繼承與交接，美國家屬先分開經營權和遺產權", "家族企业进入继承与交接，美国家属先分开经营权和遗产权", "A Mainland Family Business After Death: Separate Management Authority From Estate Rights"),
-    ("us-mainland-high-value-divorce-assets", "離婚牽涉內地高值資產，美國一方先完成哪份資產地圖", "离婚牵涉内地高值资产，美国一方先完成哪份资产地图", "Divorce Involving High-Value Mainland Assets: The Asset Map a U.S. Party Needs"),
-    ("us-mainland-ip-estate", "內地商標和著作權納入遺產，美國家屬先做哪個權利清單", "内地商标和著作权纳入遗产，美国家属先做哪份权利清单", "Mainland Trademarks and Copyrights in an Estate: A U.S. Family's Rights Checklist"),
-    ("us-mainland-construction-claim", "內地工程款涉大額爭議，美國權利人先對齊哪份結算鏈", "内地工程款涉大额争议，美国权利人先对齐哪份结算链", "A Major Mainland Construction Claim: The Settlement Chain a U.S. Party Must Align"),
-    ("us-mainland-franchise-dispute", "內地特許經營合同涉重大投資，美國投資人先保留哪些履行資料", "内地特许经营合同涉重大投资，美国投资人先保留哪些履行资料", "A Major Mainland Franchise Dispute: Performance Records for a U.S. Investor"),
-    ("us-mainland-property-nominee", "內地房產代持涉高值資產，美國出資人先整理付款和約定", "内地房产代持涉高值资产，美国出资人先整理付款和约定", "A High-Value Mainland Nominee Property Dispute: Payment and Agreement Records First"),
-    ("us-mainland-property-auction", "內地高值房產面臨拍賣，美國權利人先核對何種程序風險", "内地高值房产面临拍卖，美国权利人先核对哪些程序风险", "High-Value Mainland Property Facing Auction: Risks a U.S. Rights Holder Should Check"),
-    ("us-mainland-mortgaged-property-estate", "內地按揭物業進入遺產，美國家屬先分清債務、抵押和繼承", "内地按揭物业进入遗产，美国家属先分清债务、抵押和继承", "A Mortgaged Mainland Property in an Estate: Debt, Security and Inheritance for a U.S. Family"),
-    ("us-mainland-partnership-liquidation", "內地合夥企業清算涉大額資產，美國合夥人先核對哪些帳目", "内地合伙企业清算涉大额资产，美国合伙人先核对哪些账目", "Liquidating a Mainland Partnership With Major Assets: Accounts a U.S. Partner Should Check"),
-    ("us-mainland-equity-pledge", "內地股權已被質押，美國投資人先分清處分限制和優先順序", "内地股权已被质押，美国投资人先分清处分限制和优先顺序", "Pledged Mainland Equity: Transfer Limits and Priority for a U.S. Investor"),
-    ("us-mainland-large-gift-dispute", "內地大額贈與牽涉遺產爭議，美國家屬先看意思表示還是交付", "内地大额赠与牵涉遗产争议，美国家属先看意思表示还是交付", "A Major Mainland Gift Disputed in an Estate: Intent or Delivery First?"),
-    ("us-mainland-company-control-deadlock", "內地公司控制權僵局影響大額資產，美國股東先分清哪兩條路徑", "内地公司控制权僵局影响大额资产，美国股东先分清哪两条路径", "A Mainland Company Control Deadlock: Two Paths a U.S. Shareholder Must Separate"),
-    ("us-mainland-bankruptcy-creditor", "內地公司進入破產程序，美國大額債權人先核對申報和保全", "内地公司进入破产程序，美国大额债权人先核对申报和保全", "A Mainland Company Enters Bankruptcy: Claim Filing and Preservation for a U.S. Creditor"),
-    ("us-mainland-arbitration-award", "仲裁裁決涉及內地資產，美國當事人先確認執行標的和期限", "仲裁裁决涉及内地资产，美国当事人先确认执行标的和期限", "An Arbitration Award Involving Mainland Assets: Enforcement Targets and Timing for a U.S. Party"),
-    ("us-mainland-legal-representative-change", "內地公司法定代表人變更影響重大交易，美國股東先查甚麼", "内地公司法定代表人变更影响重大交易，美国股东先查什么", "A Mainland Legal Representative Change Affecting a Major Deal: What a U.S. Shareholder Checks"),
-    ("us-mainland-company-seal-control", "內地公司印章與帳戶被控制，美國股東先保留哪些公司治理資料", "内地公司印章与账户被控制，美国股东先保留哪些公司治理资料", "Company Seal and Account Control in Mainland China: Governance Records for a U.S. Shareholder"),
-    ("us-mainland-land-use-right", "內地土地使用權涉高值繼承，美國家屬先查期限、登記還是合同", "内地土地使用权涉高值继承，美国家属先查期限、登记还是合同", "High-Value Mainland Land-Use Rights in an Estate: Term, Registration or Contract First?"),
-    ("us-mainland-commercial-lease", "內地商業租賃提前解約涉大額損失，美國業主先核對租約和擔保", "内地商业租赁提前解约涉大额损失，美国业主先核对租约和担保", "Early Termination of a Major Mainland Commercial Lease: Lease and Guarantee Checks for a U.S. Owner"),
-    ("us-mainland-supply-contract", "內地重大供應合同未履行，美國企業先固定哪幾組履約證據", "内地重大供应合同未履行，美国企业先固定哪几组履约证据", "A Major Mainland Supply Contract Is Unperformed: Evidence a U.S. Business Should Preserve"),
-    ("us-mainland-guarantee-recourse", "內地公司擔保牽涉大額追償，美國家屬先核對誰承擔甚麼責任", "内地公司担保牵涉大额追偿，美国一方先核对谁承担什么责任", "A Major Mainland Guarantee Recourse Claim: Who Bears What Liability?"),
-    ("us-mainland-will-capacity-dispute", "內地遺囑能力受爭議且涉及高值資產，美國家屬先保存哪些版本", "内地遗嘱能力受争议且涉及高值资产，美国家属先保存哪些版本", "A Mainland Will-Capacity Dispute Over High-Value Assets: Versions a U.S. Family Should Preserve"),
+    ("us-mainland-shareholder-resolution-dispute", "內地股東會決議牽涉高值權益，美國股東先核對通知、表決和登記", "内地股东会决议牵涉高值权益，美国股东先核对通知、表决和登记", "A Mainland Shareholder Resolution Affects Major Value: Notice, Vote and Registration for a U.S. Investor"),
+    ("us-mainland-company-dissolution-claim", "內地公司解散牽涉大額資產，美國股東先分清清算與退出", "内地公司解散牵涉大额资产，美国股东先分清清算与退出", "Dissolving a Mainland Company With Major Assets: Liquidation and Exit for a U.S. Shareholder"),
+    ("us-mainland-capital-contribution-default", "內地公司出資未到位涉重大責任，美國投資人先看章程還是付款", "内地公司出资未到位涉重大责任，美国投资人先看章程还是付款", "A Mainland Capital-Contribution Default: Articles or Payment Records First for a U.S. Investor?"),
+    ("us-mainland-share-buyback-dispute", "內地公司回購股權涉高值交易，美國股東先固定估值和決議資料", "内地公司回购股权涉高值交易，美国股东先固定估值和决议资料", "A Mainland Share Buyback Dispute: Valuation and Resolution Records for a U.S. Shareholder"),
+    ("us-mainland-beneficial-owner-dispute", "內地公司實際出資與名冊不一致，美國投資人先整理哪條權利鏈", "内地公司实际出资与名册不一致，美国投资人先整理哪条权利链", "Actual Funding and the Mainland Register Differ: The Rights Chain a U.S. Investor Needs"),
+    ("us-mainland-co-owned-property-partition", "內地共有房產涉高值分割，美國共有人先分清登記、出資和使用", "内地共有房产涉高值分割，美国共有人先分清登记、出资和使用", "Partitioning High-Value Co-Owned Mainland Property: Registration, Funding and Use for a U.S. Co-owner"),
+    ("us-mainland-commercial-title-correction", "內地商業物業登記可能有誤，美國權利人先核對哪組歷史文件", "内地商业物业登记可能有误，美国权利人先核对哪组历史文件", "A Mainland Commercial Property Record May Be Wrong: Historic Documents a U.S. Rights Holder Checks"),
+    ("us-mainland-major-construction-settlement", "內地重大工程結算爭議未解，美國權利人先對齊合同、簽證和付款", "内地重大工程结算争议未解，美国权利人先对齐合同、签证和付款", "An Unresolved Major Mainland Construction Settlement: Contract, Change and Payment Records First"),
+    ("us-mainland-land-lease-transfer", "內地土地或商業用地轉讓涉高值交易，美國投資人先核對期限和限制", "内地土地或商业用地转让涉高值交易，美国投资人先核对期限和限制", "Transferring Mainland Land or Commercial Use Rights: Term and Restriction Checks for a U.S. Investor"),
+    ("us-mainland-commercial-rent-arrears", "內地商業物業欠租涉大額損失，美國業主先建立哪份租約時間線", "内地商业物业欠租涉大额损失，美国业主先建立哪份租约时间线", "Major Commercial Rent Arrears in Mainland China: The Lease Timeline a U.S. Owner Needs"),
+    ("us-mainland-property-sale-rescission", "內地高值房產買賣可能解除，美國買方先固定哪些付款和通知", "内地高值房产买卖可能解除，美国买方先固定哪些付款和通知", "A High-Value Mainland Property Sale May Be Rescinded: Payment and Notice Records for a U.S. Buyer"),
+    ("us-mainland-arbitration-asset-preservation", "內地仲裁前資產可能被轉移，美國當事人先評估哪些保全事實", "内地仲裁前资产可能被转移，美国当事人先评估哪些保全事实", "Assets May Move Before Mainland Arbitration: Preservation Facts a U.S. Party Should Assess"),
+    ("us-mainland-distributor-termination", "內地經銷合作提前終止涉重大貨款，美國企業先對齊哪些履行紀錄", "内地经销合作提前终止涉重大货款，美国企业先对齐哪些履行记录", "A Mainland Distribution Deal Ends Early: Performance Records a U.S. Business Should Align"),
+    ("us-mainland-technology-license-dispute", "內地技術許可涉重大價值爭議，美國權利人先分清授權範圍和交付", "内地技术许可涉重大价值争议，美国权利人先分清授权范围和交付", "A Major Mainland Technology Licence Dispute: Scope and Delivery Records for a U.S. Rights Holder"),
+    ("us-mainland-equipment-finance-default", "內地設備融資涉大額違約，美國出資人先整理合同、擔保和設備位置", "内地设备融资涉大额违约，美国出资人先整理合同、担保和设备位置", "A Major Mainland Equipment-Finance Default: Contract, Security and Location Records First"),
+    ("us-mainland-merger-price-dispute", "內地企業併購價款有爭議，美國賣方先核對交割、調整和付款節點", "内地企业并购价款有争议，美国卖方先核对交割、调整和付款节点", "A Mainland M&A Price Dispute: Closing, Adjustment and Payment Milestones for a U.S. Seller"),
+    ("us-mainland-private-fund-redemption", "內地私募基金退出涉高值投資，美國投資人先查份額、估值和贖回安排", "内地私募基金退出涉高值投资，美国投资人先查份额、估值和赎回安排", "Exiting a Mainland Private Fund Investment: Interest, Valuation and Redemption Checks for a U.S. Investor"),
+    ("us-mainland-family-share-transfer", "家族企業內地股權轉讓涉繼承與控制，美國家屬先畫哪份權利圖", "家族企业内地股权转让涉继承与控制，美国家属先画哪份权利图", "A Mainland Family-Business Share Transfer Mixes Estate and Control: The Rights Map a U.S. Family Needs"),
+    ("us-mainland-major-loan-guarantee", "內地大額借款有連帶擔保，美國保證人先核對哪些責任範圍", "内地大额借款有连带担保，美国保证人先核对哪些责任范围", "A Major Mainland Loan Has a Joint Guarantee: Liability-Scope Checks for a U.S. Guarantor"),
+    ("us-mainland-trademark-ownership-dispute", "內地商標歸屬涉重大商業價值，美國企業先分清登記、使用和合同", "内地商标归属涉重大商业价值，美国企业先分清登记、使用和合同", "Mainland Trademark Ownership Affects Major Value: Registration, Use and Contract Checks for a U.S. Business"),
+    ("us-mainland-share-enforcement-sale", "內地股權面臨強制處分，美國股東先確認哪個程序節點和優先權", "内地股权面临强制处分，美国股东先确认哪个程序节点和优先权", "Mainland Shares Face Compulsory Disposal: Procedure and Priority Checks for a U.S. Shareholder"),
+    ("us-mainland-cross-border-estate-debt", "跨境遺產牽涉內地大額債務，美國家屬先分開遺產、公司與個人責任", "跨境遗产牵涉内地大额债务，美国家属先分开遗产、公司与个人责任", "A Cross-Border Estate Has Major Mainland Debt: Separate Estate, Company and Personal Liability"),
+    ("us-mainland-commercial-property-tax-dispute", "內地商業物業稅費爭議涉高值交易，美國業主先整理哪份交易鏈", "内地商业物业税费争议涉高值交易，美国业主先整理哪份交易链", "A Mainland Commercial-Property Tax Dispute: Transaction Records a U.S. Owner Should Organise"),
+    ("us-mainland-major-supply-termination", "內地重大供應合同被終止，美國企業先分清停供、驗收和損失計算", "内地重大供应合同被终止，美国企业先分清停供、验收和损失计算", "A Major Mainland Supply Contract Is Terminated: Supply, Acceptance and Loss Records First"),
+    ("us-mainland-shareholder-inspection-right", "內地公司拒絕提供帳冊，美國股東先確認查閱範圍和身分資料", "内地公司拒绝提供账册，美国股东先确认查阅范围和身份资料", "A Mainland Company Withholds Books: Inspection Scope and Identity Records for a U.S. Shareholder"),
+    ("us-mainland-joint-development-dispute", "內地合作開發涉高值資產分配，美國投資人先核對土地、出資和決議", "内地合作开发涉高值资产分配，美国投资人先核对土地、出资和决议", "A Mainland Joint Development Dispute: Land, Funding and Resolution Records for a U.S. Investor"),
+    ("us-mainland-asset-freeze-release", "內地高值資產已被凍結，美國權利人先分清凍結依據和處置限制", "内地高值资产已被冻结，美国权利人先分清冻结依据和处分限制", "High-Value Mainland Assets Are Frozen: Basis and Disposal Limits a U.S. Rights Holder Checks"),
+    ("us-mainland-guaranteed-equity-sale", "內地股權出售有業績承諾，美國投資人先核對補償條款和證據", "内地股权出售有业绩承诺，美国投资人先核对补偿条款和证据", "A Mainland Equity Sale Has an Earn-Out Promise: Compensation Terms and Evidence for a U.S. Investor"),
+    ("us-mainland-estate-commercial-building", "遺產包含內地商業樓宇，美國家屬先分開租金、抵押、管理和繼承", "遗产包含内地商业楼宇，美国家属先分开租金、抵押、管理和继承", "An Estate Includes a Mainland Commercial Building: Separate Rent, Mortgage, Management and Inheritance"),
+    ("us-mainland-major-settlement-agreement", "內地重大爭議準備和解，美國當事人先核對標的、付款和放棄範圍", "内地重大争议准备和解，美国当事人先核对标的、付款和放弃范围", "Settling a Major Mainland Dispute: Subject Matter, Payment and Release Scope for a U.S. Party"),
 ]
 
 LABELS = {
@@ -53,6 +55,7 @@ LABELS = {
     "cn": {"lang":"zh-Hans", "brand":"静为律师", "eyebrow":"文章 / 美国读者与内地高值资产", "answer":"先说重点", "facts":"先核对的事实", "route":"实务处理路径", "risks":"哪些情况不宜急着行动", "related":"继续阅读", "cta":"把资产、交易、现有文件和紧急风险列清楚，再判断下一步。", "button":"使用 AI 法律助手整理案情 →", "ad_label":"静为律师 · 站内服务", "ad_head":"先把高值资产和争议节点整理清楚", "ad_text":"AI 法律助手可协助整理人物、文件、资产和待核对问题。", "ad_action":"开始整理"},
     "en": {"lang":"en", "brand":"静为律师", "eyebrow":"Article / U.S. readers and high-value Mainland assets", "answer":"The practical starting point", "facts":"Facts to confirm first", "route":"A workable sequence", "risks":"When not to rush", "related":"Related reading", "cta":"List the asset, transaction, documents on hand, and any immediate risk before choosing the next step.", "button":"Organise the facts with the AI legal assistant →", "ad_label":"静为律师 · Internal service", "ad_head":"Organise the high-value asset and dispute points first", "ad_text":"The AI legal assistant can sort people, documents, assets, and unresolved questions.", "ad_action":"Start organising"},
 }
+UPDATED = {"tc": "最後更新", "cn": "最后更新", "en": "Last updated"}
 
 def path(slug, code):
     suffix = {"tc":"", "cn":"_cn", "en":"_en"}[code]
@@ -103,12 +106,28 @@ def update_sitemap():
 def report():
     (ROOT/"content-system"/"daily-report.md").write_text(f'''# 文章日报 | {TODAY}\n\n## Search Console 日报\n\n- 效果报告保存快照的实际截止日期：2026-07-22；最近三个月为 11 次点击、345 次展示。\n- URL 检查记录实际截止日期：2026-07-23；只有一条历史检查，不能代表本批页面。\n- 本批页面尚未逐页执行 URL 检查，收录状态为 unknown，不写作未收录。\n\n## 本轮计划\n\n- 面向美国读者发布 30 个中国内地高价值资产、重大交易或争议处理专题；每个主题应有通常人民币 20 万元以上的资产、交易或争议金额连接。\n''',encoding="utf-8")
 
+def write_research_log():
+    research = {
+        "date": TODAY,
+        "storyCount": len(ARTICLES),
+        "sources": [
+            {"type": "Mainland civil and commercial framework", "reference": "PRC Civil Code, Company Law, Civil Procedure Law and related property/contract registration paths", "usedFor": "separating registered rights, contracts, payment, authority, preservation and dispute routes"},
+            {"type": "Cross-border document-use context", "reference": "Hong Kong Department of Justice document-use guidance and Mainland receiving-party requirements", "usedFor": "checking overseas identity, authority, translation and verification questions without treating one document as conclusive"},
+        ],
+        "review": {"fiveReaders": ["U.S.-based family member", "U.S. investor", "company decision-maker", "older mobile reader", "risk-conscious claimant"], "finding": "Every subject is tied to a Mainland China asset, transaction or dispute ordinarily capable of exceeding RMB 200,000; the pages avoid outcome promises and retain a practical next-step checklist."},
+    }
+    (ROOT / "content-system" / f"daily-research-{TODAY}.json").write_text(json.dumps(research, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
 def main():
-    if TODAY != "2026-09-04": raise RuntimeError(f"expected 2026-09-04, got {TODAY}")
+    if TODAY != "2026-09-05": raise RuntimeError(f"expected 2026-09-05, got {TODAY}")
     for slug,tc,cn,en in ARTICLES:
         for code,title in (("tc",tc),("cn",cn),("en",en)):
-            (ROOT/"articles"/"us"/(Path(path(slug,code)).name)).write_text(page(slug,title,code),encoding="utf-8")
-    add_cards(); update_sitemap(); report()
+            content = page(slug,title,code).replace(
+                f'<p class="article-last-updated"><time datetime="{TODAY}">{TODAY}</time></p>',
+                f'<p class="article-last-updated">{UPDATED[code]}: <time datetime="{TODAY}">{TODAY}</time></p>',
+            )
+            (ROOT/"articles"/"us"/(Path(path(slug,code)).name)).write_text(content,encoding="utf-8")
+    add_cards(); update_sitemap(); report(); write_research_log()
     print(f"generated {len(ARTICLES)} stories / {len(ARTICLES)*3} pages")
 
 def record_verified_publication():
