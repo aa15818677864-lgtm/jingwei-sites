@@ -50,6 +50,41 @@ ARTICLES = [
     ("us-mainland-major-settlement-agreement", "內地重大爭議準備和解，美國當事人先核對標的、付款和放棄範圍", "内地重大争议准备和解，美国当事人先核对标的、付款和放弃范围", "Settling a Major Mainland Dispute: Subject Matter, Payment and Release Scope for a U.S. Party"),
 ]
 
+# 2026-09-06: distinct U.S.-reader stories, each centred on a Mainland China
+# asset, transaction, or dispute that ordinarily clears the RMB 200,000 screen.
+ARTICLES = [
+    ("us-mainland-commercial-building-mortgage", "內地商業樓宇按揭涉高值風險，美國家屬先核對抵押、租約與繼承", "内地商业楼宇按揭涉高值风险，美国家属先核对抵押、租约与继承", "A Mainland Commercial Building Has a Mortgage: Lease, Security and Estate Checks for a U.S. Family"),
+    ("us-mainland-private-company-deadlock", "內地民企陷入僵局涉高值股權，美國股東先整理控制與退出資料", "内地民企陷入僵局涉高值股权，美国股东先整理控制与退出资料", "A Mainland Private Company Is Deadlocked: Control and Exit Records for a U.S. Shareholder"),
+    ("us-mainland-major-receivables-assignment", "內地大額應收款被轉讓，美國企業先核對通知、合同與付款去向", "内地大额应收款被转让，美国企业先核对通知、合同与付款去向", "A Major Mainland Receivable Is Assigned: Notice, Contract and Payment Checks for a U.S. Business"),
+    ("us-mainland-factory-sale-deposit", "內地廠房買賣定金涉高值交易，美國買方先固定付款與條款", "内地厂房买卖定金涉高值交易，美国买方先固定付款与条款", "A Mainland Factory Sale Deposit Is at Risk: Payment and Contract Checks for a U.S. Buyer"),
+    ("us-mainland-venture-control-dispute", "內地合資企業控制權有爭議，美國投資人先對齊章程、決議與授權", "内地合资企业控制权有争议，美国投资人先对齐章程、决议与授权", "A Mainland Joint Venture Has a Control Dispute: Articles, Resolutions and Authority for a U.S. Investor"),
+    ("us-mainland-high-value-gift-revocation", "內地高值資產贈與可能撤回，美國家屬先核對交付、條件與登記", "内地高值资产赠与可能撤回，美国家属先核对交付、条件与登记", "A High-Value Mainland Gift May Be Revoked: Delivery, Conditions and Registration for a U.S. Family"),
+    ("us-mainland-share-pledge-enforcement", "內地股權已質押且可能處置，美國投資人先分清順位、期限與通知", "内地股权已质押且可能处置，美国投资人先分清顺位、期限与通知", "Mainland Shares Are Pledged and May Be Enforced: Priority, Timing and Notice for a U.S. Investor"),
+    ("us-mainland-industrial-land-dispute", "內地工業用地權益有爭議，美國企業先核對出讓、建設與限制", "内地工业用地权益有争议，美国企业先核对出让、建设与限制", "A Mainland Industrial Land Right Is Disputed: Grant, Construction and Restriction Checks for a U.S. Business"),
+    ("us-mainland-equity-inheritance-valuation", "內地公司股權進入繼承涉高值估值，美國家屬先整理章程與資產資料", "内地公司股权进入继承涉高值估值，美国家属先整理章程与资产资料", "Mainland Company Shares Enter an Estate: Valuation and Articles Checks for a U.S. Family"),
+    ("us-mainland-major-franchise-dispute", "內地特許經營涉重大交易爭議，美國品牌方先整理授權、門店與付款", "内地特许经营涉重大交易争议，美国品牌方先整理授权、门店与付款", "A Major Mainland Franchise Dispute: Licence, Store and Payment Records for a U.S. Brand Owner"),
+    ("us-mainland-business-sale-escrow", "內地企業出售尾款被託管，美國賣方先核對交割條件與放款路徑", "内地企业出售尾款被托管，美国卖方先核对交割条件与放款路径", "Sale Proceeds for a Mainland Business Are in Escrow: Closing Conditions and Release Steps for a U.S. Seller"),
+    ("us-mainland-hotel-management-claim", "內地酒店管理合同涉大額收益，美國業主先固定業績、費用與通知", "内地酒店管理合同涉大额收益，美国业主先固定业绩、费用与通知", "A Mainland Hotel Management Contract Involves Major Revenue: Performance, Fees and Notice for a U.S. Owner"),
+    ("us-mainland-major-equipment-title", "內地重大設備權屬不清，美國出資人先核對購買、融資與交付鏈", "内地重大设备权属不清，美国出资人先核对购买、融资与交付链", "Title to Major Mainland Equipment Is Unclear: Purchase, Finance and Delivery Records for a U.S. Funder"),
+    ("us-mainland-crossborder-guarantee-call", "跨境擔保被主張付款涉大額責任，美國保證人先核對主債、通知與期限", "跨境担保被主张付款涉大额责任，美国保证人先核对主债、通知与期限", "A Cross-Border Guarantee Is Called on a Major Mainland Debt: Principal Debt, Notice and Timing for a U.S. Guarantor"),
+    ("us-mainland-company-stamp-custody-dispute", "內地公司印章保管權有爭議涉重大交易風險，美國股東先保存決議與交接紀錄", "内地公司印章保管权有争议涉重大交易风险，美国股东先保存决议与交接记录", "A Mainland Company Stamp-Custody Dispute Creates Major Risk: Resolution and Handover Records for a U.S. Shareholder"),
+    ("us-mainland-major-service-contract", "內地重大服務合同履行爭議，美國客戶先對齊範圍、驗收與付款", "内地重大服务合同履行争议，美国客户先对齐范围、验收与付款", "A Major Mainland Service Contract Is Disputed: Scope, Acceptance and Payment Records for a U.S. Client"),
+    ("us-mainland-overseas-shareholder-register", "內地公司名冊未載海外股東，高值權益主張先核對登記鏈", "内地公司名册未载海外股东，高值权益主张先核对登记链", "A Mainland Register Omits an Overseas Shareholder: The Registration Chain Behind a High-Value Claim"),
+    ("us-mainland-property-auction-bid", "內地高值物業拍賣前，美國競買人先核對權屬、佔用與優先權", "内地高值物业拍卖前，美国竞买人先核对权属、占用与优先权", "Before Bidding at a Mainland Property Auction: Title, Occupancy and Priority Checks for a U.S. Buyer"),
+    ("us-mainland-major-shareholder-loan", "內地公司與股東大額借款不清，美國投資人先分開債權與出資", "内地公司与股东大额借款不清，美国投资人先分开债权与出资", "Major Loans Between a Mainland Company and Shareholders: Separate Debt and Capital for a U.S. Investor"),
+    ("us-mainland-commercial-lease-transfer", "內地商業租約轉讓涉高值生意，美國承租人先核對同意、違約與保證金", "内地商业租约转让涉高值生意，美国承租人先核对同意、违约与保证金", "Transferring a Mainland Commercial Lease: Consent, Default and Deposit Checks for a U.S. Tenant"),
+    ("us-mainland-asset-preservation-bond", "內地大額爭議申請保全前，美國當事人先評估標的、擔保與時點", "内地大额争议申请保全前，美国当事人先评估标的、担保与时点", "Before Seeking Preservation in a Major Mainland Dispute: Asset, Security and Timing Checks for a U.S. Party"),
+    ("us-mainland-estate-business-debt", "遺產含內地企業債務涉高值風險，美國繼承人先分清遺產與公司責任", "遗产含内地企业债务涉高值风险，美国继承人先分清遗产与公司责任", "An Estate Includes Mainland Business Debt: Separate Estate and Company Exposure for a U.S. Heir"),
+    ("us-mainland-major-ip-assignment", "內地重大知識產權轉讓有爭議，美國企業先整理權屬、登記與對價", "内地重大知识产权转让有争议，美国企业先整理权属、登记与对价", "A Major Mainland IP Assignment Is Disputed: Ownership, Registration and Price Records for a U.S. Business"),
+    ("us-mainland-construction-guarantee-claim", "內地工程保函被索賠涉大額責任，美國承包方先核對條件、通知與工程紀錄", "内地工程保函被索赔涉大额责任，美国承包方先核对条件、通知与工程记录", "A Mainland Construction Guarantee Is Claimed: Conditions, Notice and Project Records for a U.S. Contractor"),
+    ("us-mainland-major-debt-restructuring", "內地大額債務重組進行中，美國債權人先比較期限、擔保與受償順位", "内地大额债务重组进行中，美国债权人先比较期限、担保与受偿顺位", "A Major Mainland Debt Is Being Restructured: Term, Security and Priority Checks for a U.S. Creditor"),
+    ("us-mainland-company-records-preservation", "內地公司帳冊可能滅失涉高值爭議，美國股東先固定治理與財務資料", "内地公司账册可能灭失涉高值争议，美国股东先固定治理与财务资料", "Mainland Company Records May Be Lost: Governance and Finance Evidence for a U.S. Shareholder's High-Value Dispute"),
+    ("us-mainland-major-property-coownership", "內地高值物業多人共有，美國家屬先分清出資、使用與處分權", "内地高值物业多人共有，美国家属先分清出资、使用与处分权", "High-Value Mainland Property Has Multiple Co-owners: Funding, Use and Disposal Rights for a U.S. Family"),
+    ("us-mainland-investment-exit-default", "內地投資退出付款違約，美國投資人先核對回購、擔保與催告時間線", "内地投资退出付款违约，美国投资人先核对回购、担保与催告时间线", "A Mainland Investment Exit Payment Defaults: Buyback, Security and Notice Timeline for a U.S. Investor"),
+    ("us-mainland-major-supply-chain-claim", "內地重大供應鏈索賠涉高值損失，美國企業先整理訂單、驗收與替代成本", "内地重大供应链索赔涉高值损失，美国企业先整理订单、验收与替代成本", "A Major Mainland Supply-Chain Claim: Orders, Acceptance and Replacement Costs for a U.S. Business"),
+    ("us-mainland-commercial-property-execution", "內地商業物業進入執行，美國權利人先核對查封、租賃與拍賣節點", "内地商业物业进入执行，美国权利人先核对查封、租赁与拍卖节点", "A Mainland Commercial Property Enters Enforcement: Seizure, Lease and Auction Milestones for a U.S. Rights Holder"),
+]
+
 LABELS = {
     "tc": {"lang":"zh-Hant", "brand":"静为律师", "eyebrow":"文章 / 美國讀者與內地高值資產", "answer":"先說重點", "facts":"先核對的事實", "route":"實務處理路徑", "risks":"何時不宜急着行動", "related":"繼續閱讀", "cta":"把資產、交易、目前文件與緊急風險列清楚，再判斷下一步。", "button":"使用 AI 法律助手整理案情 →", "ad_label":"静为律师 · 站內服務", "ad_head":"先把高值資產與爭議節點整理清楚", "ad_text":"AI 法律助手可協助整理人物、文件、資產和待核對問題。", "ad_action":"開始整理"},
     "cn": {"lang":"zh-Hans", "brand":"静为律师", "eyebrow":"文章 / 美国读者与内地高值资产", "answer":"先说重点", "facts":"先核对的事实", "route":"实务处理路径", "risks":"哪些情况不宜急着行动", "related":"继续阅读", "cta":"把资产、交易、现有文件和紧急风险列清楚，再判断下一步。", "button":"使用 AI 法律助手整理案情 →", "ad_label":"静为律师 · 站内服务", "ad_head":"先把高值资产和争议节点整理清楚", "ad_text":"AI 法律助手可协助整理人物、文件、资产和待核对问题。", "ad_action":"开始整理"},
@@ -119,7 +154,7 @@ def write_research_log():
     (ROOT / "content-system" / f"daily-research-{TODAY}.json").write_text(json.dumps(research, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 def main():
-    if TODAY != "2026-09-05": raise RuntimeError(f"expected 2026-09-05, got {TODAY}")
+    if TODAY != "2026-09-06": raise RuntimeError(f"expected 2026-09-06, got {TODAY}")
     for slug,tc,cn,en in ARTICLES:
         for code,title in (("tc",tc),("cn",cn),("en",en)):
             content = page(slug,title,code).replace(
