@@ -4320,7 +4320,547 @@
       ],
       "deployedAt": "2026-09-05T09:13:03+08:00",
       "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-06:/articles/us/us-mainland-commercial-building-mortgage",
+      "story": "/articles/us/us-mainland-commercial-building-mortgage",
+      "title": "內地商業樓宇按揭涉高值風險，美國家屬先核對抵押、租約與繼承",
+      "topic": "united-states",
+      "urls": [
+        "https://www.jingwei-law.com/articles/us/us-mainland-commercial-building-mortgage.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-commercial-building-mortgage_cn.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-commercial-building-mortgage_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-06T09:19:20+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-06:/articles/us/us-mainland-private-company-deadlock",
+      "story": "/articles/us/us-mainland-private-company-deadlock",
+      "title": "內地民企陷入僵局涉高值股權，美國股東先整理控制與退出資料",
+      "topic": "united-states",
+      "urls": [
+        "https://www.jingwei-law.com/articles/us/us-mainland-private-company-deadlock.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-private-company-deadlock_cn.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-private-company-deadlock_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-06T09:19:20+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-06:/articles/us/us-mainland-major-receivables-assignment",
+      "story": "/articles/us/us-mainland-major-receivables-assignment",
+      "title": "內地大額應收款被轉讓，美國企業先核對通知、合同與付款去向",
+      "topic": "united-states",
+      "urls": [
+        "https://www.jingwei-law.com/articles/us/us-mainland-major-receivables-assignment.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-major-receivables-assignment_cn.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-major-receivables-assignment_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-06T09:19:20+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-06:/articles/us/us-mainland-factory-sale-deposit",
+      "story": "/articles/us/us-mainland-factory-sale-deposit",
+      "title": "內地廠房買賣定金涉高值交易，美國買方先固定付款與條款",
+      "topic": "united-states",
+      "urls": [
+        "https://www.jingwei-law.com/articles/us/us-mainland-factory-sale-deposit.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-factory-sale-deposit_cn.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-factory-sale-deposit_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-06T09:19:20+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-06:/articles/us/us-mainland-venture-control-dispute",
+      "story": "/articles/us/us-mainland-venture-control-dispute",
+      "title": "內地合資企業控制權有爭議，美國投資人先對齊章程、決議與授權",
+      "topic": "united-states",
+      "urls": [
+        "https://www.jingwei-law.com/articles/us/us-mainland-venture-control-dispute.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-venture-control-dispute_cn.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-venture-control-dispute_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-06T09:19:20+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-06:/articles/us/us-mainland-high-value-gift-revocation",
+      "story": "/articles/us/us-mainland-high-value-gift-revocation",
+      "title": "內地高值資產贈與可能撤回，美國家屬先核對交付、條件與登記",
+      "topic": "united-states",
+      "urls": [
+        "https://www.jingwei-law.com/articles/us/us-mainland-high-value-gift-revocation.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-high-value-gift-revocation_cn.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-high-value-gift-revocation_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-06T09:19:20+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-06:/articles/us/us-mainland-share-pledge-enforcement",
+      "story": "/articles/us/us-mainland-share-pledge-enforcement",
+      "title": "內地股權已質押且可能處置，美國投資人先分清順位、期限與通知",
+      "topic": "united-states",
+      "urls": [
+        "https://www.jingwei-law.com/articles/us/us-mainland-share-pledge-enforcement.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-share-pledge-enforcement_cn.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-share-pledge-enforcement_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-06T09:19:20+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-06:/articles/us/us-mainland-industrial-land-dispute",
+      "story": "/articles/us/us-mainland-industrial-land-dispute",
+      "title": "內地工業用地權益有爭議，美國企業先核對出讓、建設與限制",
+      "topic": "united-states",
+      "urls": [
+        "https://www.jingwei-law.com/articles/us/us-mainland-industrial-land-dispute.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-industrial-land-dispute_cn.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-industrial-land-dispute_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-06T09:19:20+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-06:/articles/us/us-mainland-equity-inheritance-valuation",
+      "story": "/articles/us/us-mainland-equity-inheritance-valuation",
+      "title": "內地公司股權進入繼承涉高值估值，美國家屬先整理章程與資產資料",
+      "topic": "united-states",
+      "urls": [
+        "https://www.jingwei-law.com/articles/us/us-mainland-equity-inheritance-valuation.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-equity-inheritance-valuation_cn.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-equity-inheritance-valuation_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-06T09:19:20+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-06:/articles/us/us-mainland-major-franchise-dispute",
+      "story": "/articles/us/us-mainland-major-franchise-dispute",
+      "title": "內地特許經營涉重大交易爭議，美國品牌方先整理授權、門店與付款",
+      "topic": "united-states",
+      "urls": [
+        "https://www.jingwei-law.com/articles/us/us-mainland-major-franchise-dispute.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-major-franchise-dispute_cn.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-major-franchise-dispute_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-06T09:19:20+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-06:/articles/us/us-mainland-business-sale-escrow",
+      "story": "/articles/us/us-mainland-business-sale-escrow",
+      "title": "內地企業出售尾款被託管，美國賣方先核對交割條件與放款路徑",
+      "topic": "united-states",
+      "urls": [
+        "https://www.jingwei-law.com/articles/us/us-mainland-business-sale-escrow.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-business-sale-escrow_cn.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-business-sale-escrow_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-06T09:19:20+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-06:/articles/us/us-mainland-hotel-management-claim",
+      "story": "/articles/us/us-mainland-hotel-management-claim",
+      "title": "內地酒店管理合同涉大額收益，美國業主先固定業績、費用與通知",
+      "topic": "united-states",
+      "urls": [
+        "https://www.jingwei-law.com/articles/us/us-mainland-hotel-management-claim.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-hotel-management-claim_cn.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-hotel-management-claim_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-06T09:19:20+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-06:/articles/us/us-mainland-major-equipment-title",
+      "story": "/articles/us/us-mainland-major-equipment-title",
+      "title": "內地重大設備權屬不清，美國出資人先核對購買、融資與交付鏈",
+      "topic": "united-states",
+      "urls": [
+        "https://www.jingwei-law.com/articles/us/us-mainland-major-equipment-title.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-major-equipment-title_cn.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-major-equipment-title_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-06T09:19:20+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-06:/articles/us/us-mainland-crossborder-guarantee-call",
+      "story": "/articles/us/us-mainland-crossborder-guarantee-call",
+      "title": "跨境擔保被主張付款涉大額責任，美國保證人先核對主債、通知與期限",
+      "topic": "united-states",
+      "urls": [
+        "https://www.jingwei-law.com/articles/us/us-mainland-crossborder-guarantee-call.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-crossborder-guarantee-call_cn.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-crossborder-guarantee-call_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-06T09:19:20+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-06:/articles/us/us-mainland-company-stamp-custody-dispute",
+      "story": "/articles/us/us-mainland-company-stamp-custody-dispute",
+      "title": "內地公司印章保管權有爭議涉重大交易風險，美國股東先保存決議與交接紀錄",
+      "topic": "united-states",
+      "urls": [
+        "https://www.jingwei-law.com/articles/us/us-mainland-company-stamp-custody-dispute.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-company-stamp-custody-dispute_cn.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-company-stamp-custody-dispute_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-06T09:19:20+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-06:/articles/us/us-mainland-major-service-contract",
+      "story": "/articles/us/us-mainland-major-service-contract",
+      "title": "內地重大服務合同履行爭議，美國客戶先對齊範圍、驗收與付款",
+      "topic": "united-states",
+      "urls": [
+        "https://www.jingwei-law.com/articles/us/us-mainland-major-service-contract.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-major-service-contract_cn.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-major-service-contract_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-06T09:19:20+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-06:/articles/us/us-mainland-overseas-shareholder-register",
+      "story": "/articles/us/us-mainland-overseas-shareholder-register",
+      "title": "內地公司名冊未載海外股東，高值權益主張先核對登記鏈",
+      "topic": "united-states",
+      "urls": [
+        "https://www.jingwei-law.com/articles/us/us-mainland-overseas-shareholder-register.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-overseas-shareholder-register_cn.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-overseas-shareholder-register_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-06T09:19:20+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-06:/articles/us/us-mainland-property-auction-bid",
+      "story": "/articles/us/us-mainland-property-auction-bid",
+      "title": "內地高值物業拍賣前，美國競買人先核對權屬、佔用與優先權",
+      "topic": "united-states",
+      "urls": [
+        "https://www.jingwei-law.com/articles/us/us-mainland-property-auction-bid.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-property-auction-bid_cn.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-property-auction-bid_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-06T09:19:20+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-06:/articles/us/us-mainland-major-shareholder-loan",
+      "story": "/articles/us/us-mainland-major-shareholder-loan",
+      "title": "內地公司與股東大額借款不清，美國投資人先分開債權與出資",
+      "topic": "united-states",
+      "urls": [
+        "https://www.jingwei-law.com/articles/us/us-mainland-major-shareholder-loan.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-major-shareholder-loan_cn.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-major-shareholder-loan_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-06T09:19:20+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-06:/articles/us/us-mainland-commercial-lease-transfer",
+      "story": "/articles/us/us-mainland-commercial-lease-transfer",
+      "title": "內地商業租約轉讓涉高值生意，美國承租人先核對同意、違約與保證金",
+      "topic": "united-states",
+      "urls": [
+        "https://www.jingwei-law.com/articles/us/us-mainland-commercial-lease-transfer.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-commercial-lease-transfer_cn.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-commercial-lease-transfer_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-06T09:19:20+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-06:/articles/us/us-mainland-asset-preservation-bond",
+      "story": "/articles/us/us-mainland-asset-preservation-bond",
+      "title": "內地大額爭議申請保全前，美國當事人先評估標的、擔保與時點",
+      "topic": "united-states",
+      "urls": [
+        "https://www.jingwei-law.com/articles/us/us-mainland-asset-preservation-bond.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-asset-preservation-bond_cn.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-asset-preservation-bond_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-06T09:19:20+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-06:/articles/us/us-mainland-estate-business-debt",
+      "story": "/articles/us/us-mainland-estate-business-debt",
+      "title": "遺產含內地企業債務涉高值風險，美國繼承人先分清遺產與公司責任",
+      "topic": "united-states",
+      "urls": [
+        "https://www.jingwei-law.com/articles/us/us-mainland-estate-business-debt.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-estate-business-debt_cn.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-estate-business-debt_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-06T09:19:20+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-06:/articles/us/us-mainland-major-ip-assignment",
+      "story": "/articles/us/us-mainland-major-ip-assignment",
+      "title": "內地重大知識產權轉讓有爭議，美國企業先整理權屬、登記與對價",
+      "topic": "united-states",
+      "urls": [
+        "https://www.jingwei-law.com/articles/us/us-mainland-major-ip-assignment.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-major-ip-assignment_cn.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-major-ip-assignment_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-06T09:19:20+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-06:/articles/us/us-mainland-construction-guarantee-claim",
+      "story": "/articles/us/us-mainland-construction-guarantee-claim",
+      "title": "內地工程保函被索賠涉大額責任，美國承包方先核對條件、通知與工程紀錄",
+      "topic": "united-states",
+      "urls": [
+        "https://www.jingwei-law.com/articles/us/us-mainland-construction-guarantee-claim.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-construction-guarantee-claim_cn.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-construction-guarantee-claim_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-06T09:19:20+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-06:/articles/us/us-mainland-major-debt-restructuring",
+      "story": "/articles/us/us-mainland-major-debt-restructuring",
+      "title": "內地大額債務重組進行中，美國債權人先比較期限、擔保與受償順位",
+      "topic": "united-states",
+      "urls": [
+        "https://www.jingwei-law.com/articles/us/us-mainland-major-debt-restructuring.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-major-debt-restructuring_cn.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-major-debt-restructuring_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-06T09:19:20+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-06:/articles/us/us-mainland-company-records-preservation",
+      "story": "/articles/us/us-mainland-company-records-preservation",
+      "title": "內地公司帳冊可能滅失涉高值爭議，美國股東先固定治理與財務資料",
+      "topic": "united-states",
+      "urls": [
+        "https://www.jingwei-law.com/articles/us/us-mainland-company-records-preservation.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-company-records-preservation_cn.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-company-records-preservation_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-06T09:19:20+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-06:/articles/us/us-mainland-major-property-coownership",
+      "story": "/articles/us/us-mainland-major-property-coownership",
+      "title": "內地高值物業多人共有，美國家屬先分清出資、使用與處分權",
+      "topic": "united-states",
+      "urls": [
+        "https://www.jingwei-law.com/articles/us/us-mainland-major-property-coownership.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-major-property-coownership_cn.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-major-property-coownership_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-06T09:19:20+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-06:/articles/us/us-mainland-investment-exit-default",
+      "story": "/articles/us/us-mainland-investment-exit-default",
+      "title": "內地投資退出付款違約，美國投資人先核對回購、擔保與催告時間線",
+      "topic": "united-states",
+      "urls": [
+        "https://www.jingwei-law.com/articles/us/us-mainland-investment-exit-default.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-investment-exit-default_cn.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-investment-exit-default_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-06T09:19:20+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-06:/articles/us/us-mainland-major-supply-chain-claim",
+      "story": "/articles/us/us-mainland-major-supply-chain-claim",
+      "title": "內地重大供應鏈索賠涉高值損失，美國企業先整理訂單、驗收與替代成本",
+      "topic": "united-states",
+      "urls": [
+        "https://www.jingwei-law.com/articles/us/us-mainland-major-supply-chain-claim.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-major-supply-chain-claim_cn.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-major-supply-chain-claim_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-06T09:19:20+08:00",
+      "source": "confirmed-live-deployment"
+    },
+    {
+      "id": "2026-09-06:/articles/us/us-mainland-commercial-property-execution",
+      "story": "/articles/us/us-mainland-commercial-property-execution",
+      "title": "內地商業物業進入執行，美國權利人先核對查封、租賃與拍賣節點",
+      "topic": "united-states",
+      "urls": [
+        "https://www.jingwei-law.com/articles/us/us-mainland-commercial-property-execution.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-commercial-property-execution_cn.html",
+        "https://www.jingwei-law.com/articles/us/us-mainland-commercial-property-execution_en.html"
+      ],
+      "languages": [
+        "en",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "deployedAt": "2026-09-06T09:19:20+08:00",
+      "source": "confirmed-live-deployment"
     }
   ],
-  "updatedAt": "2026-09-05T09:13:03+08:00"
+  "updatedAt": "2026-09-06T09:19:20+08:00"
 }
