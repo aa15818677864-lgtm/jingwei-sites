@@ -50,39 +50,39 @@ ARTICLES = [
     ("us-mainland-major-settlement-agreement", "內地重大爭議準備和解，美國當事人先核對標的、付款和放棄範圍", "内地重大争议准备和解，美国当事人先核对标的、付款和放弃范围", "Settling a Major Mainland Dispute: Subject Matter, Payment and Release Scope for a U.S. Party"),
 ]
 
-# 2026-09-06: distinct U.S.-reader stories, each centred on a Mainland China
+# 2026-09-07: distinct U.S.-reader stories, each centred on a Mainland China
 # asset, transaction, or dispute that ordinarily clears the RMB 200,000 screen.
 ARTICLES = [
-    ("us-mainland-commercial-building-mortgage", "內地商業樓宇按揭涉高值風險，美國家屬先核對抵押、租約與繼承", "内地商业楼宇按揭涉高值风险，美国家属先核对抵押、租约与继承", "A Mainland Commercial Building Has a Mortgage: Lease, Security and Estate Checks for a U.S. Family"),
-    ("us-mainland-private-company-deadlock", "內地民企陷入僵局涉高值股權，美國股東先整理控制與退出資料", "内地民企陷入僵局涉高值股权，美国股东先整理控制与退出资料", "A Mainland Private Company Is Deadlocked: Control and Exit Records for a U.S. Shareholder"),
-    ("us-mainland-major-receivables-assignment", "內地大額應收款被轉讓，美國企業先核對通知、合同與付款去向", "内地大额应收款被转让，美国企业先核对通知、合同与付款去向", "A Major Mainland Receivable Is Assigned: Notice, Contract and Payment Checks for a U.S. Business"),
-    ("us-mainland-factory-sale-deposit", "內地廠房買賣定金涉高值交易，美國買方先固定付款與條款", "内地厂房买卖定金涉高值交易，美国买方先固定付款与条款", "A Mainland Factory Sale Deposit Is at Risk: Payment and Contract Checks for a U.S. Buyer"),
-    ("us-mainland-venture-control-dispute", "內地合資企業控制權有爭議，美國投資人先對齊章程、決議與授權", "内地合资企业控制权有争议，美国投资人先对齐章程、决议与授权", "A Mainland Joint Venture Has a Control Dispute: Articles, Resolutions and Authority for a U.S. Investor"),
-    ("us-mainland-high-value-gift-revocation", "內地高值資產贈與可能撤回，美國家屬先核對交付、條件與登記", "内地高值资产赠与可能撤回，美国家属先核对交付、条件与登记", "A High-Value Mainland Gift May Be Revoked: Delivery, Conditions and Registration for a U.S. Family"),
-    ("us-mainland-share-pledge-enforcement", "內地股權已質押且可能處置，美國投資人先分清順位、期限與通知", "内地股权已质押且可能处置，美国投资人先分清顺位、期限与通知", "Mainland Shares Are Pledged and May Be Enforced: Priority, Timing and Notice for a U.S. Investor"),
-    ("us-mainland-industrial-land-dispute", "內地工業用地權益有爭議，美國企業先核對出讓、建設與限制", "内地工业用地权益有争议，美国企业先核对出让、建设与限制", "A Mainland Industrial Land Right Is Disputed: Grant, Construction and Restriction Checks for a U.S. Business"),
-    ("us-mainland-equity-inheritance-valuation", "內地公司股權進入繼承涉高值估值，美國家屬先整理章程與資產資料", "内地公司股权进入继承涉高值估值，美国家属先整理章程与资产资料", "Mainland Company Shares Enter an Estate: Valuation and Articles Checks for a U.S. Family"),
-    ("us-mainland-major-franchise-dispute", "內地特許經營涉重大交易爭議，美國品牌方先整理授權、門店與付款", "内地特许经营涉重大交易争议，美国品牌方先整理授权、门店与付款", "A Major Mainland Franchise Dispute: Licence, Store and Payment Records for a U.S. Brand Owner"),
-    ("us-mainland-business-sale-escrow", "內地企業出售尾款被託管，美國賣方先核對交割條件與放款路徑", "内地企业出售尾款被托管，美国卖方先核对交割条件与放款路径", "Sale Proceeds for a Mainland Business Are in Escrow: Closing Conditions and Release Steps for a U.S. Seller"),
-    ("us-mainland-hotel-management-claim", "內地酒店管理合同涉大額收益，美國業主先固定業績、費用與通知", "内地酒店管理合同涉大额收益，美国业主先固定业绩、费用与通知", "A Mainland Hotel Management Contract Involves Major Revenue: Performance, Fees and Notice for a U.S. Owner"),
-    ("us-mainland-major-equipment-title", "內地重大設備權屬不清，美國出資人先核對購買、融資與交付鏈", "内地重大设备权属不清，美国出资人先核对购买、融资与交付链", "Title to Major Mainland Equipment Is Unclear: Purchase, Finance and Delivery Records for a U.S. Funder"),
-    ("us-mainland-crossborder-guarantee-call", "跨境擔保被主張付款涉大額責任，美國保證人先核對主債、通知與期限", "跨境担保被主张付款涉大额责任，美国保证人先核对主债、通知与期限", "A Cross-Border Guarantee Is Called on a Major Mainland Debt: Principal Debt, Notice and Timing for a U.S. Guarantor"),
-    ("us-mainland-company-stamp-custody-dispute", "內地公司印章保管權有爭議涉重大交易風險，美國股東先保存決議與交接紀錄", "内地公司印章保管权有争议涉重大交易风险，美国股东先保存决议与交接记录", "A Mainland Company Stamp-Custody Dispute Creates Major Risk: Resolution and Handover Records for a U.S. Shareholder"),
-    ("us-mainland-major-service-contract", "內地重大服務合同履行爭議，美國客戶先對齊範圍、驗收與付款", "内地重大服务合同履行争议，美国客户先对齐范围、验收与付款", "A Major Mainland Service Contract Is Disputed: Scope, Acceptance and Payment Records for a U.S. Client"),
-    ("us-mainland-overseas-shareholder-register", "內地公司名冊未載海外股東，高值權益主張先核對登記鏈", "内地公司名册未载海外股东，高值权益主张先核对登记链", "A Mainland Register Omits an Overseas Shareholder: The Registration Chain Behind a High-Value Claim"),
-    ("us-mainland-property-auction-bid", "內地高值物業拍賣前，美國競買人先核對權屬、佔用與優先權", "内地高值物业拍卖前，美国竞买人先核对权属、占用与优先权", "Before Bidding at a Mainland Property Auction: Title, Occupancy and Priority Checks for a U.S. Buyer"),
-    ("us-mainland-major-shareholder-loan", "內地公司與股東大額借款不清，美國投資人先分開債權與出資", "内地公司与股东大额借款不清，美国投资人先分开债权与出资", "Major Loans Between a Mainland Company and Shareholders: Separate Debt and Capital for a U.S. Investor"),
-    ("us-mainland-commercial-lease-transfer", "內地商業租約轉讓涉高值生意，美國承租人先核對同意、違約與保證金", "内地商业租约转让涉高值生意，美国承租人先核对同意、违约与保证金", "Transferring a Mainland Commercial Lease: Consent, Default and Deposit Checks for a U.S. Tenant"),
-    ("us-mainland-asset-preservation-bond", "內地大額爭議申請保全前，美國當事人先評估標的、擔保與時點", "内地大额争议申请保全前，美国当事人先评估标的、担保与时点", "Before Seeking Preservation in a Major Mainland Dispute: Asset, Security and Timing Checks for a U.S. Party"),
-    ("us-mainland-estate-business-debt", "遺產含內地企業債務涉高值風險，美國繼承人先分清遺產與公司責任", "遗产含内地企业债务涉高值风险，美国继承人先分清遗产与公司责任", "An Estate Includes Mainland Business Debt: Separate Estate and Company Exposure for a U.S. Heir"),
-    ("us-mainland-major-ip-assignment", "內地重大知識產權轉讓有爭議，美國企業先整理權屬、登記與對價", "内地重大知识产权转让有争议，美国企业先整理权属、登记与对价", "A Major Mainland IP Assignment Is Disputed: Ownership, Registration and Price Records for a U.S. Business"),
-    ("us-mainland-construction-guarantee-claim", "內地工程保函被索賠涉大額責任，美國承包方先核對條件、通知與工程紀錄", "内地工程保函被索赔涉大额责任，美国承包方先核对条件、通知与工程记录", "A Mainland Construction Guarantee Is Claimed: Conditions, Notice and Project Records for a U.S. Contractor"),
-    ("us-mainland-major-debt-restructuring", "內地大額債務重組進行中，美國債權人先比較期限、擔保與受償順位", "内地大额债务重组进行中，美国债权人先比较期限、担保与受偿顺位", "A Major Mainland Debt Is Being Restructured: Term, Security and Priority Checks for a U.S. Creditor"),
-    ("us-mainland-company-records-preservation", "內地公司帳冊可能滅失涉高值爭議，美國股東先固定治理與財務資料", "内地公司账册可能灭失涉高值争议，美国股东先固定治理与财务资料", "Mainland Company Records May Be Lost: Governance and Finance Evidence for a U.S. Shareholder's High-Value Dispute"),
-    ("us-mainland-major-property-coownership", "內地高值物業多人共有，美國家屬先分清出資、使用與處分權", "内地高值物业多人共有，美国家属先分清出资、使用与处分权", "High-Value Mainland Property Has Multiple Co-owners: Funding, Use and Disposal Rights for a U.S. Family"),
-    ("us-mainland-investment-exit-default", "內地投資退出付款違約，美國投資人先核對回購、擔保與催告時間線", "内地投资退出付款违约，美国投资人先核对回购、担保与催告时间线", "A Mainland Investment Exit Payment Defaults: Buyback, Security and Notice Timeline for a U.S. Investor"),
-    ("us-mainland-major-supply-chain-claim", "內地重大供應鏈索賠涉高值損失，美國企業先整理訂單、驗收與替代成本", "内地重大供应链索赔涉高值损失，美国企业先整理订单、验收与替代成本", "A Major Mainland Supply-Chain Claim: Orders, Acceptance and Replacement Costs for a U.S. Business"),
-    ("us-mainland-commercial-property-execution", "內地商業物業進入執行，美國權利人先核對查封、租賃與拍賣節點", "内地商业物业进入执行，美国权利人先核对查封、租赁与拍卖节点", "A Mainland Commercial Property Enters Enforcement: Seizure, Lease and Auction Milestones for a U.S. Rights Holder"),
+    ("us-mainland-commercial-property-option", "內地商業物業期權涉高值交易，美國買方先核對行權、登記與付款", "内地商业物业期权涉高值交易，美国买方先核对行权、登记与付款", "A Mainland Commercial Property Option Has Major Value: Exercise, Registration and Payment Checks for a U.S. Buyer"),
+    ("us-mainland-equity-transfer-tax-adjustment", "內地股權轉讓稅費調整涉高值交易，美國賣方先整理估值與付款鏈", "内地股权转让税费调整涉高值交易，美国卖方先整理估值与付款链", "A Mainland Equity Transfer Has a Tax Adjustment: Valuation and Payment Records for a U.S. Seller"),
+    ("us-mainland-major-loan-extension", "內地大額借款展期談判中，美國債權人先核對本金、利息與擔保", "内地大额借款展期谈判中，美国债权人先核对本金、利息与担保", "Extending a Major Mainland Loan: Principal, Interest and Security Checks for a U.S. Creditor"),
+    ("us-mainland-warehouse-sale-dispute", "內地倉儲物業買賣有爭議，美國投資人先固定權屬、交付與價款", "内地仓储物业买卖有争议，美国投资人先固定权属、交付与价款", "A Mainland Warehouse Sale Is Disputed: Title, Delivery and Price Records for a U.S. Investor"),
+    ("us-mainland-shareholder-removal-dispute", "內地公司股東資格被否認涉高值權益，美國投資人先核對出資與名冊", "内地公司股东资格被否认涉高值权益，美国投资人先核对出资与名册", "A Mainland Company Denies Shareholder Status: Funding and Register Records for a U.S. Investor"),
+    ("us-mainland-estate-property-lease", "遺產含內地出租物業涉高值收益，美國家屬先分清租約、租金與繼承", "遗产含内地出租物业涉高值收益，美国家属先分清租约、租金与继承", "An Estate Includes Leased Mainland Property: Lease, Rent and Inheritance Checks for a U.S. Family"),
+    ("us-mainland-major-factoring-dispute", "內地大額保理款有爭議，美國企業先核對債權、通知與回款", "内地大额保理款有争议，美国企业先核对债权、通知与回款", "A Major Mainland Factoring Claim Is Disputed: Receivable, Notice and Recovery Records for a U.S. Business"),
+    ("us-mainland-commercial-landlord-default", "內地商業物業出租方違約涉高值生意，美國承租人先核對租約與交付", "内地商业物业出租方违约涉高值生意，美国承租人先核对租约与交付", "A Mainland Commercial Landlord Defaults: Lease and Delivery Records for a U.S. Tenant"),
+    ("us-mainland-company-dividend-dispute", "內地公司分紅安排有爭議涉高值股權，美國股東先核對章程與決議", "内地公司分红安排有争议涉高值股权，美国股东先核对章程与决议", "A Mainland Company Dividend Is Disputed: Articles and Resolutions for a U.S. Shareholder"),
+    ("us-mainland-project-payment-retention", "內地工程尾款被留置涉重大金額，美國承包方先整理驗收與結算", "内地工程尾款被留置涉重大金额，美国承包方先整理验收与结算", "Mainland Project Retention Money Is Withheld: Acceptance and Settlement Records for a U.S. Contractor"),
+    ("us-mainland-major-joint-venture-exit", "內地合資企業退出涉高值交易，美國投資人先分清估值、同意與交割", "内地合资企业退出涉高值交易，美国投资人先分清估值、同意与交割", "Exiting a Major Mainland Joint Venture: Valuation, Consent and Closing Checks for a U.S. Investor"),
+    ("us-mainland-commercial-mortgage-release", "內地商業物業抵押待解除，美國買方先核對債務、註銷與交割", "内地商业物业抵押待解除，美国买方先核对债务、注销与交割", "A Mainland Commercial Mortgage Must Be Released: Debt, Cancellation and Closing Checks for a U.S. Buyer"),
+    ("us-mainland-technology-escrow-dispute", "內地技術交易款被託管涉重大價值，美國權利人先核對交付與放款條件", "内地技术交易款被托管涉重大价值，美国权利人先核对交付与放款条件", "Technology Sale Proceeds Are Escrowed in Mainland China: Delivery and Release Checks for a U.S. Rights Holder"),
+    ("us-mainland-major-guarantee-renewal", "內地大額保證續期風險上升，美國保證人先核對範圍、期限與同意", "内地大额保证续期风险上升，美国保证人先核对范围、期限与同意", "A Major Mainland Guarantee Is Renewed: Scope, Timing and Consent Checks for a U.S. Guarantor"),
+    ("us-mainland-company-equity-dilution", "內地公司增資稀釋高值股權，美國股東先核對通知、估值與優先權", "内地公司增资稀释高值股权，美国股东先核对通知、估值与优先权", "A Mainland Capital Increase Dilutes Major Equity: Notice, Valuation and Priority for a U.S. Shareholder"),
+    ("us-mainland-major-supply-quality-claim", "內地重大供貨品質索賠涉高值損失，美國買方先對齊規格、驗收與通知", "内地重大供货质量索赔涉高值损失，美国买方先对齐规格、验收与通知", "A Major Mainland Supply Quality Claim: Specifications, Acceptance and Notice for a U.S. Buyer"),
+    ("us-mainland-family-company-sale", "家族持有內地企業待出售涉高值資產，美國家屬先整理股權、授權與價格", "家族持有内地企业待出售涉高值资产，美国家属先整理股权、授权与价格", "A Family-Owned Mainland Business Is Being Sold: Equity, Authority and Price Records for a U.S. Family"),
+    ("us-mainland-major-asset-auction-objection", "內地高值資產拍賣前出現異議，美國權利人先核對程序、權屬與期限", "内地高值资产拍卖前出现异议，美国权利人先核对程序、权属与期限", "An Objection Arises Before a Major Mainland Asset Auction: Procedure, Title and Timing for a U.S. Rights Holder"),
+    ("us-mainland-commercial-sublease-dispute", "內地商業轉租有爭議涉高值經營，美國企業先核對同意、租約與付款", "内地商业转租有争议涉高值经营，美国企业先核对同意、租约与付款", "A Mainland Commercial Sublease Is Disputed: Consent, Lease and Payment Records for a U.S. Business"),
+    ("us-mainland-major-franchise-transfer", "內地特許經營轉讓涉重大價值，美國品牌方先核對授權、門店與對價", "内地特许经营转让涉重大价值，美国品牌方先核对授权、门店与对价", "Transferring a Major Mainland Franchise: Licence, Stores and Price Records for a U.S. Brand Owner"),
+    ("us-mainland-asset-freeze-thirdparty-claim", "內地高值資產被凍結且第三方主張權利，美國當事人先整理登記與交易證據", "内地高值资产被冻结且第三方主张权利，美国当事人先整理登记与交易证据", "A Third Party Claims Frozen Mainland Assets: Registration and Transaction Evidence for a U.S. Party"),
+    ("us-mainland-major-share-redemption", "內地公司股權回購延期涉高值交易，美國投資人先核對條款、資金與通知", "内地公司股权回购延期涉高值交易，美国投资人先核对条款、资金与通知", "A Mainland Share Redemption Is Delayed: Terms, Funding and Notice for a U.S. Investor"),
+    ("us-mainland-industrial-park-contract-dispute", "內地產業園合作合同有爭議涉重大投入，美國企業先核對土地、履行與付款", "内地产业园合作合同有争议涉重大投入，美国企业先核对土地、履行与付款", "A Mainland Industrial-Park Contract Is Disputed: Land, Performance and Payment Records for a U.S. Business"),
+    ("us-mainland-commercial-property-management", "內地商業物業管理收益有爭議，美國業主先核對合同、帳目與授權", "内地商业物业管理收益有争议，美国业主先核对合同、账目与授权", "A Mainland Commercial Property Management Claim: Contract, Accounts and Authority for a U.S. Owner"),
+    ("us-mainland-major-debt-settlement-default", "內地大額債務和解後未付款，美國債權人先固定協議、到期與擔保", "内地大额债务和解后未付款，美国债权人先固定协议、到期与担保", "A Major Mainland Debt Settlement Is Not Paid: Agreement, Due Date and Security for a U.S. Creditor"),
+    ("us-mainland-equity-trustee-dispute", "內地股權代持關係有爭議涉高值權益，美國投資人先分清出資、登記與授權", "内地股权代持关系有争议涉高值权益，美国投资人先分清出资、登记与授权", "A Mainland Equity Nominee Arrangement Is Disputed: Funding, Registration and Authority for a U.S. Investor"),
+    ("us-mainland-major-property-development-claim", "內地重大物業開發合作有爭議，美國投資人先整理出資、決議與交付", "内地重大物业开发合作有争议，美国投资人先整理出资、决议与交付", "A Major Mainland Property Development Claim: Funding, Resolutions and Delivery for a U.S. Investor"),
+    ("us-mainland-crossborder-estate-share-sale", "跨境遺產出售內地股權涉高值交易，美國家屬先核對繼承、估值與授權", "跨境遗产出售内地股权涉高值交易，美国家属先核对继承、估值与授权", "Selling Mainland Shares From a Cross-Border Estate: Inheritance, Valuation and Authority for a U.S. Family"),
+    ("us-mainland-major-contract-change-order", "內地重大合同變更單有爭議，美國企業先核對授權、價格與履行記錄", "内地重大合同变更单有争议，美国企业先核对授权、价格与履行记录", "A Major Mainland Contract Change Order Is Disputed: Authority, Price and Performance for a U.S. Business"),
+    ("us-mainland-commercial-property-ownership-chain", "內地商業物業權屬鏈不清涉高值風險，美國買方先核對歷史登記與交易", "内地商业物业权属链不清涉高值风险，美国买方先核对历史登记与交易", "A Mainland Commercial Property Has an Unclear Title Chain: Historic Registry and Transaction Checks for a U.S. Buyer"),
 ]
 
 LABELS = {
@@ -154,7 +154,7 @@ def write_research_log():
     (ROOT / "content-system" / f"daily-research-{TODAY}.json").write_text(json.dumps(research, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 def main():
-    if TODAY != "2026-09-06": raise RuntimeError(f"expected 2026-09-06, got {TODAY}")
+    if TODAY != "2026-09-07": raise RuntimeError(f"expected 2026-09-07, got {TODAY}")
     for slug,tc,cn,en in ARTICLES:
         for code,title in (("tc",tc),("cn",cn),("en",en)):
             content = page(slug,title,code).replace(
