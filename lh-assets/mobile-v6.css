@@ -212,9 +212,9 @@
 
 .mobile-v6.landing { width:100%; max-width:430px; padding:0; border-radius:0; }
 .mobile-v6 .hero-architecture { padding:0; margin:0; min-height:0; }
-.mobile-v6 .phone-row {display:flex;gap:8px;}
-.mobile-v6 .phone-row select {width:84px;flex-shrink:0;color:white;background:#202e40;border:1px solid #526074;border-radius:11px;padding:8px;}
-.mobile-v6 .phone-row input {min-width:0;}
+.mobile-v6 #mobile-consult-form .phone-row {display:grid;grid-template-columns:84px minmax(0,1fr);gap:8px;min-width:0;}
+.mobile-v6 #mobile-consult-form .phone-row select {width:84px;min-width:0;color:white;background:#202e40;border:1px solid #526074;border-radius:11px;padding:8px;}
+.mobile-v6 #mobile-consult-form .phone-row input {width:100%;min-width:0;box-sizing:border-box;}
 .mobile-v6 .trap-field {display:none;}
 .mobile-v6 #mobile-phone-error {color:#ffb4b4;}
 .mobile-v6 #mobile-form-status {font-size:14px;}
