@@ -57,6 +57,14 @@
   #top .process-card h3 {color:#e5c38c;font-size:20px;}
   #top .process-card p {color:#c4cfdc;font-size:16px;}
   #top .process-step {background:none;border:0;color:#9baab9;font-size:24px;box-shadow:none;}
+  #top #path .process-list::before {display:none;}
+  #top #path .process-heading .section-kicker::before {background:#d8b06a;}
+  #top #path .process-card {align-items:center;gap:24px;padding:26px 0;}
+  #top #path .process-step {flex:0 0 48px;margin:0;color:#d8b06a;font-family:inherit;font-size:22px;}
+  #top #path .process-body {flex:1;min-width:0;padding:12px 0;background:transparent;border:0;border-radius:0;box-shadow:none;transform:none;}
+  #top #path .process-card h3 {color:#fff;margin:0 0 9px;font-size:22px;}
+  #top #path .process-card p {color:#cad7e3;font-size:17px;line-height:1.8;}
+  #top #path .process-card:hover .process-body,#top #path .process-card:focus-within .process-body {background:transparent;transform:none;box-shadow:none;}
   #top .contact-section {background:#f1eee7;}
   #top .contact-shell {display:grid;grid-template-columns:.85fr 1.15fr;grid-template-rows:auto 1fr;column-gap:68px;align-items:start;}
   #top .contact-heading {grid-column:1;grid-row:1;text-align:left;margin:0 0 20px;}

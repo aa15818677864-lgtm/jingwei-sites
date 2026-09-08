@@ -1,6 +1,12 @@
 .mobile-personal-nav { display:none; }
 @media (max-width:779px) {
-.mobile-personal-nav { display:flex; align-items:center; justify-content:space-between; gap:12px; position:sticky; top:0; z-index:90; padding:14px 12px; background:#09192d; color:#fff; border-bottom:1px solid #d8b06a; font-family:"Microsoft JhengHei",sans-serif; }
+.mobile-personal-nav { display:block; position:fixed; top:12px; right:12px; width:25%; max-width:116px; min-width:88px; z-index:90; padding:0; background:#09192df5; color:#fff; border:1px solid #d8b06a80; border-radius:9px; box-shadow:0 6px 22px #0003; font-family:"Microsoft JhengHei",sans-serif; }
+.mobile-nav-dropdown summary {padding:12px 8px;min-height:44px;display:flex;align-items:center;justify-content:center;gap:7px;cursor:pointer;list-style:none;font-size:15px;}
+.mobile-nav-dropdown summary::-webkit-details-marker {display:none;}
+.mobile-nav-dropdown[open] summary {border-bottom:1px solid #ffffff26;color:#e8c68d;}
+.mobile-nav-dropdown .mobile-nav-links {display:grid;padding:5px 0;}
+.mobile-nav-dropdown .mobile-nav-links a {display:block;padding:13px 5px;text-align:center;font-size:14px;}
+.mobile-nav-dropdown a:focus-visible,.mobile-nav-dropdown summary:focus-visible {outline:2px solid #e8c68d;outline-offset:-3px;}
 .mobile-personal-nav a { color:inherit; text-decoration:none; white-space:nowrap; font-size:13px; }
 .mobile-personal-nav .mobile-personal-brand { font-size:17px; font-weight:800; }
 .mobile-personal-nav>div { display:flex; align-items:center; gap:12px; }
@@ -218,5 +224,13 @@
 .mobile-v6 .trap-field {display:none;}
 .mobile-v6 #mobile-phone-error {color:#ffb4b4;}
 .mobile-v6 #mobile-form-status {font-size:14px;}
+.mobile-v6 #mobile-consult {border-top:1px solid #d8b06a65;padding-top:30px;background:linear-gradient(180deg,#182b42 0,#101a2a 240px);}
+.mobile-v6 .mobile-contact-intro {position:relative;padding:0 0 25px;margin-bottom:25px;border-bottom:1px solid #d8b06a55;}
+.mobile-v6 .mobile-contact-intro h2 {margin:0;font-size:23px;font-weight:700;line-height:1.6;letter-spacing:0;color:#fff;}
+.mobile-v6 .mobile-contact-intro .contact-time {color:#e5bf7d;font-size:32px;font-weight:800;margin-right:5px;}
+.mobile-v6 .contact-intro-line {display:block;margin-top:8px;font-size:18px;color:#dce7f3;font-weight:500;line-height:1.7;padding-right:26px;}
+.mobile-v6 .contact-intro-arrow {position:absolute;right:0;bottom:26px;color:#e5bf7d;font-size:23px;}
+.mobile-v6 #mobile-consult-form .phone-row select {color-scheme:light;}
+.mobile-v6 #mobile-consult-form .phone-row select option {background:#fff;color:#152438;}
 
 }
