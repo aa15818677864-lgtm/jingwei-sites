@@ -232,5 +232,11 @@
 .mobile-v6 .contact-intro-arrow {position:absolute;right:0;bottom:26px;color:#e5bf7d;font-size:23px;}
 .mobile-v6 #mobile-consult-form .phone-row select {color-scheme:light;}
 .mobile-v6 #mobile-consult-form .phone-row select option {background:#fff;color:#152438;}
+.mobile-v6 #mobile-top {overflow:visible;position:relative;}
+.mobile-v6 .mobile-scroll-cue {position:absolute;left:50%;bottom:-22px;transform:translateX(-50%);z-index:3;display:grid;place-items:center;width:44px;height:44px;border:1px solid #d8b06a;background:#09192d;border-radius:50%;box-shadow:0 4px 12px #0002;}
+.mobile-v6 .mobile-scroll-cue img {width:26px;height:26px;filter:invert(78%) sepia(42%) saturate(524%) hue-rotate(354deg) brightness(94%) contrast(88%);animation:mobile-scroll-pulse 1.8s ease-in-out infinite;}
+.mobile-v6 .mobile-scroll-cue:focus-visible {outline:3px solid #d8b06a;outline-offset:4px;}
+@keyframes mobile-scroll-pulse {0%,100% {transform:translateY(-4px);opacity:.4;} 55% {transform:translateY(4px);opacity:1;}}
+@media(prefers-reduced-motion:reduce) {.mobile-v6 .mobile-scroll-cue img {animation:none;opacity:1;}}
 
 }
