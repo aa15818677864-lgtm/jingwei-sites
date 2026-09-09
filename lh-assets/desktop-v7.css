@@ -10,7 +10,7 @@
   .site-header .site-nav .nav-link {color:#eef1f5;}
   .site-nav {gap:30px;}
   .site-nav .nav-cta,.submit-btn {background:#d8b06a;color:#102137;border-radius:6px;box-shadow:none;}
-  #top>.hero {background:#09192d url('desktop-architecture-v8.png') center center/cover no-repeat;padding:0;min-height:0;overflow:hidden;color:#fff;}
+  #top>.hero {background:#09192d url('desktop-architecture-v8-q95.webp') center center/cover no-repeat;padding:0;min-height:0;overflow:hidden;color:#fff;}
   #top>.hero::before,#top>.hero::after,#top>.hero .hero-glow {display:none;}
   #top .hero-shell {display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:0;min-height:650px;width:min(1040px,calc(100% - 120px));padding-top:0;padding-bottom:0;}
   #top .hero-copy {padding:48px 0 60px;position:relative;z-index:2;max-width:none;}
