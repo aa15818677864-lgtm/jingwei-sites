@@ -3,6 +3,8 @@
 .lh-photo-carousel .lh-photo-slides img,
 #top .lh-photo-carousel .lh-photo-slides img { display:block; width:100%; height:100%; max-height:none; object-fit:contain; object-position:center; }
 .lh-photo-carousel .lh-photo-slides img[hidden] { display:none; }
+.lh-photo-carousel .lh-photo-slides img[src*="carousel-reception-"],
+#top .lh-photo-carousel .lh-photo-slides img[src*="carousel-reception-"] { object-fit:cover; }
 .lh-photo-ready .lh-photo-slides img { position:absolute; inset:0; opacity:0; transition:opacity .45s ease-in-out; pointer-events:none; }
 .lh-photo-ready .lh-photo-slides img.is-active { opacity:1; }
 .lh-photo-carousel .lh-photo-toggle { position:absolute; left:8px; bottom:8px; display:flex; align-items:center; justify-content:center; width:28px; height:28px; padding:0; border:0; border-radius:50%; background:rgba(8,25,43,.55); color:#fff; cursor:pointer; font:12px sans-serif; }

@@ -14,6 +14,7 @@
   const submitLabel = submitButton ? submitButton.textContent.trim() : "提交初步咨询";
   const phoneLengths = { "+852": 8, "+86": 11, "+853": 8 };
   let clientIpPromise = null;
+  let isSubmitting = false;
 
   hydrateHiddenFields();
   syncPhoneRule();
@@ -35,6 +36,7 @@
 
   form.addEventListener("submit", async function (event) {
     event.preventDefault();
+    if (isSubmitting) return;
     setStatus("", "");
 
     const endpoint = config.formEndpoint;
@@ -48,12 +50,10 @@
       return;
     }
 
-    await ensureClientIp();
-    hydrateHiddenFields();
-
     try {
       setLoading(true);
       setStatus("正在安全提交资料，请稍候。", "loading");
+      hydrateHiddenFields();
       await fetch(endpoint, {
         method: "POST",
         mode: "no-cors",
@@ -67,7 +67,7 @@
       }
       window.setTimeout(function () {
         window.location.href = "lh-thanks.html";
-      }, 900);
+      }, 250);
     } catch (error) {
       setStatus("提交失败，请稍后再试。", "error");
       setLoading(false);
@@ -152,6 +152,7 @@
   }
 
   function setLoading(loading) {
+    isSubmitting = loading;
     if (!submitButton) {
       return;
     }

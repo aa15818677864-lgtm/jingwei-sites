@@ -15,6 +15,7 @@
 
   let clientIpPromise = null;
   let phoneTouched = false;
+  let isSubmitting = false;
 
   const phoneLengths = {
     "+852": 8,
@@ -81,6 +82,7 @@
 
   form.addEventListener("submit", async function (event) {
     event.preventDefault();
+    if (isSubmitting) return;
     setFormStatus("", "");
 
     const endpoint = siteConfig.formEndpoint;
@@ -97,13 +99,13 @@
       return;
     }
 
-    await ensureClientIp(form);
-    const payload = buildSubmissionPayload(form);
     let submittedSuccessfully = false;
 
     try {
       setSubmitState(true);
       setFormStatus("正在安全提交資料，通常需時數秒。", "loading");
+      hydrateHiddenFields(form);
+      const payload = buildSubmissionPayload(form);
 
       await fetch(endpoint, {
         method: "POST",
@@ -121,7 +123,7 @@
       }
       window.setTimeout(function () {
         window.location.href = "lh-thanks.html";
-      }, 900);
+      }, 250);
     } catch (error) {
       setFormStatus("提交失敗，請稍後再試。", "error");
     } finally {
@@ -132,6 +134,7 @@
   });
 
   function setSubmitState(isLoading) {
+    isSubmitting = isLoading;
     if (!submitButton) {
       return;
     }
