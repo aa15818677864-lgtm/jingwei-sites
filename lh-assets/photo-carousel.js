@@ -9,8 +9,6 @@
     let hovering = false;
     let focused = false;
     let timer;
-    const controls = document.createElement('div');
-    controls.className = 'lh-photo-controls';
     function button(label, text, parent, action) {
       const node = document.createElement('button');
       node.type = 'button';
@@ -20,33 +18,23 @@
       parent.appendChild(node);
       return node;
     }
-    button('上一張照片', '‹', controls, function () { show(index - 1); });
-    const dots = document.createElement('div');
-    dots.className = 'lh-photo-dots';
-    controls.appendChild(dots);
-    const dotButtons = slides.map(function (slide, i) {
-      return button('第 ' + (i + 1) + ' 張：' + slide.alt, '', dots, function () { show(i); });
-    });
-    button('下一張照片', '›', controls, function () { show(index + 1); });
-    const toggle = button('暫停自動輪播', '暫停', controls, function () {
+    const toggle = button('暫停自動輪播', 'Ⅱ', root, function () {
       paused = !paused;
       updateTimer();
     });
     toggle.className = 'lh-photo-toggle';
-    root.appendChild(controls);
     function show(next) {
       index = (next + slides.length) % slides.length;
       slides.forEach(function (slide, i) { slide.hidden = i !== index; });
-      dotButtons.forEach(function (dot, i) { dot.setAttribute('aria-pressed', String(i === index)); });
       root.dataset.activeSlide = String(index + 1);
       updateTimer();
     }
     function updateTimer() {
       clearTimeout(timer);
-      toggle.textContent = paused ? '播放' : '暫停';
+      toggle.textContent = paused ? '▶' : 'Ⅱ';
       toggle.setAttribute('aria-label', paused ? '開始自動輪播' : '暫停自動輪播');
       if (!paused && visible && !hovering && !focused && !document.hidden) {
-        timer = setTimeout(function () { show(index + 1); }, 5000);
+        timer = setTimeout(function () { show(index + 1); }, 4000);
       }
     }
     root.addEventListener('mouseenter', function () { hovering = true; updateTimer(); });
