@@ -1,6 +1,6 @@
 .mobile-personal-nav { display:none; }
 @media (max-width:779px) {
-.mobile-personal-nav { display:block; position:fixed; top:12px; right:12px; width:25%; max-width:116px; min-width:88px; z-index:90; padding:0; background:#09192df5; color:#fff; border:1px solid #d8b06a80; border-radius:9px; box-shadow:0 6px 22px #0003; font-family:"Microsoft JhengHei",sans-serif; }
+.mobile-personal-nav { display:block; position:absolute; top:12px; right:12px; width:25%; max-width:116px; min-width:88px; z-index:90; padding:0; background:#09192df5; color:#fff; border:1px solid #d8b06a80; border-radius:9px; box-shadow:0 6px 22px #0003; font-family:"Microsoft JhengHei",sans-serif; }
 .mobile-nav-dropdown summary {padding:12px 8px;min-height:44px;display:flex;align-items:center;justify-content:center;gap:7px;cursor:pointer;list-style:none;font-size:15px;}
 .mobile-nav-dropdown summary::-webkit-details-marker {display:none;}
 .mobile-nav-dropdown[open] summary {border-bottom:1px solid #ffffff26;color:#e8c68d;}
