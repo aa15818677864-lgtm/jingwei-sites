@@ -123,10 +123,10 @@
     <section class="contact" id="mobile-consult">
       <header class="mobile-contact-intro"><h2><span class="contact-time">30秒</span>提交您嘅信息，<span class="contact-intro-line">快速預約資深律師為您服務</span></h2><span class="contact-intro-arrow" aria-hidden="true">↓</span></header>
       <form class="contact-form" id="mobile-consult-form" novalidate>
-        <label>您嘅稱呼：<input name="name" type="text" required maxlength="30"></label>
+        <label>您嘅稱呼：<input name="name" type="text" required maxlength="30" placeholder="例如：陳先生、李女士"></label>
         <label>聯絡電話：<div class="phone-row"><select name="contact_region" aria-label="電話區號"><option value="+852">+852</option><option value="+86">+86</option><option value="+853">+853</option><option value="other">其他</option></select><input name="contact_phone" type="tel" inputmode="tel" required placeholder="請輸入8位數字"></div><small id="mobile-phone-error" hidden></small></label>
-        <label>您嘅微信：<input name="social_contact" type="text"></label>
-        <label>您嘅留言：<textarea name="summary" rows="4"></textarea></label>
+        <label>您嘅微信：<input name="social_contact" type="text" placeholder="請填寫微信號（選填）"></label>
+        <label>您嘅留言：<textarea name="summary" rows="4" placeholder="可以簡單講下雙方住邊度、涉及邊啲內地財產，以及你最想問嘅問題。"></textarea></label>
                 <input type="text" name="website" class="trap-field" tabindex="-1" autocomplete="off" aria-hidden="true">
         <input type="hidden" name="source_page" value="liuyi-hk-mainland-divorce-property-mobile">
         <input type="hidden" name="case_type" value="内地与香港离婚及财产分割">
@@ -229,7 +229,7 @@
               <div class="form-row">
                 <label class="field-half">
                   <span>您嘅稱呼：</span>
-                  <input name="name" type="text" maxlength="30"  required>
+                  <input name="name" type="text" maxlength="30" placeholder="例如：陳先生、李女士" required>
                 </label>
 
                 <label class="phone-field field-half">
@@ -255,7 +255,7 @@
 
               <label>
                 <span>您嘅微信：</span>
-                <input name="social_contact" type="text" maxlength="60" >
+                <input name="social_contact" type="text" maxlength="60" placeholder="請填寫微信號（選填）">
               </label>
 
               <label>
@@ -264,7 +264,7 @@
                   name="summary"
                   rows="4"
                   maxlength="500"
-                  
+                  placeholder="可以簡單講下雙方住邊度、涉及邊啲內地財產，以及你最想問嘅問題。"
                 ></textarea>
               </label>
 
