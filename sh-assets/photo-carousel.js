@@ -18,11 +18,6 @@
       parent.appendChild(node);
       return node;
     }
-    const toggle = button('暫停自動輪播', 'Ⅱ', root, function () {
-      paused = !paused;
-      updateTimer();
-    });
-    toggle.className = 'lh-photo-toggle';
     const dots = document.createElement('div');
     dots.className = 'lh-photo-dots';
     const dotButtons = slides.map(function (slide, i) {
@@ -43,8 +38,6 @@
     }
     function updateTimer() {
       clearTimeout(timer);
-      toggle.textContent = paused ? '▶' : 'Ⅱ';
-      toggle.setAttribute('aria-label', paused ? '開始自動輪播' : '暫停自動輪播');
       if (!paused && visible && !hovering && !focused && !document.hidden) {
         timer = setTimeout(function () { show(index + 1); }, 1500);
       }
