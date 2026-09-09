@@ -1,0 +1,14 @@
+.lh-photo-carousel { margin:24px 0 0; overflow:hidden; border-radius:14px; background:#15283d; color:#fff; }
+.lh-photo-carousel .lh-photo-slides { position:relative; aspect-ratio:16/9; touch-action:pan-y; }
+.lh-photo-carousel .lh-photo-slides img { display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
+.lh-photo-carousel .lh-photo-slides img[hidden] { display:none; }
+.lh-photo-carousel .lh-photo-slides .lh-photo-portrait,
+#top .lh-photo-carousel .lh-photo-slides .lh-photo-portrait { object-fit:contain; background:#d0d0d0; }
+.lh-photo-carousel .lh-photo-controls { display:flex; align-items:center; justify-content:space-between; gap:4px; padding:4px 8px; }
+.lh-photo-carousel .lh-photo-controls button { display:inline-flex; align-items:center; justify-content:center; min-width:44px; min-height:44px; padding:4px 8px; border:0; border-radius:6px; background:transparent; color:#fff; cursor:pointer; font:inherit; }
+.lh-photo-carousel .lh-photo-controls button:hover { background:#30465e; }
+.lh-photo-carousel .lh-photo-controls button:focus-visible { outline:2px solid #e8c68d; outline-offset:-2px; }
+.lh-photo-carousel .lh-photo-dots { display:flex; }
+.lh-photo-carousel .lh-photo-dots button::before { content:""; width:8px; height:8px; border-radius:50%; background:#8a99aa; }
+.lh-photo-carousel .lh-photo-dots button[aria-pressed="true"]::before { background:#e8c68d; width:20px; border-radius:5px; }
+.lh-photo-carousel .lh-photo-controls .lh-photo-toggle { font-size:13px; min-width:48px; }
