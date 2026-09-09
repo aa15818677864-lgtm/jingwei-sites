@@ -1,5 +1,22 @@
 .mobile-personal-nav { display:none; }
 @media (max-width:779px) {
+.mobile-v6 .questions .accordion details[open] {
+  background: #f0dfc2;
+  box-shadow: inset 3px 0 0 #a9202a;
+  border-radius: 8px;
+}
+.mobile-v6 .questions .accordion details[open] summary {
+  color: #92202a;
+}
+.mobile-v6 .questions .accordion details[open] .index {
+  background: #92202a;
+  color: #fff;
+}
+.mobile-v6 .questions .accordion summary:focus-visible {
+  outline: 2px solid #92202a;
+  outline-offset: -2px;
+  border-radius: 8px;
+}
 .mobile-v6 .services .service-list details[open] {
   background: #203b55;
   box-shadow: inset 3px 0 0 #d8b06a;
