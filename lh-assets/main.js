@@ -286,7 +286,7 @@
 
     const expectedLength = getExpectedPhoneLength();
     phoneField.maxLength = expectedLength;
-    phoneField.placeholder = expectedLength === 8 ? "00000000" : "00000000000";
+    phoneField.placeholder = expectedLength === 8 ? "請輸入8位號碼" : "請輸入11位號碼";
     phoneField.setAttribute("aria-label", phoneRegionField.value === "+852" ? "香港電話號碼" : "內地電話號碼");
   }
 

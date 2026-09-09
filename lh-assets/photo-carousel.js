@@ -23,9 +23,21 @@
       updateTimer();
     });
     toggle.className = 'lh-photo-toggle';
+    const dots = document.createElement('div');
+    dots.className = 'lh-photo-dots';
+    const dotButtons = slides.map(function (slide, i) {
+      return button((i + 1) + ' / ' + slides.length + ' · ' + slide.alt, '', dots, function () { show(i); });
+    });
+    root.appendChild(dots);
+    root.classList.add('lh-photo-ready');
     function show(next) {
       index = (next + slides.length) % slides.length;
-      slides.forEach(function (slide, i) { slide.hidden = i !== index; });
+      slides.forEach(function (slide, i) {
+        slide.hidden = false;
+        slide.classList.toggle('is-active', i === index);
+        slide.setAttribute('aria-hidden', String(i !== index));
+      });
+      dotButtons.forEach(function (dot, i) { dot.setAttribute('aria-pressed', String(i === index)); });
       root.dataset.activeSlide = String(index + 1);
       updateTimer();
     }
@@ -34,7 +46,7 @@
       toggle.textContent = paused ? '▶' : 'Ⅱ';
       toggle.setAttribute('aria-label', paused ? '開始自動輪播' : '暫停自動輪播');
       if (!paused && visible && !hovering && !focused && !document.hidden) {
-        timer = setTimeout(function () { show(index + 1); }, 4000);
+        timer = setTimeout(function () { show(index + 1); }, 1500);
       }
     }
     root.addEventListener('mouseenter', function () { hovering = true; updateTimer(); });
