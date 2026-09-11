@@ -98,6 +98,30 @@
   let lastGptIdleCareAt = 0;
 
   const topicPresets = {
+    "hong-kong-other-estate": {
+      region: "hongkong", mainland: "yes", matter: "family",
+      summary: "客户从香港家属处理内地遗产文章进入。请区分继承关系、资产范围、香港文件用途和内地受理进度，不预设已取得授权或继承资格。",
+      greeting: "我是静为律师的 AI 法律助手。你从香港家属处理内地遗产的文章进入，可以先说资产在哪、现在卡在哪一步，不必提供证件号码。AI 回复供初步整理，不代替律师个案意见。",
+      placeholder: "例如：家人在香港，深圳有遗产，目前缺亲属关系文件"
+    },
+    "macau": {
+      region: "macau", mainland: "yes", matter: "family",
+      summary: "客户从澳门家属处理中国内地事务的文章进入，须先确认实际资产和问题，不将澳门文书路径套用为外国文书路径。",
+      greeting: "我是静为律师的 AI 法律助手。你正在了解澳门家属处理内地事务，可以先说资产或案件在哪、最急的问题是什么。无需提供证件号码。",
+      placeholder: "说明内地城市、资产或案件，以及当前问题"
+    },
+    "singapore": {
+      region: "singapore", mainland: "yes", matter: "family",
+      summary: "客户从新加坡与中国内地事务文章进入。先核对具体问题，区分新加坡程序和内地接收要求。",
+      greeting: "我是静为律师的 AI 法律助手。你从新加坡相关的内地事务文章进入，可以先说内地资产或案件，以及已经拿到哪些文件。无需提供证件号码。",
+      placeholder: "说明内地资产或案件、现有文件及问题"
+    },
+    "united-states": {
+      region: "us_chinese", mainland: "yes", matter: "",
+      summary: "客户从美国客户处理中国内地事务文章进入。先确认是公司、合同、房产、债务或继承问题，不默认所有客户都咨询继承。",
+      greeting: "我是静为律师的 AI 法律助手。你从美国客户处理内地事务的文章进入，请先说是公司、合同、房产、债务还是继承问题。也可以用英文说明；不用提供个人证件号码。",
+      placeholder: "Describe the Mainland matter / 说明内地事项和当前问题"
+    },
     "hk-mainland-property-inheritance": {
       region: "hongkong",
       mainland: "yes",
@@ -3190,9 +3214,9 @@ function renderInitialChat() {
     chatBody.innerHTML = '<div class="day-pill">今天</div>';
     return renderAssistantReply({
       stage: "done",
-      answer: "你好，我是刘毅律师团队的 AI 法律助手。你可以直接输入法律问题或案情，我会先帮你做基础分析、整理关键事实和下一步思路。",
+      answer: topicPresets[activeTopic]?.greeting || "你好，我是静为律师的 AI 法律助手。你可以直接说明涉及中国内地的法律问题，我会先整理事实和待确认事项。AI 回复不代替律师个案意见，请勿提供证件号码等敏感信息。",
       chips: [],
-      inputPlaceholder: "直接输入你的法律问题或案情",
+      inputPlaceholder: topicPresets[activeTopic]?.placeholder || "直接输入你的法律问题或案情",
       route: null,
       state: {
         region: state.region,
@@ -3217,7 +3241,7 @@ function renderInitialChat() {
     if (stage === "region") {
       return {
         stage: "region",
-        answer: "你好，我是刘毅律师团队的 AI 法律助理。先用聊天方式做初步判断，你现在主要在哪个地区？",
+        answer: "你好，我是静为律师的 AI 法律助手。先用聊天方式整理情况，你现在主要在哪个地区？",
         chips: regionChips,
         inputPlaceholder: "也可以直接输入你现在主要所在地区",
         route: null

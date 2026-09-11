@@ -136,6 +136,7 @@ def ad(code, slug):
     return f'''<a class="article-native-ad" href="/ask/gpt/?topic=united-states&amp;source=article-inline-ad-{slug}" aria-label="AI legal assistant"><span class="article-native-ad__media" aria-hidden="true"><img src="{IMAGE}" alt="" width="1536" height="1024" loading="lazy" decoding="async"></span><span class="article-native-ad__copy"><span class="article-native-ad__label">{x['ad_label']}</span><strong>{x['ad_head']}</strong><span class="article-native-ad__description">{x['ad_text']}</span></span><span class="article-native-ad__action">{x['ad_action']} <span aria-hidden="true">→</span></span></a>'''
 
 def page(slug, title, code):
+    raise RuntimeError("Retired: this generator reused one body across unrelated titles. Supply individually researched and reviewed article content; do not bypass this guard to meet a daily quota.")
     x = LABELS[code]
     title = html.escape(title)
     canonical = SITE + path(slug, code)
