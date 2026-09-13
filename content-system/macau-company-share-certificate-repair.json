@@ -1,0 +1,38 @@
+{
+  "tc": {
+    "description": "澳門家屬保存內地公司出資證明時，怎樣分開繼承資格、遺產範圍和公司資料，避免把一張證書誤當成已完成的股權變更。",
+    "lead": "一張留在澳門的出資證明，可能是很重要的線索，但它回答不了所有問題。先把「誰有權處理被繼承人的遺產」和「公司紀錄上究竟是甚麼權益」分開，才不會在文件、公司和繼承人三條線之間走錯。",
+    "ad": ["向 AI 法律助手說明情況", "先列出公司名稱、已知股東、手上文件和最急的疑問；毋須輸入證件號碼。"],
+    "sections": [
+      ["這張證明先說明了甚麼", "證明上可能有公司名稱、出資人、日期、印章或歷次變動的痕跡。先完整掃描正反面和附頁，另記下它從誰的檔案取出、何時找到。這些資料有助追查，但不等於已證明現時仍持有某個比例，也不等於任何家屬已可代表遺產處分股權。", "如果公司在中國內地，還要把公司所在地、統一社會信用代碼（如已知）、章程、股東名冊、出資或轉讓文件與這張證明分開歸檔。紙本說法和公司現有紀錄不一致時，先標成待核實，而不是挑一份當結論。"],
+      ["第一條線：誰能代表遺產", "死亡、親屬關係、遺囑、曾否放棄或另有繼承人，處理的是繼承資格。澳門文件形成的時間、姓名寫法和關係鏈條都可能影響內地接收方如何看待材料。家屬應把已確認、只有口述、以及仍缺正本的資料分開寫清。", "這條線的目的，是確認誰可能有權提出查詢、簽署授權或參與處理；它本身不會自動回答公司權益的範圍、價值或是否可變更。"],
+      ["第二條線：遺產裡究竟有甚麼公司權益", "被繼承人可能是登記股東、實際出資人、受讓人，或只是替他人保存文件。公司也可能已有增資、轉讓、質押、查封、分紅或控制權爭議。先問「這項權益是否仍在遺產範圍內」，再談由誰承接；兩個問題不宜混成同一份清單。", "若個案涉及的內地公司股權或相連遺產權益通常達人民幣二十萬元以上，文件核對的優先級會更高。價值仍應按公司、交易和爭議資料評估，不能由證書面額或家屬估算直接推定。"],
+      ["公司是另一個主體，接收要求也要另問", "即使繼承資格和遺產範圍已有初步方向，公司一端仍要核對章程、現有股東資料、歷次決議和所在地的具體接收要求。有的問題是補證明，有的已涉及多人主張、公司拒絕提供資料或即將處分權益；處理次序會不同。", "不要因為手上有澳門文件，就假定內地公司可以立即辦理登記。先把擬處理的動作說清楚：查明、取得副本、確認股東紀錄、參與分配，還是面對爭議，再按實際情況選擇下一步。"],
+      ["寄出文件前，先完成這份短清單", "保留證明原件和完整影像；寫下公司名稱、所在地及已知的統一社會信用代碼；把死亡、親屬關係、遺囑和授權材料按來源列出；標示誰持有正本、誰可能不同意，以及是否有轉讓、質押、執行或期限壓力。這樣在向內地接收方或律師詢問時，較容易得到針對問題的回覆。"]
+    ]
+  },
+  "cn": {
+    "description": "澳门家属保存内地公司出资证明时，怎样分别核对继承资格、遗产范围和公司资料，避免把一张证明误认为股权已经变更。",
+    "lead": "一张留在澳门的出资证明，可能是重要线索，却回答不了全部问题。先把“谁有权处理被继承人的遗产”与“公司记录中的权益到底是什么”分开，文件、公司和继承人三条线才不会混在一起。",
+    "ad": ["向 AI 法律助手说明情况", "先列出公司名称、已知股东、手头文件和最紧急的问题；不必输入证件号码。"],
+    "sections": [
+      ["这张证明能说明什么", "证明上也许有公司名称、出资人、日期、印章或历次变动的线索。先完整留存正反面和附件，再记下它来自谁的档案、何时发现。它可以帮助追查，但通常不能单独证明目前仍持有某个比例，更不能证明任一亲属已经可以代表遗产处分股权。", "如果公司在中国内地，还应把公司所在地、统一社会信用代码（如已知）、章程、股东名册、出资或转让文件与这张证明分别归档。纸面内容和公司现有记录不一致时，先标为待核实，不要选其中一份当结论。"],
+      ["第一条线：谁能代表遗产", "死亡、亲属关系、遗嘱、是否曾放弃以及是否还有其他继承人，解决的是继承资格。澳门形成的文件，其时间、姓名写法和关系链都可能影响内地接收方如何审核。把已经确认的事实、只有口述的情况和仍缺原件的材料分开列，会比先下结论更有用。", "这条线只帮助确认谁可能有资格查询、签署授权或参与处理；它不会自动回答公司权益的范围、价值或能否变更。"],
+      ["第二条线：遗产里究竟有什么公司权益", "被继承人可能是登记股东、实际出资人、受让人，也可能只是替他人保管文件。公司还可能经历增资、转让、质押、查封、分红或者控制权争议。先核对“这项权益是否仍属于遗产范围”，再讨论由谁承接；两个问题不宜混在一张清单里。", "如果个案关联的内地公司股权或遗产权益通常达到人民币二十万元以上，文件核对应尽早安排。具体价值仍要结合公司、交易和争议资料判断，不能只凭证书面额或家属估算。"],
+      ["公司是另一主体，接收要求也要另行确认", "即使继承资格和遗产范围有了初步方向，公司一端仍要核对章程、现有股东资料、历次决议和所在地的实际接收要求。有的问题只是补证，有的已经涉及多人主张、公司拒绝提供资料或权益面临处分；处理顺序并不相同。", "手上有澳门文件，不等于内地公司可以立即办理登记。先明确希望完成的是查明、取得副本、确认股东记录、参与分配，还是处理争议，再选择下一步。"],
+      ["寄材料前先完成这份短清单", "保存证明原件和完整影像；记录公司名称、所在地及已知统一社会信用代码；按来源整理死亡、亲属关系、遗嘱和授权材料；标出谁持有原件、谁可能不同意，以及是否存在转让、质押、执行或期限压力。带着这份清单向内地接收方或律师询问，较容易获得针对性的答复。"]
+    ]
+  },
+  "en": {
+    "description": "A Macau-held share certificate can be a useful lead, but a Mainland China estate review must keep heirship, estate scope, and company records separate before anyone assumes a share transfer is possible.",
+    "lead": "A share certificate kept in Macau may be an important lead, but it does not settle every question. Keep separate the person entitled to deal with the estate and the interest shown in the Mainland company’s records; otherwise the family can confuse an inheritance question with a company-record question.",
+    "ad": ["Explain the situation to the AI legal assistant", "List the company name, known shareholders, documents in hand and the most urgent question. Do not enter identity-document numbers."],
+    "sections": [
+      ["What the certificate can, and cannot, show", "A certificate may show a company name, contributor, date, seal or a trace of a past change. Preserve every page and record where it was found and who held it. That creates a useful trail. It does not normally prove that the stated percentage remains current, or that a family member may now dispose of an estate interest.", "For a Mainland China company, file the company location, unified social credit code if known, articles, shareholder register, funding papers and transfer papers separately from the certificate. If the paper and current company record do not match, mark the difference for checking rather than choosing one as the answer."],
+      ["One file asks who may act for the estate", "Death records, family relationship records, a will, any renunciation and the possible existence of other heirs address heirship. The date, name format and relationship chain in Macau documents can affect how a Mainland receiving party reviews them. A practical file distinguishes confirmed facts, family recollection and documents whose originals are still missing.", "That work may identify who can make an inquiry, give authority or take part in the process. It does not, by itself, decide the scope, value or transferability of a company interest."],
+      ["A second file asks what company interest is actually in the estate", "The deceased may have been the registered shareholder, the actual funder, a transferee, or simply the person keeping the papers. There may also have been capital changes, a transfer, a pledge, preservation measure, distributions or a control dispute. Establish whether an interest is still within the estate before deciding who succeeds to it.", "Where the Mainland company interest or connected estate claim would ordinarily involve RMB 200,000 or more, this distinction has real commercial weight. Value still needs to be assessed from company, transaction and dispute records; neither the certificate face value nor a family estimate is enough."],
+      ["The company has its own record and its own receiving questions", "Even with a working heirship picture, the company side may require its articles, current shareholder information, past resolutions and location-specific requirements to be checked. A missing document is different from competing claims, withheld company information or an imminent disposal of value; the next step changes with the problem.", "Do not assume that a Macau document enables immediate registration with a Mainland company. First specify the purpose: an information request, copies, confirmation of the register, participation in distribution, or a response to a dispute."],
+      ["A short list before sending the file", "Keep the original certificate and a complete image set. Note the company name, location and any known unified social credit code. Sort death, relationship, will and authority material by source. Flag who holds originals, who may disagree, and whether transfer, pledge, enforcement or time pressure is known. That gives a Mainland receiving party or lawyer a usable starting point without promising an outcome."]
+    ]
+  }
+}
