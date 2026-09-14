@@ -1,0 +1,25 @@
+{
+  "date": "2026-09-14",
+  "purpose": "Quality-repair research for macau-adopted-child-record; this is not a new story publication.",
+  "google_query": "澳門 收養 證明 內地 遺產 繼承",
+  "sources": [
+    {
+      "type": "official",
+      "title": "確認繼承人資格公證書",
+      "url": "https://www.gov.mo/zh-hant/services/ps-1053/ps-1053g/",
+      "accessed": "2026-09-14",
+      "core_idea": "澳門官方按家庭關係列出不同的死亡、婚姻、出生等材料；資料欠缺或情況複雜時，處理路徑可能不同。",
+      "used": "把收養資料写成需要与其他关系材料一起核对的线索，不把它表述为已确认继承资格或可直接用于内地所有步骤。"
+    },
+    {
+      "type": "peer article",
+      "title": "澳門居民繼承內地遺產法律指南：公證認證、稅費、過戶全流程",
+      "url": "https://www.faniulaw.cn/blog/mo-inherit-china-property.html",
+      "accessed": "2026-09-14",
+      "core_idea": "同行文章以基础文件、公证认证和内地后续办理作为读者理解路径。",
+      "used": "只采用按步骤与处理目的组织内容的可读性思路；没有复制原文，也没有采用其服务、费用或结果主张。"
+    }
+  ],
+  "business_value_review": "页面改为服务涉及内地房产、公司权益或重大债权的遗产场景；仅在通常达到人民币20万元以上的高价值权益中讨论收养关系资料缺口，不把单一收养记录作为独立低价值选题。",
+  "five_reader_review": "初办家属可从两张表开始；只关心文件者能看到原件与缺口；关系紧张者不会被鼓励抢先定性；年长和手机读者可按短段落与清单阅读；需咨询者可明确说明查明、保全、取资料或处理争议的目的。"
+}

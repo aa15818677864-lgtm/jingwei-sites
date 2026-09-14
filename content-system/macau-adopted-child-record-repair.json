@@ -1,0 +1,41 @@
+{
+  "tc": {
+    "title": "收養關係資料未齊，澳門家屬怎樣處理涉及內地房產或公司權益的遺產",
+    "description": "澳門家屬遇到收養關係資料未齊，而遺產涉及內地房產、公司權益或重大債權時，應先分開核對關係、遺產範圍和內地處理目的。",
+    "lead": "收養資料少了一頁、姓名寫法不同，未必等於不能處理；但也不能只憑家族說法，就把某人當成已確認的繼承人。若遺產牽涉內地房產、公司股權或其他高價值權益，先把關係證明、資產線索和要處理的事情拆開，較不容易把一個缺口拖成整份檔案的風險。",
+    "ad": ["向 AI 法律助手說明情況", "可先整理人物關係、已知內地資產和欠缺文件；毋須輸入證件號碼。"],
+    "sections": [
+      ["收養資料是關係線索，不是整份遺產的答案", "收養相關的出生、登記、判決、證明或舊信件，作用是協助釐清某人與被繼承人的關係。它不會單獨證明此人可代表遺產，也不能直接證明內地房屋、公司股份或債權仍屬遺產。先保存每份材料的完整頁面、來源和取得時間，對不上之處不要自行補成結論。", "把已見正本、只有影像、家人轉述和仍未找到的資料分開列出。這個做法看似慢，卻能避免日後向公證、登記、公司或內地接收方說明時，連缺口在哪裡也講不清。"],
+      ["先畫兩張表：人物關係與內地資產", "第一張表只處理人物：被繼承人、可能的收養子女、配偶、其他子女和可能持有資料的人。死亡、婚姻、出生、收養、遺囑和曾否放棄等事項，應逐項標示資料來源與不確定處。", "第二張表只處理資產：內地房屋地址或登記線索、公司名稱和已知股東、重大合同或債權、是否有抵押、轉讓、查封或爭議。兩張表不能互相代替；關係尚未釐清時，仍可先把需要保存或查明的資產線索記好。"],
+      ["先確認處理目標，才知道要補哪份材料", "同一句「處理遺產」可能是查詢資產、保全一項權益、取得公司資料、參與分配，或回應其他家屬提出的主張。不同目標對文件原件、授權、關係鏈和時間壓力的要求可能不同，不宜把一份澳門收養材料當成通行文件。", "若個案涉及的內地房產、公司權益或相連債權通常達人民幣二十萬元以上，先把資料缺口與可能的處分、質押或執行風險寫清楚。價值要按實際資產和爭議資料判斷，不能由一張收養記錄或家人估算直接推定。"],
+      ["文件欠缺或有人異議時，先保留問題而非選邊", "澳門確認繼承人資格的官方說明，會按不同家庭關係要求相應的死亡、婚姻、出生等證明，並提示資料欠缺或情況複雜時，處理路徑可能改變。這提醒家屬：收養關係若仍有資料缺口、不同人說法不一，或另有遺囑與未成年繼承人情況，先記錄待核實事項，比搶先定性更穩妥。", "需要在內地使用的材料，還要結合資產所在地、接收方要求和個案事實另行核對。本文只協助整理問題，不替代對某份文件效力或最終繼承資格的個案判斷。"],
+      ["交給內地接收方或律師前的短清單", "保留收養相關材料的正本位置與完整影像；寫下被繼承人的姓名寫法、死亡資料及可能的家庭成員；另列內地房產、公司或重大債權的已知線索；標出誰持有原件、誰可能不同意，以及是否存在處分或期限壓力。", "帶著這份清單詢問時，先說明想完成的是查明、保全、取得資料還是處理爭議。資料越能按問題分組，越容易得到針對性的下一步，而不是一份泛泛的文件清單。"]
+    ]
+  },
+  "cn": {
+    "title": "收养关系资料不齐，澳门家属怎样处理涉及内地房产或公司权益的遗产",
+    "description": "澳门家属遇到收养关系资料不齐，而遗产涉及内地房产、公司权益或重大债权时，应先分别核对关系、遗产范围和内地处理目的。",
+    "lead": "收养资料缺一页、姓名写法不同，并不一定表示事情无法处理；但也不能只凭家人的说法，就把某人当成已经确认的继承人。遗产一旦牵涉内地房产、公司股权或其他高价值权益，先把关系证明、资产线索和要办的事情拆开，才不容易让一个资料缺口拖成整份档案的风险。",
+    "ad": ["向 AI 法律助手说明情况", "可先整理人物关系、已知内地资产和缺少的文件；不必输入证件号码。"],
+    "sections": [
+      ["收养资料是关系线索，不是整份遗产的答案", "收养相关的出生、登记、判决、证明或旧信件，作用是帮助梳理某人与被继承人的关系。它不能单独证明这个人可以代表遗产，也不能直接证明内地房屋、公司股权或债权仍属于遗产。先保存每份材料的完整页面、来源和取得时间，对不上的地方不要自行补成结论。", "把已经见到的原件、只有影像的材料、家人转述和仍未找到的资料分开列出。看起来多做了一步，却能避免日后向公证、登记、公司或内地接收方说明时，连缺口在哪里也说不清。"],
+      ["先画两张表：人物关系与内地资产", "第一张表只处理人物：被继承人、可能的收养子女、配偶、其他子女和可能持有资料的人。死亡、婚姻、出生、收养、遗嘱、是否曾放弃等事项，逐项标注资料来源和不确定之处。", "第二张表只处理资产：内地房屋地址或登记线索、公司名称和已知股东、重大合同或债权、是否存在抵押、转让、查封或争议。两张表不能相互替代；关系尚未厘清时，也可以先把需要保存或查明的资产线索记下来。"],
+      ["先确认处理目标，才知道补哪份材料", "同一句“处理遗产”，可能是查询资产、保全某项权益、取得公司资料、参与分配，或者回应其他家属提出的主张。不同目标对原件、授权、关系链和时间压力的要求可能不同，不能把一份澳门收养材料当成通行文件。", "如果个案涉及的内地房产、公司权益或相连债权通常达到人民币二十万元以上，应尽早写清资料缺口以及可能的处分、质押或执行风险。具体价值仍要根据资产和争议资料判断，不能只凭一张收养记录或家人估算推定。"],
+      ["文件缺失或有人异议时，先保留问题而不是选边", "澳门确认继承人资格的官方说明，会按不同家庭关系要求相应的死亡、婚姻、出生等证明，并提示材料不齐或情形复杂时，处理路径可能改变。这提醒家属：收养关系还存在资料缺口、不同人说法不一致，或另有遗嘱与未成年继承人等情况时，先记录待核实事项，比抢先下结论更稳妥。", "需要在内地使用的材料，还要结合资产所在地、接收方要求和具体事实另行核对。本文只帮助整理问题，不替代对某份文件效力或最终继承资格的个案判断。"],
+      ["交给内地接收方或律师前的短清单", "保存收养相关材料的原件位置和完整影像；写明被继承人的姓名写法、死亡资料及可能的家庭成员；另列内地房产、公司或重大债权的已知线索；标出谁保管原件、谁可能不同意，以及是否存在处分或期限压力。", "带着这份清单询问时，先说明希望完成的是查明、保全、取得资料还是处理争议。资料能按问题分组，才更容易得到针对性的下一步，而不是一份泛泛的文件清单。"]
+    ]
+  },
+  "en": {
+    "title": "Incomplete Adoption Records in a Macau Family: Preparing a Mainland China High-Value Estate File",
+    "description": "When adoption records are incomplete and a Macau family faces Mainland China property, company interests or a major claim, heirship, estate scope and the intended Mainland step should be checked separately.",
+    "lead": "A missing adoption record or a different name spelling does not necessarily end the matter. It also does not make someone a confirmed heir on family recollection alone. Where a Mainland China estate includes property, company interests or another high-value right, separate the relationship evidence, the asset trail and the action the family needs to take. That keeps one document gap from becoming a risk across the entire file.",
+    "ad": ["Explain the situation to the AI legal assistant", "Start with the family relationship, known Mainland assets and missing documents. Do not enter identity-document numbers."],
+    "sections": [
+      ["Adoption material is a relationship lead, not the whole estate answer", "Birth, registration, court, certificate or historic correspondence connected with an adoption may help explain a relationship with the deceased. It does not by itself establish authority over an estate, or prove that a Mainland home, company interest or debt claim remains in that estate. Keep every page, its source and the date it was obtained. Do not fill a mismatch with an assumption.", "Separate originals seen, image-only material, family recollection and documents not yet found. That small discipline makes it easier to explain the real gap later to a notary, registry, company or Mainland receiving party."],
+      ["Make two lists: people and Mainland assets", "The first list is for people only: the deceased, a possible adopted child, spouse, other children and anyone holding records. Record the source and any uncertainty for death, marriage, birth, adoption, wills and possible renunciation.", "The second list is for assets only: a Mainland property address or registration lead, a company and known shareholders, a substantial contract or debt claim, and any pledge, transfer, preservation measure or dispute. The lists answer different questions. Asset clues can still be preserved while the relationship issue is being clarified."],
+      ["Set the purpose before deciding which gap matters", "‘Handling the estate’ might mean locating assets, preserving an interest, obtaining company information, joining a distribution, or responding to another family member’s claim. Those purposes can call for different originals, authority documents, relationship evidence and responses to time pressure. One Macau adoption document is not a universal pass for each of them.", "If the Mainland property, company interest or connected claim would ordinarily involve RMB 200,000 or more, identify both the document gap and any risk of disposal, pledge or enforcement early. Value must still be assessed from the asset and dispute record, not from an adoption document or a family estimate."],
+      ["Where records are incomplete or relatives disagree, preserve the question", "Macau’s official guidance on confirming heirship asks for different death, marriage and birth records according to the family relationship, and notes that an incomplete or complex case can follow a different path. If adoption evidence remains incomplete, accounts conflict, or there is a will or a minor heir, record what needs checking rather than treating one account as settled.", "Material intended for use in Mainland China also needs to be checked against the asset location, the receiving party’s requirements and the facts of the individual case. This page helps organise the issue; it does not decide the legal effect of a document or the final heirship outcome."],
+      ["A short file to prepare before asking for help", "Keep the original location and complete images of adoption-related material. Note the deceased’s name variants, death details and possible family members. List known Mainland property, company or major debt leads. Flag who holds originals, who may disagree and whether there is a disposal or deadline concern.", "When asking a Mainland receiving party or lawyer, say whether the immediate aim is fact-finding, preservation, obtaining records or dealing with a dispute. A file arranged around that question is more useful than a generic document list."]
+    ]
+  }
+}
