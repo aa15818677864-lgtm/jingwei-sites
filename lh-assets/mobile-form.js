@@ -54,22 +54,12 @@
       setLoading(true);
       setStatus("正在安全提交资料，请稍候。", "loading");
       hydrateHiddenFields();
-      await fetch(endpoint, {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
-        body: buildPayload().toString()
-      });
+      const receipt = await window.LH_SUBMISSION.submit(endpoint, buildPayload(), form);
 
       setStatus("资料已送出，正在为你跳转。", "success");
-      if (typeof window.gtag === "function" && config.conversionId) {
-        window.gtag("event", "conversion", { send_to: config.conversionId });
-      }
-      window.setTimeout(function () {
-        window.location.href = "lh-thanks.html";
-      }, 250);
+      window.LH_SUBMISSION.finish(receipt, config.conversionId);
     } catch (error) {
-      setStatus("提交失败，请稍后再试。", "error");
+      setStatus("暂未确认提交成功，资料仍保留在表单中，请再试一次。", "error");
       setLoading(false);
     }
   });
