@@ -103,29 +103,17 @@
 
     try {
       setSubmitState(true);
-      setFormStatus("正在安全提交資料，通常需時數秒。", "loading");
+      setFormStatus("正在提交，請稍候。", "loading");
       hydrateHiddenFields(form);
       const payload = buildSubmissionPayload(form);
 
-      await fetch(endpoint, {
-        method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
-        },
-        body: payload.toString()
-      });
+      const receipt = await window.SH_SUBMISSION.submit(endpoint, payload, form);
 
       submittedSuccessfully = true;
       setFormStatus("資料已送出，正在為你跳轉。", "success");
-      if (typeof window.gtag === "function" && siteConfig.conversionId) {
-        window.gtag("event", "conversion", { send_to: siteConfig.conversionId });
-      }
-      window.setTimeout(function () {
-        window.location.href = "sh-thanks.html";
-      }, 250);
+      window.SH_SUBMISSION.finish(receipt, siteConfig.conversionId);
     } catch (error) {
-      setFormStatus("提交失敗，請稍後再試。", "error");
+      setFormStatus("暫未確認提交成功，資料仍保留在表單中，請再試一次。", "error");
     } finally {
       if (!submittedSuccessfully) {
         setSubmitState(false);
@@ -227,7 +215,7 @@
     };
 
     append("submitted_at", getFieldValue(currentForm, "submitted_at") || new Date().toISOString());
-    append("site", siteConfig.siteCode || "liuyi-divorce-lh");
+    append("site", siteConfig.siteCode || "liuyi-criminal-sh");
     append("language", document.documentElement.lang || "zh-HK");
     append("page_title", document.title);
     append("page_url", window.location.href);

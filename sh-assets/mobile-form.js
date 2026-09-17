@@ -52,24 +52,14 @@
 
     try {
       setLoading(true);
-      setStatus("正在安全提交资料，请稍候。", "loading");
+      setStatus("正在提交，請稍候。", "loading");
       hydrateHiddenFields();
-      await fetch(endpoint, {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
-        body: buildPayload().toString()
-      });
+      const receipt = await window.SH_SUBMISSION.submit(endpoint, buildPayload(), form);
 
-      setStatus("资料已送出，正在为你跳转。", "success");
-      if (typeof window.gtag === "function" && config.conversionId) {
-        window.gtag("event", "conversion", { send_to: config.conversionId });
-      }
-      window.setTimeout(function () {
-        window.location.href = "sh-thanks.html";
-      }, 250);
+      setStatus("資料已送出，正在為你跳轉。", "success");
+      window.SH_SUBMISSION.finish(receipt, config.conversionId);
     } catch (error) {
-      setStatus("提交失败，请稍后再试。", "error");
+      setStatus("暫未確認提交成功，資料仍保留在表單中，請再試一次。", "error");
       setLoading(false);
     }
   });
@@ -89,7 +79,7 @@
     const append = function (name, value) { payload.append(name, value == null ? "" : String(value)); };
 
     append("submitted_at", getValue("submitted_at") || new Date().toISOString());
-    append("site", config.siteCode || "liuyi-divorce-lh");
+    append("site", config.siteCode || "liuyi-criminal-sh");
     append("language", "zh-CN");
     append("page_title", document.title);
     append("page_url", window.location.href);
