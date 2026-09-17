@@ -11,7 +11,7 @@
   const phoneField = form.elements.namedItem("contact_phone");
   const phoneError = document.getElementById("mobile-phone-error");
   const submitButton = form.querySelector('button[type="submit"]');
-  const submitLabel = submitButton ? submitButton.textContent.trim() : "提交初步咨询";
+  const submitLabel = submitButton ? submitButton.textContent.trim() : "提交初步諮詢";
   const phoneLengths = { "+852": 8, "+86": 11, "+853": 8 };
   let clientIpPromise = null;
   let isSubmitting = false;
@@ -41,7 +41,7 @@
 
     const endpoint = config.formEndpoint;
     if (!endpoint || endpoint.indexOf("REPLACE_WITH") !== -1) {
-      setStatus("表单提交地址尚未设置，请稍后再试。", "error");
+      setStatus("表單提交地址尚未設定，請稍後再試。", "error");
       return;
     }
 
@@ -80,7 +80,7 @@
 
     append("submitted_at", getValue("submitted_at") || new Date().toISOString());
     append("site", config.siteCode || "liuyi-criminal-sh");
-    append("language", "zh-CN");
+    append("language", "zh-HK");
     append("page_title", document.title);
     append("page_url", window.location.href);
     append("name", getValue("name"));
@@ -114,7 +114,7 @@
     const region = getValue("contact_region");
     const expected = phoneLengths[region];
     phoneField.maxLength = expected || 20;
-    phoneField.placeholder = expected === 11 ? "请输入11位号码" : expected === 8 ? "请输入8位号码" : "请输入电话号码";
+    phoneField.placeholder = expected === 11 ? "請輸入11位號碼" : expected === 8 ? "請輸入8位號碼" : "請輸入電話號碼";
   }
 
   function validatePhone() {
@@ -126,11 +126,11 @@
     const expected = phoneLengths[region];
     let message = "";
     if (!digits) {
-      message = "请填写联系电话。";
+      message = "請填寫聯絡電話。";
     } else if (expected && digits.length !== expected) {
-      message = region + " 电话请填写 " + expected + " 位数字。";
+      message = region + " 電話請填寫 " + expected + " 位數字。";
     } else if (!expected && (digits.length < 6 || digits.length > 20)) {
-      message = "请输入 6 至 20 位电话号码。";
+      message = "請輸入 6 至 20 位電話號碼。";
     }
     phoneField.setCustomValidity(message);
     phoneField.classList.toggle("is-invalid", Boolean(message));
@@ -147,7 +147,7 @@
       return;
     }
     submitButton.disabled = loading;
-    submitButton.textContent = loading ? "提交中" : submitLabel;
+    submitButton.textContent = loading ? "提交中…" : submitLabel;
     form.setAttribute("aria-busy", loading ? "true" : "false");
   }
 
