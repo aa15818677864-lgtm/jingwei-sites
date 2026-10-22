@@ -189,77 +189,69 @@
     other: { label: "美国华人中文入口", url: "/us/index_cn.html" }
   };
 
+  const LEAD_DIAL_CODES = ["852", "853", "86", "44", "61", "65", "60", "1"];
+  const LEAD_PHONE_HINT = "电话请含区号，6–15 位数字";
+  const LEAD_PHONE_ALERT = "请输入 6–15 位电话号码；非本地区号码请以 + 开头，如 +86 138...";
+
+  function isPlausiblePhoneDigits(value) {
+    return /^\d{6,15}$/.test(String(value || ""));
+  }
+
   const leadRegionRules = {
     hongkong: {
       code: "+852",
-      hint: "香港电话请输入 8 位数字",
-      alert: "香港电话请输入 8 位数字",
-      validate(value) {
-        return /^\d{8}$/.test(value);
-      }
+      hint: LEAD_PHONE_HINT,
+      alert: LEAD_PHONE_ALERT,
+      validate: isPlausiblePhoneDigits
     },
     mainland: {
       code: "+86",
-      hint: "中国内地手机请输入 11 位数字",
-      alert: "中国内地手机请输入 11 位数字",
-      validate(value) {
-        return /^\d{11}$/.test(value);
-      }
+      hint: LEAD_PHONE_HINT,
+      alert: LEAD_PHONE_ALERT,
+      validate: isPlausiblePhoneDigits
     },
     macau: {
       code: "+853",
-      hint: "澳门电话请输入 8 位数字",
-      alert: "澳门电话请输入 8 位数字",
-      validate(value) {
-        return /^\d{8}$/.test(value);
-      }
+      hint: LEAD_PHONE_HINT,
+      alert: LEAD_PHONE_ALERT,
+      validate: isPlausiblePhoneDigits
     },
     us_ca: {
       code: "+1",
-      hint: "美国 / 加拿大电话请输入 10 位数字",
-      alert: "美国 / 加拿大电话请输入 10 位数字",
-      validate(value) {
-        return /^\d{10}$/.test(value);
-      }
+      hint: LEAD_PHONE_HINT,
+      alert: LEAD_PHONE_ALERT,
+      validate: isPlausiblePhoneDigits
     },
     uk: {
       code: "+44",
-      hint: "英国电话请输入 9 到 11 位数字",
-      alert: "英国电话请输入 9 到 11 位数字",
-      validate(value) {
-        return /^\d{9,11}$/.test(value);
-      }
+      hint: LEAD_PHONE_HINT,
+      alert: LEAD_PHONE_ALERT,
+      validate: isPlausiblePhoneDigits
     },
     australia: {
       code: "+61",
-      hint: "澳大利亚电话请输入 9 位数字",
-      alert: "澳大利亚电话请输入 9 位数字",
-      validate(value) {
-        return /^\d{9}$/.test(value);
-      }
+      hint: LEAD_PHONE_HINT,
+      alert: LEAD_PHONE_ALERT,
+      validate: isPlausiblePhoneDigits
     },
     singapore: {
       code: "+65",
-      hint: "新加坡电话请输入 8 位数字",
-      alert: "新加坡电话请输入 8 位数字",
-      validate(value) {
-        return /^\d{8}$/.test(value);
-      }
+      hint: LEAD_PHONE_HINT,
+      alert: LEAD_PHONE_ALERT,
+      validate: isPlausiblePhoneDigits
     },
     malaysia: {
       code: "+60",
-      hint: "马来西亚电话请输入 8 到 10 位数字",
-      alert: "马来西亚电话请输入 8 到 10 位数字",
-      validate(value) {
-        return /^\d{8,10}$/.test(value);
-      }
+      hint: LEAD_PHONE_HINT,
+      alert: LEAD_PHONE_ALERT,
+      validate: isPlausiblePhoneDigits
     },
     other: {
       code: "",
-      hint: "其他地区可输入常用号码，并补充国际区号",
-      alert: "请填写常用联系电话，并补充国际区号",
+      hint: "其他地区请填国际区号 + 6–15 位号码",
+      alert: "其他地区请先填写国际区号，并填 6–15 位号码",
       validate(value, customCode) {
-        return /^\d{6,20}$/.test(value) && /^\+\d{1,4}$/.test(customCode || "");
+        return isPlausiblePhoneDigits(value) && /^\+\d{1,4}$/.test(customCode || "");
       }
     }
   };
@@ -2026,14 +2018,31 @@
     return String(value || "").replace(/[^\d]/g, "");
   }
 
+  function parseLeadPhoneInput(value) {
+    const raw = String(value || "").trim();
+    if (!raw) return { dialCode: "", phone: "" };
+    const normalized = raw.replace(/^00/, "+");
+    if (normalized.startsWith("+")) {
+      const digits = normalized.slice(1).replace(/[^\d]/g, "");
+      for (let index = 0; index < LEAD_DIAL_CODES.length; index += 1) {
+        const code = LEAD_DIAL_CODES[index];
+        const rest = digits.slice(code.length);
+        if (digits.startsWith(code) && isPlausiblePhoneDigits(rest)) {
+          return { dialCode: "+" + code, phone: rest };
+        }
+      }
+      return { dialCode: "", phone: digits };
+    }
+    return { dialCode: "", phone: cleanLeadPhoneNumber(raw) };
+  }
+
   function normalizedLeadPhoneNumber() {
-    let digits = cleanLeadPhoneNumber(leadPhoneInput && leadPhoneInput.value);
+    const parsed = parseLeadPhoneInput(leadPhoneInput && leadPhoneInput.value);
+    let digits = parsed.phone;
     const dialCode = leadDialCode();
     const codeDigits = dialCode.replace(/[^\d]/g, "");
-    if (digits.startsWith("00" + codeDigits)) digits = digits.slice(codeDigits.length + 2);
-    else if (codeDigits && digits.startsWith(codeDigits) && digits.length > codeDigits.length) {
-      const withoutCode = digits.slice(codeDigits.length);
-      if (leadRegionRule().validate(withoutCode, dialCode)) digits = withoutCode;
+    if (codeDigits && digits.startsWith(codeDigits) && isPlausiblePhoneDigits(digits.slice(codeDigits.length))) {
+      digits = digits.slice(codeDigits.length);
     }
     return digits;
   }
@@ -2052,6 +2061,8 @@
   }
 
   function leadDialCode() {
+    const parsed = parseLeadPhoneInput(leadPhoneInput && leadPhoneInput.value);
+    if (parsed.dialCode) return parsed.dialCode;
     const region = leadRegionSelect && leadRegionSelect.value;
     if (region === "other") {
       return normalizeDialCode(leadCustomCodeInput && leadCustomCodeInput.value);
@@ -2114,13 +2125,24 @@
     if (leadCustomCodeWrap) leadCustomCodeWrap.hidden = !isOther;
     if (leadPhoneHint) leadPhoneHint.textContent = rule.hint;
     if (leadPhoneInput) {
-      leadPhoneInput.placeholder = region === "hongkong" || region === "macau"
-        ? "8 位号码"
-        : region === "mainland"
-          ? "11 位手机号"
-          : "联系电话";
+      leadPhoneInput.placeholder = "含区号，6–15 位";
     }
     if (!isOther && leadCustomCodeInput) leadCustomCodeInput.value = "";
+  }
+
+  function syncLeadRegionFromPhone() {
+    if (!leadRegionSelect || !leadPhoneInput) return;
+    const raw = String(leadPhoneInput.value || "").trim();
+    if (!raw.startsWith("+") && !raw.startsWith("00")) return;
+    const parsed = parseLeadPhoneInput(raw);
+    if (!parsed.dialCode) return;
+    const match = Object.keys(leadRegionRules).find(function (key) {
+      return leadRegionRules[key].code === parsed.dialCode;
+    });
+    if (match && leadRegionSelect.value !== match) {
+      leadRegionSelect.value = match;
+      updateLeadRegionUi();
+    }
   }
 
   function leadCaptureShouldShow() {
@@ -2291,7 +2313,7 @@
     return /verify-local|test|codex/.test(source);
   }
 
-  async function submitLeadSheet() {
+  async function submitLeadSheet(payload) {
     if (isLeadCaptureTestContext()) return false;
     const target = leadSubmitEndpoint();
     if (!target) throw new Error("missing submit endpoint");
@@ -2304,7 +2326,7 @@
         method: "POST",
         mode: "no-cors",
         headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
-        body: buildLeadSheetPayload().toString(),
+        body: (payload || buildLeadSheetPayload()).toString(),
         signal: controller.signal
       });
     } catch (error) {
@@ -2378,7 +2400,7 @@
     const customCode = normalizeDialCode(leadCustomCodeInput && leadCustomCodeInput.value);
 
     if (!phone) {
-      return { ok: false, message: "请填写联系电话", focus: leadPhoneInput };
+      return { ok: false, message: "请填写联系电话（必填）", focus: leadPhoneInput };
     }
 
     if (!rule.validate(phone, customCode)) {
@@ -2408,6 +2430,7 @@
       leadSubmitButton.textContent = "提交中...";
     }
     setLeadStatus("", false);
+    const sheetPayload = buildLeadSheetPayload();
 
     try {
       const backendResult = await submitLawyerBooking();
@@ -2429,7 +2452,7 @@
       setLeadStatus("预约已提交。", false);
 
       if (!isLeadCaptureTestContext()) {
-        submitLeadSheet()
+        submitLeadSheet(sheetPayload)
           .catch(function () {
             // The booking API is authoritative; sheet mirroring is best effort.
           });
@@ -3680,6 +3703,7 @@ function renderInitialChat() {
 
   if (leadPhoneInput) {
     leadPhoneInput.addEventListener("input", function () {
+      syncLeadRegionFromPhone();
       setLeadStatus("", false);
     });
   }

@@ -42,7 +42,7 @@
       <aside class="lead-capture" id="leadCaptureCard" aria-label="预约真人律师">
         <div class="lead-capture-form" id="leadCaptureFormWrap">
           <h2 class="lead-title">预约真人律师</h2>
-          <p class="lead-copy">留下电话，团队结合本次对话联系你。</p>
+          <p class="lead-copy">留下电话（必填），团队结合本次对话联系你。</p>
           <form class="lead-form" id="leadCaptureForm" novalidate>
             <input id="leadStartedAt" name="started_at" type="hidden">
             <label class="lead-honeypot" aria-hidden="true">
@@ -71,8 +71,8 @@
               </label>
 
               <label class="lead-field lead-number-field" for="leadPhone">
-                <span>联系电话</span>
-                <input id="leadPhone" name="lead_phone" type="tel" maxlength="24" inputmode="tel" autocomplete="tel" placeholder="8 位号码">
+                <span>联系电话（必填）</span>
+                <input id="leadPhone" name="lead_phone" type="tel" maxlength="24" inputmode="tel" autocomplete="tel" placeholder="含区号，6–15 位" required aria-required="true">
               </label>
             </div>
 
@@ -80,11 +80,11 @@
               <span>自填区号</span>
               <input id="leadCustomCode" name="lead_custom_code" type="text" maxlength="6" inputmode="tel" autocomplete="off" placeholder="例如 +44">
             </label>
-            <p class="lead-hint" id="leadPhoneHint">香港电话请输入 8 位数字</p>
+            <p class="lead-hint" id="leadPhoneHint">电话请含区号，6–15 位数字</p>
 
             <label class="lead-field" for="leadAltContact">
               <span>微信 / WhatsApp / 邮箱</span>
-              <input id="leadAltContact" name="lead_alt_contact" type="text" maxlength="120" autocomplete="off" placeholder="选填一种即可">
+              <input id="leadAltContact" name="lead_alt_contact" type="text" maxlength="120" autocomplete="off" placeholder="选填，方便时补充">
             </label>
 
             <label class="lead-field" for="leadMatter">
@@ -168,6 +168,6 @@
   </main>
 
   <script src="/site-config.js"></script>
-  <script src="script.js?v=20260826-lawyer-booking-v2"></script>
+  <script src="script.js?v=20261022-phone-validation"></script>
 </body>
 </html>
