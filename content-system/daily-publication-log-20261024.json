@@ -3,7 +3,7 @@
   "targetStories": 20,
   "preparedStories": 20,
   "publishedStories": 20,
-  "status": "date-corrected-awaiting-deployment",
+  "status": "published-verified",
   "indexing": "unknown",
   "pages": [
     {
@@ -950,7 +950,7 @@
     }
   ],
   "publishedPages": 60,
-  "verifiedAt": "2026-10-23T09:56:11+0800",
+  "verifiedAt": "2026-10-23T12:00:54+0800",
   "originalBatchDate": "2026-10-24",
   "additionalStoriesOnActualDate": 20,
   "dateCorrection": "Retained URLs; corrected future date to actual first publication date.",

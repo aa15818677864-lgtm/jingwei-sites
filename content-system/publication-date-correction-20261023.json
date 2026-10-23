@@ -11,6 +11,18 @@
   "firstObservedLiveAt": "2026-10-23T09:56:11+08:00",
   "googleFirstTwoPagesVerified": 0,
   "researchFollowUp": "All 20 stories still require the requested Google first-two-page check. Fallback sources are recorded; no ranking or search-volume claims are made.",
+  "dateCorrectionDeployment": "49f0436",
+  "liveVerifiedPagesAndResources": 73,
+  "liveVerificationPassed": true,
+  "sitemapCorrectedEntriesVerified": 60,
+  "articleIntegrityTests": {"run": 24, "failures": 3, "note": "Same three failure IDs recorded before this correction; all 60 article diffs verified as dates only."},
+  "sitewideSeoAudit": {"issues": 6813, "note": "Existing sitewide findings remain; scoped 60-page validation passed."},
+  "sourceFollowUp": [
+    {"storyIds": ["D24-P03", "D24-F06", "D24-R02", "D24-R04"], "url": "https://www.hankunlaw.com/upload/portal/20250612/f44ce3dcb89fa63aeb1a95cd6efa1d68.pdf", "actualTitle": "跨境家事法系列（二）：境外人士继承境内财产的六大难点及解决预案", "note": "Original PDF opened; prior source labels were angle summaries rather than its actual title. Not Google result-page verification."},
+    {"storyIds": ["D24-P04"], "url": "https://www.middlapartners.com/family/yanjiu/public-housing-tenant-death-shanghai.html", "actualTitle": "老公房承租人去世：承租权变更与「共同居住人」认定", "note": "Original page opened; concerns Shanghai rules, not a nationwide checklist."},
+    {"storyIds": ["D24-R01"], "url": "https://www.middlapartners.com/inbound/yanjiu/hk-macau-inheritance.html", "actualTitle": "港澳居民继承内地遗产：委托公证人制度全流程", "note": "Original page opened; not a substitute for receiving-institution requirements."},
+    {"storyIds": ["D24-R06"], "url": "https://www.dehenglaw.com/cn/newscontent/0006/036540/2.aspx?MID=0876", "actualTitle": "德恒助力疑难指定监护案胜诉，破解亿万财富跨境传承困局", "note": "Original page opened; promotional outcome and individual case are not Jingwei claims."}
+  ],
   "indexing": "unknown",
   "protectedDivorceFilesChanged": false
 }
