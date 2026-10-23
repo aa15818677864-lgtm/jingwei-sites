@@ -1,0 +1,1010 @@
+[
+  {
+    "id": "D24-P01",
+    "slug": "mainland-housing-reform-property-inheritance-check",
+    "folder": "hk-mainland-property-inheritance",
+    "category": "property-inheritance",
+    "research": {
+      "query": "内地房改房继承登记",
+      "searchUrl": "https://www.google.com.hk/search?q=%E5%86%85%E5%9C%B0%E6%88%BF%E6%94%B9%E6%88%BF%E7%BB%A7%E6%89%BF%E7%99%BB%E8%AE%B0",
+      "viewedPages": [],
+      "observedAt": "2026-10-23",
+      "method": "web search fallback; Google via Playwright encountered a new CAPTCHA after one verified query",
+      "notes": "已用公开网页搜索核对相关同行法律文章或行业办理资料及官方材料，并按内地法律范围原创改写。Google 后续关键词请求再次触发验证，因此未把 Google 第1、2页或排名记为已查。搜索量未测。"
+    },
+    "sources": [
+      {
+        "url": "https://www.zwjkey.com/jingdiananli/minshianli/2026-08-20/13493.html",
+        "title": "房改房继承引纠纷：家庭内部产权协议与登记外观",
+        "type": "competitor",
+        "notes": "同行法律文章，仅用于识别读者问题和内容切入点；未沿用其品牌、案例叙述或段落结构。 Google 前两页因验证未完成，未记录排名。"
+      },
+      {
+        "url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+        "title": "中华人民共和国民法典",
+        "type": "official",
+        "notes": "用于核对内地法律、主管机构或地方办理信息；当地指南仅作该地区示例，不外推为全国统一材料清单。"
+      }
+    ],
+    "related": [
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/asset-clue-list.html",
+        "label": {
+          "zh-Hant": "整理內地遺產線索",
+          "zh-Hans": "整理内地遗产线索",
+          "en": "Organising clues to Mainland assets"
+        }
+      },
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/documents.html",
+        "label": {
+          "zh-Hant": "香港家屬辦理內地繼承文件",
+          "zh-Hans": "香港家属办理内地继承文件",
+          "en": "Documents for Hong Kong families handling Mainland inheritance"
+        }
+      }
+    ],
+    "languages": {
+      "zh-Hans": {
+        "title": "内地房改房继承登记：先核产权比例、补款记录和夫妻共有",
+        "lead": "父母留下的房改房，旧房本、购房协议和单位档案可能各写一套信息。香港家属办理前，先查清被继承人实际取得的是全部产权还是有限产权、是否尚有价款或土地收益事项，再判断哪些权利进入遗产。",
+        "sections": [
+          {
+            "heading": "先分清“房改房”不等于同一种产权",
+            "paragraphs": [
+              "房改房可能按成本价、标准价或其他政策安排购买。登记证书、房改售房合同、缴款凭证和产权备注要放在一起看；仅凭“当年单位分房”或子女出过钱，不能直接推定房屋全部属于某一人。"
+            ]
+          },
+          {
+            "heading": "先析出配偶份额，再计算遗产",
+            "paragraphs": [
+              "房屋如在婚姻关系存续期间取得，要先核对购房时间、资金来源和夫妻财产约定。属于夫妻共同财产的，应先区分配偶自己的份额；只有被继承人依法享有的部分才进入继承范围。"
+            ]
+          },
+          {
+            "heading": "向售房单位和登记机构分别核实",
+            "paragraphs": [
+              "把房改合同、房款收据、补差或补缴记录、旧证及最新登记信息列成一张时间表，向原售房单位确认档案是否仍保存，再向房屋所在地登记机构核对办理所需材料。不同城市、不同房改政策的补件要求可能不同。"
+            ]
+          }
+        ],
+        "checklistTitle": "香港家属先整理",
+        "checklist": [
+          "房改售房合同及购房时采用的价格类型。",
+          "缴款、补差、维修基金或土地收益记录。",
+          "旧房本、最新登记信息和共有情况。",
+          "婚姻证明及夫妻财产约定。",
+          "原单位档案联系人和房屋所在地登记机构答复。"
+        ]
+      },
+      "en": {
+        "title": "Inheriting a Mainland housing-reform home: check title, payments and marital ownership first",
+        "lead": "A housing-reform home may have an old certificate, a purchase agreement and employer records that do not say the same thing. Before a Hong Kong family applies, establish what title the deceased actually acquired, whether any payment or land-related condition remains, and which rights form part of the estate.",
+        "sections": [
+          {
+            "heading": "Identify the actual title",
+            "paragraphs": [
+              "Housing-reform homes arose under different purchase arrangements. Read the register, sale agreement, payment records and any title restriction together. An old workplace allocation or a child’s contribution does not by itself establish sole ownership."
+            ]
+          },
+          {
+            "heading": "Separate a spouse’s share before calculating the estate",
+            "paragraphs": [
+              "If the home was acquired during marriage, check the acquisition date, source of funds and any marital property agreement. A spouse’s own share must be separated before the deceased’s interest is treated as estate property."
+            ]
+          },
+          {
+            "heading": "Verify with the former employer and registry",
+            "paragraphs": [
+              "Create a timeline from the reform-sale contract, receipts, adjustment payments, old certificate and current register. Ask the former employer whether its file survives, then confirm the local registry’s list. Requirements can vary by city and reform scheme."
+            ]
+          }
+        ],
+        "checklistTitle": "Documents and points to check",
+        "checklist": [
+          "The reform-sale contract and purchase-price category.",
+          "Payment, adjustment, maintenance-fund or land-income records.",
+          "Old certificate, current register and co-ownership entries.",
+          "Marriage records and any marital property agreement.",
+          "The employer archive contact and local registry’s response."
+        ]
+      },
+      "zh-Hant": {
+        "title": "內地房改房繼承登記：先核產權比例、補款記錄和夫妻共有",
+        "lead": "父母留下的房改房，舊房本、購房協議和單位檔案可能各寫一套信息。香港家屬辦理前，先查清被繼承人實際取得的是全部產權還是有限產權、是否尚有價款或土地收益事項，再判斷哪些權利進入遺產。",
+        "sections": [
+          {
+            "heading": "先分清“房改房”不等於同一種產權",
+            "paragraphs": [
+              "房改房可能按成本價、標準價或其他政策安排購買。登記證書、房改售房合同、繳款憑證和產權備註要放在一起看；僅憑“當年單位分房”或子女出過錢，不能直接推定房屋全部屬於某一人。"
+            ]
+          },
+          {
+            "heading": "先析出配偶份額，再計算遺產",
+            "paragraphs": [
+              "房屋如在婚姻關係存續期間取得，要先核對購房時間、資金來源和夫妻財產約定。屬於夫妻共同財產的，應先區分配偶自己的份額；只有被繼承人依法享有的部分才進入繼承範圍。"
+            ]
+          },
+          {
+            "heading": "向售房單位和登記機構分別核實",
+            "paragraphs": [
+              "把房改合同、房款收據、補差或補繳記錄、舊證及最新登記信息列成一張時間表，向原售房單位確認檔案是否仍保存，再向房屋所在地登記機構核對辦理所需材料。不同城市、不同房改政策的補件要求可能不同。"
+            ]
+          }
+        ],
+        "checklistTitle": "香港家屬先整理",
+        "checklist": [
+          "房改售房合同及購房時採用的價格類型。",
+          "繳款、補差、維修基金或土地收益記錄。",
+          "舊房本、最新登記信息和共有情況。",
+          "婚姻證明及夫妻財產約定。",
+          "原單位檔案聯繫人和房屋所在地登記機構答覆。"
+        ]
+      }
+    }
+  },
+  {
+    "id": "D24-P02",
+    "slug": "mainland-nominee-property-estate-evidence",
+    "folder": "hk-mainland-property-inheritance",
+    "category": "property-inheritance",
+    "research": {
+      "query": "内地房产代持继承争议",
+      "searchUrl": "https://www.google.com.hk/search?q=%E5%86%85%E5%9C%B0%E6%88%BF%E4%BA%A7%E4%BB%A3%E6%8C%81%E7%BB%A7%E6%89%BF%E4%BA%89%E8%AE%AE",
+      "viewedPages": [],
+      "observedAt": "2026-10-23",
+      "method": "web search fallback; Google via Playwright encountered a new CAPTCHA after one verified query",
+      "notes": "已用公开网页搜索核对相关同行法律文章或行业办理资料及官方材料，并按内地法律范围原创改写。Google 后续关键词请求再次触发验证，因此未把 Google 第1、2页或排名记为已查。搜索量未测。"
+    },
+    "sources": [
+      {
+        "url": "https://www.icourt.cc/prac-document/159233.html",
+        "title": "代持人死亡后，继承人能否就代持的财产进行继承？",
+        "type": "competitor",
+        "notes": "同行法律文章，仅用于识别读者问题和内容切入点；未沿用其品牌、案例叙述或段落结构。 Google 前两页因验证未完成，未记录排名。"
+      },
+      {
+        "url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+        "title": "中华人民共和国民法典",
+        "type": "official",
+        "notes": "用于核对内地法律、主管机构或地方办理信息；当地指南仅作该地区示例，不外推为全国统一材料清单。"
+      }
+    ],
+    "related": [
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/asset-clue-list.html",
+        "label": {
+          "zh-Hant": "整理內地遺產線索",
+          "zh-Hans": "整理内地遗产线索",
+          "en": "Organising clues to Mainland assets"
+        }
+      },
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/documents.html",
+        "label": {
+          "zh-Hant": "香港家屬辦理內地繼承文件",
+          "zh-Hans": "香港家属办理内地继承文件",
+          "en": "Documents for Hong Kong families handling Mainland inheritance"
+        }
+      }
+    ],
+    "languages": {
+      "zh-Hans": {
+        "title": "内地房产代持人先去世，出资家属怎样整理继承争议证据",
+        "lead": "房屋登记在亲属名下，实际出资人却是另一位家人；登记人先离世后，继承人面对的往往不只是分遗产，还包括代持关系是否存在、房屋权利归谁。先保存完整证据，别急着把“出资”写成“产权”。",
+        "sections": [
+          {
+            "heading": "登记、出资和实际使用要分开证明",
+            "paragraphs": [
+              "收集登记簿、购房合同、付款流水、贷款还款、税费凭证、装修支出及长期占有使用记录。每份材料说明的是不同事实：谁登记、谁付款、谁管理，不能互相替代。"
+            ]
+          },
+          {
+            "heading": "代持约定最好找同期材料印证",
+            "paragraphs": [
+              "书面代持协议、聊天记录、催款或分红记录、房屋交付和物业沟通，均要保留原始载体与完整上下文。单方回忆或事后补写的说明，证明力可能有限；更不能改动转账备注或补造签名。"
+            ]
+          },
+          {
+            "heading": "先判断是否需要诉讼和财产保全",
+            "paragraphs": [
+              "如其他继承人主张登记人个人所有，或房屋将被出售、抵押、查封，应及时评估确认权属、继承分割或执行异议等不同请求及证据保全需要。香港家属应先取得不动产所在地登记和诉讼材料，再确定内地程序。"
+            ]
+          }
+        ],
+        "checklistTitle": "证据整理清单",
+        "checklist": [
+          "产权登记、购房合同及历次变更资料。",
+          "原始付款流水、贷款及税费记录。",
+          "代持协议、聊天记录和完整电子数据。",
+          "交房、居住、出租、物业沟通与维修材料。",
+          "其他继承人的主张、诉讼或处分风险。"
+        ]
+      },
+      "en": {
+        "title": "The registered nominee dies first: evidence for a Mainland property inheritance dispute",
+        "lead": "A home may be registered to one relative while another family member supplied the money. If the registered owner dies first, heirs may have to resolve both the estate and whether a nominee arrangement existed. Preserve the evidence; payment alone does not automatically prove title.",
+        "sections": [
+          {
+            "heading": "Prove registration, payment and use separately",
+            "paragraphs": [
+              "Collect the register, purchase contract, payment and mortgage records, tax receipts, renovation expenses and evidence of long-term use. Each proves a different fact: registration, funding or management are not interchangeable."
+            ]
+          },
+          {
+            "heading": "Look for contemporaneous evidence of the arrangement",
+            "paragraphs": [
+              "Keep the original nominee agreement, messages, repayment or income records, handover material and property-management correspondence with their full context. A later statement or one person’s recollection may be insufficient. Never alter a transfer note or create a signature."
+            ]
+          },
+          {
+            "heading": "Assess litigation and preservation early",
+            "paragraphs": [
+              "If heirs say the registered owner alone owned the home, or a sale, mortgage or enforcement is imminent, assess the proper claim and whether evidence or property preservation is needed. Obtain registry and case materials from the property’s Mainland location before selecting a procedure."
+            ]
+          }
+        ],
+        "checklistTitle": "Documents and points to check",
+        "checklist": [
+          "Title register, purchase contract and change history.",
+          "Original payment, mortgage and tax records.",
+          "The nominee agreement and complete electronic messages.",
+          "Handover, occupation, rental, management and repair records.",
+          "Other heirs’ claims and any litigation or disposal risk."
+        ]
+      },
+      "zh-Hant": {
+        "title": "內地房產代持人先去世，出資家屬怎樣整理繼承爭議證據",
+        "lead": "房屋登記在親屬名下，實際出資人卻是另一位家人；登記人先離世後，繼承人面對的往往不只是分遺產，還包括代持關係是否存在、房屋權利歸誰。先保存完整證據，別急着把“出資”寫成“產權”。",
+        "sections": [
+          {
+            "heading": "登記、出資和實際使用要分開證明",
+            "paragraphs": [
+              "收集登記簿、購房合同、付款流水、貸款還款、稅費憑證、裝修支出及長期佔有使用記錄。每份材料説明的是不同事實：誰登記、誰付款、誰管理，不能互相替代。"
+            ]
+          },
+          {
+            "heading": "代持約定最好找同期材料印證",
+            "paragraphs": [
+              "書面代持協議、聊天記錄、催款或分紅記錄、房屋交付和物業溝通，均要保留原始載體與完整上下文。單方回憶或事後補寫的説明，證明力可能有限；更不能改動轉賬備註或補造簽名。"
+            ]
+          },
+          {
+            "heading": "先判斷是否需要訴訟和財產保全",
+            "paragraphs": [
+              "如其他繼承人主張登記人個人所有，或房屋將被出售、抵押、查封，應及時評估確認權屬、繼承分割或執行異議等不同請求及證據保全需要。香港家屬應先取得不動產所在地登記和訴訟材料，再確定內地程序。"
+            ]
+          }
+        ],
+        "checklistTitle": "證據整理清單",
+        "checklist": [
+          "產權登記、購房合同及歷次變更資料。",
+          "原始付款流水、貸款及稅費記錄。",
+          "代持協議、聊天記錄和完整電子數據。",
+          "交房、居住、出租、物業溝通與維修材料。",
+          "其他繼承人的主張、訴訟或處分風險。"
+        ]
+      }
+    }
+  },
+  {
+    "id": "D24-P03",
+    "slug": "mainland-multi-city-property-inheritance-registration",
+    "folder": "hk-mainland-property-inheritance",
+    "category": "property-inheritance",
+    "research": {
+      "query": "内地多套房产登记路径",
+      "searchUrl": "https://www.google.com.hk/search?q=%E5%86%85%E5%9C%B0%E5%A4%9A%E5%A5%97%E6%88%BF%E4%BA%A7%E7%99%BB%E8%AE%B0%E8%B7%AF%E5%BE%84",
+      "viewedPages": [],
+      "observedAt": "2026-10-23",
+      "method": "web search fallback; Google via Playwright encountered a new CAPTCHA after one verified query",
+      "notes": "已用公开网页搜索核对相关同行法律文章或行业办理资料及官方材料，并按内地法律范围原创改写。Google 后续关键词请求再次触发验证，因此未把 Google 第1、2页或排名记为已查。搜索量未测。"
+    },
+    "sources": [
+      {
+        "url": "https://www.hankunlaw.com/upload/portal/20250612/f44ce3dcb89fa63aeb1a95cd6efa1d68.pdf",
+        "title": "境外继承人继承中国内地遗产的程序与财产调查",
+        "type": "competitor",
+        "notes": "同行法律文章，仅用于识别读者问题和内容切入点；未沿用其品牌、案例叙述或段落结构。 Google 前两页因验证未完成，未记录排名。"
+      },
+      {
+        "url": "https://www.shantou.gov.cn/stszrzyj/zwgk/gzdt/content/post_2529754.html",
+        "title": "汕头市不动产登记交易中心继承登记业务便民解答",
+        "type": "official",
+        "notes": "用于核对内地法律、主管机构或地方办理信息；当地指南仅作该地区示例，不外推为全国统一材料清单。"
+      }
+    ],
+    "related": [
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/asset-clue-list.html",
+        "label": {
+          "zh-Hant": "整理內地遺產線索",
+          "zh-Hans": "整理内地遗产线索",
+          "en": "Organising clues to Mainland assets"
+        }
+      },
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/documents.html",
+        "label": {
+          "zh-Hant": "香港家屬辦理內地繼承文件",
+          "zh-Hans": "香港家属办理内地继承文件",
+          "en": "Documents for Hong Kong families handling Mainland inheritance"
+        }
+      }
+    ],
+    "languages": {
+      "zh-Hans": {
+        "title": "内地多套房产分布不同城市，香港继承人怎样排登记次序",
+        "lead": "遗产房分别在深圳、广州或其他城市，家属常想一次交齐材料、一次过户。实际办理通常要按每处不动产所在地的登记要求逐项核实；一套亲属关系文件可以作为共同底稿，但不代表各地受理材料完全相同。",
+        "sections": [
+          {
+            "heading": "先做一张“房屋—城市—权利人”表",
+            "paragraphs": [
+              "逐套记录坐落、登记权利人、共有份额、抵押或查封、房屋用途及目前是否出租。把旧证、合同和登记查询放在同一目录，避免把同名小区或旧门牌误当成同一物业。"
+            ]
+          },
+          {
+            "heading": "每处房产分别确认受理机构和方式",
+            "paragraphs": [
+              "向各地不动产登记中心确认能否继承登记、是否需要公证或生效法律文书、所有继承人是否到场，以及香港形成的声明或授权如何使用。部分地区提供线上申请或本市通办，不能直接推定跨市也可通办。"
+            ]
+          },
+          {
+            "heading": "共享证明材料，分别留受理回执",
+            "paragraphs": [
+              "死亡、亲属关系、婚姻和遗嘱材料可建立一套清晰底档，再按当地要求准备原件、复印件或核验件。分别保存申请表、补件通知和回执，登记完成后核对权利人、份额及限制信息。"
+            ]
+          }
+        ],
+        "checklistTitle": "多地办理工作表",
+        "checklist": [
+          "每套物业的城市、地址和不动产单元号。",
+          "当地登记中心联系方式及书面材料清单。",
+          "各继承人的身份、关系及授权文件状态。",
+          "每地申请、补件和回执编号。",
+          "登记后证书、份额和抵押状态的复核记录。"
+        ]
+      },
+      "en": {
+        "title": "Mainland properties in several cities: a practical registration sequence for Hong Kong heirs",
+        "lead": "When estate homes sit in Shenzhen, Guangzhou and other cities, families often hope to file everything at once. Each property’s local registry requirements should be checked separately. A shared family-evidence file helps, but does not make every city’s filing list identical.",
+        "sections": [
+          {
+            "heading": "Make a property-by-city inventory",
+            "paragraphs": [
+              "For each home, record its location, registered owner, co-ownership, mortgage or seizure, use and tenancy. Keep old certificates, contracts and registry searches together so that similar addresses are not confused."
+            ]
+          },
+          {
+            "heading": "Confirm the receiving office and route for each property",
+            "paragraphs": [
+              "Ask each local registry about inheritance registration, whether notarisation or a final court document is required, who must attend, and how Hong Kong declarations or powers of attorney are accepted. A city-level online or one-stop service does not necessarily cover another city."
+            ]
+          },
+          {
+            "heading": "Reuse core evidence, but keep separate filing records",
+            "paragraphs": [
+              "Build one clear file of death, family, marriage and will evidence, then prepare originals or certified copies as each registry requires. Keep each application, deficiency notice and receipt. After registration, verify the names, shares and restrictions on every new certificate."
+            ]
+          }
+        ],
+        "checklistTitle": "Documents and points to check",
+        "checklist": [
+          "City, address and unit identifier for each property.",
+          "Each registry’s contact and written document list.",
+          "Identity, relationship and authority documents for every heir.",
+          "Application, deficiency and receipt references for each city.",
+          "Post-registration checks of title shares and encumbrances."
+        ]
+      },
+      "zh-Hant": {
+        "title": "內地多套房產分佈不同城市，香港繼承人怎樣排登記次序",
+        "lead": "遺產房分別在深圳、廣州或其他城市，家屬常想一次交齊材料、一次過戶。實際辦理通常要按每處不動產所在地的登記要求逐項核實；一套親屬關係文件可以作為共同底稿，但不代表各地受理材料完全相同。",
+        "sections": [
+          {
+            "heading": "先做一張“房屋—城市—權利人”表",
+            "paragraphs": [
+              "逐套記錄坐落、登記權利人、共有份額、抵押或查封、房屋用途及目前是否出租。把舊證、合同和登記查詢放在同一目錄，避免把同名小區或舊門牌誤當成同一物業。"
+            ]
+          },
+          {
+            "heading": "每處房產分別確認受理機構和方式",
+            "paragraphs": [
+              "向各地不動產登記中心確認能否繼承登記、是否需要公證或生效法律文書、所有繼承人是否到場，以及香港形成的聲明或授權如何使用。部分地區提供線上申請或本市通辦，不能直接推定跨市也可通辦。"
+            ]
+          },
+          {
+            "heading": "共享證明材料，分別留受理回執",
+            "paragraphs": [
+              "死亡、親屬關係、婚姻和遺囑材料可建立一套清晰底檔，再按當地要求準備原件、複印件或核驗件。分別保存申請表、補件通知和回執，登記完成後核對權利人、份額及限制信息。"
+            ]
+          }
+        ],
+        "checklistTitle": "多地辦理工作表",
+        "checklist": [
+          "每套物業的城市、地址和不動產單元號。",
+          "當地登記中心聯繫方式及書面材料清單。",
+          "各繼承人的身份、關係及授權文件狀態。",
+          "每地申請、補件和回執編號。",
+          "登記後證書、份額和抵押狀態的複核記錄。"
+        ]
+      }
+    }
+  },
+  {
+    "id": "D24-P04",
+    "slug": "mainland-public-housing-tenancy-after-death",
+    "folder": "hk-mainland-property-inheritance",
+    "category": "property-inheritance",
+    "research": {
+      "query": "内地公房承租权变更继承",
+      "searchUrl": "https://www.google.com.hk/search?q=%E5%86%85%E5%9C%B0%E5%85%AC%E6%88%BF%E6%89%BF%E7%A7%9F%E6%9D%83%E5%8F%98%E6%9B%B4%E7%BB%A7%E6%89%BF",
+      "viewedPages": [],
+      "observedAt": "2026-10-23",
+      "method": "web search fallback; Google via Playwright encountered a new CAPTCHA after one verified query",
+      "notes": "已用公开网页搜索核对相关同行法律文章或行业办理资料及官方材料，并按内地法律范围原创改写。Google 后续关键词请求再次触发验证，因此未把 Google 第1、2页或排名记为已查。搜索量未测。"
+    },
+    "sources": [
+      {
+        "url": "https://www.middlapartners.com/family/yanjiu/public-housing-tenant-death-shanghai.html",
+        "title": "老公房承租人去世：承租权变更与共同居住人认定",
+        "type": "competitor",
+        "notes": "同行法律文章，仅用于识别读者问题和内容切入点；未沿用其品牌、案例叙述或段落结构。 Google 前两页因验证未完成，未记录排名。"
+      },
+      {
+        "url": "https://www.moj.gov.cn/pub/sfbgw/fzgz/fzgzggflfwx/fzgzggflfw/202402/t20240208_494638.html",
+        "title": "司法部：自管公房变更承租人问题释疑",
+        "type": "official",
+        "notes": "用于核对内地法律、主管机构或地方办理信息；当地指南仅作该地区示例，不外推为全国统一材料清单。"
+      }
+    ],
+    "related": [
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/asset-clue-list.html",
+        "label": {
+          "zh-Hant": "整理內地遺產線索",
+          "zh-Hans": "整理内地遗产线索",
+          "en": "Organising clues to Mainland assets"
+        }
+      },
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/documents.html",
+        "label": {
+          "zh-Hant": "香港家屬辦理內地繼承文件",
+          "zh-Hans": "香港家属办理内地继承文件",
+          "en": "Documents for Hong Kong families handling Mainland inheritance"
+        }
+      }
+    ],
+    "languages": {
+      "zh-Hans": {
+        "title": "内地公房承租人去世，家属先核同住资格与单位规则",
+        "lead": "公房租约上的承租人离世，不等于房屋产权自动由继承人取得。香港家属要先分清这是公有住房租赁关系、已购房改房，还是其他住房安排，再查看租约、同住记录和当地变更承租人规则。",
+        "sections": [
+          {
+            "heading": "先看手上的文件写的是所有权还是租赁权",
+            "paragraphs": [
+              "房屋所有权证、不动产登记簿与公房租赁凭证反映的权利不同。若只有承租凭证，家属不能只凭亲属身份把房屋列作可分割的产权遗产。"
+            ]
+          },
+          {
+            "heading": "新承租人资格因城市和房屋类型而异",
+            "paragraphs": [
+              "各地可能考虑共同居住、户籍、家庭住房条件、租约约定和管理单位规则；直管公房、自管公房及保障性住房也可能采用不同程序。不要照搬上海、北京或某一单位的顺序到其他城市。"
+            ]
+          },
+          {
+            "heading": "尽早书面联系产权单位或房管机构",
+            "paragraphs": [
+              "整理原租约、租金凭证、共同居住人资料、死亡证明和家属意见，向管理单位确认申请期限、资格审查和争议处理办法。家属之间有分歧时，先保留租金及房屋使用记录，避免一方擅自更换锁具或转租。"
+            ]
+          }
+        ],
+        "checklistTitle": "联系房管单位前",
+        "checklist": [
+          "公房租赁合同、租赁凭证及产权人资料。",
+          "承租人生前共同居住和户籍材料。",
+          "租金支付记录及管理单位往来。",
+          "当地承租人变更办法和申请期限。",
+          "家属协商记录及尚未解决的争议。"
+        ]
+      },
+      "en": {
+        "title": "A Mainland public-housing tenant dies: check occupancy eligibility and local rules",
+        "lead": "The death of a named public-housing tenant does not automatically transfer ownership to heirs. First determine whether the home remains publicly owned, was purchased under a reform scheme, or is subject to another arrangement. Then review the lease, occupancy evidence and local succession rules for tenancy.",
+        "sections": [
+          {
+            "heading": "Identify whether the document records ownership or tenancy",
+            "paragraphs": [
+              "A title certificate and registry entry differ from a public-housing lease certificate. If the deceased held only a tenancy, kinship alone does not make the building divisible estate property."
+            ]
+          },
+          {
+            "heading": "Eligibility depends on location and housing type",
+            "paragraphs": [
+              "Local rules may consider co-residence, household registration, housing conditions, lease terms and the owner’s policy. Direct-managed, employer-managed and subsidised housing can follow different routes. Do not apply one city’s order to another."
+            ]
+          },
+          {
+            "heading": "Contact the housing owner or authority in writing",
+            "paragraphs": [
+              "Prepare the lease, rent records, co-resident evidence, death certificate and family positions. Ask the owner or housing authority about deadlines, eligibility review and dispute handling. If relatives disagree, preserve rent and use records and avoid unilateral lock changes or subletting."
+            ]
+          }
+        ],
+        "checklistTitle": "Documents and points to check",
+        "checklist": [
+          "Public-housing lease, tenancy certificate and owner details.",
+          "Evidence of co-residence and household registration.",
+          "Rent payments and correspondence with the housing manager.",
+          "Local tenant-change rules and application deadline.",
+          "Family discussions and unresolved disagreements."
+        ]
+      },
+      "zh-Hant": {
+        "title": "內地公房承租人去世，家屬先核同住資格與單位規則",
+        "lead": "公房租約上的承租人離世，不等於房屋產權自動由繼承人取得。香港家屬要先分清這是公有住房租賃關係、已購房改房，還是其他住房安排，再查看租約、同住記錄和當地變更承租人規則。",
+        "sections": [
+          {
+            "heading": "先看手上的文件寫的是所有權還是租賃權",
+            "paragraphs": [
+              "房屋所有權證、不動產登記簿與公房租賃憑證反映的權利不同。若只有承租憑證，家屬不能只憑親屬身份把房屋列作可分割的產權遺產。"
+            ]
+          },
+          {
+            "heading": "新承租人資格因城市和房屋類型而異",
+            "paragraphs": [
+              "各地可能考慮共同居住、戶籍、家庭住房條件、租約約定和管理單位規則；直管公房、自管公房及保障性住房也可能採用不同程序。不要照搬上海、北京或某一單位的順序到其他城市。"
+            ]
+          },
+          {
+            "heading": "儘早書面聯繫產權單位或房管機構",
+            "paragraphs": [
+              "整理原租約、租金憑證、共同居住人資料、死亡證明和家屬意見，向管理單位確認申請期限、資格審查和爭議處理辦法。家屬之間有分歧時，先保留租金及房屋使用記錄，避免一方擅自更換鎖具或轉租。"
+            ]
+          }
+        ],
+        "checklistTitle": "聯繫房管單位前",
+        "checklist": [
+          "公房租賃合同、租賃憑證及產權人資料。",
+          "承租人生前共同居住和戶籍材料。",
+          "租金支付記錄及管理單位往來。",
+          "當地承租人變更辦法和申請期限。",
+          "家屬協商記錄及尚未解決的爭議。"
+        ]
+      }
+    }
+  },
+  {
+    "id": "D24-P05",
+    "slug": "mainland-residence-right-and-property-inheritance",
+    "folder": "hk-mainland-property-inheritance",
+    "category": "property-inheritance",
+    "research": {
+      "query": "内地居住权继承影响",
+      "searchUrl": "https://www.google.com.hk/search?q=%E5%86%85%E5%9C%B0%E5%B1%85%E4%BD%8F%E6%9D%83%E7%BB%A7%E6%89%BF%E5%BD%B1%E5%93%8D",
+      "viewedPages": [],
+      "observedAt": "2026-10-23",
+      "method": "web search fallback; Google via Playwright encountered a new CAPTCHA after one verified query",
+      "notes": "已用公开网页搜索核对相关同行法律文章或行业办理资料及官方材料，并按内地法律范围原创改写。Google 后续关键词请求再次触发验证，因此未把 Google 第1、2页或排名记为已查。搜索量未测。"
+    },
+    "sources": [
+      {
+        "url": "https://www.customslawyer.cn/upload/default/20220209/a55bee8759e47b9b12dba520c164cce1.pdf",
+        "title": "民法典新增居住权制度的实务讨论",
+        "type": "competitor",
+        "notes": "同行法律文章，仅用于识别读者问题和内容切入点；未沿用其品牌、案例叙述或段落结构。 Google 前两页因验证未完成，未记录排名。"
+      },
+      {
+        "url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+        "title": "中华人民共和国民法典第三百六十六至三百七十一条",
+        "type": "official",
+        "notes": "用于核对内地法律、主管机构或地方办理信息；当地指南仅作该地区示例，不外推为全国统一材料清单。"
+      }
+    ],
+    "related": [
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/asset-clue-list.html",
+        "label": {
+          "zh-Hant": "整理內地遺產線索",
+          "zh-Hans": "整理内地遗产线索",
+          "en": "Organising clues to Mainland assets"
+        }
+      },
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/documents.html",
+        "label": {
+          "zh-Hant": "香港家屬辦理內地繼承文件",
+          "zh-Hans": "香港家属办理内地继承文件",
+          "en": "Documents for Hong Kong families handling Mainland inheritance"
+        }
+      }
+    ],
+    "languages": {
+      "zh-Hans": {
+        "title": "内地房屋设有居住权，产权继承后还要核对什么",
+        "lead": "房屋产权人去世后，继承人可能取得所有权，但房屋上已登记的居住权仍会影响实际使用。相反，居住权人去世时，该人身性权利通常依法消灭。先查登记簿和合同，再区分产权继承与居住权处理。",
+        "sections": [
+          {
+            "heading": "把产权人和居住权人分别列清",
+            "paragraphs": [
+              "核对不动产登记簿是否记载居住权、权利人、期限及相关合同。房屋所有权人死亡，与居住权人死亡是两件事；不能仅因产权变更，就认定居住安排自动失效。"
+            ]
+          },
+          {
+            "heading": "留意居住权期限及注销材料",
+            "paragraphs": [
+              "《民法典》规定居住权不得转让、继承，期限届满或居住权人死亡时消灭；注销登记仍应按登记机构程序办理。家属需要出售或办理后续登记时，先向房屋所在地机构确认死亡证明、登记申请及是否要权利人配合。"
+            ]
+          },
+          {
+            "heading": "遗嘱安排要避免把所有权和居住安排混写",
+            "paragraphs": [
+              "遗嘱可以处分立遗嘱人自己的房屋权益，但新增居住权或保留他人居住安排，涉及权利人、期限、登记及其他共有人的权利。把“房子给谁”与“谁继续居住、住多久”分开表达并核实可登记性。"
+            ]
+          }
+        ],
+        "checklistTitle": "需要核对的权利信息",
+        "checklist": [
+          "最新不动产登记簿及居住权登记内容。",
+          "居住权合同或设立居住权的遗嘱条款。",
+          "居住权人、所有权人及共有人的身份情况。",
+          "居住期限、死亡或届满证明材料。",
+          "登记机构对注销或后续过户的答复。"
+        ]
+      },
+      "en": {
+        "title": "A Mainland home has a registered right of residence: what heirs should check",
+        "lead": "Heirs may acquire ownership of a home while a registered right of residence continues to affect its use. When the residence-right holder dies, that personal right generally ends under Mainland law. Check the register and contract, then address ownership and residence separately.",
+        "sections": [
+          {
+            "heading": "List the owner and residence-right holder separately",
+            "paragraphs": [
+              "Check whether the register records a residence right, its holder, term and supporting contract. The owner’s death and the residence-right holder’s death are different events. A change of owner alone does not establish that the right has ended."
+            ]
+          },
+          {
+            "heading": "Check the term and cancellation documents",
+            "paragraphs": [
+              "The Civil Code says a residence right cannot be transferred or inherited and ends when its term expires or its holder dies. Cancellation still follows registry procedure. Before a sale or later registration, confirm what death evidence and application the local office requires."
+            ]
+          },
+          {
+            "heading": "Keep ownership and occupation clauses distinct",
+            "paragraphs": [
+              "A will can dispose of the testator’s own property interest, but creating or preserving residence arrangements raises separate questions about the holder, term, registration and co-owners. State who receives ownership separately from who may live there and for how long."
+            ]
+          }
+        ],
+        "checklistTitle": "Documents and points to check",
+        "checklist": [
+          "Current real estate register and residence-right entry.",
+          "The residence-right agreement or will clause creating it.",
+          "Identity of the holder, owner and any co-owners.",
+          "The term and evidence of death or expiry.",
+          "The registry’s instructions for cancellation or later transfer."
+        ]
+      },
+      "zh-Hant": {
+        "title": "內地房屋設有居住權，產權繼承後還要核對什麼",
+        "lead": "房屋產權人去世後，繼承人可能取得所有權，但房屋上已登記的居住權仍會影響實際使用。相反，居住權人去世時，該人身性權利通常依法消滅。先查登記簿和合同，再區分產權繼承與居住權處理。",
+        "sections": [
+          {
+            "heading": "把產權人和居住權人分別列清",
+            "paragraphs": [
+              "核對不動產登記簿是否記載居住權、權利人、期限及相關合同。房屋所有權人死亡，與居住權人死亡是兩件事；不能僅因產權變更，就認定居住安排自動失效。"
+            ]
+          },
+          {
+            "heading": "留意居住權期限及註銷材料",
+            "paragraphs": [
+              "《民法典》規定居住權不得轉讓、繼承，期限屆滿或居住權人死亡時消滅；註銷登記仍應按登記機構程序辦理。家屬需要出售或辦理後續登記時，先向房屋所在地機構確認死亡證明、登記申請及是否要權利人配合。"
+            ]
+          },
+          {
+            "heading": "遺囑安排要避免把所有權和居住安排混寫",
+            "paragraphs": [
+              "遺囑可以處分立遺囑人自己的房屋權益，但新增居住權或保留他人居住安排，涉及權利人、期限、登記及其他共有人的權利。把“房子給誰”與“誰繼續居住、住多久”分開表達並核實可登記性。"
+            ]
+          }
+        ],
+        "checklistTitle": "需要核對的權利信息",
+        "checklist": [
+          "最新不動產登記簿及居住權登記內容。",
+          "居住權合同或設立居住權的遺囑條款。",
+          "居住權人、所有權人及共有人的身份情況。",
+          "居住期限、死亡或屆滿證明材料。",
+          "登記機構對註銷或後續過戶的答覆。"
+        ]
+      }
+    }
+  },
+  {
+    "id": "D24-P06",
+    "slug": "mainland-small-property-rights-inheritance-evidence",
+    "folder": "hk-mainland-property-inheritance",
+    "category": "property-inheritance",
+    "research": {
+      "query": "内地小产权房继承风险",
+      "searchUrl": "https://www.google.com.hk/search?q=%E5%86%85%E5%9C%B0%E5%B0%8F%E4%BA%A7%E6%9D%83%E6%88%BF%E7%BB%A7%E6%89%BF%E9%A3%8E%E9%99%A9",
+      "viewedPages": [],
+      "observedAt": "2026-10-23",
+      "method": "web search fallback; Google via Playwright encountered a new CAPTCHA after one verified query",
+      "notes": "已用公开网页搜索核对相关同行法律文章或行业办理资料及官方材料，并按内地法律范围原创改写。Google 后续关键词请求再次触发验证，因此未把 Google 第1、2页或排名记为已查。搜索量未测。"
+    },
+    "sources": [
+      {
+        "url": "https://www.daohualaw.com/2026/hyjsl_0414/696.html",
+        "title": "小产权房继承诉讼中的权属与证据问题",
+        "type": "competitor",
+        "notes": "同行法律文章，仅用于识别读者问题和内容切入点；未沿用其品牌、案例叙述或段落结构。 Google 前两页因验证未完成，未记录排名。"
+      },
+      {
+        "url": "https://www.shantou.gov.cn/stszrzyj/zwgk/gzdt/content/post_2529754.html",
+        "title": "汕头市不动产登记交易中心继承登记业务便民解答",
+        "type": "official",
+        "notes": "用于核对内地法律、主管机构或地方办理信息；当地指南仅作该地区示例，不外推为全国统一材料清单。"
+      }
+    ],
+    "related": [
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/asset-clue-list.html",
+        "label": {
+          "zh-Hant": "整理內地遺產線索",
+          "zh-Hans": "整理内地遗产线索",
+          "en": "Organising clues to Mainland assets"
+        }
+      },
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/documents.html",
+        "label": {
+          "zh-Hant": "香港家屬辦理內地繼承文件",
+          "zh-Hans": "香港家属办理内地继承文件",
+          "en": "Documents for Hong Kong families handling Mainland inheritance"
+        }
+      }
+    ],
+    "languages": {
+      "zh-Hans": {
+        "title": "内地小产权房继承风险：先查可继承的权益是什么",
+        "lead": "“小产权房”不是统一的法定产权类别。香港家属看到村证、合作建房合同或长期居住事实时，应先查土地和建设背景，判断死者拥有的是登记所有权、合同请求权，还是占有使用等利益；不要把材料直接等同商品房产权。",
+        "sections": [
+          {
+            "heading": "先把土地、建设和交易背景查明",
+            "paragraphs": [
+              "收集集体土地或宅基地资料、建房审批、村集体文件、购买合同、付款记录、入住及后续处分情况。确认房屋是否登记、登记在谁名下，以及购买人是否具备相关集体成员资格。"
+            ]
+          },
+          {
+            "heading": "把“能否作为遗产”与“能否过户”分开",
+            "paragraphs": [
+              "个案中可能存在可继承的合同或使用利益，但这不等于可以办理商品房式的不动产权转移登记。不同土地性质、建房手续和地区政策会影响法院能处理的请求及登记部门能办理的事项。"
+            ]
+          },
+          {
+            "heading": "用原始证据说明权益如何形成",
+            "paragraphs": [
+              "保存原合同、付款凭证、村集体收款或盖章文件、建房材料、租住管理记录以及与出卖方的通信。若继承人之间争议的是实际权益或补偿款，不要只提出“过户房屋”一个请求，应先让内地律师按证据和当地规则区分诉求。"
+            ]
+          }
+        ],
+        "checklistTitle": "先收集这些材料",
+        "checklist": [
+          "土地性质、村集体及建房审批资料。",
+          "买卖或合作建房合同与原始付款凭证。",
+          "房屋交付、居住、出租和维修记录。",
+          "房屋目前登记、查封或征收状态。",
+          "继承人各自的权利主张及能支持的证据。"
+        ]
+      },
+      "en": {
+        "title": "Inheritance risks for a Mainland small-property home: identify the actual right first",
+        "lead": "“Small-property home” is not a single legal title category. If a Hong Kong family finds a village certificate, co-building agreement or long occupation, investigate the land and construction history. The deceased may have held registered title, contractual claims or use interests, which are not interchangeable with ordinary commercial-home title.",
+        "sections": [
+          {
+            "heading": "Investigate land, construction and transaction history",
+            "paragraphs": [
+              "Collect collective-land or homestead records, construction approvals, village documents, contracts, payment records, occupation and later transactions. Confirm whether the home is registered, to whom, and whether the buyer met any collective-membership condition."
+            ]
+          },
+          {
+            "heading": "Separate inheritable interests from registrable ownership",
+            "paragraphs": [
+              "A case may involve inheritable contractual or use interests without allowing a commercial-style title transfer. Land status, construction approvals and local policy affect both the claim a court can decide and what a registry can record."
+            ]
+          },
+          {
+            "heading": "Show how the interest arose with original evidence",
+            "paragraphs": [
+              "Preserve the original contract, payment trail, village receipts or seals, construction material, occupancy records and communications with the seller. If heirs dispute an actual interest or compensation, do not assume a request to transfer title will address every issue; assess claims under local rules."
+            ]
+          }
+        ],
+        "checklistTitle": "Documents and points to check",
+        "checklist": [
+          "Land status, collective records and construction approvals.",
+          "Purchase or co-building agreement and original payment proof.",
+          "Handover, occupation, rental and repair records.",
+          "Current registration, enforcement or expropriation status.",
+          "Each heir’s claim and the evidence supporting it."
+        ]
+      },
+      "zh-Hant": {
+        "title": "內地小產權房繼承風險：先查可繼承的權益是什麼",
+        "lead": "“小產權房”不是統一的法定產權類別。香港家屬看到村證、合作建房合同或長期居住事實時，應先查土地和建設背景，判斷死者擁有的是登記所有權、合同請求權，還是佔有使用等利益；不要把材料直接等同商品房產權。",
+        "sections": [
+          {
+            "heading": "先把土地、建設和交易背景查明",
+            "paragraphs": [
+              "收集集體土地或宅基地資料、建房審批、村集體文件、購買合同、付款記錄、入住及後續處分情況。確認房屋是否登記、登記在誰名下，以及購買人是否具備相關集體成員資格。"
+            ]
+          },
+          {
+            "heading": "把“能否作為遺產”與“能否過戶”分開",
+            "paragraphs": [
+              "個案中可能存在可繼承的合同或使用利益，但這不等於可以辦理商品房式的不動產權轉移登記。不同土地性質、建房手續和地區政策會影響法院能處理的請求及登記部門能辦理的事項。"
+            ]
+          },
+          {
+            "heading": "用原始證據説明權益如何形成",
+            "paragraphs": [
+              "保存原合同、付款憑證、村集體收款或蓋章文件、建房材料、租住管理記錄以及與出賣方的通信。若繼承人之間爭議的是實際權益或補償款，不要只提出“過戶房屋”一個請求，應先讓內地律師按證據和當地規則區分訴求。"
+            ]
+          }
+        ],
+        "checklistTitle": "先收集這些材料",
+        "checklist": [
+          "土地性質、村集體及建房審批資料。",
+          "買賣或合作建房合同與原始付款憑證。",
+          "房屋交付、居住、出租和維修記錄。",
+          "房屋目前登記、查封或徵收狀態。",
+          "繼承人各自的權利主張及能支持的證據。"
+        ]
+      }
+    }
+  },
+  {
+    "id": "D24-P07",
+    "slug": "mainland-parking-space-estate-registration",
+    "folder": "hk-mainland-property-inheritance",
+    "category": "property-inheritance",
+    "research": {
+      "query": "内地房屋附车位继承登记",
+      "searchUrl": "https://www.google.com.hk/search?q=%E5%86%85%E5%9C%B0%E6%88%BF%E5%B1%8B%E9%99%84%E8%BD%A6%E4%BD%8D%E7%BB%A7%E6%89%BF%E7%99%BB%E8%AE%B0",
+      "viewedPages": [],
+      "observedAt": "2026-10-23",
+      "method": "web search fallback; Google via Playwright encountered a new CAPTCHA after one verified query",
+      "notes": "已用公开网页搜索核对相关同行法律文章或行业办理资料及官方材料，并按内地法律范围原创改写。Google 后续关键词请求再次触发验证，因此未把 Google 第1、2页或排名记为已查。搜索量未测。"
+    },
+    "sources": [
+      {
+        "url": "https://www.tmlslaw.com/wenhua/qikan/943.html",
+        "title": "小区车位的权属与使用安排",
+        "type": "competitor",
+        "notes": "同行法律文章，仅用于识别读者问题和内容切入点；未沿用其品牌、案例叙述或段落结构。 Google 前两页因验证未完成，未记录排名。"
+      },
+      {
+        "url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+        "title": "中华人民共和国民法典第二百七十五条",
+        "type": "official",
+        "notes": "用于核对内地法律、主管机构或地方办理信息；当地指南仅作该地区示例，不外推为全国统一材料清单。"
+      }
+    ],
+    "related": [
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/asset-clue-list.html",
+        "label": {
+          "zh-Hant": "整理內地遺產線索",
+          "zh-Hans": "整理内地遗产线索",
+          "en": "Organising clues to Mainland assets"
+        }
+      },
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/documents.html",
+        "label": {
+          "zh-Hant": "香港家屬辦理內地繼承文件",
+          "zh-Hans": "香港家属办理内地继承文件",
+          "en": "Documents for Hong Kong families handling Mainland inheritance"
+        }
+      }
+    ],
+    "languages": {
+      "zh-Hans": {
+        "title": "内地房屋附带车位继承，先分清产权车位和使用权",
+        "lead": "房屋和车位一起写在家人口中，不代表两者一定是同一项产权。香港家属应核对车位有没有独立登记、购买或赠与文件，还是只有租赁、人防或长期使用合同，再确定遗产清单和办理路径。",
+        "sections": [
+          {
+            "heading": "先找车位编号和独立权属资料",
+            "paragraphs": [
+              "核对车位是否有独立不动产登记、买卖或赠与合同、付款凭证及发票。只写有“固定车位”的物业协议、停车卡或交费记录，未必能证明车位所有权。"
+            ]
+          },
+          {
+            "heading": "合同性质决定能否登记转移",
+            "paragraphs": [
+              "《民法典》允许规划车位通过出售、附赠或出租等方式约定归属；人防车位、公共车位或仅有使用权的安排，法律性质和可转移方式可能不同。剩余期限、物业管理条件和当地登记规则都要单独确认。"
+            ]
+          },
+          {
+            "heading": "房屋和车位分项列入遗产清单",
+            "paragraphs": [
+              "按“房屋”“产权车位”“使用合同权益”“未结费用”分栏登记。若车位已登记在死者名下，按当地不动产继承程序核实；若只是合同权益，联系开发商、管理方或出租方确认死亡后的变更、退费和剩余期限。"
+            ]
+          }
+        ],
+        "checklistTitle": "车位资料核对表",
+        "checklist": [
+          "车位编号、位置及是否有独立登记。",
+          "车位买卖、赠与、租赁或人防合同。",
+          "付款、管理费及剩余期限记录。",
+          "是否与房屋共有或限制转让。",
+          "登记机构、物业或合同相对方的答复。"
+        ]
+      },
+      "en": {
+        "title": "A parking space linked to a Mainland home: distinguish ownership from use rights",
+        "lead": "A family may refer to a home and its parking space as one package, but they may represent different rights. Check for separate registration and purchase documents, or whether the arrangement is a lease, civil-defence space or long-term use contract, before listing it as estate property.",
+        "sections": [
+          {
+            "heading": "Locate the space number and separate title records",
+            "paragraphs": [
+              "Check for separate real estate registration, a sale or gift contract, payment records and invoices. A property agreement listing an allocated space, parking card or fee receipt may not prove ownership."
+            ]
+          },
+          {
+            "heading": "The contract determines whether a title transfer is available",
+            "paragraphs": [
+              "The Civil Code allows planned parking spaces to be allocated by sale, gift or lease. A civil-defence or common space, or a use-only arrangement, may follow different transfer rules. Check the term, management conditions and local registration procedure."
+            ]
+          },
+          {
+            "heading": "List the home and parking interest separately",
+            "paragraphs": [
+              "Use separate entries for the home, owned space, contractual use interest and unpaid fees. If the space is registered to the deceased, check the local inheritance process. For a contractual right, ask the developer or manager about succession, refunds and the remaining term."
+            ]
+          }
+        ],
+        "checklistTitle": "Documents and points to check",
+        "checklist": [
+          "Space number, location and separate title entry.",
+          "Sale, gift, lease or civil-defence-space agreement.",
+          "Payments, management fees and remaining term.",
+          "Any co-ownership or transfer restriction.",
+          "Responses from the registry, manager or contract counterparty."
+        ]
+      },
+      "zh-Hant": {
+        "title": "內地房屋附帶車位繼承，先分清產權車位和使用權",
+        "lead": "房屋和車位一起寫在家人口中，不代表兩者一定是同一項產權。香港家屬應核對車位有沒有獨立登記、購買或贈與文件，還是隻有租賃、人防或長期使用合同，再確定遺產清單和辦理路徑。",
+        "sections": [
+          {
+            "heading": "先找車位編號和獨立權屬資料",
+            "paragraphs": [
+              "核對車位是否有獨立不動產登記、買賣或贈與合同、付款憑證及發票。只寫有“固定車位”的物業協議、停車卡或交費記錄，未必能證明車位所有權。"
+            ]
+          },
+          {
+            "heading": "合同性質決定能否登記轉移",
+            "paragraphs": [
+              "《民法典》允許規劃車位通過出售、附贈或出租等方式約定歸屬；人防車位、公共車位或僅有使用權的安排，法律性質和可轉移方式可能不同。剩餘期限、物業管理條件和當地登記規則都要單獨確認。"
+            ]
+          },
+          {
+            "heading": "房屋和車位分項列入遺產清單",
+            "paragraphs": [
+              "按“房屋”“產權車位”“使用合同權益”“未結費用”分欄登記。若車位已登記在死者名下，按當地不動產繼承程序核實；若只是合同權益，聯繫開發商、管理方或出租方確認死亡後的變更、退費和剩餘期限。"
+            ]
+          }
+        ],
+        "checklistTitle": "車位資料核對表",
+        "checklist": [
+          "車位編號、位置及是否有獨立登記。",
+          "車位買賣、贈與、租賃或人防合同。",
+          "付款、管理費及剩餘期限記錄。",
+          "是否與房屋共有或限制轉讓。",
+          "登記機構、物業或合同相對方的答覆。"
+        ]
+      }
+    }
+  }
+]

@@ -1,0 +1,14 @@
+﻿platform_id,name,role,priority,markets,languages,exact_volume_support,relative_trend_support,live_serp_support,top_url_support,manual_chrome_required,authority_url,notes
+google_search,Google Search,primary Google SERP and competitor capture,1,"HK,MO,SG,US,OC","zh-Hant,zh-Hans,en",0,0,1,1,1,https://www.google.com/,"Use Chrome manually. Capture positions 1-10, then inspect page 2 when needed."
+google_ads_keyword_planner,Google Ads Keyword Planner,Google market volume and advertiser competition,1,"HK,MO,SG,US,OC","zh-Hant,zh-Hans,en",1,0,0,0,0,https://support.google.com/google-ads/answer/6325025,"Average monthly searches depend on location, language, network and selected month range."
+google_search_console,Google Search Console,"first-party queries, impressions, clicks and position",1,"HK,MO,SG,US,OC","zh-Hant,zh-Hans,en",0,0,0,0,0,https://support.google.com/webmasters/answer/17011364,Measures this property only. It is not total market search volume.
+google_trends,Google Trends,relative interest and seasonality,2,"HK,MO,SG,US,OC","zh-Hant,zh-Hans,en",0,1,0,0,0,https://support.google.com/trends/answer/4365533,Normalized 0-100 index; keep separate from Google Ads volume.
+bing_webmaster,Bing Webmaster Keyword Research,"secondary volume, trend and top-URL cross-check",2,"HK,MO,SG,US,OC","zh-Hant,zh-Hans,en",1,1,1,1,0,https://www.bing.com/webmasters/help/keyword-research-628070b6,Useful cross-check; do not substitute Bing volume for Google volume.
+youtube,YouTube Search,video-result and question-language research,3,"HK,MO,SG,US,OC","zh-Hant,zh-Hans,en",0,0,1,1,1,https://www.youtube.com/,"Use for phrasing, demonstrations and frequently asked follow-up questions."
+reddit,Reddit Search,first-hand English questions and objections,3,"SG,US,OC",en,0,0,1,1,1,https://www.reddit.com/,"Research source, not a Google-volume source."
+quora,Quora Search,English question formulations and answer gaps,3,"SG,US,OC",en,0,0,1,1,1,https://www.quora.com/,"Research source, not a Google-ranking proxy."
+zhihu,知乎搜索,Chinese expert explanations and objections,3,"HK,MO,SG,OC","zh-Hans,zh-Hant",0,0,1,1,1,https://www.zhihu.com/,Use for depth comparison and reader language.
+xiaohongshu,小红书搜索,consumer phrasing and practical checklists,3,"HK,MO,SG,OC","zh-Hans,zh-Hant",0,0,1,1,1,https://www.xiaohongshu.com/,Use for question wording and missing practical details.
+wechat_search,微信搜一搜,Chinese article and official-account coverage,3,"HK,MO,SG,OC","zh-Hans,zh-Hant",0,0,1,1,1,https://weixin.qq.com/,Use for comparable articles and terminology; do not treat platform rank as Google rank.
+baidu_search,百度搜索/百度知道,Mainland Chinese terminology and question coverage,3,"MO,SG,OC",zh-Hans,0,0,1,1,1,https://www.baidu.com/,Useful for wording and topic discovery; volume is not Google volume.
+public_web_search,公开网页搜索（非 Google SERP）,竞品/行业来源发现，不用于排名判断,90,HK,zh-Hans,0,0,0,1,0,,用于定位法律文章、行业办理资料与官方来源；不能证明 Google 排名、前两页覆盖或搜索量。

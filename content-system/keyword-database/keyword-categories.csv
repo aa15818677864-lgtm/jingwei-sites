@@ -1,0 +1,16 @@
+﻿category_id,category_type,label,definition,measurement_rule
+documents-and-identity,topic,文件与身份,死亡证明、亲属关系、姓名不一致、翻译和身份连接。,按关键词簇汇总；外部市场量以 Google Ads 月均搜索量为准。
+assets-and-transfer,topic,资产查找与过户,房产、银行、股权、租金、车辆及过户或收款。,按资产类型和动作拆分，不把房产和银行合并成一条量。
+family-and-heirs,topic,继承人与家庭协作,失联、拒签、未成年人、再婚家庭和多人签字。,按人物关系和冲突阶段拆分。
+remote-engagement,topic,远程委托,人在香港、澳门、新加坡、美国时的授权和远程处理。,按居住地区、语言和具体事项拆分。
+dispute-and-litigation,topic,争议与诉讼,财产被占、款项被转、法院路线、执行和证据保存。,按触发事件与下一步行动拆分。
+commercial-and-contract,topic,商事与合同,欠款、供货、租约、股权、知识产权和跨境履约。,按交易阶段和风险点拆分。
+getting-started,topic,起步与路径,读者不知道从哪里开始、想先做什么准备。,优先观察 Google Search Console 的真实查询。
+head-or-mid,query_shape,头部或中段词,词面较短、含义较宽的查询形态。,不能据词长推断真实搜索量，必须补 Google Ads 数据。
+mid-tail,query_shape,中长尾词,包含地区、资产或动作的具体查询。,按 Google Ads 月均量和 Search Console 展示分开记录。
+long-tail,query_shape,长尾场景词,包含人物、地区、文件和具体卡点的完整问题。,优先看意图清晰度和实际咨询价值，不以低量淘汰。
+property-inheritance,business-content,property-inheritance,Mainland China personal estate legal matters,Monthly market volume remains unknown until a dated observation is recorded.
+funds-and-personal-estate,business-content,funds-and-personal-estate,Mainland China personal estate legal matters,Monthly market volume remains unknown until a dated observation is recorded.
+inheritance-procedure,business-content,inheritance-procedure,Mainland China personal estate legal matters,Monthly market volume remains unknown until a dated observation is recorded.
+wills-and-succession,business-content,wills-and-succession,Mainland China personal estate legal matters,Monthly market volume remains unknown until a dated observation is recorded.
+inheritance-disputes,business-content,inheritance-disputes,Mainland China personal estate legal matters,Monthly market volume remains unknown until a dated observation is recorded.

@@ -1,0 +1,1010 @@
+[
+  {
+    "id": "D24-F01",
+    "slug": "mainland-enterprise-annuity-inheritance-claim",
+    "folder": "hong-kong-other-estate",
+    "category": "funds-and-personal-estate",
+    "research": {
+      "query": "内地企业年金遗属领取",
+      "searchUrl": "https://www.google.com.hk/search?q=%E5%86%85%E5%9C%B0%E4%BC%81%E4%B8%9A%E5%B9%B4%E9%87%91%E9%81%97%E5%B1%9E%E9%A2%86%E5%8F%96",
+      "viewedPages": [],
+      "observedAt": "2026-10-23",
+      "method": "web search fallback; Google via Playwright encountered a new CAPTCHA after one verified query",
+      "notes": "已用公开网页搜索核对相关同行法律文章或行业办理资料及官方材料，并按内地法律范围原创改写。Google 后续关键词请求再次触发验证，因此未把 Google 第1、2页或排名记为已查。搜索量未测。"
+    },
+    "sources": [
+      {
+        "url": "https://www.dehenglaw.com/CN/tansuocontent/0008/025433/7.aspx?MID=0902",
+        "title": "企业年金案件特点及应对思路——企业年金法律系列",
+        "type": "competitor",
+        "notes": "同行法律文章，仅用于识别读者问题和内容切入点；未沿用其品牌、案例叙述或段落结构。 Google 前两页因验证未完成，未记录排名。"
+      },
+      {
+        "url": "https://www.mohrss.gov.cn/SYrlzyhshbzb/shehuibaozhang/zcwj/201712/t20171222_284833.html",
+        "title": "企业年金办法",
+        "type": "official",
+        "notes": "用于核对内地法律、主管机构或地方办理信息；当地指南仅作该地区示例，不外推为全国统一材料清单。"
+      }
+    ],
+    "related": [
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/asset-clue-list.html",
+        "label": {
+          "zh-Hant": "整理內地遺產線索",
+          "zh-Hans": "整理内地遗产线索",
+          "en": "Organising clues to Mainland assets"
+        }
+      },
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/documents.html",
+        "label": {
+          "zh-Hant": "香港家屬辦理內地繼承文件",
+          "zh-Hans": "香港家属办理内地继承文件",
+          "en": "Documents for Hong Kong families handling Mainland inheritance"
+        }
+      }
+    ],
+    "languages": {
+      "zh-Hans": {
+        "title": "内地企业年金遗属领取：向原单位核对账户和受益人",
+        "lead": "长辈在企业工作多年，遗属未必知道是否参加企业年金。先联系原单位人事或年金经办机构，查询个人账户、已归属权益和指定受益人；企业年金与基本养老保险的遗属待遇不是同一笔款。",
+        "sections": [
+          {
+            "heading": "从原单位和计划管理人查账户",
+            "paragraphs": [
+              "准备死亡证明、亲属关系和申请人身份资料，要求确认是否参加企业年金、账户管理机构、余额及单位计划约定。只查银行流水可能看不到尚未领取或由受托机构管理的年金权益。"
+            ]
+          },
+          {
+            "heading": "核对余额归属与受益安排",
+            "paragraphs": [
+              "企业年金办法对符合条件的个人账户资金领取有规定，但具体权益还要看计划、归属规则和领取状态。把已指定受益人、法定继承人、退休后已购买的保险产品分别核实，不要把所有年金金额按一个规则处理。"
+            ]
+          },
+          {
+            "heading": "让经办方一次性列明申请材料",
+            "paragraphs": [
+              "请管理机构说明申请表、死亡和关系证明、受益人资料、账户去向及是否需要继承公证或生效法律文书。若家属在香港，先问文件格式与授权要求，并保留提交清单、回执和结算明细。"
+            ]
+          }
+        ],
+        "checklistTitle": "向年金经办方查询",
+        "checklist": [
+          "原单位名称、工作时间和可能的年金计划。",
+          "个人账户或权益记录单。",
+          "受益人指定及年金领取状态。",
+          "死亡、亲属关系和申请人身份证明。",
+          "经办方的材料清单、授权要求与结算回执。"
+        ]
+      },
+      "en": {
+        "title": "Claiming a Mainland enterprise-annuity balance after death",
+        "lead": "A Hong Kong family may not know whether a deceased relative had an enterprise annuity. Ask the former employer or plan administrator for the account, vested balance and beneficiary designation. This is separate from survivor benefits under basic pension insurance.",
+        "sections": [
+          {
+            "heading": "Start with the former employer and plan administrator",
+            "paragraphs": [
+              "Provide death, relationship and claimant identity records and ask whether the deceased joined a plan, who administers it, what balance remains and what the plan says. A bank statement may not reveal an annuity managed separately."
+            ]
+          },
+          {
+            "heading": "Check vesting and beneficiary arrangements",
+            "paragraphs": [
+              "The enterprise-annuity rules address payment of eligible individual-account funds, but the plan, vesting status and payment stage matter. Verify a designated beneficiary, statutory heirs and any annuity insurance purchased at retirement separately."
+            ]
+          },
+          {
+            "heading": "Ask the administrator for a complete document list",
+            "paragraphs": [
+              "Request the application form, death and relationship evidence, beneficiary information, payment destination and whether a notarised inheritance certificate or final court document is needed. Hong Kong applicants should confirm document format and authority requirements, keeping receipts and the final account statement."
+            ]
+          }
+        ],
+        "checklistTitle": "Documents and points to check",
+        "checklist": [
+          "Former employer and possible plan membership.",
+          "Individual account or benefit statement.",
+          "Beneficiary designation and payment status.",
+          "Death, relationship and claimant identity records.",
+          "The administrator’s document list, authority rules and settlement receipt."
+        ]
+      },
+      "zh-Hant": {
+        "title": "內地企業年金遺屬領取：向原單位核對賬戶和受益人",
+        "lead": "長輩在企業工作多年，遺屬未必知道是否參加企業年金。先聯繫原單位人事或年金經辦機構，查詢個人賬戶、已歸屬權益和指定受益人；企業年金與基本養老保險的遺屬待遇不是同一筆款。",
+        "sections": [
+          {
+            "heading": "從原單位和計劃管理人查賬戶",
+            "paragraphs": [
+              "準備死亡證明、親屬關係和申請人身份資料，要求確認是否參加企業年金、賬戶管理機構、餘額及單位計劃約定。只查銀行流水可能看不到尚未領取或由受託機構管理的年金權益。"
+            ]
+          },
+          {
+            "heading": "核對餘額歸屬與受益安排",
+            "paragraphs": [
+              "企業年金辦法對符合條件的個人賬戶資金領取有規定，但具體權益還要看計劃、歸屬規則和領取狀態。把已指定受益人、法定繼承人、退休後已購買的保險產品分別核實，不要把所有年金金額按一個規則處理。"
+            ]
+          },
+          {
+            "heading": "讓經辦方一次性列明申請材料",
+            "paragraphs": [
+              "請管理機構説明申請表、死亡和關係證明、受益人資料、賬戶去向及是否需要繼承公證或生效法律文書。若家屬在香港，先問文件格式與授權要求，並保留提交清單、回執和結算明細。"
+            ]
+          }
+        ],
+        "checklistTitle": "向年金經辦方查詢",
+        "checklist": [
+          "原單位名稱、工作時間和可能的年金計劃。",
+          "個人賬戶或權益記錄單。",
+          "受益人指定及年金領取狀態。",
+          "死亡、親屬關係和申請人身份證明。",
+          "經辦方的材料清單、授權要求與結算回執。"
+        ]
+      }
+    }
+  },
+  {
+    "id": "D24-F02",
+    "slug": "mainland-occupational-annuity-deceased-account",
+    "folder": "hong-kong-other-estate",
+    "category": "funds-and-personal-estate",
+    "research": {
+      "query": "内地职业年金遗产申领",
+      "searchUrl": "https://www.google.com.hk/search?q=%E5%86%85%E5%9C%B0%E8%81%8C%E4%B8%9A%E5%B9%B4%E9%87%91%E9%81%97%E4%BA%A7%E7%94%B3%E9%A2%86",
+      "viewedPages": [],
+      "observedAt": "2026-10-23",
+      "method": "web search fallback; Google via Playwright encountered a new CAPTCHA after one verified query",
+      "notes": "已用公开网页搜索核对相关同行法律文章或行业办理资料及官方材料，并按内地法律范围原创改写。Google 后续关键词请求再次触发验证，因此未把 Google 第1、2页或排名记为已查。搜索量未测。"
+    },
+    "sources": [
+      {
+        "url": "https://www.icbc.com.cn/page/721854096264167430.html",
+        "title": "个人领取职业年金需要哪些条件",
+        "type": "industry",
+        "notes": "基金管理人/金融机构的业务材料，仅用于核对产品办理线索；不代表法律意见。 Google 前两页因验证未完成，未记录排名。"
+      },
+      {
+        "url": "https://www.jss.gov.cn/jss/zfxxgk/jczwgklyxxgk/SHBX/art/2022/art_ac0f7a7e07f4412c9a6c70b5d7dca906.html",
+        "title": "机关事业单位养老保险政策问答",
+        "type": "official",
+        "notes": "用于核对内地法律、主管机构或地方办理信息；当地指南仅作该地区示例，不外推为全国统一材料清单。"
+      }
+    ],
+    "related": [
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/asset-clue-list.html",
+        "label": {
+          "zh-Hant": "整理內地遺產線索",
+          "zh-Hans": "整理内地遗产线索",
+          "en": "Organising clues to Mainland assets"
+        }
+      },
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/documents.html",
+        "label": {
+          "zh-Hant": "香港家屬辦理內地繼承文件",
+          "zh-Hans": "香港家属办理内地继承文件",
+          "en": "Documents for Hong Kong families handling Mainland inheritance"
+        }
+      }
+    ],
+    "languages": {
+      "zh-Hans": {
+        "title": "内地职业年金遗产申领，香港家属先找参保单位和账户记录",
+        "lead": "职业年金常见于机关事业单位工作人员，但家属未必清楚它和基本养老金、企业年金的区别。先确认死者是否属于参保范围、个人账户余额及待遇领取阶段，再按参保单位和经办地办理。",
+        "sections": [
+          {
+            "heading": "先确认计划类型和参保经办地",
+            "paragraphs": [
+              "从退休材料、工资单、权益记录单和原单位人事部门核实职业年金账户。异地调动或退休人员可能涉及不同经办地，香港家属应先找最后参保单位，避免把请求寄到不负责的窗口。"
+            ]
+          },
+          {
+            "heading": "在职死亡和退休后死亡都要看账户阶段",
+            "paragraphs": [
+              "官方政策问答说明，工作人员在职死亡以及退休后死亡，职业年金账户余额可以继承；但如何核算、是否已有按月领取或购买商业养老保险，要以账户和合同记录为准。不要把未来未发生的月待遇直接当成现存现金。"
+            ]
+          },
+          {
+            "heading": "用书面申请确认收款路径",
+            "paragraphs": [
+              "向经办机构索取账户权益核定、继承申请表及可接受的死亡、身份、关系和授权材料清单。涉及多个继承人时，应先确认款项支付给指定受益人还是依法确定的继承人，避免家属自行分款造成重复申请。"
+            ]
+          }
+        ],
+        "checklistTitle": "核查职业年金前",
+        "checklist": [
+          "原工作单位、参保地及退休状态。",
+          "职业年金个人账户权益记录。",
+          "是否已领取待遇或购买年金保险。",
+          "指定受益人、继承人及关系证明。",
+          "经办机构书面确认的支付方式和材料。"
+        ]
+      },
+      "en": {
+        "title": "Claiming a Mainland occupational-annuity balance after death",
+        "lead": "Occupational annuities are common for public-institution and government employees, but families may confuse them with basic pension benefits or enterprise annuities. Confirm plan membership, the individual balance and payment stage, then follow the employer’s and administering region’s process.",
+        "sections": [
+          {
+            "heading": "Confirm the plan and administering region",
+            "paragraphs": [
+              "Check retirement records, pay slips, benefit statements and the former employer’s HR office. Transfers between regions or retirement can involve different administrators. Start with the last participating employer to identify the correct office."
+            ]
+          },
+          {
+            "heading": "Check whether the account was in service or already paying benefits",
+            "paragraphs": [
+              "Official guidance states that an occupational-annuity account balance may be inherited after death in service or after retirement. The calculation still depends on account and contract records, including monthly payments or an annuity-insurance purchase. Future payments are not automatically a cash balance."
+            ]
+          },
+          {
+            "heading": "Confirm the payment route in writing",
+            "paragraphs": [
+              "Ask the administrator for the account calculation, claim form and accepted death, identity, relationship and authority records. Where there are several heirs, confirm whether payment goes to a designated beneficiary or legally established heirs before anyone divides funds privately."
+            ]
+          }
+        ],
+        "checklistTitle": "Documents and points to check",
+        "checklist": [
+          "Former employer, plan region and retirement status.",
+          "Occupational-annuity account statement.",
+          "Any benefits already paid or annuity insurance purchased.",
+          "Beneficiary, heir and relationship evidence.",
+          "Written payment route and document list from the administrator."
+        ]
+      },
+      "zh-Hant": {
+        "title": "內地職業年金遺產申領，香港家屬先找參保單位和賬戶記錄",
+        "lead": "職業年金常見於機關事業單位工作人員，但家屬未必清楚它和基本養老金、企業年金的區別。先確認死者是否屬於參保範圍、個人賬戶餘額及待遇領取階段，再按參保單位和經辦地辦理。",
+        "sections": [
+          {
+            "heading": "先確認計劃類型和參保經辦地",
+            "paragraphs": [
+              "從退休材料、工資單、權益記錄單和原單位人事部門核實職業年金賬戶。異地調動或退休人員可能涉及不同經辦地，香港家屬應先找最後參保單位，避免把請求寄到不負責的窗口。"
+            ]
+          },
+          {
+            "heading": "在職死亡和退休後死亡都要看賬戶階段",
+            "paragraphs": [
+              "官方政策問答説明，工作人員在職死亡以及退休後死亡，職業年金賬戶餘額可以繼承；但如何覈算、是否已有按月領取或購買商業養老保險，要以賬戶和合同記錄為準。不要把未來未發生的月待遇直接當成現存現金。"
+            ]
+          },
+          {
+            "heading": "用書面申請確認收款路徑",
+            "paragraphs": [
+              "向經辦機構索取賬戶權益覈定、繼承申請表及可接受的死亡、身份、關係和授權材料清單。涉及多個繼承人時，應先確認款項支付給指定受益人還是依法確定的繼承人，避免家屬自行分款造成重複申請。"
+            ]
+          }
+        ],
+        "checklistTitle": "覈查職業年金前",
+        "checklist": [
+          "原工作單位、參保地及退休狀態。",
+          "職業年金個人賬戶權益記錄。",
+          "是否已領取待遇或購買年金保險。",
+          "指定受益人、繼承人及關係證明。",
+          "經辦機構書面確認的支付方式和材料。"
+        ]
+      }
+    }
+  },
+  {
+    "id": "D24-F03",
+    "slug": "mainland-bond-inheritance-transfer-process",
+    "folder": "hong-kong-other-estate",
+    "category": "funds-and-personal-estate",
+    "research": {
+      "query": "内地债券遗产查询办理",
+      "searchUrl": "https://www.google.com.hk/search?q=%E5%86%85%E5%9C%B0%E5%80%BA%E5%88%B8%E9%81%97%E4%BA%A7%E6%9F%A5%E8%AF%A2%E5%8A%9E%E7%90%86",
+      "viewedPages": [],
+      "observedAt": "2026-10-23",
+      "method": "web search fallback; Google via Playwright encountered a new CAPTCHA after one verified query",
+      "notes": "已用公开网页搜索核对相关同行法律文章或行业办理资料及官方材料，并按内地法律范围原创改写。Google 后续关键词请求再次触发验证，因此未把 Google 第1、2页或排名记为已查。搜索量未测。"
+    },
+    "sources": [
+      {
+        "url": "https://www.icbc.com.cn/page/721852688718659625.html",
+        "title": "柜台记账式债券非交易过户业务问答",
+        "type": "industry",
+        "notes": "基金管理人/金融机构的业务材料，仅用于核对产品办理线索；不代表法律意见。 Google 前两页因验证未完成，未记录排名。"
+      },
+      {
+        "url": "https://www.moj.gov.cn/pub/sfbgw/flfggz/flfggzbmgz/200907/t20090728_144726.html",
+        "title": "债券登记托管结算管理办法",
+        "type": "official",
+        "notes": "用于核对内地法律、主管机构或地方办理信息；当地指南仅作该地区示例，不外推为全国统一材料清单。"
+      }
+    ],
+    "related": [
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/asset-clue-list.html",
+        "label": {
+          "zh-Hant": "整理內地遺產線索",
+          "zh-Hans": "整理内地遗产线索",
+          "en": "Organising clues to Mainland assets"
+        }
+      },
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/documents.html",
+        "label": {
+          "zh-Hant": "香港家屬辦理內地繼承文件",
+          "zh-Hans": "香港家属办理内地继承文件",
+          "en": "Documents for Hong Kong families handling Mainland inheritance"
+        }
+      }
+    ],
+    "languages": {
+      "zh-Hans": {
+        "title": "内地债券遗产怎样查和过户：先找托管机构，再核非交易手续",
+        "lead": "逝者账户里可能有储蓄国债、柜台债券或其他托管产品。香港家属先查清债券由哪家银行或登记托管机构记录，再问继承能否办理非交易过户，还是需要到期兑付或按规则赎回。",
+        "sections": [
+          {
+            "heading": "先识别债券类型和托管渠道",
+            "paragraphs": [
+              "查找银行流水、交易确认、债券账户卡、电子对账单和投资者代码。记下产品名称、托管机构、账户号码及付息日；银行代销的债券与银行存款不是同一产品，不能直接套用存款提取流程。"
+            ]
+          },
+          {
+            "heading": "询问继承是否属于非交易过户",
+            "paragraphs": [
+              "部分柜台债券规则允许因继承办理非交易过户，通常需有效继承文件和受让方账户；不同债券及托管机构的材料、柜台和交易限制可能不同。先取得书面清单，不要为办过户而提前出售或分享密码。"
+            ]
+          },
+          {
+            "heading": "同步确认利息、到期和税费记录",
+            "paragraphs": [
+              "要求机构核对持仓数量、应付利息、是否质押冻结、兑付或转入后的账户要求。继承人分散在香港和内地时，先确定由谁申请、谁开户和如何授权，并将结算单留作遗产账目。"
+            ]
+          }
+        ],
+        "checklistTitle": "债券查询与申请资料",
+        "checklist": [
+          "债券名称、账户号和托管机构线索。",
+          "交易确认、对账单及银行流水。",
+          "继承权证明、死亡证明和身份资料。",
+          "受让人债券托管账户要求。",
+          "付息、到期、冻结及费用核对记录。"
+        ]
+      },
+      "en": {
+        "title": "Mainland bond inheritance: locate the custodian and confirm a non-trade transfer",
+        "lead": "A deceased person may have held savings bonds, bank-counter bonds or other custody products. A Hong Kong family should identify the bank or registry holding the position, then ask whether inheritance can be processed as a non-trade transfer or requires maturity or redemption under the product rules.",
+        "sections": [
+          {
+            "heading": "Identify the bond and custody channel",
+            "paragraphs": [
+              "Look for bank statements, trade confirmations, custody cards, electronic statements and investor codes. Record the product, custodian, account number and payment dates. A bank-distributed bond is not a bank deposit and does not automatically follow deposit-withdrawal rules."
+            ]
+          },
+          {
+            "heading": "Ask whether inheritance uses a non-trade transfer",
+            "paragraphs": [
+              "Some counter-bond rules allow a non-trade transfer after inheritance, generally requiring valid succession documents and a receiving account. Documents, counters and trading restrictions vary by bond and custodian. Obtain a written list before selling or sharing account credentials."
+            ]
+          },
+          {
+            "heading": "Reconcile interest, maturity and restrictions",
+            "paragraphs": [
+              "Ask the custodian to confirm quantity, accrued interest, pledges or freezes, maturity and the receiving-account requirements. If heirs are split between Hong Kong and the Mainland, decide who applies, opens the account and grants authority. Keep the settlement record in the estate accounts."
+            ]
+          }
+        ],
+        "checklistTitle": "Documents and points to check",
+        "checklist": [
+          "Bond name, account number and custodian clues.",
+          "Trade confirmations, statements and bank records.",
+          "Succession, death and identity documents.",
+          "Requirements for the recipient custody account.",
+          "Interest, maturity, freeze and fee reconciliation."
+        ]
+      },
+      "zh-Hant": {
+        "title": "內地債券遺產怎樣查和過戶：先找託管機構，再核非交易手續",
+        "lead": "逝者賬戶裏可能有儲蓄國債、櫃枱債券或其他託管產品。香港家屬先查清債券由哪家銀行或登記託管機構記錄，再問繼承能否辦理非交易過戶，還是需要到期兌付或按規則贖回。",
+        "sections": [
+          {
+            "heading": "先識別債券類型和託管渠道",
+            "paragraphs": [
+              "查找銀行流水、交易確認、債券賬戶卡、電子對賬單和投資者代碼。記下產品名稱、託管機構、賬戶號碼及付息日；銀行代銷的債券與銀行存款不是同一產品，不能直接套用存款提取流程。"
+            ]
+          },
+          {
+            "heading": "詢問繼承是否屬於非交易過戶",
+            "paragraphs": [
+              "部分櫃枱債券規則允許因繼承辦理非交易過戶，通常需有效繼承文件和受讓方賬戶；不同債券及託管機構的材料、櫃枱和交易限制可能不同。先取得書面清單，不要為辦過戶而提前出售或分享密碼。"
+            ]
+          },
+          {
+            "heading": "同步確認利息、到期和稅費記錄",
+            "paragraphs": [
+              "要求機構核對持倉數量、應付利息、是否質押凍結、兌付或轉入後的賬戶要求。繼承人分散在香港和內地時，先確定由誰申請、誰開戶和如何授權，並將結算單留作遺產賬目。"
+            ]
+          }
+        ],
+        "checklistTitle": "債券查詢與申請資料",
+        "checklist": [
+          "債券名稱、賬戶號和託管機構線索。",
+          "交易確認、對賬單及銀行流水。",
+          "繼承權證明、死亡證明和身份資料。",
+          "受讓人債券託管賬戶要求。",
+          "付息、到期、凍結及費用核對記錄。"
+        ]
+      }
+    }
+  },
+  {
+    "id": "D24-F04",
+    "slug": "mainland-payment-wallet-balance-after-death",
+    "folder": "hong-kong-other-estate",
+    "category": "funds-and-personal-estate",
+    "research": {
+      "query": "内地电子支付账户继承",
+      "searchUrl": "https://www.google.com.hk/search?q=%E5%86%85%E5%9C%B0%E7%94%B5%E5%AD%90%E6%94%AF%E4%BB%98%E8%B4%A6%E6%88%B7%E7%BB%A7%E6%89%BF",
+      "viewedPages": [],
+      "observedAt": "2026-10-23",
+      "method": "web search fallback; Google via Playwright encountered a new CAPTCHA after one verified query",
+      "notes": "已用公开网页搜索核对相关同行法律文章或行业办理资料及官方材料，并按内地法律范围原创改写。Google 后续关键词请求再次触发验证，因此未把 Google 第1、2页或排名记为已查。搜索量未测。"
+    },
+    "sources": [
+      {
+        "url": "https://www.vlaws.cn/show.aspx?cid=36&id=27285",
+        "title": "数字遗产（微信/支付宝账号）怎么处理？",
+        "type": "competitor",
+        "notes": "同行法律文章，仅用于识别读者问题和内容切入点；未沿用其品牌、案例叙述或段落结构。 Google 前两页因验证未完成，未记录排名。"
+      },
+      {
+        "url": "https://sfj.gz.gov.cn/gzssfj/flfw/pf/yasf/content/post_10760952.html",
+        "title": "广州市司法局：亲人去世后微信与支付宝余额能否继承",
+        "type": "official",
+        "notes": "用于核对内地法律、主管机构或地方办理信息；当地指南仅作该地区示例，不外推为全国统一材料清单。"
+      }
+    ],
+    "related": [
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/asset-clue-list.html",
+        "label": {
+          "zh-Hant": "整理內地遺產線索",
+          "zh-Hans": "整理内地遗产线索",
+          "en": "Organising clues to Mainland assets"
+        }
+      },
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/documents.html",
+        "label": {
+          "zh-Hant": "香港家屬辦理內地繼承文件",
+          "zh-Hans": "香港家属办理内地继承文件",
+          "en": "Documents for Hong Kong families handling Mainland inheritance"
+        }
+      }
+    ],
+    "languages": {
+      "zh-Hans": {
+        "title": "内地电子支付账户有余额，香港家属怎样查资产和申请",
+        "lead": "电子支付账号、钱包余额、平台内理财和聊天资料不是同一类权益。香港家属不要尝试冒用逝者密码登录；应通过平台官方渠道核实账户资产、欠款及可申请的项目，并把隐私信息与财产余额分开处理。",
+        "sections": [
+          {
+            "heading": "先分清余额、产品和账号使用权",
+            "paragraphs": [
+              "钱包里可结算的余额或购买的金融产品，与账号本身、聊天记录或个人资料的访问权限不同。平台协议和核验规则可能限制账号转让；亲属身份不等于取得密码或读取所有信息的权利。"
+            ]
+          },
+          {
+            "heading": "通过客服渠道申请资产核查",
+            "paragraphs": [
+              "准备死亡证明、关系证明、申请人身份证明及平台要求的其他材料，使用官方客服、遗产处理入口或依法取得的法院文书。要求平台说明余额、理财产品、未结交易、自动扣款和贷款欠款分别如何处理。"
+            ]
+          },
+          {
+            "heading": "保护数据和其他用户隐私",
+            "paragraphs": [
+              "账号内容可能涉及逝者和第三人的隐私，申请时说明只查询与遗产有关的资金和产品，不要求无关聊天内容。保存客服编号、提交材料、处理结果和实际到账凭证，避免把平台的账号回收规则误当成余额归零。"
+            ]
+          }
+        ],
+        "checklistTitle": "联系平台前的资料",
+        "checklist": [
+          "可能使用的平台名称、手机号或实名线索。",
+          "死亡证明、亲属关系和申请人身份文件。",
+          "钱包余额、理财及扣款的现有记录。",
+          "官方客服工单号和书面处理要求。",
+          "需要查询的财产范围及隐私保护说明。"
+        ]
+      },
+      "en": {
+        "title": "A Mainland payment wallet has a balance: how heirs can identify and claim assets",
+        "lead": "A payment account, wallet balance, in-app investment and private messages are different kinds of interests. A Hong Kong family should not log in using the deceased’s credentials. Contact the platform through official channels to identify assets, debts and claimable items, separating financial value from private content.",
+        "sections": [
+          {
+            "heading": "Separate money, financial products and account access",
+            "paragraphs": [
+              "A withdrawable wallet balance or investment product differs from the account itself, messages or personal-data access. Platform terms may restrict account transfer. Kinship alone does not grant a password or access to all private information."
+            ]
+          },
+          {
+            "heading": "Request an asset review through official support",
+            "paragraphs": [
+              "Prepare death, relationship and claimant identity records and any platform-specific documents. Use official customer support, estate procedures or a valid court document. Ask how the balance, investments, unsettled transactions, automatic charges and loan debts are handled separately."
+            ]
+          },
+          {
+            "heading": "Protect data and third-party privacy",
+            "paragraphs": [
+              "Account content may include the deceased’s and others’ private information. Limit a request to estate-related balances and products rather than unrelated messages. Keep support references, documents, decisions and payment records; account closure does not by itself establish that the balance is zero."
+            ]
+          }
+        ],
+        "checklistTitle": "Documents and points to check",
+        "checklist": [
+          "Platform name, phone number or identity clues.",
+          "Death, family relationship and claimant identity documents.",
+          "Available wallet, investment and payment records.",
+          "Official support ticket and written requirements.",
+          "The requested financial scope and privacy safeguards."
+        ]
+      },
+      "zh-Hant": {
+        "title": "內地電子支付賬戶有餘額，香港家屬怎樣查資產和申請",
+        "lead": "電子支付賬號、錢包餘額、平臺內理財和聊天資料不是同一類權益。香港家屬不要嘗試冒用逝者密碼登錄；應通過平臺官方渠道核實賬戶資產、欠款及可申請的項目，並把隱私信息與財產餘額分開處理。",
+        "sections": [
+          {
+            "heading": "先分清餘額、產品和賬號使用權",
+            "paragraphs": [
+              "錢包裏可結算的餘額或購買的金融產品，與賬號本身、聊天記錄或個人資料的訪問權限不同。平臺協議和核驗規則可能限制賬號轉讓；親屬身份不等於取得密碼或讀取所有信息的權利。"
+            ]
+          },
+          {
+            "heading": "通過客服渠道申請資產覈查",
+            "paragraphs": [
+              "準備死亡證明、關係證明、申請人身份證明及平臺要求的其他材料，使用官方客服、遺產處理入口或依法取得的法院文書。要求平臺説明餘額、理財產品、未結交易、自動扣款和貸款欠款分別如何處理。"
+            ]
+          },
+          {
+            "heading": "保護數據和其他用戶隱私",
+            "paragraphs": [
+              "賬號內容可能涉及逝者和第三人的隱私，申請時説明只查詢與遺產有關的資金和產品，不要求無關聊天內容。保存客服編號、提交材料、處理結果和實際到賬憑證，避免把平臺的賬號回收規則誤當成餘額歸零。"
+            ]
+          }
+        ],
+        "checklistTitle": "聯繫平臺前的資料",
+        "checklist": [
+          "可能使用的平臺名稱、手機號或實名線索。",
+          "死亡證明、親屬關係和申請人身份文件。",
+          "錢包餘額、理財及扣款的現有記錄。",
+          "官方客服工單號和書面處理要求。",
+          "需要查詢的財產範圍及隱私保護説明。"
+        ]
+      }
+    }
+  },
+  {
+    "id": "D24-F05",
+    "slug": "mainland-housing-allowance-estate-inquiry",
+    "folder": "hong-kong-other-estate",
+    "category": "funds-and-personal-estate",
+    "research": {
+      "query": "内地住房补贴遗产申领",
+      "searchUrl": "https://www.google.com.hk/search?q=%E5%86%85%E5%9C%B0%E4%BD%8F%E6%88%BF%E8%A1%A5%E8%B4%B4%E9%81%97%E4%BA%A7%E7%94%B3%E9%A2%86",
+      "viewedPages": [],
+      "observedAt": "2026-10-23",
+      "method": "web search fallback; Google via Playwright encountered a new CAPTCHA after one verified query",
+      "notes": "已用公开网页搜索核对相关同行法律文章或行业办理资料及官方材料，并按内地法律范围原创改写。Google 后续关键词请求再次触发验证，因此未把 Google 第1、2页或排名记为已查。搜索量未测。"
+    },
+    "sources": [
+      {
+        "url": "https://www.sdcourt.gov.cn/jnanszqfy/389687/389688/6487277/index.html",
+        "title": "继承纠纷中住房补贴的分割",
+        "type": "court_case",
+        "notes": "法院公布的相关案件，仅用于观察争议焦点；未据此推定全国统一裁判结果。 Google 前两页因验证未完成，未记录排名。"
+      },
+      {
+        "url": "https://www.ggj.gov.cn/zcfg/zcjd/202201/t20220126_34981.htm",
+        "title": "国家机关事务管理局：住房补贴发放问题解读",
+        "type": "official",
+        "notes": "用于核对内地法律、主管机构或地方办理信息；当地指南仅作该地区示例，不外推为全国统一材料清单。"
+      }
+    ],
+    "related": [
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/asset-clue-list.html",
+        "label": {
+          "zh-Hant": "整理內地遺產線索",
+          "zh-Hans": "整理内地遗产线索",
+          "en": "Organising clues to Mainland assets"
+        }
+      },
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/documents.html",
+        "label": {
+          "zh-Hant": "香港家屬辦理內地繼承文件",
+          "zh-Hans": "香港家属办理内地继承文件",
+          "en": "Documents for Hong Kong families handling Mainland inheritance"
+        }
+      }
+    ],
+    "languages": {
+      "zh-Hans": {
+        "title": "内地住房补贴能否继承，先查发放依据和夫妻共有",
+        "lead": "住房补贴可能仍在单位审核、尚未发放，或已经进入个人账户。香港家属应先向原单位查询政策依据、核定金额和发放时间，再判断它是死者个人已取得的财产、夫妻共同财产，还是尚未满足条件的待遇请求。",
+        "sections": [
+          {
+            "heading": "核实补贴属于哪项政策",
+            "paragraphs": [
+              "向单位索取住房补贴办法、资格审核、计算表和审批记录。不同单位和时期的发放条件并不相同；不要仅凭工资条上的简称或同事领取过，就推定逝者已取得相同金额。"
+            ]
+          },
+          {
+            "heading": "确认何时形成可主张的财产权利",
+            "paragraphs": [
+              "核对补贴在死亡前是否已经核定、支付或划入账户，以及是否仍需住房状况、工龄或其他条件。若处于婚姻存续期间，还要分析取得时间与夫妻财产关系，先区分配偶的份额。"
+            ]
+          },
+          {
+            "heading": "由单位书面说明申请路径",
+            "paragraphs": [
+              "请经办单位列出申请人、材料、收款账户和期限，并区分住房补贴余额与公积金、养老金等项目。遇到继承人意见不同，要求单位暂缓有争议部分的处理并保留核定文件、通知和账目。"
+            ]
+          }
+        ],
+        "checklistTitle": "查住房补贴时",
+        "checklist": [
+          "住房补贴政策及适用版本。",
+          "单位资格审核、核定金额和审批日期。",
+          "实际发放、账户入账或尚未支付状态。",
+          "婚姻及家庭住房情况材料。",
+          "经办单位对申请人、材料和期限的答复。"
+        ]
+      },
+      "en": {
+        "title": "Can a Mainland housing allowance be inherited? Check the entitlement and ownership history",
+        "lead": "A housing allowance may still be under employer review, unpaid or already credited to an account. Ask the former employer for the policy basis, approved amount and payment date, then determine whether it was the deceased’s acquired property, marital property or an entitlement that had not yet vested.",
+        "sections": [
+          {
+            "heading": "Identify the governing allowance scheme",
+            "paragraphs": [
+              "Request the employer’s scheme, eligibility review, calculation and approval records. Conditions differ by employer and period. A shorthand on a payslip or a colleague’s payment does not establish that the deceased had acquired the same amount."
+            ]
+          },
+          {
+            "heading": "Determine whether a property right had accrued",
+            "paragraphs": [
+              "Check whether the allowance was approved, paid or credited before death and whether housing status, service years or other conditions remained. If the entitlement arose during marriage, assess the acquisition date and marital-property position before calculating the estate."
+            ]
+          },
+          {
+            "heading": "Ask the employer to confirm the claim route in writing",
+            "paragraphs": [
+              "Request the claimant, documents, receiving account and deadline, distinguishing the allowance from housing-fund or pension balances. If heirs disagree, ask how disputed amounts are held and retain every calculation, notice and accounting record."
+            ]
+          }
+        ],
+        "checklistTitle": "Documents and points to check",
+        "checklist": [
+          "The housing-allowance scheme and applicable version.",
+          "Employer eligibility review, approved amount and date.",
+          "Payment, account credit or unpaid status.",
+          "Marriage and household-housing records.",
+          "The employer’s written claimant, document and deadline instructions."
+        ]
+      },
+      "zh-Hant": {
+        "title": "內地住房補貼能否繼承，先查發放依據和夫妻共有",
+        "lead": "住房補貼可能仍在單位審核、尚未發放，或已經進入個人賬戶。香港家屬應先向原單位查詢政策依據、覈定金額和發放時間，再判斷它是死者個人已取得的財產、夫妻共同財產，還是尚未滿足條件的待遇請求。",
+        "sections": [
+          {
+            "heading": "核實補貼屬於哪項政策",
+            "paragraphs": [
+              "向單位索取住房補貼辦法、資格審核、計算表和審批記錄。不同單位和時期的發放條件並不相同；不要僅憑工資條上的簡稱或同事領取過，就推定逝者已取得相同金額。"
+            ]
+          },
+          {
+            "heading": "確認何時形成可主張的財產權利",
+            "paragraphs": [
+              "核對補貼在死亡前是否已經覈定、支付或劃入賬戶，以及是否仍需住房狀況、工齡或其他條件。若處於婚姻存續期間，還要分析取得時間與夫妻財產關係，先區分配偶的份額。"
+            ]
+          },
+          {
+            "heading": "由單位書面説明申請路徑",
+            "paragraphs": [
+              "請經辦單位列出申請人、材料、收款賬戶和期限，並區分住房補貼餘額與公積金、養老金等項目。遇到繼承人意見不同，要求單位暫緩有爭議部分的處理並保留覈定文件、通知和賬目。"
+            ]
+          }
+        ],
+        "checklistTitle": "查住房補貼時",
+        "checklist": [
+          "住房補貼政策及適用版本。",
+          "單位資格審核、覈定金額和審批日期。",
+          "實際發放、賬戶入賬或尚未支付狀態。",
+          "婚姻及家庭住房情況材料。",
+          "經辦單位對申請人、材料和期限的答覆。"
+        ]
+      }
+    }
+  },
+  {
+    "id": "D24-F06",
+    "slug": "mainland-bank-wealth-management-inheritance",
+    "folder": "hong-kong-other-estate",
+    "category": "funds-and-personal-estate",
+    "research": {
+      "query": "内地理财产品遗产核查",
+      "searchUrl": "https://www.google.com.hk/search?q=%E5%86%85%E5%9C%B0%E7%90%86%E8%B4%A2%E4%BA%A7%E5%93%81%E9%81%97%E4%BA%A7%E6%A0%B8%E6%9F%A5",
+      "viewedPages": [],
+      "observedAt": "2026-10-23",
+      "method": "web search fallback; Google via Playwright encountered a new CAPTCHA after one verified query",
+      "notes": "已用公开网页搜索核对相关同行法律文章或行业办理资料及官方材料，并按内地法律范围原创改写。Google 后续关键词请求再次触发验证，因此未把 Google 第1、2页或排名记为已查。搜索量未测。"
+    },
+    "sources": [
+      {
+        "url": "https://hankunlaw.com/upload/portal/20250612/f44ce3dcb89fa63aeb1a95cd6efa1d68.pdf",
+        "title": "境外继承人继承内地遗产的财产调查问题",
+        "type": "competitor",
+        "notes": "同行法律文章，仅用于识别读者问题和内容切入点；未沿用其品牌、案例叙述或段落结构。 Google 前两页因验证未完成，未记录排名。"
+      },
+      {
+        "url": "https://www.gsjn.gov.cn/zfxxgk/xzxxgk/yaz/fdzdgknr/shbx/art/2024/art_c34de45c4111475b88c6f208f7ef419a.html",
+        "title": "金融监管总局与人民银行关于已故存款人提取要求的通知",
+        "type": "official",
+        "notes": "用于核对内地法律、主管机构或地方办理信息；当地指南仅作该地区示例，不外推为全国统一材料清单。"
+      }
+    ],
+    "related": [
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/asset-clue-list.html",
+        "label": {
+          "zh-Hant": "整理內地遺產線索",
+          "zh-Hans": "整理内地遗产线索",
+          "en": "Organising clues to Mainland assets"
+        }
+      },
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/documents.html",
+        "label": {
+          "zh-Hant": "香港家屬辦理內地繼承文件",
+          "zh-Hans": "香港家属办理内地继承文件",
+          "en": "Documents for Hong Kong families handling Mainland inheritance"
+        }
+      }
+    ],
+    "languages": {
+      "zh-Hans": {
+        "title": "内地银行理财产品列入遗产前，先核管理人和赎回条件",
+        "lead": "银行账户里显示的理财不一定是现金存款。产品可能仍在封闭期、持有期或由独立理财管理人登记。香港家属先查产品名称、持有份额、净值日期和赎回规则，再申请赎回或非交易过户。",
+        "sections": [
+          {
+            "heading": "向银行和产品管理人分别核实",
+            "paragraphs": [
+              "索取产品合同、风险揭示书、持仓或份额证明、最近净值及交易状态。银行可能只是销售机构，实际赎回或过户由产品管理人办理；两边所需材料应提前确认。"
+            ]
+          },
+          {
+            "heading": "分辨到期赎回和继承过户",
+            "paragraphs": [
+              "监管通知提到，银行业机构可协助申请人向理财产品管理人申请赎回或非交易过户；产品合同、开放日和投资者适当性仍会影响具体处理。不能把小额存款简化提取规则理解为所有理财都能直接支取。"
+            ]
+          },
+          {
+            "heading": "以产品结算单更新遗产清单",
+            "paragraphs": [
+              "记录申请日期、单位净值、赎回金额、费用、到账账户和未结收益。若家属还没确定分配比例，可先把产品状态和估值日记入清单，不要用旧买入金额代替当前价值。"
+            ]
+          }
+        ],
+        "checklistTitle": "向银行或管理人查询",
+        "checklist": [
+          "产品名称、管理人和销售渠道。",
+          "持仓份额、估值日期及是否封闭或冻结。",
+          "赎回、非交易过户和投资者资格要求。",
+          "继承证明、死亡和申请人身份材料。",
+          "结算金额、费用及到账凭证。"
+        ]
+      },
+      "en": {
+        "title": "Before listing a Mainland wealth product as estate cash, check its manager and redemption terms",
+        "lead": "A wealth product shown in a bank account is not necessarily a cash deposit. It may be locked, subject to a holding period or registered with a separate manager. Identify the product, units, valuation date and redemption rules before seeking redemption or a non-trade transfer.",
+        "sections": [
+          {
+            "heading": "Check with both the bank and product manager",
+            "paragraphs": [
+              "Obtain the product terms, risk disclosure, holding statement, latest valuation and transaction status. The bank may only distribute the product; redemption or transfer may be handled by the manager. Confirm both parties’ requirements first."
+            ]
+          },
+          {
+            "heading": "Distinguish redemption from inheritance transfer",
+            "paragraphs": [
+              "A regulatory notice says banks should guide applicants to seek redemption or non-trade transfer from the product manager. The contract, dealing window and investor-suitability rules still matter. Simplified small-deposit procedures do not mean every investment can be withdrawn directly."
+            ]
+          },
+          {
+            "heading": "Update the estate inventory from the settlement statement",
+            "paragraphs": [
+              "Record the application date, unit value, redemption amount, fees, receiving account and unsettled returns. If heirs have not agreed on shares, list the product and valuation date without treating its original purchase price as its current value."
+            ]
+          }
+        ],
+        "checklistTitle": "Documents and points to check",
+        "checklist": [
+          "Product name, manager and sales channel.",
+          "Units, valuation date and any lock or freeze.",
+          "Redemption, non-trade transfer and investor eligibility rules.",
+          "Succession, death and claimant identity documents.",
+          "Settlement amount, fees and payment evidence."
+        ]
+      },
+      "zh-Hant": {
+        "title": "內地銀行理財產品列入遺產前，先核管理人和贖回條件",
+        "lead": "銀行賬戶裏顯示的理財不一定是現金存款。產品可能仍在封閉期、持有期或由獨立理財管理人登記。香港家屬先查產品名稱、持有份額、淨值日期和贖回規則，再申請贖回或非交易過戶。",
+        "sections": [
+          {
+            "heading": "向銀行和產品管理人分別核實",
+            "paragraphs": [
+              "索取產品合同、風險揭示書、持倉或份額證明、最近淨值及交易狀態。銀行可能只是銷售機構，實際贖回或過戶由產品管理人辦理；兩邊所需材料應提前確認。"
+            ]
+          },
+          {
+            "heading": "分辨到期贖回和繼承過戶",
+            "paragraphs": [
+              "監管通知提到，銀行業機構可協助申請人向理財產品管理人申請贖回或非交易過戶；產品合同、開放日和投資者適當性仍會影響具體處理。不能把小額存款簡化提取規則理解為所有理財都能直接支取。"
+            ]
+          },
+          {
+            "heading": "以產品結算單更新遺產清單",
+            "paragraphs": [
+              "記錄申請日期、單位淨值、贖回金額、費用、到賬賬戶和未結收益。若家屬還沒確定分配比例，可先把產品狀態和估值日記入清單，不要用舊買入金額代替當前價值。"
+            ]
+          }
+        ],
+        "checklistTitle": "向銀行或管理人查詢",
+        "checklist": [
+          "產品名稱、管理人和銷售渠道。",
+          "持倉份額、估值日期及是否封閉或凍結。",
+          "贖回、非交易過戶和投資者資格要求。",
+          "繼承證明、死亡和申請人身份材料。",
+          "結算金額、費用及到賬憑證。"
+        ]
+      }
+    }
+  },
+  {
+    "id": "D24-F07",
+    "slug": "mainland-mutual-fund-inheritance-transfer",
+    "folder": "hong-kong-other-estate",
+    "category": "funds-and-personal-estate",
+    "research": {
+      "query": "内地基金份额继承登记",
+      "searchUrl": "https://www.google.com.hk/search?q=%E5%86%85%E5%9C%B0%E5%9F%BA%E9%87%91%E4%BB%BD%E9%A2%9D%E7%BB%A7%E6%89%BF%E7%99%BB%E8%AE%B0",
+      "viewedPages": [],
+      "observedAt": "2026-10-23",
+      "method": "web search fallback; Google via Playwright encountered a new CAPTCHA after one verified query",
+      "notes": "已用公开网页搜索核对相关同行法律文章或行业办理资料及官方材料，并按内地法律范围原创改写。Google 后续关键词请求再次触发验证，因此未把 Google 第1、2页或排名记为已查。搜索量未测。"
+    },
+    "sources": [
+      {
+        "url": "https://www.gffunds.com.cn/xswd/bgxz/9/202308/t20230816_386644.shtml",
+        "title": "办理继承过户流程及申请表",
+        "type": "industry",
+        "notes": "基金管理人/金融机构的业务材料，仅用于核对产品办理线索；不代表法律意见。 Google 前两页因验证未完成，未记录排名。"
+      },
+      {
+        "url": "https://www.chinaclear.cn/zdjs/editor_file/20200522161535403.pdf",
+        "title": "中国结算投资者业务指南",
+        "type": "official",
+        "notes": "用于核对内地法律、主管机构或地方办理信息；当地指南仅作该地区示例，不外推为全国统一材料清单。"
+      }
+    ],
+    "related": [
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/asset-clue-list.html",
+        "label": {
+          "zh-Hant": "整理內地遺產線索",
+          "zh-Hans": "整理内地遗产线索",
+          "en": "Organising clues to Mainland assets"
+        }
+      },
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/documents.html",
+        "label": {
+          "zh-Hant": "香港家屬辦理內地繼承文件",
+          "zh-Hans": "香港家属办理内地继承文件",
+          "en": "Documents for Hong Kong families handling Mainland inheritance"
+        }
+      }
+    ],
+    "languages": {
+      "zh-Hans": {
+        "title": "内地基金份额继承登记：确认账户、过户材料和小额程序",
+        "lead": "逝者持有的基金份额不一定要先卖出再分款。基金管理人或登记机构可能办理继承类非交易过户；香港家属先确认基金在哪个销售渠道、登记机构是谁，以及受让人是否需要开立对应账户。",
+        "sections": [
+          {
+            "heading": "先定位基金账户与登记机构",
+            "paragraphs": [
+              "查看基金账户卡、交易确认、电子对账单和销售平台资料，确认基金代码、份额、销售机构及登记机构。不同基金和登记系统的业务表格、账户要求并不完全一致。"
+            ]
+          },
+          {
+            "heading": "询问继承类非交易过户材料",
+            "paragraphs": [
+              "常见材料会涉及继承权证明、死亡证明、继承人身份证明、业务申请表及受让账户；具体以基金管理人和登记机构现行要求为准。多名继承人应先写清份额分配，避免过户申请内容与协议、公证书或裁判文书不一致。"
+            ]
+          },
+          {
+            "heading": "核实小额遗产简化安排是否适用",
+            "paragraphs": [
+              "部分机构已公布小额已故投资者遗产的简化程序，但门槛、产品范围和申请主体有限定；基金不能赎回时，规则还可能要求改办非交易过户。先逐项核对适用条件，不要据此承诺一定可快速到账。"
+            ]
+          }
+        ],
+        "checklistTitle": "基金份额过户材料",
+        "checklist": [
+          "基金代码、份额和登记机构信息。",
+          "继承证明、死亡证明及继承人身份证明。",
+          "基金账户或受让账户开户要求。",
+          "多名继承人的份额分配文件。",
+          "小额遗产程序的额度和产品范围核对。"
+        ]
+      },
+      "en": {
+        "title": "Registering inherited Mainland fund units: accounts, documents and simplified procedures",
+        "lead": "Inherited fund units may not need to be sold before they are divided. A fund manager or registration agency may offer an inheritance-related non-trade transfer. First identify the sales channel and registrar and whether each recipient needs an account.",
+        "sections": [
+          {
+            "heading": "Locate the fund account and registrar",
+            "paragraphs": [
+              "Review account cards, confirmations, statements and sales-platform records to identify each fund code, unit balance, distributor and registrar. Forms and account requirements differ across funds and registration systems."
+            ]
+          },
+          {
+            "heading": "Ask for the inheritance transfer document list",
+            "paragraphs": [
+              "Common requirements may include succession evidence, proof of death, heir identification, an application and recipient accounts. Confirm current requirements with the manager and registrar. Multiple heirs should agree on unit allocations before filing so the application matches the agreement or legal document."
+            ]
+          },
+          {
+            "heading": "Check whether a simplified small-estate process applies",
+            "paragraphs": [
+              "Some institutions publish simplified procedures for small investor estates, with limits on value, products and eligible applicants. If units cannot be redeemed, a non-trade transfer may be needed. Check each condition; do not assume quick payment is guaranteed."
+            ]
+          }
+        ],
+        "checklistTitle": "Documents and points to check",
+        "checklist": [
+          "Fund codes, unit balances and registrar information.",
+          "Succession, death and heir identity documents.",
+          "Fund-account or recipient-account opening rules.",
+          "Allocation documents for multiple heirs.",
+          "Value and product limits for any simplified process."
+        ]
+      },
+      "zh-Hant": {
+        "title": "內地基金份額繼承登記：確認賬戶、過戶材料和小額程序",
+        "lead": "逝者持有的基金份額不一定要先賣出再分款。基金管理人或登記機構可能辦理繼承類非交易過戶；香港家屬先確認基金在哪個銷售渠道、登記機構是誰，以及受讓人是否需要開立對應賬戶。",
+        "sections": [
+          {
+            "heading": "先定位基金賬戶與登記機構",
+            "paragraphs": [
+              "查看基金賬戶卡、交易確認、電子對賬單和銷售平臺資料，確認基金代碼、份額、銷售機構及登記機構。不同基金和登記系統的業務表格、賬戶要求並不完全一致。"
+            ]
+          },
+          {
+            "heading": "詢問繼承類非交易過戶材料",
+            "paragraphs": [
+              "常見材料會涉及繼承權證明、死亡證明、繼承人身份證明、業務申請表及受讓賬戶；具體以基金管理人和登記機構現行要求為準。多名繼承人應先寫清份額分配，避免過戶申請內容與協議、公證書或裁判文書不一致。"
+            ]
+          },
+          {
+            "heading": "核實小額遺產簡化安排是否適用",
+            "paragraphs": [
+              "部分機構已公佈小額已故投資者遺產的簡化程序，但門檻、產品範圍和申請主體有限定；基金不能贖回時，規則還可能要求改辦非交易過戶。先逐項核對適用條件，不要據此承諾一定可快速到賬。"
+            ]
+          }
+        ],
+        "checklistTitle": "基金份額過戶材料",
+        "checklist": [
+          "基金代碼、份額和登記機構信息。",
+          "繼承證明、死亡證明及繼承人身份證明。",
+          "基金賬戶或受讓賬戶開戶要求。",
+          "多名繼承人的份額分配文件。",
+          "小額遺產程序的額度和產品範圍核對。"
+        ]
+      }
+    }
+  }
+]

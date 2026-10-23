@@ -1,0 +1,866 @@
+[
+  {
+    "id": "D24-R01",
+    "slug": "mainland-hong-kong-inheritance-documents-transfer",
+    "folder": "hong-kong-other-estate",
+    "category": "inheritance-procedure",
+    "research": {
+      "query": "内地港澳继承文书转递",
+      "searchUrl": "https://www.google.com.hk/search?q=%E5%86%85%E5%9C%B0%E6%B8%AF%E6%BE%B3%E7%BB%A7%E6%89%BF%E6%96%87%E4%B9%A6%E8%BD%AC%E9%80%92",
+      "viewedPages": [],
+      "observedAt": "2026-10-23",
+      "method": "web search fallback; Google via Playwright encountered a new CAPTCHA after one verified query",
+      "notes": "已用公开网页搜索核对相关同行法律文章或行业办理资料及官方材料，并按内地法律范围原创改写。Google 后续关键词请求再次触发验证，因此未把 Google 第1、2页或排名记为已查。搜索量未测。"
+    },
+    "sources": [
+      {
+        "url": "https://www.middlapartners.com/inbound/yanjiu/hk-macau-inheritance.html",
+        "title": "港澳居民继承内地遗产：委托公证人制度全流程",
+        "type": "competitor",
+        "notes": "同行法律文章，仅用于识别读者问题和内容切入点；未沿用其品牌、案例叙述或段落结构。 Google 前两页因验证未完成，未记录排名。"
+      },
+      {
+        "url": "https://www.caao.org.hk/zh-CN/handling-notarization/notarized-documents",
+        "title": "中国委托公证人协会：公证文书种类",
+        "type": "official",
+        "notes": "用于核对内地法律、主管机构或地方办理信息；当地指南仅作该地区示例，不外推为全国统一材料清单。"
+      }
+    ],
+    "related": [
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/asset-clue-list.html",
+        "label": {
+          "zh-Hant": "整理內地遺產線索",
+          "zh-Hans": "整理内地遗产线索",
+          "en": "Organising clues to Mainland assets"
+        }
+      },
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/documents.html",
+        "label": {
+          "zh-Hant": "香港家屬辦理內地繼承文件",
+          "zh-Hans": "香港家属办理内地继承文件",
+          "en": "Documents for Hong Kong families handling Mainland inheritance"
+        }
+      }
+    ],
+    "languages": {
+      "zh-Hans": {
+        "title": "香港继承文件送内地使用，先核文书类型和转递要求",
+        "lead": "香港家属办理内地遗产时，身份声明、放弃继承、授权委托和香港法院文件用途不同，办理与转递路径也不一样。先问清内地接收机构要证明什么，再联系委托公证人准备对应文书。",
+        "sections": [
+          {
+            "heading": "先问内地接收机构需要证明的事实",
+            "paragraphs": [
+              "把办理事项、资产所在地、继承人身份、是否有遗嘱及是否有人放弃继承说明清楚。接收方可能需要亲属关系及遗嘱状况声明、放弃声明、授权委托或法院文件，不能只说“做一份继承公证”。"
+            ]
+          },
+          {
+            "heading": "核对委托公证与审核转递环节",
+            "paragraphs": [
+              "香港委托公证人协会公布的文书类型说明列明，继承或放弃内地遗产可使用相应声明；办理后还要核实是否需由中国法律服务（香港）有限公司审核、加章转递。先确认最新线上或纸本流程及文书格式。"
+            ]
+          },
+          {
+            "heading": "把文书内容与实际申请逐项对应",
+            "paragraphs": [
+              "核对姓名、证件号码、亲属关系、死者资料、资产所在地、授权事项与有效期限。香港文书完成后，把编号和接收方回执交给内地公证处、登记机构或银行，发现差异要先更正，避免反复补件。"
+            ]
+          }
+        ],
+        "checklistTitle": "委托公证前核对",
+        "checklist": [
+          "内地资产所在地及接收机构名称。",
+          "该机构要求证明的具体事实和文书格式。",
+          "死亡、身份、亲属关系及遗嘱材料。",
+          "是否办理放弃声明或授权委托。",
+          "审核转递流程、编号和接收回执。"
+        ]
+      },
+      "en": {
+        "title": "Using Hong Kong inheritance documents in Mainland China: verify the document and transfer route",
+        "lead": "For a Mainland estate, a family-status declaration, renunciation, power of attorney and Hong Kong court document serve different purposes and follow different routes. Ask the Mainland receiving institution what must be proved, then prepare the matching document through the appropriate Hong Kong notarial process.",
+        "sections": [
+          {
+            "heading": "Ask the Mainland recipient what fact must be proved",
+            "paragraphs": [
+              "Explain the task, asset location, heirs, whether a will exists and whether anyone renounces. The recipient may need a family-and-will declaration, renunciation, authority or court document; a generic request for an inheritance notarisation is not specific enough."
+            ]
+          },
+          {
+            "heading": "Confirm the notary and transfer steps",
+            "paragraphs": [
+              "The Hong Kong Association of China-Appointed Attesting Officers lists declarations for inheriting or renouncing Mainland estates. Confirm whether review, sealing and transfer by China Legal Services (Hong Kong) is required, and whether the current process is paper or electronic."
+            ]
+          },
+          {
+            "heading": "Match each document to the actual application",
+            "paragraphs": [
+              "Check names, identity numbers, family links, deceased details, asset location, authority and expiry. After completion in Hong Kong, keep the reference and Mainland receipt. Correct any mismatch before the file reaches the notary, registry or bank."
+            ]
+          }
+        ],
+        "checklistTitle": "Documents and points to check",
+        "checklist": [
+          "Mainland asset location and receiving institution.",
+          "The specific fact and document format required.",
+          "Death, identity, family and will records.",
+          "Whether a renunciation or power of attorney is needed.",
+          "Review, transfer, reference number and receipt."
+        ]
+      },
+      "zh-Hant": {
+        "title": "香港繼承文件送內地使用，先核文書類型和轉遞要求",
+        "lead": "香港家屬辦理內地遺產時，身份聲明、放棄繼承、授權委託和香港法院文件用途不同，辦理與轉遞路徑也不一樣。先問清內地接收機構要證明什麼，再聯繫委託公證人準備對應文書。",
+        "sections": [
+          {
+            "heading": "先問內地接收機構需要證明的事實",
+            "paragraphs": [
+              "把辦理事項、資產所在地、繼承人身份、是否有遺囑及是否有人放棄繼承説明清楚。接收方可能需要親屬關係及遺囑狀況聲明、放棄聲明、授權委託或法院文件，不能只説“做一份繼承公證”。"
+            ]
+          },
+          {
+            "heading": "核對委託公證與審核轉遞環節",
+            "paragraphs": [
+              "香港委託公證人協會公佈的文書類型説明列明，繼承或放棄內地遺產可使用相應聲明；辦理後還要核實是否需由中國法律服務（香港）有限公司審核、加章轉遞。先確認最新線上或紙本流程及文書格式。"
+            ]
+          },
+          {
+            "heading": "把文書內容與實際申請逐項對應",
+            "paragraphs": [
+              "核對姓名、證件號碼、親屬關係、死者資料、資產所在地、授權事項與有效期限。香港文書完成後，把編號和接收方回執交給內地公證處、登記機構或銀行，發現差異要先更正，避免反覆補件。"
+            ]
+          }
+        ],
+        "checklistTitle": "委託公證前核對",
+        "checklist": [
+          "內地資產所在地及接收機構名稱。",
+          "該機構要求證明的具體事實和文書格式。",
+          "死亡、身份、親屬關係及遺囑材料。",
+          "是否辦理放棄聲明或授權委託。",
+          "審核轉遞流程、編號和接收回執。"
+        ]
+      }
+    }
+  },
+  {
+    "id": "D24-R02",
+    "slug": "mainland-estate-inventory-overseas-heirs",
+    "folder": "hong-kong-other-estate",
+    "category": "inheritance-procedure",
+    "research": {
+      "query": "内地遗产清单申报程序",
+      "searchUrl": "https://www.google.com.hk/search?q=%E5%86%85%E5%9C%B0%E9%81%97%E4%BA%A7%E6%B8%85%E5%8D%95%E7%94%B3%E6%8A%A5%E7%A8%8B%E5%BA%8F",
+      "viewedPages": [],
+      "observedAt": "2026-10-23",
+      "method": "web search fallback; Google via Playwright encountered a new CAPTCHA after one verified query",
+      "notes": "已用公开网页搜索核对相关同行法律文章或行业办理资料及官方材料，并按内地法律范围原创改写。Google 后续关键词请求再次触发验证，因此未把 Google 第1、2页或排名记为已查。搜索量未测。"
+    },
+    "sources": [
+      {
+        "url": "https://www.hankunlaw.com/upload/portal/20250612/f44ce3dcb89fa63aeb1a95cd6efa1d68.pdf",
+        "title": "境外继承人继承内地遗产的资产调查难点",
+        "type": "competitor",
+        "notes": "同行法律文章，仅用于识别读者问题和内容切入点；未沿用其品牌、案例叙述或段落结构。 Google 前两页因验证未完成，未记录排名。"
+      },
+      {
+        "url": "https://www.court.gov.cn/zixun/xiangqing/500681.html",
+        "title": "最高人民法院：遗产管理人制度典型案例答记者问",
+        "type": "official",
+        "notes": "用于核对内地法律、主管机构或地方办理信息；当地指南仅作该地区示例，不外推为全国统一材料清单。"
+      }
+    ],
+    "related": [
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/asset-clue-list.html",
+        "label": {
+          "zh-Hant": "整理內地遺產線索",
+          "zh-Hans": "整理内地遗产线索",
+          "en": "Organising clues to Mainland assets"
+        }
+      },
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/documents.html",
+        "label": {
+          "zh-Hant": "香港家屬辦理內地繼承文件",
+          "zh-Hans": "香港家属办理内地继承文件",
+          "en": "Documents for Hong Kong families handling Mainland inheritance"
+        }
+      }
+    ],
+    "languages": {
+      "zh-Hans": {
+        "title": "香港家属整理内地遗产清单，按权属、负债和证据分栏",
+        "lead": "跨境继承最容易漏掉的，往往不是一套房，而是资产线索散在不同银行、登记机构、单位和平台。先建立清单，区分死者个人财产、夫妻或家庭共有财产、债权债务和待核实权益，再决定查询或申报次序。",
+        "sections": [
+          {
+            "heading": "清单记录资产线索，不先下归属结论",
+            "paragraphs": [
+              "每项写明资产类别、机构、账号或地址、登记人、估值日期、原始凭证、共同权利人和目前状态。标注“已确认”“待查询”或“有争议”，不要把家人口述金额直接当成最终遗产数。"
+            ]
+          },
+          {
+            "heading": "先析产，再统计死者可继承部分",
+            "paragraphs": [
+              "房屋、存款、证券和补贴可能有夫妻共同、共有或他人代持部分。先找出登记及资金来源，再把配偶或共同权利人的份额剥离；对尚未确认的房屋或平台资产保留争议栏。"
+            ]
+          },
+          {
+            "heading": "按机构分批查询并保存结果",
+            "paragraphs": [
+              "房屋向所在地登记机构查询，年金向单位或管理人查询，账户资产向银行、证券或平台走正式渠道。需要法院调查收集的，先整理具体线索、持有人和查询理由。每次申请记录提交日、回函、补件和新发现。"
+            ]
+          }
+        ],
+        "checklistTitle": "遗产清单字段",
+        "checklist": [
+          "资产类别、机构和账号或地址线索。",
+          "登记权利人、共同权利人及来源凭证。",
+          "估值日期、负债、收入和限制状态。",
+          "查询机构、申请时间和书面答复。",
+          "已确认、待查及有争议事项的区分。"
+        ]
+      },
+      "en": {
+        "title": "An estate inventory for Mainland assets: separate ownership, debts and evidence",
+        "lead": "In a cross-border inheritance, asset clues may be scattered across banks, registries, employers and platforms. Build an inventory that separates the deceased’s property, marital or family co-ownership, debts and unresolved interests before deciding what to investigate or report.",
+        "sections": [
+          {
+            "heading": "Record clues without deciding ownership too early",
+            "paragraphs": [
+              "For each item, note its type, institution, account or address, registered holder, valuation date, source document, co-owners and status. Mark it confirmed, pending or disputed; do not treat a family estimate as the final estate value."
+            ]
+          },
+          {
+            "heading": "Separate co-owned property before calculating the estate",
+            "paragraphs": [
+              "Homes, deposits, securities and allowances may include a spouse’s or another person’s share. Check title and funding, separate proven co-ownership first, and retain a disputed category for unresolved property or platform balances."
+            ]
+          },
+          {
+            "heading": "Query institutions in batches and preserve results",
+            "paragraphs": [
+              "Ask the local property registry, employer or annuity manager, bank, securities firm or platform through formal channels. For a court-assisted inquiry, prepare the target holder, specific lead and reason. Log dates, replies, missing items and new findings."
+            ]
+          }
+        ],
+        "checklistTitle": "Documents and points to check",
+        "checklist": [
+          "Asset type, institution and account or address clues.",
+          "Registered and co-owners with source documents.",
+          "Valuation date, debts, income and restrictions.",
+          "Inquiry destination, application date and written response.",
+          "Separate confirmed, pending and disputed entries."
+        ]
+      },
+      "zh-Hant": {
+        "title": "香港家屬整理內地遺產清單，按權屬、負債和證據分欄",
+        "lead": "跨境繼承最容易漏掉的，往往不是一套房，而是資產線索散在不同銀行、登記機構、單位和平臺。先建立清單，區分死者個人財產、夫妻或家庭共有財產、債權債務和待覈實權益，再決定查詢或申報次序。",
+        "sections": [
+          {
+            "heading": "清單記錄資產線索，不先下歸屬結論",
+            "paragraphs": [
+              "每項寫明資產類別、機構、賬號或地址、登記人、估值日期、原始憑證、共同權利人和目前狀態。標註“已確認”“待查詢”或“有爭議”，不要把家人口述金額直接當成最終遺產數。"
+            ]
+          },
+          {
+            "heading": "先析產，再統計死者可繼承部分",
+            "paragraphs": [
+              "房屋、存款、證券和補貼可能有夫妻共同、共有或他人代持部分。先找出登記及資金來源，再把配偶或共同權利人的份額剝離；對尚未確認的房屋或平臺資產保留爭議欄。"
+            ]
+          },
+          {
+            "heading": "按機構分批查詢並保存結果",
+            "paragraphs": [
+              "房屋向所在地登記機構查詢，年金向單位或管理人查詢，賬戶資產向銀行、證券或平臺走正式渠道。需要法院調查收集的，先整理具體線索、持有人和查詢理由。每次申請記錄提交日、回函、補件和新發現。"
+            ]
+          }
+        ],
+        "checklistTitle": "遺產清單字段",
+        "checklist": [
+          "資產類別、機構和賬號或地址線索。",
+          "登記權利人、共同權利人及來源憑證。",
+          "估值日期、負債、收入和限制狀態。",
+          "查詢機構、申請時間和書面答覆。",
+          "已確認、待查及有爭議事項的區分。"
+        ]
+      }
+    }
+  },
+  {
+    "id": "D24-R03",
+    "slug": "mainland-multiple-wills-conflict-review",
+    "folder": "hong-kong-other-estate",
+    "category": "inheritance-procedure",
+    "research": {
+      "query": "内地多份遗嘱效力判断",
+      "searchUrl": "https://www.google.com.hk/search?q=%E5%86%85%E5%9C%B0%E5%A4%9A%E4%BB%BD%E9%81%97%E5%98%B1%E6%95%88%E5%8A%9B%E5%88%A4%E6%96%AD",
+      "viewedPages": [],
+      "observedAt": "2026-10-23",
+      "method": "web search fallback; Google via Playwright encountered a new CAPTCHA after one verified query",
+      "notes": "已用公开网页搜索核对相关同行法律文章或行业办理资料及官方材料，并按内地法律范围原创改写。Google 后续关键词请求再次触发验证，因此未把 Google 第1、2页或排名记为已查。搜索量未测。"
+    },
+    "sources": [
+      {
+        "url": "https://www.jingyinlaw.com/news-info.php?classID=4&id=3701",
+        "title": "多份遗嘱的效力认定：内容抵触时，以最后一份有效遗嘱为准",
+        "type": "competitor",
+        "notes": "同行法律文章，仅用于识别读者问题和内容切入点；未沿用其品牌、案例叙述或段落结构。 Google 前两页因验证未完成，未记录排名。"
+      },
+      {
+        "url": "https://www.court.gov.cn/zixun/xiangqing/386521.html",
+        "title": "最高人民法院贯彻实施民法典典型案例",
+        "type": "official",
+        "notes": "用于核对内地法律、主管机构或地方办理信息；当地指南仅作该地区示例，不外推为全国统一材料清单。"
+      }
+    ],
+    "related": [
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/asset-clue-list.html",
+        "label": {
+          "zh-Hant": "整理內地遺產線索",
+          "zh-Hans": "整理内地遗产线索",
+          "en": "Organising clues to Mainland assets"
+        }
+      },
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/documents.html",
+        "label": {
+          "zh-Hant": "香港家屬辦理內地繼承文件",
+          "zh-Hans": "香港家属办理内地继承文件",
+          "en": "Documents for Hong Kong families handling Mainland inheritance"
+        }
+      }
+    ],
+    "languages": {
+      "zh-Hans": {
+        "title": "多份遗嘱涉及内地财产，香港家属先核时间、形式和冲突部分",
+        "lead": "家属找到几份遗嘱时，不宜只看哪份更新或是否公证。先逐份核对订立日期、形式、签署和见证、立遗嘱能力及处分财产范围；存在冲突的条款，再按适用法律判断。",
+        "sections": [
+          {
+            "heading": "把每份遗嘱的原件和形成过程固定下来",
+            "paragraphs": [
+              "保存原件、封套、草稿、修改痕迹、见证人资料、录像和保管记录，扫描件不替代原件。记录家属何时、从何处找到文件，不要在原件上写注或自行订在一起。"
+            ]
+          },
+          {
+            "heading": "逐份检查形式与真实意思",
+            "paragraphs": [
+              "自书、代书、打印、录音录像等形式有不同要求。对打印或代书文件，重点核实见证人资格、是否全程在场、签名和日期；同时看订立时的认知情况、胁迫或欺诈争议及是否处分本人财产。"
+            ]
+          },
+          {
+            "heading": "冲突只按实际冲突范围处理",
+            "paragraphs": [
+              "内地《民法典》规定，立有数份遗嘱且内容相抵触的，以最后的遗嘱为准，但每份遗嘱是否有效、是否覆盖同一财产仍要先审查。涉及香港制作的文件及跨境继承时，另核遗嘱形式与准据法，不宜只凭日期作决定。"
+            ]
+          }
+        ],
+        "checklistTitle": "多份遗嘱核对表",
+        "checklist": [
+          "每份文件原件、日期和保管来源。",
+          "遗嘱形式、签名、见证人及录像资料。",
+          "立遗嘱时的能力及争议线索。",
+          "每份遗嘱处分的具体财产和条款冲突。",
+          "遗嘱制作地、资产所在地及适用法律问题。"
+        ]
+      },
+      "en": {
+        "title": "Several wills cover Mainland assets: compare dates, formalities and conflicting clauses",
+        "lead": "When a family finds several wills, the newest or notarised document should not be selected without review. Compare each date, form, signature, witnesses, capacity and property scope, then assess conflicting clauses under the applicable law.",
+        "sections": [
+          {
+            "heading": "Preserve each original and its creation history",
+            "paragraphs": [
+              "Keep originals, envelopes, drafts, edits, witness details, recordings and custody records. A scan is not a substitute for an original. Record when and where each document was found; do not annotate or staple originals."
+            ]
+          },
+          {
+            "heading": "Test formal validity and genuine intent",
+            "paragraphs": [
+              "Handwritten, witnessed, printed, audio and video wills have different formal requirements. For printed or dictated documents, verify witness eligibility, presence throughout, signatures and date. Also consider capacity, coercion allegations and whether the will covers the testator’s own property."
+            ]
+          },
+          {
+            "heading": "Resolve only the portions that actually conflict",
+            "paragraphs": [
+              "The Mainland Civil Code provides that where several wills conflict, the later will prevails. First establish that each is valid and covers the same property. For a Hong Kong document or cross-border succession, separately assess form and governing law rather than relying on date alone."
+            ]
+          }
+        ],
+        "checklistTitle": "Documents and points to check",
+        "checklist": [
+          "Originals, dates and custody history for every will.",
+          "Form, signatures, witnesses and recordings.",
+          "Capacity and any evidence of a dispute.",
+          "Property covered and clauses that conflict.",
+          "Place of execution, asset location and governing-law questions."
+        ]
+      },
+      "zh-Hant": {
+        "title": "多份遺囑涉及內地財產，香港家屬先核時間、形式和衝突部分",
+        "lead": "家屬找到幾份遺囑時，不宜只看哪份更新或是否公證。先逐份核對訂立日期、形式、簽署和見證、立遺囑能力及處分財產範圍；存在衝突的條款，再按適用法律判斷。",
+        "sections": [
+          {
+            "heading": "把每份遺囑的原件和形成過程固定下來",
+            "paragraphs": [
+              "保存原件、封套、草稿、修改痕跡、見證人資料、錄像和保管記錄，掃描件不替代原件。記錄家屬何時、從何處找到文件，不要在原件上寫注或自行訂在一起。"
+            ]
+          },
+          {
+            "heading": "逐份檢查形式與真實意思",
+            "paragraphs": [
+              "自書、代書、打印、錄音錄像等形式有不同要求。對打印或代書文件，重點核實見證人資格、是否全程在場、簽名和日期；同時看訂立時的認知情況、脅迫或欺詐爭議及是否處分本人財產。"
+            ]
+          },
+          {
+            "heading": "衝突只按實際衝突範圍處理",
+            "paragraphs": [
+              "內地《民法典》規定，立有數份遺囑且內容相牴觸的，以最後的遺囑為準，但每份遺囑是否有效、是否覆蓋同一財產仍要先審查。涉及香港製作的文件及跨境繼承時，另核遺囑形式與準據法，不宜只憑日期作決定。"
+            ]
+          }
+        ],
+        "checklistTitle": "多份遺囑核對表",
+        "checklist": [
+          "每份文件原件、日期和保管來源。",
+          "遺囑形式、簽名、見證人及錄像資料。",
+          "立遺囑時的能力及爭議線索。",
+          "每份遺囑處分的具體財產和條款衝突。",
+          "遺囑製作地、資產所在地及適用法律問題。"
+        ]
+      }
+    }
+  },
+  {
+    "id": "D24-R04",
+    "slug": "mainland-inheritance-evidence-preservation-application",
+    "folder": "hong-kong-other-estate",
+    "category": "inheritance-procedure",
+    "research": {
+      "query": "内地遗产诉讼证据保全",
+      "searchUrl": "https://www.google.com.hk/search?q=%E5%86%85%E5%9C%B0%E9%81%97%E4%BA%A7%E8%AF%89%E8%AE%BC%E8%AF%81%E6%8D%AE%E4%BF%9D%E5%85%A8",
+      "viewedPages": [],
+      "observedAt": "2026-10-23",
+      "method": "web search fallback; Google via Playwright encountered a new CAPTCHA after one verified query",
+      "notes": "已用公开网页搜索核对相关同行法律文章或行业办理资料及官方材料，并按内地法律范围原创改写。Google 后续关键词请求再次触发验证，因此未把 Google 第1、2页或排名记为已查。搜索量未测。"
+    },
+    "sources": [
+      {
+        "url": "https://hankunlaw.com/upload/portal/20250612/f44ce3dcb89fa63aeb1a95cd6efa1d68.pdf",
+        "title": "境外继承人继承内地遗产的诉讼和财产风险",
+        "type": "competitor",
+        "notes": "同行法律文章，仅用于识别读者问题和内容切入点；未沿用其品牌、案例叙述或段落结构。 Google 前两页因验证未完成，未记录排名。"
+      },
+      {
+        "url": "https://www.court.gov.cn/zixun/xiangqing/212721.html",
+        "title": "最高人民法院关于民事诉讼证据的若干规定",
+        "type": "official",
+        "notes": "用于核对内地法律、主管机构或地方办理信息；当地指南仅作该地区示例，不外推为全国统一材料清单。"
+      }
+    ],
+    "related": [
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/asset-clue-list.html",
+        "label": {
+          "zh-Hant": "整理內地遺產線索",
+          "zh-Hans": "整理内地遗产线索",
+          "en": "Organising clues to Mainland assets"
+        }
+      },
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/documents.html",
+        "label": {
+          "zh-Hant": "香港家屬辦理內地繼承文件",
+          "zh-Hans": "香港家属办理内地继承文件",
+          "en": "Documents for Hong Kong families handling Mainland inheritance"
+        }
+      }
+    ],
+    "languages": {
+      "zh-Hans": {
+        "title": "内地继承诉讼证据可能灭失，香港家属怎样申请证据保全",
+        "lead": "遗产争议中的监控、手机记录、原始票据或账户资料可能被删除、覆盖或难以再次取得。香港家属要先写清证据在哪里、证明什么、为何可能灭失，再尽快咨询受理法院是否需要证据保全或法院调查。",
+        "sections": [
+          {
+            "heading": "列明证据内容和保管人",
+            "paragraphs": [
+              "不要只写“申请保全全部遗产资料”。列出具体设备、文件、账号、时间范围和控制人，说明它与遗嘱真伪、财产流向、居住或代持争议的关联。先自行合法保存现有副本，并记录来源和取得日期。"
+            ]
+          },
+          {
+            "heading": "说明紧迫性并选对程序",
+            "paragraphs": [
+              "根据《民事诉讼证据的若干规定》，诉讼中的证据保全应在举证期限届满前提出；紧急情况下，法律允许符合条件的诉前保全申请。是否需要担保、法院采取什么措施，要由法院结合证据和影响判断。"
+            ]
+          },
+          {
+            "heading": "把申请、法院答复和替代副本留档",
+            "paragraphs": [
+              "申请书写明证据名称、位置、待证明事实、灭失风险及无法自行取得的原因。同步保存合法截屏、原始设备、邮件回执和证据交接记录；申请错误可能造成损失，范围应与争点相称。"
+            ]
+          }
+        ],
+        "checklistTitle": "准备证据保全申请",
+        "checklist": [
+          "证据名称、载体、所在位置和保管人。",
+          "需要证明的继承争议事实。",
+          "证据可能灭失或难以取得的具体原因。",
+          "举证期限、紧急程度和法院联系信息。",
+          "已有副本、来源说明及保管记录。"
+        ]
+      },
+      "en": {
+        "title": "Evidence in a Mainland inheritance case may disappear: when to seek preservation",
+        "lead": "Surveillance footage, phone records, original receipts or account data in an estate dispute may be deleted, overwritten or become difficult to obtain. Identify where the evidence is, what it proves and why it may disappear, then promptly ask the court about preservation or judicial collection.",
+        "sections": [
+          {
+            "heading": "Identify the evidence and its custodian",
+            "paragraphs": [
+              "Avoid a general request to preserve all estate material. Specify the device, file, account, date range and person controlling it, and explain its link to a will, asset transfer, occupation or nominee dispute. Preserve lawful copies and record their source and date."
+            ]
+          },
+          {
+            "heading": "Explain urgency and choose the correct procedure",
+            "paragraphs": [
+              "Under the Supreme People’s Court evidence rules, a trial-stage preservation request should be made before the evidence period expires. In urgent cases, pre-action preservation may be available where legal conditions are met. The court decides whether security or a particular measure is required."
+            ]
+          },
+          {
+            "heading": "Keep the application, court response and backup copies",
+            "paragraphs": [
+              "State the evidence, location, fact to be proved, risk of loss and why it cannot be collected independently. Preserve lawful screenshots, original devices, delivery records and chain-of-custody notes. A mistaken request may cause loss, so tailor its scope to the dispute."
+            ]
+          }
+        ],
+        "checklistTitle": "Documents and points to check",
+        "checklist": [
+          "Evidence description, format, location and custodian.",
+          "The inheritance issue the evidence would prove.",
+          "Specific risk of loss or difficulty obtaining it later.",
+          "Evidence deadline, urgency and court details.",
+          "Existing copies, source notes and custody records."
+        ]
+      },
+      "zh-Hant": {
+        "title": "內地繼承訴訟證據可能滅失，香港家屬怎樣申請證據保全",
+        "lead": "遺產爭議中的監控、手機記錄、原始票據或賬戶資料可能被刪除、覆蓋或難以再次取得。香港家屬要先寫清證據在哪裏、證明什麼、為何可能滅失，再儘快諮詢受理法院是否需要證據保全或法院調查。",
+        "sections": [
+          {
+            "heading": "列明證據內容和保管人",
+            "paragraphs": [
+              "不要只寫“申請保全全部遺產資料”。列出具體設備、文件、賬號、時間範圍和控制人，説明它與遺囑真偽、財產流向、居住或代持爭議的關聯。先自行合法保存現有副本，並記錄來源和取得日期。"
+            ]
+          },
+          {
+            "heading": "説明緊迫性並選對程序",
+            "paragraphs": [
+              "根據《民事訴訟證據的若干規定》，訴訟中的證據保全應在舉證期限屆滿前提出；緊急情況下，法律允許符合條件的訴前保全申請。是否需要擔保、法院採取什麼措施，要由法院結合證據和影響判斷。"
+            ]
+          },
+          {
+            "heading": "把申請、法院答覆和替代副本留檔",
+            "paragraphs": [
+              "申請書寫明證據名稱、位置、待證明事實、滅失風險及無法自行取得的原因。同步保存合法截屏、原始設備、郵件回執和證據交接記錄；申請錯誤可能造成損失，範圍應與爭點相稱。"
+            ]
+          }
+        ],
+        "checklistTitle": "準備證據保全申請",
+        "checklist": [
+          "證據名稱、載體、所在位置和保管人。",
+          "需要證明的繼承爭議事實。",
+          "證據可能滅失或難以取得的具體原因。",
+          "舉證期限、緊急程度和法院聯繫信息。",
+          "已有副本、來源説明及保管記錄。"
+        ]
+      }
+    }
+  },
+  {
+    "id": "D24-R05",
+    "slug": "mainland-estate-administrator-court-appointment",
+    "folder": "hong-kong-other-estate",
+    "category": "inheritance-procedure",
+    "research": {
+      "query": "内地遗产管理人指定程序",
+      "searchUrl": "https://www.google.com.hk/search?q=%E5%86%85%E5%9C%B0%E9%81%97%E4%BA%A7%E7%AE%A1%E7%90%86%E4%BA%BA%E6%8C%87%E5%AE%9A%E7%A8%8B%E5%BA%8F",
+      "viewedPages": [],
+      "observedAt": "2026-10-23",
+      "method": "web search fallback; Google via Playwright encountered a new CAPTCHA after one verified query",
+      "notes": "已用公开网页搜索核对相关同行法律文章或行业办理资料及官方材料，并按内地法律范围原创改写。Google 后续关键词请求再次触发验证，因此未把 Google 第1、2页或排名记为已查。搜索量未测。"
+    },
+    "sources": [
+      {
+        "url": "https://www.jtn.com/CN/booksdetail.aspx?Lan=CN&PageUrl=majorbook&keyid=00000000000000007723&type=06001",
+        "title": "遗产管理人制度在实践中的应用探析",
+        "type": "competitor",
+        "notes": "同行法律文章，仅用于识别读者问题和内容切入点；未沿用其品牌、案例叙述或段落结构。 Google 前两页因验证未完成，未记录排名。"
+      },
+      {
+        "url": "https://www.court.gov.cn/zixun/xiangqing/500681.html",
+        "title": "最高人民法院遗产管理人制度典型案例答记者问",
+        "type": "official",
+        "notes": "用于核对内地法律、主管机构或地方办理信息；当地指南仅作该地区示例，不外推为全国统一材料清单。"
+      }
+    ],
+    "related": [
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/asset-clue-list.html",
+        "label": {
+          "zh-Hant": "整理內地遺產線索",
+          "zh-Hans": "整理内地遗产线索",
+          "en": "Organising clues to Mainland assets"
+        }
+      },
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/documents.html",
+        "label": {
+          "zh-Hant": "香港家屬辦理內地繼承文件",
+          "zh-Hans": "香港家属办理内地继承文件",
+          "en": "Documents for Hong Kong families handling Mainland inheritance"
+        }
+      }
+    ],
+    "languages": {
+      "zh-Hans": {
+        "title": "内地遗产管理人确定有争议，香港利害关系人怎样申请指定",
+        "lead": "多名继承人互不信任、遗产无人管理或遗嘱执行人资格有争议时，先确认现有管理人是否已依法确定。若确定本身存在争议，利害关系人可以按内地程序向法院申请指定；并非每宗继承案都要另走这一程序。",
+        "sections": [
+          {
+            "heading": "先按民法典确定现有管理人",
+            "paragraphs": [
+              "核对遗嘱是否指定执行人、继承人是否已推选管理人，以及是否存在依法担任的主体。若身份和权限均无争议，可先确认其管理范围；管理人不等于可以自行改变遗嘱或分配遗产。"
+            ]
+          },
+          {
+            "heading": "确定管理人有争议时准备申请材料",
+            "paragraphs": [
+              "最高人民法院说明，对确定有争议的，利害关系人可向法院申请指定遗产管理人，并按特别程序处理。香港申请人要整理身份、利害关系、死者住所或经常居所、继承人情况、遗产线索及争议原因。"
+            ]
+          },
+          {
+            "heading": "申请中说明管理需要和拟任人条件",
+            "paragraphs": [
+              "列明需要保管、查询、收租、偿债或处理的事项，以及现有冲突和风险。若提名某位人选，提供其与死者及继承人的关系、管理能力和利益冲突信息。获指定后仍须依法保存账目、报告处理情况并保护遗产权利。"
+            ]
+          }
+        ],
+        "checklistTitle": "法院申请前整理",
+        "checklist": [
+          "遗嘱执行人、推选管理人及现有管理安排。",
+          "申请人身份和与遗产的利害关系。",
+          "其他继承人、住所线索和争议事实。",
+          "需要保管或处理的资产及紧迫风险。",
+          "拟任人选的能力、关系和利益冲突说明。"
+        ]
+      },
+      "en": {
+        "title": "A dispute over a Mainland estate administrator: how an interested person can seek appointment",
+        "lead": "If heirs distrust one another, no one manages the assets or the executor’s role is disputed, first establish whether an administrator has already been determined by law. An interested person may apply to a Mainland court where the appointment itself is disputed; a separate application is not required in every inheritance case.",
+        "sections": [
+          {
+            "heading": "Identify the existing administrator under the Civil Code",
+            "paragraphs": [
+              "Check whether a will appoints an executor, heirs have chosen a person, or another statutory role applies. If identity and authority are undisputed, confirm the management scope. An administrator cannot rewrite a will or distribute property at will."
+            ]
+          },
+          {
+            "heading": "Prepare an application if the appointment is disputed",
+            "paragraphs": [
+              "The Supreme People’s Court explains that an interested person may ask the court to appoint an administrator where the determination is disputed, using a special procedure. A Hong Kong applicant should organise identity, interest, the deceased’s residence, heirs, asset clues and the reason for disagreement."
+            ]
+          },
+          {
+            "heading": "Explain the need and suitability of a proposed person",
+            "paragraphs": [
+              "Describe the tasks—preservation, inquiries, rent, debts or administration—and the existing conflict or risk. If proposing a person, provide their relationship, ability and potential conflicts. Once appointed, the administrator must keep accounts, report actions and protect estate interests."
+            ]
+          }
+        ],
+        "checklistTitle": "Documents and points to check",
+        "checklist": [
+          "Executor, any heir-selected administrator and current arrangements.",
+          "Applicant identity and legal interest in the estate.",
+          "Other heirs, residence clues and facts in dispute.",
+          "Assets needing protection or administration and urgency.",
+          "A proposed candidate’s ability, relationship and conflicts."
+        ]
+      },
+      "zh-Hant": {
+        "title": "內地遺產管理人確定有爭議，香港利害關係人怎樣申請指定",
+        "lead": "多名繼承人互不信任、遺產無人管理或遺囑執行人資格有爭議時，先確認現有管理人是否已依法確定。若確定本身存在爭議，利害關係人可以按內地程序向法院申請指定；並非每宗繼承案都要另走這一程序。",
+        "sections": [
+          {
+            "heading": "先按民法典確定現有管理人",
+            "paragraphs": [
+              "核對遺囑是否指定執行人、繼承人是否已推選管理人，以及是否存在依法擔任的主體。若身份和權限均無爭議，可先確認其管理範圍；管理人不等於可以自行改變遺囑或分配遺產。"
+            ]
+          },
+          {
+            "heading": "確定管理人有爭議時準備申請材料",
+            "paragraphs": [
+              "最高人民法院説明，對確定有爭議的，利害關係人可向法院申請指定遺產管理人，並按特別程序處理。香港申請人要整理身份、利害關係、死者住所或經常居所、繼承人情況、遺產線索及爭議原因。"
+            ]
+          },
+          {
+            "heading": "申請中説明管理需要和擬任人條件",
+            "paragraphs": [
+              "列明需要保管、查詢、收租、償債或處理的事項，以及現有衝突和風險。若提名某位人選，提供其與死者及繼承人的關係、管理能力和利益衝突信息。獲指定後仍須依法保存賬目、報告處理情況並保護遺產權利。"
+            ]
+          }
+        ],
+        "checklistTitle": "法院申請前整理",
+        "checklist": [
+          "遺囑執行人、推選管理人及現有管理安排。",
+          "申請人身份和與遺產的利害關係。",
+          "其他繼承人、住所線索和爭議事實。",
+          "需要保管或處理的資產及緊迫風險。",
+          "擬任人選的能力、關係和利益衝突説明。"
+        ]
+      }
+    }
+  },
+  {
+    "id": "D24-R06",
+    "slug": "mainland-minor-inherits-property-guardian-registration",
+    "folder": "hong-kong-other-estate",
+    "category": "inheritance-procedure",
+    "research": {
+      "query": "内地未成年人继承房产监护人签字",
+      "searchUrl": "https://www.google.com.hk/search?q=%E5%86%85%E5%9C%B0%E6%9C%AA%E6%88%90%E5%B9%B4%E4%BA%BA%E7%BB%A7%E6%89%BF%E6%88%BF%E4%BA%A7%E7%9B%91%E6%8A%A4%E4%BA%BA%E7%AD%BE%E5%AD%97",
+      "viewedPages": [],
+      "observedAt": "2026-10-23",
+      "method": "web search fallback; Google via Playwright encountered a new CAPTCHA after one verified query",
+      "notes": "已用公开网页搜索核对相关同行法律文章或行业办理资料及官方材料，并按内地法律范围原创改写。Google 后续关键词请求再次触发验证，因此未把 Google 第1、2页或排名记为已查。搜索量未测。"
+    },
+    "sources": [
+      {
+        "url": "https://www.dehenglaw.com/cn/newscontent/0006/036540/2.aspx?MID=0876",
+        "title": "指定监护案与跨境遗产处置",
+        "type": "competitor",
+        "notes": "同行法律文章，仅用于识别读者问题和内容切入点；未沿用其品牌、案例叙述或段落结构。 Google 前两页因验证未完成，未记录排名。"
+      },
+      {
+        "url": "https://www.shantou.gov.cn/stszrzyj/zwgk/gzdt/content/post_2529754.html",
+        "title": "汕头市不动产登记交易中心继承登记业务便民解答",
+        "type": "official",
+        "notes": "用于核对内地法律、主管机构或地方办理信息；当地指南仅作该地区示例，不外推为全国统一材料清单。"
+      }
+    ],
+    "related": [
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/asset-clue-list.html",
+        "label": {
+          "zh-Hant": "整理內地遺產線索",
+          "zh-Hans": "整理内地遗产线索",
+          "en": "Organising clues to Mainland assets"
+        }
+      },
+      {
+        "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/documents.html",
+        "label": {
+          "zh-Hant": "香港家屬辦理內地繼承文件",
+          "zh-Hans": "香港家属办理内地继承文件",
+          "en": "Documents for Hong Kong families handling Mainland inheritance"
+        }
+      }
+    ],
+    "languages": {
+      "zh-Hans": {
+        "title": "未成年人继承内地房产，监护人代办要注意什么",
+        "lead": "未成年人可以继承内地房产，登记申请通常由法定监护人代办。香港家属还要处理监护关系证明、可能存在的利益冲突，以及之后出售或处分房屋时“为了未成年人利益”的审查要求。",
+        "sections": [
+          {
+            "heading": "先准备能证明监护关系的文件",
+            "paragraphs": [
+              "出生医学证明、户口资料、收养登记或法院指定监护人的文书，均可能用于证明监护关系；具体接受哪些材料要问房屋所在地登记机构。监护人和未成年人在香港时，还要核对身份文件与授权方式。"
+            ]
+          },
+          {
+            "heading": "登记继承与之后处分房屋是两步",
+            "paragraphs": [
+              "继承登记让未成年人取得其依法享有的产权份额。日后出售、抵押或放弃权益时，监护人须保护未成年人利益；不宜为了方便成年继承人分房而让孩子签署放弃或无偿转让文件。"
+            ]
+          },
+          {
+            "heading": "监护人自身有利益冲突时先处理代表问题",
+            "paragraphs": [
+              "若监护人同时是其他继承人、交易受让人或与孩子利益相反的一方，先向公证、登记或法院机构说明，确认是否需要另一监护人共同签署或依法确定独立代表。保留估价、交易理由和价款流向，证明决定服务于未成年人。"
+            ]
+          }
+        ],
+        "checklistTitle": "监护人办理资料",
+        "checklist": [
+          "未成年人身份及出生、收养或户籍证明。",
+          "法定监护关系证明及监护人身份证明。",
+          "继承登记所需死亡、亲属和产权材料。",
+          "是否存在监护人与其他继承人的利益冲突。",
+          "日后出售或处分时证明符合未成年人利益的材料。"
+        ]
+      },
+      "en": {
+        "title": "A minor inherits Mainland property: what the guardian should know",
+        "lead": "A minor can inherit Mainland property, with a legal guardian generally applying on the child’s behalf. Hong Kong families should also prepare proof of guardianship, address any conflict of interest and understand the child-benefit review that may apply to a later sale or disposition.",
+        "sections": [
+          {
+            "heading": "Prepare evidence of guardianship",
+            "paragraphs": [
+              "A birth record, household record, adoption document or court guardianship order may establish the relationship. Ask the local registry what it accepts. If both guardian and child are in Hong Kong, also confirm identity documents and authority requirements."
+            ]
+          },
+          {
+            "heading": "Treat inheritance registration and later disposal as separate steps",
+            "paragraphs": [
+              "Inheritance registration records the minor’s lawful share. A later sale, mortgage or waiver must protect the child’s interests. Do not ask the child to renounce or transfer property without payment merely to simplify the adults’ arrangement."
+            ]
+          },
+          {
+            "heading": "Address conflicts before the guardian signs",
+            "paragraphs": [
+              "If the guardian is also another heir, purchaser or a person whose interests conflict with the child’s, disclose this and ask whether another guardian or independent representative is required. Keep valuations, reasons and payment records to show the decision protects the minor."
+            ]
+          }
+        ],
+        "checklistTitle": "Documents and points to check",
+        "checklist": [
+          "The minor’s identity, birth, adoption or household records.",
+          "Guardianship evidence and the guardian’s identification.",
+          "Death, family and title documents for registration.",
+          "Any conflict between the guardian and other heirs.",
+          "For a later disposal, records showing the child’s interests are protected."
+        ]
+      },
+      "zh-Hant": {
+        "title": "未成年人繼承內地房產，監護人代辦要注意什麼",
+        "lead": "未成年人可以繼承內地房產，登記申請通常由法定監護人代辦。香港家屬還要處理監護關係證明、可能存在的利益衝突，以及之後出售或處分房屋時“為了未成年人利益”的審查要求。",
+        "sections": [
+          {
+            "heading": "先準備能證明監護關係的文件",
+            "paragraphs": [
+              "出生醫學證明、戶口資料、收養登記或法院指定監護人的文書，均可能用於證明監護關係；具體接受哪些材料要問房屋所在地登記機構。監護人和未成年人在香港時，還要核對身份文件與授權方式。"
+            ]
+          },
+          {
+            "heading": "登記繼承與之後處分房屋是兩步",
+            "paragraphs": [
+              "繼承登記讓未成年人取得其依法享有的產權份額。日後出售、抵押或放棄權益時，監護人須保護未成年人利益；不宜為了方便成年繼承人分房而讓孩子簽署放棄或無償轉讓文件。"
+            ]
+          },
+          {
+            "heading": "監護人自身有利益衝突時先處理代表問題",
+            "paragraphs": [
+              "若監護人同時是其他繼承人、交易受讓人或與孩子利益相反的一方，先向公證、登記或法院機構説明，確認是否需要另一監護人共同簽署或依法確定獨立代表。保留估價、交易理由和價款流向，證明決定服務於未成年人。"
+            ]
+          }
+        ],
+        "checklistTitle": "監護人辦理資料",
+        "checklist": [
+          "未成年人身份及出生、收養或戶籍證明。",
+          "法定監護關係證明及監護人身份證明。",
+          "繼承登記所需死亡、親屬和產權材料。",
+          "是否存在監護人與其他繼承人的利益衝突。",
+          "日後出售或處分時證明符合未成年人利益的材料。"
+        ]
+      }
+    }
+  }
+]

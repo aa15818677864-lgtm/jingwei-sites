@@ -1,0 +1,24 @@
+{
+  "publicationDate": "2026-10-24",
+  "researchDate": "2026-10-23",
+  "dailyStories": 20,
+  "dailyPublished": 0,
+  "sourceTypeCounts": {
+    "competitor": 16,
+    "industry": 3,
+    "court_case": 1
+  },
+  "googleFirstTwoPagesVerified": 0,
+  "googleTasksBlockedByVerification": 20,
+  "measuredSearchVolumes": 0,
+  "counts": {
+    "keywords": 228,
+    "keyword_variants": 90,
+    "article_index": 190,
+    "competitor_observations": 155,
+    "daily_search_tasks": 1840,
+    "daily_story_research": 40
+  },
+  "monthlySearchVolume": "Not measured; pending values are NULL.",
+  "rankings": "Source URLs are recorded as fallback research only; all rank values remain NULL."
+}

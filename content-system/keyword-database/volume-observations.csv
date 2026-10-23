@@ -1,0 +1,459 @@
+﻿observation_id,keyword_id,platform_id,metric,value,unit,status,period_label,observed_at,geo,language,network,confidence,is_market_volume,notes
+1,96,google_search_console,impressions,27.0,impressions,observed,last-3-months,2026-07-22,HK,zh-Hant,Google Search,medium,0,Property-level visibility signal; not total market demand.
+2,96,google_search_console,clicks,1.0,clicks,observed,last-3-months,2026-07-22,HK,zh-Hant,Google Search,medium,0,Property-level clicks; not total market demand.
+3,97,google_search_console,impressions,6.0,impressions,observed,last-3-months,2026-07-22,US,en,Google Search,medium,0,Property-level visibility signal; not total market demand.
+4,97,google_search_console,clicks,0.0,clicks,observed,last-3-months,2026-07-22,US,en,Google Search,medium,0,Property-level clicks; not total market demand.
+5,98,google_search_console,impressions,5.0,impressions,observed,last-3-months,2026-07-22,US,en,Google Search,medium,0,Property-level visibility signal; not total market demand.
+6,98,google_search_console,clicks,0.0,clicks,observed,last-3-months,2026-07-22,US,en,Google Search,medium,0,Property-level clicks; not total market demand.
+7,99,google_search_console,impressions,2.0,impressions,observed,last-3-months,2026-07-22,HK,zh-Hant,Google Search,medium,0,Property-level visibility signal; not total market demand.
+8,99,google_search_console,clicks,0.0,clicks,observed,last-3-months,2026-07-22,HK,zh-Hant,Google Search,medium,0,Property-level clicks; not total market demand.
+9,100,google_search_console,impressions,1.0,impressions,observed,last-3-months,2026-07-22,HK,zh-Hant,Google Search,medium,0,Property-level visibility signal; not total market demand.
+10,100,google_search_console,clicks,0.0,clicks,observed,last-3-months,2026-07-22,HK,zh-Hant,Google Search,medium,0,Property-level clicks; not total market demand.
+11,101,google_search_console,impressions,1.0,impressions,observed,last-3-months,2026-07-22,HK,zh-Hant,Google Search,medium,0,Property-level visibility signal; not total market demand.
+12,101,google_search_console,clicks,0.0,clicks,observed,last-3-months,2026-07-22,HK,zh-Hant,Google Search,medium,0,Property-level clicks; not total market demand.
+13,102,google_search_console,impressions,1.0,impressions,observed,last-3-months,2026-07-22,HK,zh-Hant,Google Search,medium,0,Property-level visibility signal; not total market demand.
+14,102,google_search_console,clicks,0.0,clicks,observed,last-3-months,2026-07-22,HK,zh-Hant,Google Search,medium,0,Property-level clicks; not total market demand.
+15,103,google_search_console,impressions,1.0,impressions,observed,last-3-months,2026-07-22,HK,zh-Hant,Google Search,medium,0,Property-level visibility signal; not total market demand.
+16,103,google_search_console,clicks,0.0,clicks,observed,last-3-months,2026-07-22,HK,zh-Hant,Google Search,medium,0,Property-level clicks; not total market demand.
+17,104,google_search_console,impressions,1.0,impressions,observed,last-3-months,2026-07-22,US,en,Google Search,medium,0,Property-level visibility signal; not total market demand.
+18,104,google_search_console,clicks,0.0,clicks,observed,last-3-months,2026-07-22,US,en,Google Search,medium,0,Property-level clicks; not total market demand.
+19,1,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+20,1,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+21,1,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+22,2,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+23,2,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+24,2,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+25,3,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+26,3,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+27,3,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+28,4,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+29,4,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+30,4,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+31,5,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+32,5,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+33,5,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+34,6,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+35,6,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+36,6,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+37,7,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,MO,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+38,7,google_trends,interest_index,,0-100,pending,,2026-10-14,MO,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+39,7,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,MO,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+40,8,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,MO,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+41,8,google_trends,interest_index,,0-100,pending,,2026-10-14,MO,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+42,8,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,MO,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+43,9,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,MO,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+44,9,google_trends,interest_index,,0-100,pending,,2026-10-14,MO,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+45,9,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,MO,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+46,10,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,MO,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+47,10,google_trends,interest_index,,0-100,pending,,2026-10-14,MO,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+48,10,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,MO,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+49,11,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,MO,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+50,11,google_trends,interest_index,,0-100,pending,,2026-10-14,MO,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+51,11,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,MO,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+52,12,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,SG,zh-Hans,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+53,12,google_trends,interest_index,,0-100,pending,,2026-10-14,SG,zh-Hans,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+54,12,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,SG,zh-Hans,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+55,13,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,SG,zh-Hans,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+56,13,google_trends,interest_index,,0-100,pending,,2026-10-14,SG,zh-Hans,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+57,13,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,SG,zh-Hans,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+58,14,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,SG,zh-Hans,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+59,14,google_trends,interest_index,,0-100,pending,,2026-10-14,SG,zh-Hans,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+60,14,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,SG,zh-Hans,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+61,15,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,SG,zh-Hans,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+62,15,google_trends,interest_index,,0-100,pending,,2026-10-14,SG,zh-Hans,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+63,15,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,SG,zh-Hans,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+64,16,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,SG,zh-Hans,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+65,16,google_trends,interest_index,,0-100,pending,,2026-10-14,SG,zh-Hans,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+66,16,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,SG,zh-Hans,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+67,17,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,US,en,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+68,17,google_trends,interest_index,,0-100,pending,,2026-10-14,US,en,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+69,17,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,US,en,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+70,18,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,US,en,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+71,18,google_trends,interest_index,,0-100,pending,,2026-10-14,US,en,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+72,18,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,US,en,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+73,19,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,US,en,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+74,19,google_trends,interest_index,,0-100,pending,,2026-10-14,US,en,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+75,19,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,US,en,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+76,20,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,US,en,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+77,20,google_trends,interest_index,,0-100,pending,,2026-10-14,US,en,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+78,20,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,US,en,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+79,21,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,US,en,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+80,21,google_trends,interest_index,,0-100,pending,,2026-10-14,US,en,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+81,21,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,US,en,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+82,22,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+83,22,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+84,22,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+85,23,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+86,23,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+87,23,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+88,24,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+89,24,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+90,24,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+91,25,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+92,25,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+93,25,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+94,26,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+95,26,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+96,26,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+97,27,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+98,27,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+99,27,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+100,28,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+101,28,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+102,28,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+103,29,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+104,29,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+105,29,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+106,30,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+107,30,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+108,30,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+109,31,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+110,31,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+111,31,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+112,32,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+113,32,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+114,32,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+115,33,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+116,33,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+117,33,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+118,34,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+119,34,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+120,34,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+121,35,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+122,35,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+123,35,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+124,36,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+125,36,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+126,36,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+127,37,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+128,37,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+129,37,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+130,38,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+131,38,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+132,38,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+133,39,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+134,39,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+135,39,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+136,40,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+137,40,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+138,40,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+139,41,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+140,41,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+141,41,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+142,42,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+143,42,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+144,42,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+145,43,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+146,43,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+147,43,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+148,44,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+149,44,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+150,44,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+151,45,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+152,45,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+153,45,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+154,46,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+155,46,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+156,46,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+157,47,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+158,47,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+159,47,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+160,48,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+161,48,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+162,48,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+163,49,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+164,49,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+165,49,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+166,50,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+167,50,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+168,50,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+169,51,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+170,51,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+171,51,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+172,52,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+173,52,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+174,52,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+175,53,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+176,53,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+177,53,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+178,54,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+179,54,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+180,54,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+181,55,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+182,55,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+183,55,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+184,56,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+185,56,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+186,56,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+187,57,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+188,57,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+189,57,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+190,58,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+191,58,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+192,58,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+193,59,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+194,59,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+195,59,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+196,60,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+197,60,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+198,60,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+199,61,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+200,61,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+201,61,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+202,62,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+203,62,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+204,62,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+205,63,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+206,63,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+207,63,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+208,64,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+209,64,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+210,64,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+211,65,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+212,65,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+213,65,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+214,66,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+215,66,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+216,66,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+217,67,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+218,67,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+219,67,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+220,68,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+221,68,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+222,68,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+223,69,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+224,69,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+225,69,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+226,70,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+227,70,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+228,70,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+229,71,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+230,71,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+231,71,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+232,72,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,MO,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+233,72,google_trends,interest_index,,0-100,pending,,2026-10-14,MO,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+234,72,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,MO,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+235,73,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,MO,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+236,73,google_trends,interest_index,,0-100,pending,,2026-10-14,MO,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+237,73,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,MO,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+238,74,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,MO,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+239,74,google_trends,interest_index,,0-100,pending,,2026-10-14,MO,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+240,74,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,MO,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+241,75,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,MO,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+242,75,google_trends,interest_index,,0-100,pending,,2026-10-14,MO,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+243,75,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,MO,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+244,76,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,MO,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+245,76,google_trends,interest_index,,0-100,pending,,2026-10-14,MO,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+246,76,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,MO,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+247,77,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,MO,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+248,77,google_trends,interest_index,,0-100,pending,,2026-10-14,MO,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+249,77,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,MO,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+250,78,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,MO,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+251,78,google_trends,interest_index,,0-100,pending,,2026-10-14,MO,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+252,78,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,MO,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+253,79,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,MO,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+254,79,google_trends,interest_index,,0-100,pending,,2026-10-14,MO,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+255,79,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,MO,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+256,80,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,SG,zh-Hans,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+257,80,google_trends,interest_index,,0-100,pending,,2026-10-14,SG,zh-Hans,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+258,80,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,SG,zh-Hans,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+259,81,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,SG,zh-Hans,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+260,81,google_trends,interest_index,,0-100,pending,,2026-10-14,SG,zh-Hans,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+261,81,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,SG,zh-Hans,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+262,82,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,SG,zh-Hans,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+263,82,google_trends,interest_index,,0-100,pending,,2026-10-14,SG,zh-Hans,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+264,82,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,SG,zh-Hans,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+265,83,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,SG,zh-Hans,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+266,83,google_trends,interest_index,,0-100,pending,,2026-10-14,SG,zh-Hans,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+267,83,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,SG,zh-Hans,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+268,84,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,SG,zh-Hans,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+269,84,google_trends,interest_index,,0-100,pending,,2026-10-14,SG,zh-Hans,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+270,84,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,SG,zh-Hans,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+271,85,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,SG,zh-Hans,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+272,85,google_trends,interest_index,,0-100,pending,,2026-10-14,SG,zh-Hans,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+273,85,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,SG,zh-Hans,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+274,86,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,SG,zh-Hans,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+275,86,google_trends,interest_index,,0-100,pending,,2026-10-14,SG,zh-Hans,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+276,86,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,SG,zh-Hans,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+277,87,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,SG,zh-Hans,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+278,87,google_trends,interest_index,,0-100,pending,,2026-10-14,SG,zh-Hans,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+279,87,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,SG,zh-Hans,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+280,88,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,US,en,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+281,88,google_trends,interest_index,,0-100,pending,,2026-10-14,US,en,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+282,88,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,US,en,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+283,89,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,US,en,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+284,89,google_trends,interest_index,,0-100,pending,,2026-10-14,US,en,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+285,89,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,US,en,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+286,90,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,US,en,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+287,90,google_trends,interest_index,,0-100,pending,,2026-10-14,US,en,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+288,90,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,US,en,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+289,91,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,US,en,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+290,91,google_trends,interest_index,,0-100,pending,,2026-10-14,US,en,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+291,91,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,US,en,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+292,92,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,US,en,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+293,92,google_trends,interest_index,,0-100,pending,,2026-10-14,US,en,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+294,92,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,US,en,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+295,93,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,US,en,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+296,93,google_trends,interest_index,,0-100,pending,,2026-10-14,US,en,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+297,93,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,US,en,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+298,94,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,US,en,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+299,94,google_trends,interest_index,,0-100,pending,,2026-10-14,US,en,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+300,94,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,US,en,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+301,95,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,US,en,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+302,95,google_trends,interest_index,,0-100,pending,,2026-10-14,US,en,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+303,95,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,US,en,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+304,96,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+305,96,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+306,96,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+307,97,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,US,en,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+308,97,google_trends,interest_index,,0-100,pending,,2026-10-14,US,en,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+309,97,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,US,en,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+310,98,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,US,en,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+311,98,google_trends,interest_index,,0-100,pending,,2026-10-14,US,en,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+312,98,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,US,en,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+313,99,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+314,99,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+315,99,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+316,100,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+317,100,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+318,100,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+319,101,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+320,101,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+321,101,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+322,102,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+323,102,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+324,102,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+325,103,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+326,103,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+327,103,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+328,104,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,US,en,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+329,104,google_trends,interest_index,,0-100,pending,,2026-10-14,US,en,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+330,104,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,US,en,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+331,105,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+332,105,google_trends,interest_index,,0-100,pending,,2026-10-14,HK,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+333,105,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,HK,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+334,106,google_ads_keyword_planner,avg_monthly_searches,,searches-per-month,pending,,2026-10-14,MO,zh-Hant,Google Search,unmeasured,1,"Fill from Keyword Planner with location, language, network and month range."
+335,106,google_trends,interest_index,,0-100,pending,,2026-10-14,MO,zh-Hant,Google Search,unmeasured,0,Fill with relative 0-100 index and comparison period; never convert to monthly volume.
+336,106,bing_webmaster,search_volume,,searches-per-month,pending,,2026-10-14,MO,zh-Hant,Bing,unmeasured,1,Fill from Bing Webmaster; keep separate from Google volume.
+337,107,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Not measured; keyword length and organic search results do not establish volume.
+338,108,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Not measured; keyword length and organic search results do not establish volume.
+339,109,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Not measured; keyword length and organic search results do not establish volume.
+340,110,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,MO,zh-Hans,Google,unknown,1,Not measured; keyword length and organic search results do not establish volume.
+341,111,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,SG,zh-Hans,Google,unknown,1,Not measured; keyword length and organic search results do not establish volume.
+342,112,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,US,zh-Hans,Google,unknown,1,Not measured; keyword length and organic search results do not establish volume.
+343,113,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,OC,zh-Hans,Google,unknown,1,Not measured; keyword length and organic search results do not establish volume.
+344,114,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Not measured; keyword length and organic search results do not establish volume.
+345,115,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Not measured; keyword length and organic search results do not establish volume.
+346,116,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,MO,zh-Hans,Google,unknown,1,Not measured; keyword length and organic search results do not establish volume.
+347,117,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,SG,zh-Hans,Google,unknown,1,Not measured; keyword length and organic search results do not establish volume.
+348,118,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,US,zh-Hans,Google,unknown,1,Not measured; keyword length and organic search results do not establish volume.
+349,119,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,OC,zh-Hans,Google,unknown,1,Not measured; keyword length and organic search results do not establish volume.
+350,120,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Not measured; keyword length and organic search results do not establish volume.
+351,121,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Not measured; keyword length and organic search results do not establish volume.
+352,122,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,MO,zh-Hans,Google,unknown,1,Not measured; keyword length and organic search results do not establish volume.
+353,123,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,SG,zh-Hans,Google,unknown,1,Not measured; keyword length and organic search results do not establish volume.
+354,124,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,US,zh-Hans,Google,unknown,1,Not measured; keyword length and organic search results do not establish volume.
+355,125,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,OC,zh-Hans,Google,unknown,1,Not measured; keyword length and organic search results do not establish volume.
+356,126,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Not measured; keyword length and organic search results do not establish volume.
+357,127,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+358,128,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+359,129,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+360,130,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+361,131,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+362,132,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+363,133,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+364,134,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+365,135,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+366,136,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+367,137,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+368,138,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+369,139,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+370,140,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+371,141,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+372,142,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+373,143,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+374,144,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+375,145,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+376,146,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+377,147,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+378,148,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+379,149,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+380,150,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+381,151,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+382,152,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+383,153,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+384,154,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+385,155,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+386,156,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+387,157,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+388,158,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+389,159,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+390,160,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+391,161,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+392,162,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+393,163,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+394,164,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+395,165,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+396,166,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+397,167,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+398,168,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+399,169,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+400,170,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+401,171,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+402,172,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+403,173,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+404,174,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+405,175,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+406,176,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+407,177,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+408,178,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+409,179,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+410,180,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+411,181,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+412,182,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+413,183,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+414,184,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+415,185,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+416,186,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+417,187,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+418,188,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+419,189,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+420,190,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+421,191,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+422,192,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+423,193,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+424,194,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+425,195,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+426,196,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+427,197,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+428,198,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+429,199,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+430,200,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+431,201,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+432,202,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+433,203,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+434,204,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+435,205,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+436,206,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+437,207,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+438,208,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+439,209,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+440,210,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+441,211,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+442,212,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+443,213,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+444,214,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+445,215,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+446,216,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+447,217,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+448,218,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+449,219,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+450,220,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+451,221,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+452,222,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+453,223,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+454,224,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+455,225,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+456,226,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,Editorial candidate only; no measured monthly search volume.
+457,327,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,No Keyword Planner measurement collected; value intentionally left NULL.
+458,328,google_ads_keyword_planner,avg_monthly_searches,,searches/month,pending,,2026-10-23,HK,zh-Hans,Google,unknown,1,No Keyword Planner measurement collected; value intentionally left NULL.

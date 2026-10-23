@@ -1,0 +1,53 @@
+{
+  "run": 24,
+  "failures": [
+    {
+      "id": "test_article_integrity.ArticleIntegrityTests.test_article_indexes_keep_restored_design_and_human_copy",
+      "lastLine": "AssertionError: '\u65b0\u6587\u7ae0' unexpectedly found in '<!DOCTYPE html>\\n<html lang=\"zh-Hant\">\\n<head>\\n  <meta charset=\"UTF-8\">\\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\\n  <titl"
+    },
+    {
+      "id": "test_article_integrity.ArticleIntegrityTests.test_article_topic_navigation_is_consistent",
+      "lastLine": "AssertionError: '/articles/singapore/' not found in '<!doctype html><html lang=\"zh-Hant\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>\u96e2\u5a5a\u727d\u6d89\u5167\u5730\u9ad8\u503c\u8cc7"
+    },
+    {
+      "id": "test_article_integrity.ArticleIntegrityTests.test_public_brand_and_article_count",
+      "lastLine": "AssertionError: Regex matched: '\u9759\u4e3a\u5f8b\u5e08' matches '\u9759\u4e3a\u5f8b\u5e08|\u975c\u70ba\u5f8b\u5e2b|Jingwei Law' in '<!DOCTYPE html>\\n<html lang=\"zh-Hans\">\\n<head>\\n  <meta charset=\"UTF-8\">\\n  <meta name=\"viewport\" content=\"width=device-width,"
+    }
+  ],
+  "errors": [],
+  "protected": {
+    "lh.html": "09d02d7206491b1fec78b2f2669bafaf68ec3da269dd4b049965110f334dc9e3",
+    "lh-thanks.html": "4dacc7cad5ae62bef56eaf1e2f08db32d1068f033cfd8deededb6e76e75651d6",
+    "lh-assets/carousel-group-1200.webp": "322ba783df2518dfb58dae96cdd570a09fb5420a2b56e3f3ce57a42c999ed774",
+    "lh-assets/carousel-group-640.webp": "7947ce2dd0bd875a7c4935933c6f68290641a624f1d12f7063b85e650e850c10",
+    "lh-assets/carousel-lounge-1200.webp": "d835a911e40bdbc648e6dd61e20562b83d095b7ea401b9566cdcb589cfa2605e",
+    "lh-assets/carousel-lounge-640.webp": "2d8b6c03653c18d9457ae3cff8fc316ed4db9cd4df68fc5143cfe856bdeb664c",
+    "lh-assets/carousel-reception-1200.webp": "22bf92ed82ee4c72c6ade1f6c59a921a719d6d0f7bc6471effb597485e0d9164",
+    "lh-assets/carousel-reception-640.webp": "886250d73484bbf1df809f05176881b429d945d9bc80a862215869b359dc4e51",
+    "lh-assets/carousel-team-1200.webp": "2a639f6d2f68536c4e088ff02884be340a9f32def824f133fd54bc1a62186db2",
+    "lh-assets/carousel-team-640.webp": "2586c02ff986110bf04f4cc65cc3fff55bd59c7012d05b56131c852e9fd35d74",
+    "lh-assets/chevron-double-down.svg": "d34f1d8366d62c90ff339b1ff620762e034091f7ede492dc93c6a63b7cd66283",
+    "lh-assets/config.example.js": "c7cb19aedbb341be62bb00f2550d13b8f9ed0c2e56cf37429f724785cd84e61f",
+    "lh-assets/config.js": "c7cb19aedbb341be62bb00f2550d13b8f9ed0c2e56cf37429f724785cd84e61f",
+    "lh-assets/desktop-architecture-v8-q95.webp": "dd51fc9b609b68ba5efe5cfb262e180586b82f1b99009dd4c73740b119f83f05",
+    "lh-assets/desktop-architecture-v8.png": "273093210913d00244598c0581974d8986b36aa570276f714e1d6077586c26d6",
+    "lh-assets/desktop-v7.css": "f4bc35c3653b54a7a37cbace29f5ba00c4669ce6f3afd3d8eeceab18d1f921ee",
+    "lh-assets/favicon.svg": "b4f5582d95fdaa6542d640fd3da9884696d2314a5ececba9f16a6b186daa2244",
+    "lh-assets/hero-architecture-v3-q95.webp": "3cb72012e9a47e04e165842bede4fa55e955230e2456eb4bf40c0fe7644ded5d",
+    "lh-assets/hero-architecture-v3.png": "6d03184d313ad0243744ff213665244540085bd134a8527569919d33e909390b",
+    "lh-assets/liuyi-v4-hd.webp": "5512955e36f3e6dc3042716b0452631c034cec99ab3180cd51d2e6e6a6dddb12",
+    "lh-assets/liuyi-v4.webp": "f8b7453754c9466645749ce9cc84d193e18e5804c16967a64b9525b78c591af0",
+    "lh-assets/main.js": "a1b298c209a87dd8a3404bf19d51942d620883a4b84390f5205fcbb4db249577",
+    "lh-assets/mobile-accordion.js": "d01499b544d6ff0ad65842dc343c193abadf6afef0b64c97ff9479124c56101e",
+    "lh-assets/mobile-form.js": "ac8426acb9457182c3934074c3fbce834b07920a3de9dce0ba3dd2c90fbca7f0",
+    "lh-assets/mobile-hero-navy.png": "17e846e7b9eebffeede0a40db065532dd00b991d384ddb10317e0d8bd021c3af",
+    "lh-assets/mobile-hero-v4.webp": "4ac33f659bb8ce8c188d6a2f644ab4b5c15a83ad266f3ca0c57cb67702ef2a6d",
+    "lh-assets/mobile-office.jpg": "00b5424b388488011c08af46588f2c68dd9b07e4e38647175ac098e841cfc4c6",
+    "lh-assets/mobile-team.jpg": "ffcf517aaf329d824567b15743eb31712f4f45506181dca7d7a5ca9894514acb",
+    "lh-assets/mobile-v6.css": "71431e650b37ccb997efd52095ab5020dc1c0500578aaeef419f7c85db6fc8c5",
+    "lh-assets/photo-carousel.css": "8e73ccde6334ff939fa8ed3146b75bd467fed61ede3db2a6bcc032d14fbb9871",
+    "lh-assets/photo-carousel.js": "015e4ccd81ffa120e6eab2db580fd8fa789d80bf92e0db1f74bd6e6ed0e5e0e9",
+    "lh-assets/styles.css": "6967b62c5dd2aaa1147a20bffc553b301660c1f7cce4aa1b3640c5f1e809c38c",
+    "lh-assets/submit-client.js": "ab22f5c1f3fe19cd49d600441ec01d85b1b6655d5d6ff8ef8c23820a9a76eaec"
+  }
+}

@@ -1,0 +1,806 @@
+{
+  "date": "2026-10-23",
+  "method": "editorial planning; not searched",
+  "seeds": [
+    {
+      "query": "内地房屋产权继承判断",
+      "category": "property-inheritance",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地宅基地继承边界",
+      "category": "property-inheritance",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地农村自建房继承",
+      "category": "property-inheritance",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地房改房继承登记",
+      "category": "property-inheritance",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地回迁房产权继承",
+      "category": "property-inheritance",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地预售房合同继承",
+      "category": "property-inheritance",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地抵押房产继承责任",
+      "category": "property-inheritance",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地房产代持继承争议",
+      "category": "property-inheritance",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地多套房产登记路径",
+      "category": "property-inheritance",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地房屋租约继续履行",
+      "category": "property-inheritance",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地公房承租权变更继承",
+      "category": "property-inheritance",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地房屋查封后继承登记",
+      "category": "property-inheritance",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地房产居住权继承影响",
+      "category": "property-inheritance",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地购房未过户遗产处理",
+      "category": "property-inheritance",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地房屋产权登记纠错",
+      "category": "property-inheritance",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地小产权房继承风险",
+      "category": "property-inheritance",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地房屋附车位继承登记",
+      "category": "property-inheritance",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地房屋继承前欠费处理",
+      "category": "property-inheritance",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地房产继承份额测算",
+      "category": "property-inheritance",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地房屋登记簿线索查询",
+      "category": "property-inheritance",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地证券账户继承查询",
+      "category": "funds-and-personal-estate",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地股票账户继承办理",
+      "category": "funds-and-personal-estate",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地基金份额继承登记",
+      "category": "funds-and-personal-estate",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地理财产品遗产核查",
+      "category": "funds-and-personal-estate",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地保险金遗产范围判断",
+      "category": "funds-and-personal-estate",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地保单受益人继承争议",
+      "category": "funds-and-personal-estate",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地养老保险账户继承",
+      "category": "funds-and-personal-estate",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地企业年金遗属领取",
+      "category": "funds-and-personal-estate",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地职业年金遗产申领",
+      "category": "funds-and-personal-estate",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地抚恤金与遗产区分",
+      "category": "funds-and-personal-estate",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地丧葬补助遗属申领",
+      "category": "funds-and-personal-estate",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地单位欠薪遗产领取",
+      "category": "funds-and-personal-estate",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地住房补贴遗产申领",
+      "category": "funds-and-personal-estate",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地电子支付账户继承",
+      "category": "funds-and-personal-estate",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地数字账户遗产处理",
+      "category": "funds-and-personal-estate",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地债券遗产查询办理",
+      "category": "funds-and-personal-estate",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地基金账户继承材料",
+      "category": "funds-and-personal-estate",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地投资账户遗产核查",
+      "category": "funds-and-personal-estate",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地遗产银行流水调取",
+      "category": "funds-and-personal-estate",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地保险理赔继承材料",
+      "category": "funds-and-personal-estate",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地继承公证申请材料",
+      "category": "inheritance-procedure",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地不动产继承登记材料",
+      "category": "inheritance-procedure",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地继承登记补正手续",
+      "category": "inheritance-procedure",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地遗产范围查询申请",
+      "category": "inheritance-procedure",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地继承公证办理地点",
+      "category": "inheritance-procedure",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地继承登记预约办理",
+      "category": "inheritance-procedure",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地继承人身份核验",
+      "category": "inheritance-procedure",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地港澳继承文书转递",
+      "category": "inheritance-procedure",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地遗产清单申报程序",
+      "category": "inheritance-procedure",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地遗产保管人选任流程",
+      "category": "inheritance-procedure",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地公证遗嘱调档手续",
+      "category": "inheritance-procedure",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地法定继承顺序核查",
+      "category": "inheritance-procedure",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地代位继承证明材料",
+      "category": "inheritance-procedure",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地转继承办理流程",
+      "category": "inheritance-procedure",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地遗赠接受手续办理",
+      "category": "inheritance-procedure",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地遗产提存申请条件",
+      "category": "inheritance-procedure",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地遗嘱执行人资格确认",
+      "category": "inheritance-procedure",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地继承权公证档案调取",
+      "category": "inheritance-procedure",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地继承登记受托办理",
+      "category": "inheritance-procedure",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地遗产管理人指定程序",
+      "category": "inheritance-procedure",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地自书遗嘱继承认定",
+      "category": "wills-and-succession",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地打印遗嘱见证要求",
+      "category": "wills-and-succession",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地录音遗嘱继承争议",
+      "category": "wills-and-succession",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地录像遗嘱效力审查",
+      "category": "wills-and-succession",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地遗嘱见证人资格核验",
+      "category": "wills-and-succession",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地多份遗嘱效力判断",
+      "category": "wills-and-succession",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地遗嘱撤回办理方式",
+      "category": "wills-and-succession",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地遗嘱保管证据整理",
+      "category": "wills-and-succession",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地遗嘱执行人职责范围",
+      "category": "wills-and-succession",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地遗嘱继承房产登记",
+      "category": "wills-and-succession",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地遗嘱指定管理人效力",
+      "category": "wills-and-succession",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地遗赠与继承区别",
+      "category": "wills-and-succession",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地遗赠扶养协议继承",
+      "category": "wills-and-succession",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地遗嘱部分无效处理",
+      "category": "wills-and-succession",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地遗嘱处分共有房产",
+      "category": "wills-and-succession",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地遗嘱未列全部财产",
+      "category": "wills-and-succession",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地遗嘱受益人先于离世",
+      "category": "wills-and-succession",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地附条件遗嘱分配",
+      "category": "wills-and-succession",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地未成年人遗嘱继承",
+      "category": "wills-and-succession",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地失能老人遗嘱核验",
+      "category": "wills-and-succession",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地遗产诉讼管辖法院",
+      "category": "inheritance-disputes",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地遗产诉讼证据保全",
+      "category": "inheritance-disputes",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地遗产诉讼费用分担",
+      "category": "inheritance-disputes",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地遗嘱鉴定申请条件",
+      "category": "inheritance-disputes",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地遗嘱真伪司法鉴定",
+      "category": "inheritance-disputes",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地遗产债务清偿争议",
+      "category": "inheritance-disputes",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地隐匿遗产返还请求",
+      "category": "inheritance-disputes",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地遗产转移撤销争议",
+      "category": "inheritance-disputes",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地遗产管理失职索赔",
+      "category": "inheritance-disputes",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地遗产共有收益纠纷",
+      "category": "inheritance-disputes",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地继承人代垫款追偿",
+      "category": "inheritance-disputes",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地遗产代管人责任争议",
+      "category": "inheritance-disputes",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地继承人遗嘱资格争议",
+      "category": "inheritance-disputes",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地遗嘱受胁迫撤销诉讼",
+      "category": "inheritance-disputes",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地遗产份额折价补偿",
+      "category": "inheritance-disputes",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地遗产分割房产估值",
+      "category": "inheritance-disputes",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地遗产诉前调解申请",
+      "category": "inheritance-disputes",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地遗产保全申请条件",
+      "category": "inheritance-disputes",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地继承权被侵害救济",
+      "category": "inheritance-disputes",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    },
+    {
+      "query": "内地遗产分配执行异议",
+      "category": "inheritance-disputes",
+      "market": "HK",
+      "language": "zh-Hans",
+      "status": "planned-unsearched",
+      "monthlySearchVolume": null
+    }
+  ]
+}

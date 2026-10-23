@@ -1,0 +1,91 @@
+﻿variant_id,keyword_id,variant_text,normalized_variant,variant_type,language,source
+1,1,香港人繼承內地房產,香港人繼承內地房產,synonym-or-spelling,zh-Hant,topic-registry
+2,1,香港人继承内地房产,香港人继承内地房产,synonym-or-spelling,zh-Hant,topic-registry
+3,1,內地房產繼承,內地房產繼承,synonym-or-spelling,zh-Hant,topic-registry
+4,1,内地房产继承,内地房产继承,synonym-or-spelling,zh-Hant,topic-registry
+5,2,香港死亡證明,香港死亡證明,synonym-or-spelling,zh-Hant,topic-registry
+6,2,香港死亡证明,香港死亡证明,synonym-or-spelling,zh-Hant,topic-registry
+7,2,hong kong death certificate,hong kong death certificate,synonym-or-spelling,zh-Hant,topic-registry
+8,3,內地繼承無遺囑,內地繼承無遺囑,synonym-or-spelling,zh-Hant,topic-registry
+9,3,内地继承无遗嘱,内地继承无遗嘱,synonym-or-spelling,zh-Hant,topic-registry
+10,3,沒有遺囑,沒有遺囑,synonym-or-spelling,zh-Hant,topic-registry
+11,3,没有遗嘱,没有遗嘱,synonym-or-spelling,zh-Hant,topic-registry
+12,4,內地銀行,內地銀行,synonym-or-spelling,zh-Hant,topic-registry
+13,4,内地银行,内地银行,synonym-or-spelling,zh-Hant,topic-registry
+14,4,銀行存款繼承,銀行存款繼承,synonym-or-spelling,zh-Hant,topic-registry
+15,4,银行存款继承,银行存款继承,synonym-or-spelling,zh-Hant,topic-registry
+16,5,遺產房子過戶,遺產房子過戶,synonym-or-spelling,zh-Hant,topic-registry
+17,5,遗产房子过户,遗产房子过户,synonym-or-spelling,zh-Hant,topic-registry
+18,5,房產過戶,房產過戶,synonym-or-spelling,zh-Hant,topic-registry
+19,5,房产过户,房产过户,synonym-or-spelling,zh-Hant,topic-registry
+20,6,放棄內地遺產繼承,放棄內地遺產繼承,synonym-or-spelling,zh-Hant,topic-registry
+21,6,放弃内地遗产继承,放弃内地遗产继承,synonym-or-spelling,zh-Hant,topic-registry
+22,6,放棄繼承,放棄繼承,synonym-or-spelling,zh-Hant,topic-registry
+23,6,放弃继承,放弃继承,synonym-or-spelling,zh-Hant,topic-registry
+24,7,澳門,澳門,synonym-or-spelling,zh-Hant,topic-registry
+25,7,澳门,澳门,synonym-or-spelling,zh-Hant,topic-registry
+26,7,委託內地律師,委託內地律師,synonym-or-spelling,zh-Hant,topic-registry
+27,7,委托内地律师,委托内地律师,synonym-or-spelling,zh-Hant,topic-registry
+28,8,澳門公司,澳門公司,synonym-or-spelling,zh-Hant,topic-registry
+29,8,澳门公司,澳门公司,synonym-or-spelling,zh-Hant,topic-registry
+30,8,內地欠款,內地欠款,synonym-or-spelling,zh-Hant,topic-registry
+31,8,内地欠款,内地欠款,synonym-or-spelling,zh-Hant,topic-registry
+32,9,澳門授權,澳門授權,synonym-or-spelling,zh-Hant,topic-registry
+33,9,澳门授权,澳门授权,synonym-or-spelling,zh-Hant,topic-registry
+34,9,澳門文件,澳門文件,synonym-or-spelling,zh-Hant,topic-registry
+35,9,澳门文件,澳门文件,synonym-or-spelling,zh-Hant,topic-registry
+36,10,澳門居民,澳門居民,synonym-or-spelling,zh-Hant,topic-registry
+37,10,澳门居民,澳门居民,synonym-or-spelling,zh-Hant,topic-registry
+38,10,珠海房產,珠海房產,synonym-or-spelling,zh-Hant,topic-registry
+39,10,珠海房产,珠海房产,synonym-or-spelling,zh-Hant,topic-registry
+40,11,欠款人失聯,欠款人失聯,synonym-or-spelling,zh-Hant,topic-registry
+41,11,欠款人失联,欠款人失联,synonym-or-spelling,zh-Hant,topic-registry
+42,11,合作方失聯,合作方失聯,synonym-or-spelling,zh-Hant,topic-registry
+43,11,合作方失联,合作方失联,synonym-or-spelling,zh-Hant,topic-registry
+44,12,singapore resident inherit,singapore resident inherit,synonym-or-spelling,zh-Hans,topic-registry
+45,12,singapore family inherit,singapore family inherit,synonym-or-spelling,zh-Hans,topic-registry
+46,12,新加坡居民繼承,新加坡居民繼承,synonym-or-spelling,zh-Hans,topic-registry
+47,12,新加坡居民继承,新加坡居民继承,synonym-or-spelling,zh-Hans,topic-registry
+48,13,name mismatch,name mismatch,synonym-or-spelling,zh-Hans,topic-registry
+49,13,english chinese name,english chinese name,synonym-or-spelling,zh-Hans,topic-registry
+50,13,姓名不一致,姓名不一致,synonym-or-spelling,zh-Hans,topic-registry
+51,13,姓名不一,姓名不一,synonym-or-spelling,zh-Hans,topic-registry
+52,14,singapore power of attorney,singapore power of attorney,synonym-or-spelling,zh-Hans,topic-registry
+53,14,appoint china lawyer,appoint china lawyer,synonym-or-spelling,zh-Hans,topic-registry
+54,14,新加坡授權,新加坡授權,synonym-or-spelling,zh-Hans,topic-registry
+55,14,新加坡授权,新加坡授权,synonym-or-spelling,zh-Hans,topic-registry
+56,15,find assets,find assets,synonym-or-spelling,zh-Hans,topic-registry
+57,15,parent in china,parent in china,synonym-or-spelling,zh-Hans,topic-registry
+58,15,資產線索,資產線索,synonym-or-spelling,zh-Hans,topic-registry
+59,15,资产线索,资产线索,synonym-or-spelling,zh-Hans,topic-registry
+60,16,heirs in different countries,heirs in different countries,synonym-or-spelling,zh-Hans,topic-registry
+61,16,china estate documents,china estate documents,synonym-or-spelling,zh-Hans,topic-registry
+62,16,繼承人分散,繼承人分散,synonym-or-spelling,zh-Hans,topic-registry
+63,16,继承人分散,继承人分散,synonym-or-spelling,zh-Hans,topic-registry
+64,17,人在美國,人在美國,synonym-or-spelling,en,topic-registry
+65,17,人在美国,人在美国,synonym-or-spelling,en,topic-registry
+66,17,委託中國律師,委託中國律師,synonym-or-spelling,en,topic-registry
+67,17,委托中国律师,委托中国律师,synonym-or-spelling,en,topic-registry
+68,18,china inheritance from the us,china inheritance from the us,synonym-or-spelling,en,topic-registry
+69,18,inheritance from usa,inheritance from usa,synonym-or-spelling,en,topic-registry
+70,18,美國處理內地繼承,美國處理內地繼承,synonym-or-spelling,en,topic-registry
+71,18,美国处理内地继承,美国处理内地继承,synonym-or-spelling,en,topic-registry
+72,19,us power of attorney,us power of attorney,synonym-or-spelling,en,topic-registry
+73,19,property in china,property in china,synonym-or-spelling,en,topic-registry
+74,19,美國授權書,美國授權書,synonym-or-spelling,en,topic-registry
+75,19,美国授权书,美国授权书,synonym-or-spelling,en,topic-registry
+76,20,chinese litigation lawyer,chinese litigation lawyer,synonym-or-spelling,en,topic-registry
+77,20,china court papers,china court papers,synonym-or-spelling,en,topic-registry
+78,20,內地訴訟,內地訴訟,synonym-or-spelling,en,topic-registry
+79,20,内地诉讼,内地诉讼,synonym-or-spelling,en,topic-registry
+80,21,property occupied by relative,property occupied by relative,synonym-or-spelling,en,topic-registry
+81,21,inheritance dispute,inheritance dispute,synonym-or-spelling,en,topic-registry
+82,21,房產被親屬佔用,房產被親屬佔用,synonym-or-spelling,en,topic-registry
+83,21,房产被亲属占用,房产被亲属占用,synonym-or-spelling,en,topic-registry
+84,105,香港人繼承內地房產需要哪些手續?,香港人繼承內地房產需要哪些手續?,synonym-or-spelling,zh-Hant,manual-chrome-serp
+85,105,香港居民繼承內地遺產有期限限制嗎?,香港居民繼承內地遺產有期限限制嗎?,synonym-or-spelling,zh-Hant,manual-chrome-serp
+86,105,如何繼承大陸房產？,如何繼承大陸房產？,synonym-or-spelling,zh-Hant,manual-chrome-serp
+87,105,內地遺產繼承手續,內地遺產繼承手續,synonym-or-spelling,zh-Hant,manual-chrome-serp
+88,106,珠海不動產查詢,珠海不動產查詢,synonym-or-spelling,zh-Hant,manual-chrome-serp
+89,106,如何查房屋所有權人？,如何查房屋所有權人？,synonym-or-spelling,zh-Hant,manual-chrome-serp
+90,106,港澳台、境外人士如何線上查詢不動產登記信息？,港澳台、境外人士如何線上查詢不動產登記信息？,synonym-or-spelling,zh-Hant,manual-chrome-serp
