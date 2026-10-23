@@ -1,0 +1,598 @@
+{
+  "date": "2026-10-24",
+  "local": {
+    "stories": 20,
+    "pages": 60,
+    "linksAndAssets": 73,
+    "protectedFilesUnchanged": true,
+    "passed": true
+  },
+  "live": [
+    {
+      "url": "https://www.jingwei-law.com/articles/",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/",
+      "sha256": "838a499785dac66af0cad0160ea64604233b6fbbb85d2807e2ad4651d46a1e23",
+      "matchesExpected": true,
+      "bytes": 65478
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/assets/ai-legal-assistant-native-ad-v2.webp",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/assets/ai-legal-assistant-native-ad-v2.webp",
+      "sha256": "138a7e08b36505ba70e1da3cae22a040670d6fceb11f9238a1d024f6c33d2fef",
+      "matchesExpected": true,
+      "bytes": 84934
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/",
+      "sha256": "4655fc4a388f76f1ad60f1e43962c55858d446ee6223153f24adb81da67d0bf5",
+      "matchesExpected": true,
+      "bytes": 30987
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/asset-clue-list.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/asset-clue-list.html",
+      "sha256": "8f1243ba0e4a175d98972c2c666047dc3c6460b478a4325ca6280429e15ffa80",
+      "matchesExpected": true,
+      "bytes": 12046
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/documents.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/documents.html",
+      "sha256": "e82602d1b39a84fa075edc60a06120af4a91a2d62a213eed7b6cb77486a217e5",
+      "matchesExpected": true,
+      "bytes": 12313
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/index_cn.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/index_cn.html",
+      "sha256": "31a8592322b0ef532e775ea4cf4cec6d2495a45c0ceabb70c9ada3d525b6232e",
+      "matchesExpected": true,
+      "bytes": 29698
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/index_en.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/index_en.html",
+      "sha256": "a32b7632f67ec7aa27f73d176f103e989c0b47e6b5a21181954dced19d61ce6a",
+      "matchesExpected": true,
+      "bytes": 25671
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-housing-reform-property-inheritance-check.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-housing-reform-property-inheritance-check.html",
+      "sha256": "81f7b1ea193cc6f2a101fbced9feff94f2d640056a8d1443bdfee88e1a3f3cc2",
+      "matchesExpected": true,
+      "bytes": 9885
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-housing-reform-property-inheritance-check_cn.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-housing-reform-property-inheritance-check_cn.html",
+      "sha256": "bc43e500ad14d192699d6f9a01abd74f07a5cedaaca8680a679a91ff17380fac",
+      "matchesExpected": true,
+      "bytes": 9910
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-housing-reform-property-inheritance-check_en.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-housing-reform-property-inheritance-check_en.html",
+      "sha256": "dbb7cd5ce050618dc4a2a15f8361c63fe8dc189d4a4f2b659c8c3494562202c5",
+      "matchesExpected": true,
+      "bytes": 9654
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-multi-city-property-inheritance-registration.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-multi-city-property-inheritance-registration.html",
+      "sha256": "7189fe9e9eecfc7d93fa954c8babeb7112ad681a333bc0d2ab8fc606adf96119",
+      "matchesExpected": true,
+      "bytes": 9897
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-multi-city-property-inheritance-registration_cn.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-multi-city-property-inheritance-registration_cn.html",
+      "sha256": "f7d056533c7c0615952d9ee531f04be63a81787c527bd2fc5ae434665fa023ab",
+      "matchesExpected": true,
+      "bytes": 9922
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-multi-city-property-inheritance-registration_en.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-multi-city-property-inheritance-registration_en.html",
+      "sha256": "9c935be99c1cab60d221d184b6a7ea1e0f1c4d3ea4b5baba91cde37bb7f980b7",
+      "matchesExpected": true,
+      "bytes": 9716
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-nominee-property-estate-evidence.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-nominee-property-estate-evidence.html",
+      "sha256": "0e95d5ff3209250c14ff148be28ddd01a36921d615e7e55d0d7ad4a9f97390e7",
+      "matchesExpected": true,
+      "bytes": 9705
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-nominee-property-estate-evidence_cn.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-nominee-property-estate-evidence_cn.html",
+      "sha256": "54dcb9ba8d803e08c0c2dafa5208e5dc39ce17d3ad79248dde8a7060be861019",
+      "matchesExpected": true,
+      "bytes": 9730
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-nominee-property-estate-evidence_en.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-nominee-property-estate-evidence_en.html",
+      "sha256": "cecce42ae4fe9da094b36dad6faa89e7abbc1ee9e2d2d50730f7a43a2ce7ee1d",
+      "matchesExpected": true,
+      "bytes": 9539
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-parking-space-estate-registration.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-parking-space-estate-registration.html",
+      "sha256": "49535ff3363433845e23e1e7d41e07a10c4e2fbee8e4a02aaa0ea4d261ba9986",
+      "matchesExpected": true,
+      "bytes": 9558
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-parking-space-estate-registration_cn.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-parking-space-estate-registration_cn.html",
+      "sha256": "c283d8e29129257e986f0ce38a3f588ecc5a77d6b561731360a5cafcd2aab827",
+      "matchesExpected": true,
+      "bytes": 9583
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-parking-space-estate-registration_en.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-parking-space-estate-registration_en.html",
+      "sha256": "402667a725230944b8981036aca9a06684f80f714c3fdbfd121e571fa354f61c",
+      "matchesExpected": true,
+      "bytes": 9445
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-public-housing-tenancy-after-death.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-public-housing-tenancy-after-death.html",
+      "sha256": "640f38bf6577e3dea56abee35d204ed47373ff809e890aaf9c4fc931cdb022bd",
+      "matchesExpected": true,
+      "bytes": 9573
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-public-housing-tenancy-after-death_cn.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-public-housing-tenancy-after-death_cn.html",
+      "sha256": "81cf1246377752152d040a868e1dc4220650d73fc9b951cc39932509e4b42753",
+      "matchesExpected": true,
+      "bytes": 9598
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-public-housing-tenancy-after-death_en.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-public-housing-tenancy-after-death_en.html",
+      "sha256": "c6aa234a5adf7410c457fcf5b0e18a03b494df14d3b7a3e3647993448aa2f1df",
+      "matchesExpected": true,
+      "bytes": 9512
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-residence-right-and-property-inheritance.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-residence-right-and-property-inheritance.html",
+      "sha256": "81b6f0efa4d903293fa5e93c9c215655f70e804f9a97e36dd2766242f918178f",
+      "matchesExpected": true,
+      "bytes": 9738
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-residence-right-and-property-inheritance_cn.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-residence-right-and-property-inheritance_cn.html",
+      "sha256": "1e0d19274daac737c48175e6472bfeaa5ba387f8ef7daea61d42e7f925175b82",
+      "matchesExpected": true,
+      "bytes": 9763
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-residence-right-and-property-inheritance_en.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-residence-right-and-property-inheritance_en.html",
+      "sha256": "814c349b148405e19acd6cea749a38f730df0452b0bec97dd5e7c54e4eda6ee2",
+      "matchesExpected": true,
+      "bytes": 9567
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-small-property-rights-inheritance-evidence.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-small-property-rights-inheritance-evidence.html",
+      "sha256": "ac173de8a5f47329a1aec52bdcf9096a1db0552df2ff957875232ece6510c380",
+      "matchesExpected": true,
+      "bytes": 9960
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-small-property-rights-inheritance-evidence_cn.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-small-property-rights-inheritance-evidence_cn.html",
+      "sha256": "07ca518ea148930383bfc7e76c363fbb76bf9a308ed24f1997d320d553bef5d1",
+      "matchesExpected": true,
+      "bytes": 9985
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-small-property-rights-inheritance-evidence_en.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-small-property-rights-inheritance-evidence_en.html",
+      "sha256": "8bd235608008bab61d5fb8f225cf236bea1edf4c0037b5738b4d31749197e192",
+      "matchesExpected": true,
+      "bytes": 9775
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/",
+      "sha256": "bcb3a1ba31bbc117a415694b968627f64450531a27a734fa2a419116b2045c4a",
+      "matchesExpected": true,
+      "bytes": 60906
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/index_cn.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/index_cn.html",
+      "sha256": "9605c2a08c668aaf44cd2e10fb05e039ce81ab8fc67256d9fb4cb9f6e7d21b0b",
+      "matchesExpected": true,
+      "bytes": 56230
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/index_en.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/index_en.html",
+      "sha256": "3be17fd45068f9b7bdcf6d7eb0879aa1e9b9586ab2b736e3bc508c058c26c0dd",
+      "matchesExpected": true,
+      "bytes": 50787
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-bank-wealth-management-inheritance.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-bank-wealth-management-inheritance.html",
+      "sha256": "bfc9eabf6d19224b845c7846d9db3c5b7603de9b40c851b0713fc7e315b047fd",
+      "matchesExpected": true,
+      "bytes": 9407
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-bank-wealth-management-inheritance_cn.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-bank-wealth-management-inheritance_cn.html",
+      "sha256": "47d9930d84229338ff5a0e42166f23c21b071be43dff85e318f7d6272551133f",
+      "matchesExpected": true,
+      "bytes": 9432
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-bank-wealth-management-inheritance_en.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-bank-wealth-management-inheritance_en.html",
+      "sha256": "b422429e5d4005bd9d775f4c3f8e713331ee84fc337fb67b3e563d84f623525d",
+      "matchesExpected": true,
+      "bytes": 9414
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-bond-inheritance-transfer-process.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-bond-inheritance-transfer-process.html",
+      "sha256": "7b2faffe06c59c7c333baedf975113fe32fb6c4be650c8e0b4e035d8d727939b",
+      "matchesExpected": true,
+      "bytes": 9434
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-bond-inheritance-transfer-process_cn.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-bond-inheritance-transfer-process_cn.html",
+      "sha256": "ecbd166bb26d64964e672c76a60ea4ab84f18dd2b99fd62b2a54b723b5db5d61",
+      "matchesExpected": true,
+      "bytes": 9459
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-bond-inheritance-transfer-process_en.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-bond-inheritance-transfer-process_en.html",
+      "sha256": "364e11b813aed3c52e1fd118e2d9730ede194ba3329dd78c254b8d48b63ac62e",
+      "matchesExpected": true,
+      "bytes": 9383
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-enterprise-annuity-inheritance-claim.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-enterprise-annuity-inheritance-claim.html",
+      "sha256": "5c659cac98ed6f6e81126b962affaaef70d9ed54fb294d54fce5259b47db4334",
+      "matchesExpected": true,
+      "bytes": 9491
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-enterprise-annuity-inheritance-claim_cn.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-enterprise-annuity-inheritance-claim_cn.html",
+      "sha256": "6b0de1acf6678cd39fe46d02bbb337da17aa49f4aef7acafc1efdae86b09ec5f",
+      "matchesExpected": true,
+      "bytes": 9516
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-enterprise-annuity-inheritance-claim_en.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-enterprise-annuity-inheritance-claim_en.html",
+      "sha256": "d92612f98564edc7692a223b1f00b08e1bb9af5f11fdfcfda5ae44011f9f5d76",
+      "matchesExpected": true,
+      "bytes": 9235
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-estate-administrator-court-appointment.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-estate-administrator-court-appointment.html",
+      "sha256": "f130c7821402079257df8c93d5c3e3308e1d4bc4c15b8d60c8b269d72f4b374c",
+      "matchesExpected": true,
+      "bytes": 9740
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-estate-administrator-court-appointment_cn.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-estate-administrator-court-appointment_cn.html",
+      "sha256": "add0d49a94ffbad13b6189f4049e4fa4434f92192faa664c5d0b74d066bbb15a",
+      "matchesExpected": true,
+      "bytes": 9765
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-estate-administrator-court-appointment_en.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-estate-administrator-court-appointment_en.html",
+      "sha256": "2e33de4516157880ab3ec7e13cb425b6abef3b94b69ac34f725f91e54d865bcc",
+      "matchesExpected": true,
+      "bytes": 9649
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-estate-inventory-overseas-heirs.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-estate-inventory-overseas-heirs.html",
+      "sha256": "4167b5ff6f1ba703be5468960e08b04f0a19fa7ccff818c84f7471d8fe83d4dd",
+      "matchesExpected": true,
+      "bytes": 9554
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-estate-inventory-overseas-heirs_cn.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-estate-inventory-overseas-heirs_cn.html",
+      "sha256": "2ce8e63fae0ba5d97810bf5c4e591a88986df17932b49c748b4e1dcf09307d9a",
+      "matchesExpected": true,
+      "bytes": 9579
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-estate-inventory-overseas-heirs_en.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-estate-inventory-overseas-heirs_en.html",
+      "sha256": "8756bfb8384a2d2e0b17dcbab081e7b074fa3ab7669564eb071487fbf503469f",
+      "matchesExpected": true,
+      "bytes": 9255
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-hong-kong-inheritance-documents-transfer.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-hong-kong-inheritance-documents-transfer.html",
+      "sha256": "3c3174d6613b4a1abe57f5acae27be16a972989e76767fefac4827b7a12f7718",
+      "matchesExpected": true,
+      "bytes": 9527
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-hong-kong-inheritance-documents-transfer_cn.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-hong-kong-inheritance-documents-transfer_cn.html",
+      "sha256": "502bf002f11cb2d722da47a2b42208ddd03319b6aa31f2283ade9fc4f4941dd6",
+      "matchesExpected": true,
+      "bytes": 9552
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-hong-kong-inheritance-documents-transfer_en.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-hong-kong-inheritance-documents-transfer_en.html",
+      "sha256": "1314fa0adb243749e4c59fdd2782fdaf275273345984b846a0b799b32a62662c",
+      "matchesExpected": true,
+      "bytes": 9519
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-housing-allowance-estate-inquiry.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-housing-allowance-estate-inquiry.html",
+      "sha256": "8f26da4699d08f99599775e6b5809c630adcf2eb272ed35e4b80d906e095edf3",
+      "matchesExpected": true,
+      "bytes": 9482
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-housing-allowance-estate-inquiry_cn.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-housing-allowance-estate-inquiry_cn.html",
+      "sha256": "a1a99822890332e9408362874fa41ae29cd9f04487c8703839013b167e7c1157",
+      "matchesExpected": true,
+      "bytes": 9507
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-housing-allowance-estate-inquiry_en.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-housing-allowance-estate-inquiry_en.html",
+      "sha256": "40f956db4cf672764bc98e58bf976e3fae0a7c842d19b1564118f3683bc91257",
+      "matchesExpected": true,
+      "bytes": 9383
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-inheritance-evidence-preservation-application.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-inheritance-evidence-preservation-application.html",
+      "sha256": "a94c683f452ee9be06aee06552dec840682e097aafc9a7b567bb3333a7a15d51",
+      "matchesExpected": true,
+      "bytes": 9713
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-inheritance-evidence-preservation-application_cn.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-inheritance-evidence-preservation-application_cn.html",
+      "sha256": "f03703d5e6e983c2215578b339b308093e11c80942983cc1902f789fd95cae9f",
+      "matchesExpected": true,
+      "bytes": 9738
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-inheritance-evidence-preservation-application_en.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-inheritance-evidence-preservation-application_en.html",
+      "sha256": "2b281cbe8232792bafc8bc4c3c2221e5eae51ad7ab8323f01c3d2bc38f1a918a",
+      "matchesExpected": true,
+      "bytes": 9533
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-minor-inherits-property-guardian-registration.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-minor-inherits-property-guardian-registration.html",
+      "sha256": "146f1bccf3d4cde7590cce38eb44900a0fe0d704bca2d57f6c59fc2471db2098",
+      "matchesExpected": true,
+      "bytes": 9629
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-minor-inherits-property-guardian-registration_cn.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-minor-inherits-property-guardian-registration_cn.html",
+      "sha256": "b43692f4c21a4956005980a3a3b4d35ab936c7fd202d72ece5f8a6f8e2501a94",
+      "matchesExpected": true,
+      "bytes": 9654
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-minor-inherits-property-guardian-registration_en.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-minor-inherits-property-guardian-registration_en.html",
+      "sha256": "a1e6530480e42e036570c7cad19baaec6e7f0c2478c10f36c76801e9d2a56089",
+      "matchesExpected": true,
+      "bytes": 9440
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-multiple-wills-conflict-review.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-multiple-wills-conflict-review.html",
+      "sha256": "4a55721e45ea3c7204c1126679ddc84b5611ad8cc7e81daeb3e7892be3bafcab",
+      "matchesExpected": true,
+      "bytes": 9341
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-multiple-wills-conflict-review_cn.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-multiple-wills-conflict-review_cn.html",
+      "sha256": "e164624bfe31c54ada57de2a7e8568730ab57c91d14035234462a1041a729274",
+      "matchesExpected": true,
+      "bytes": 9366
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-multiple-wills-conflict-review_en.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-multiple-wills-conflict-review_en.html",
+      "sha256": "aab002b411b301374fd536834f05a2a81db9deca9b4ff6cca9b64df7032799e7",
+      "matchesExpected": true,
+      "bytes": 9294
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-mutual-fund-inheritance-transfer.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-mutual-fund-inheritance-transfer.html",
+      "sha256": "f50c39a208105c0ede0552cd738039ca60bb94dea1fdd045bf254f7840d1448d",
+      "matchesExpected": true,
+      "bytes": 9482
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-mutual-fund-inheritance-transfer_cn.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-mutual-fund-inheritance-transfer_cn.html",
+      "sha256": "d02d90c045864114a74a6dbec85d577ffbe485b04bb7221407a36439b81e4e64",
+      "matchesExpected": true,
+      "bytes": 9507
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-mutual-fund-inheritance-transfer_en.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-mutual-fund-inheritance-transfer_en.html",
+      "sha256": "e7eddf4b7245f210edce1b920069b2aa25aecb729085bfd31642eb3ec659c981",
+      "matchesExpected": true,
+      "bytes": 9327
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-occupational-annuity-deceased-account.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-occupational-annuity-deceased-account.html",
+      "sha256": "82ed88cfa0b0474480ef6de7de2b6ee8678c1c9615cd2bdc3e2a1dcca3513b2d",
+      "matchesExpected": true,
+      "bytes": 9575
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-occupational-annuity-deceased-account_cn.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-occupational-annuity-deceased-account_cn.html",
+      "sha256": "bd0a5af987c0fdbff061dfac593e8f40c03fee81fc7b4d7416f50eada369ed6c",
+      "matchesExpected": true,
+      "bytes": 9600
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-occupational-annuity-deceased-account_en.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-occupational-annuity-deceased-account_en.html",
+      "sha256": "1ff582934d6910208ef2d973d9b887f18b0cb8366ff013a570b8e47aeb00bfa1",
+      "matchesExpected": true,
+      "bytes": 9334
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-payment-wallet-balance-after-death.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-payment-wallet-balance-after-death.html",
+      "sha256": "7d5d796db46d4d6ef6a0cb1e7c30df9b8b5cf99eff118ca7668f4e8441a4ead7",
+      "matchesExpected": true,
+      "bytes": 9626
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-payment-wallet-balance-after-death_cn.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-payment-wallet-balance-after-death_cn.html",
+      "sha256": "94d7fb493c1bca66bd62d45498d4c45c9ca2f34bb84f6b8e7d26299a5422133f",
+      "matchesExpected": true,
+      "bytes": 9651
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-payment-wallet-balance-after-death_en.html",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-payment-wallet-balance-after-death_en.html",
+      "sha256": "5d4b442cd6ffeaf27054c07a82f0739990742323434e6061f9d6dae1ceab9c42",
+      "matchesExpected": true,
+      "bytes": 9431
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/script.js",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/script.js",
+      "sha256": "ecaa6783ea28301e63fdf9d7fcac94a1af709cea2e6edf276da1d587c5475840",
+      "matchesExpected": true,
+      "bytes": 3659
+    },
+    {
+      "url": "https://www.jingwei-law.com/articles/style.css",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/articles/style.css",
+      "sha256": "522e59a9e9670a75b236cb55d7383115ab70f91f6605729f1ea7fcd317117149",
+      "matchesExpected": true,
+      "bytes": 139116
+    },
+    {
+      "url": "https://www.jingwei-law.com/ask/gpt/",
+      "status": 200,
+      "finalUrl": "https://www.jingwei-law.com/ask/gpt/",
+      "sha256": "1c34fc692fb8a750e766d7e0bfabab841bc76ee101edbcef49461449ce8f2e58",
+      "matchesExpected": true,
+      "bytes": 8401
+    }
+  ],
+  "livePassed": true,
+  "verifiedAt": "2026-10-23T09:56:11+0800"
+}

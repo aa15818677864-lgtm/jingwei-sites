@@ -2,8 +2,8 @@
   "date": "2026-10-24",
   "targetStories": 20,
   "preparedStories": 20,
-  "publishedStories": 0,
-  "status": "prepared-awaiting-deployment",
+  "publishedStories": 20,
+  "status": "published-verified",
   "indexing": "unknown",
   "pages": [
     {
@@ -948,5 +948,7 @@
         }
       ]
     }
-  ]
+  ],
+  "publishedPages": 60,
+  "verifiedAt": "2026-10-23T09:56:11+0800"
 }
