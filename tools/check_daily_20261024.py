@@ -7,7 +7,7 @@ import check_daily_20261023 as checker
 
 ROOT=publisher.ROOT
 publisher.DRAFTS=ROOT/'content-drafts'/'daily-20261024'
-publisher.DATE='2026-10-24'
+publisher.DATE='2026-10-23'
 publisher.OUT=ROOT/'content-system'/'daily-publication-log-20261024.json'
 checker.ROOT=ROOT
 checker.OUT=publisher.OUT

@@ -4,7 +4,7 @@ import publish_daily_20261023 as publisher
 
 ROOT = publisher.ROOT
 publisher.DRAFTS = ROOT / 'content-drafts' / 'daily-20261024'
-publisher.DATE = '2026-10-24'
+publisher.DATE = '2026-10-23'  # Actual first publication; batch directory is an identifier.
 publisher.OUT = ROOT / 'content-system' / 'daily-publication-log-20261024.json'
 
 if __name__ == '__main__':

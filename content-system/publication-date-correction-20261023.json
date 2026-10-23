@@ -1,0 +1,16 @@
+{
+  "actualPublicationDate": "2026-10-23",
+  "originalBatchLabel": "2026-10-24",
+  "retainedStories": 20,
+  "retainedLanguagePages": 60,
+  "actualDateTotalStories": 40,
+  "dailyTargetAfterThisCorrection": 20,
+  "action": "Retain URLs and article copy; correct visible dates, Article JSON-LD, Open Graph dates, list headings and sitemap to actual publication date.",
+  "batchManifest": "content-system/daily-publication-log-20261024.json",
+  "firstBatchManifest": "content-system/daily-publication-log-20261023.json",
+  "firstObservedLiveAt": "2026-10-23T09:56:11+08:00",
+  "googleFirstTwoPagesVerified": 0,
+  "researchFollowUp": "All 20 stories still require the requested Google first-two-page check. Fallback sources are recorded; no ranking or search-volume claims are made.",
+  "indexing": "unknown",
+  "protectedDivorceFilesChanged": false
+}
