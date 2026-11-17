@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-17",
+  "targetStories": 20,
+  "preparedStories": 5,
+  "publishedStories": 0,
+  "status": "prepared-awaiting-deployment",
+  "indexing": "unknown",
+  "stories": [
+    {
+      "storyId": "D16-B01",
+      "title": "在香港簽了放棄內地存款繼承聲明，後悔還能改嗎？",
+      "slug": "mainland-bank-inheritance-renunciation-change-of-mind",
+      "folder": "hong-kong-other-estate",
+      "researchDate": "2026-11-16",
+      "status": "prepared"
+    },
+    {
+      "storyId": "D16-HK01",
+      "title": "內地房產未分割，繼承人又離世：香港家屬先核對兩次死亡時間",
+      "slug": "mainland-property-heir-dies-before-division",
+      "folder": "hk-mainland-property-inheritance",
+      "researchDate": "2026-11-16",
+      "status": "prepared"
+    },
+    {
+      "storyId": "D16-HK02",
+      "title": "喪偶媳婦長期照顧內地長輩，香港家屬辦房產繼承先核對甚麼",
+      "slug": "mainland-property-widowed-in-law-care",
+      "folder": "hk-mainland-property-inheritance",
+      "researchDate": "2026-11-16",
+      "status": "prepared"
+    },
+    {
+      "storyId": "D16-P01",
+      "title": "香港家屬辦內地房產繼承，一定要先做繼承公證嗎？",
+      "slug": "hong-kong-heir-mainland-non-notarized-registration-check",
+      "folder": "hk-mainland-property-inheritance",
+      "researchDate": "2026-11-16",
+      "status": "prepared"
+    },
+    {
+      "storyId": "D16-P02",
+      "title": "內地遺產房想留給一人，其他香港繼承人怎樣談補償？",
+      "slug": "hong-kong-heirs-mainland-inherited-flat-buyout-compensation",
+      "folder": "hk-mainland-property-inheritance",
+      "researchDate": "2026-11-16",
+      "status": "prepared"
+    }
+  ],
+  "note": "Five complete story drafts were technically prepared for publication on 2026-11-17. The remaining fifteen were held because independent, source-checked, non-duplicate topics were not available without inventing material."
+}
