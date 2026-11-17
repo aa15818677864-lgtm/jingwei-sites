@@ -2,8 +2,8 @@
   "date": "2026-11-17",
   "targetStories": 20,
   "preparedStories": 5,
-  "publishedStories": 0,
-  "status": "prepared-awaiting-deployment",
+  "publishedStories": 5,
+  "status": "published-verified-partial",
   "indexing": "unknown",
   "stories": [
     {
@@ -12,7 +12,12 @@
       "slug": "mainland-bank-inheritance-renunciation-change-of-mind",
       "folder": "hong-kong-other-estate",
       "researchDate": "2026-11-16",
-      "status": "prepared"
+      "status": "published-verified",
+      "urls": [
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-bank-inheritance-renunciation-change-of-mind.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-bank-inheritance-renunciation-change-of-mind_cn.html",
+        "https://www.jingwei-law.com/articles/hong-kong-other-estate/mainland-bank-inheritance-renunciation-change-of-mind_en.html"
+      ]
     },
     {
       "storyId": "D16-HK01",
@@ -20,7 +25,12 @@
       "slug": "mainland-property-heir-dies-before-division",
       "folder": "hk-mainland-property-inheritance",
       "researchDate": "2026-11-16",
-      "status": "prepared"
+      "status": "published-verified",
+      "urls": [
+        "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-property-heir-dies-before-division.html",
+        "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-property-heir-dies-before-division_cn.html",
+        "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-property-heir-dies-before-division_en.html"
+      ]
     },
     {
       "storyId": "D16-HK02",
@@ -28,7 +38,12 @@
       "slug": "mainland-property-widowed-in-law-care",
       "folder": "hk-mainland-property-inheritance",
       "researchDate": "2026-11-16",
-      "status": "prepared"
+      "status": "published-verified",
+      "urls": [
+        "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-property-widowed-in-law-care.html",
+        "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-property-widowed-in-law-care_cn.html",
+        "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/mainland-property-widowed-in-law-care_en.html"
+      ]
     },
     {
       "storyId": "D16-P01",
@@ -36,7 +51,12 @@
       "slug": "hong-kong-heir-mainland-non-notarized-registration-check",
       "folder": "hk-mainland-property-inheritance",
       "researchDate": "2026-11-16",
-      "status": "prepared"
+      "status": "published-verified",
+      "urls": [
+        "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/hong-kong-heir-mainland-non-notarized-registration-check.html",
+        "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/hong-kong-heir-mainland-non-notarized-registration-check_cn.html",
+        "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/hong-kong-heir-mainland-non-notarized-registration-check_en.html"
+      ]
     },
     {
       "storyId": "D16-P02",
@@ -44,7 +64,12 @@
       "slug": "hong-kong-heirs-mainland-inherited-flat-buyout-compensation",
       "folder": "hk-mainland-property-inheritance",
       "researchDate": "2026-11-16",
-      "status": "prepared"
+      "status": "published-verified",
+      "urls": [
+        "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/hong-kong-heirs-mainland-inherited-flat-buyout-compensation.html",
+        "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/hong-kong-heirs-mainland-inherited-flat-buyout-compensation_cn.html",
+        "https://www.jingwei-law.com/articles/hk-mainland-property-inheritance/hong-kong-heirs-mainland-inherited-flat-buyout-compensation_en.html"
+      ]
     }
   ],
   "note": "Five complete story drafts were technically prepared for publication on 2026-11-17. The remaining fifteen were held because independent, source-checked, non-duplicate topics were not available without inventing material."
